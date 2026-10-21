@@ -1,0 +1,402 @@
+{
+  "race.close_wins.anonymous_false.repeat_false": {
+    "allowRepeat": false,
+    "anonymous": false,
+    "events": [
+      {
+        "closeReason": null,
+        "inTransaction": true,
+        "revision": 2,
+        "stage": "transaction_read",
+        "status": "published"
+      },
+      {
+        "revision": 2,
+        "stage": "transaction_write_wait"
+      },
+      {
+        "httpStatus": 200,
+        "revision": 3,
+        "stage": "manual_close_committed",
+        "status": "closed"
+      },
+      {
+        "mongoCode": 112,
+        "stage": "real_transaction_write_error",
+        "transientTransactionError": true
+      },
+      {
+        "closeReason": "manual",
+        "inTransaction": true,
+        "revision": 3,
+        "stage": "transaction_read",
+        "status": "closed"
+      },
+      {
+        "errorCode": "SURVEY_CLOSED",
+        "httpStatus": 410,
+        "stage": "submit_rejected"
+      },
+      {
+        "participations": 0,
+        "responses": 0,
+        "revision": 3,
+        "stage": "closed_snapshot_preserved"
+      }
+    ]
+  },
+  "race.close_wins.anonymous_true.repeat_false": {
+    "allowRepeat": false,
+    "anonymous": true,
+    "events": [
+      {
+        "closeReason": null,
+        "inTransaction": true,
+        "revision": 2,
+        "stage": "transaction_read",
+        "status": "published"
+      },
+      {
+        "revision": 2,
+        "stage": "transaction_write_wait"
+      },
+      {
+        "httpStatus": 200,
+        "revision": 3,
+        "stage": "manual_close_committed",
+        "status": "closed"
+      },
+      {
+        "mongoCode": 112,
+        "stage": "real_transaction_write_error",
+        "transientTransactionError": true
+      },
+      {
+        "closeReason": "manual",
+        "inTransaction": true,
+        "revision": 3,
+        "stage": "transaction_read",
+        "status": "closed"
+      },
+      {
+        "errorCode": "SURVEY_CLOSED",
+        "httpStatus": 410,
+        "stage": "submit_rejected"
+      },
+      {
+        "participations": 0,
+        "responses": 0,
+        "revision": 3,
+        "stage": "closed_snapshot_preserved"
+      }
+    ]
+  },
+  "race.close_wins.anonymous_false.repeat_true": {
+    "allowRepeat": true,
+    "anonymous": false,
+    "events": [
+      {
+        "closeReason": null,
+        "inTransaction": true,
+        "revision": 2,
+        "stage": "transaction_read",
+        "status": "published"
+      },
+      {
+        "revision": 2,
+        "stage": "transaction_write_wait"
+      },
+      {
+        "httpStatus": 200,
+        "revision": 3,
+        "stage": "manual_close_committed",
+        "status": "closed"
+      },
+      {
+        "mongoCode": 112,
+        "stage": "real_transaction_write_error",
+        "transientTransactionError": true
+      },
+      {
+        "closeReason": "manual",
+        "inTransaction": true,
+        "revision": 3,
+        "stage": "transaction_read",
+        "status": "closed"
+      },
+      {
+        "errorCode": "SURVEY_CLOSED",
+        "httpStatus": 410,
+        "stage": "submit_rejected"
+      },
+      {
+        "participations": 0,
+        "responses": 0,
+        "revision": 3,
+        "stage": "closed_snapshot_preserved"
+      }
+    ]
+  },
+  "race.close_wins.anonymous_true.repeat_true": {
+    "allowRepeat": true,
+    "anonymous": true,
+    "events": [
+      {
+        "closeReason": null,
+        "inTransaction": true,
+        "revision": 2,
+        "stage": "transaction_read",
+        "status": "published"
+      },
+      {
+        "revision": 2,
+        "stage": "transaction_write_wait"
+      },
+      {
+        "httpStatus": 200,
+        "revision": 3,
+        "stage": "manual_close_committed",
+        "status": "closed"
+      },
+      {
+        "mongoCode": 112,
+        "stage": "real_transaction_write_error",
+        "transientTransactionError": true
+      },
+      {
+        "closeReason": "manual",
+        "inTransaction": true,
+        "revision": 3,
+        "stage": "transaction_read",
+        "status": "closed"
+      },
+      {
+        "errorCode": "SURVEY_CLOSED",
+        "httpStatus": 410,
+        "stage": "submit_rejected"
+      },
+      {
+        "participations": 0,
+        "responses": 0,
+        "revision": 3,
+        "stage": "closed_snapshot_preserved"
+      }
+    ]
+  },
+  "race.submit_wins.anonymous_false.repeat_false": {
+    "allowRepeat": false,
+    "anonymous": false,
+    "events": [
+      {
+        "revision": 2,
+        "stage": "close_owned_read",
+        "status": "published"
+      },
+      {
+        "revision": 2,
+        "stage": "manual_close_write_wait"
+      },
+      {
+        "httpStatus": 201,
+        "revision": 3,
+        "stage": "submit_committed",
+        "status": "published"
+      },
+      {
+        "matched": false,
+        "stage": "real_manual_close_cas_result"
+      },
+      {
+        "errorCode": "REVISION_CONFLICT",
+        "httpStatus": 409,
+        "revision": 3,
+        "stage": "stale_close_rejected"
+      },
+      {
+        "revision": 3,
+        "stage": "close_owned_read",
+        "status": "published"
+      },
+      {
+        "revision": 3,
+        "stage": "close_owned_read",
+        "status": "published"
+      },
+      {
+        "httpStatus": 200,
+        "revision": 4,
+        "stage": "fresh_manual_close_committed",
+        "status": "closed"
+      },
+      {
+        "httpStatus": 201,
+        "participations": 1,
+        "responses": 1,
+        "revision": 4,
+        "stage": "closed_same_key_retry_preserved"
+      }
+    ]
+  },
+  "race.submit_wins.anonymous_true.repeat_false": {
+    "allowRepeat": false,
+    "anonymous": true,
+    "events": [
+      {
+        "revision": 2,
+        "stage": "close_owned_read",
+        "status": "published"
+      },
+      {
+        "revision": 2,
+        "stage": "manual_close_write_wait"
+      },
+      {
+        "httpStatus": 201,
+        "revision": 3,
+        "stage": "submit_committed",
+        "status": "published"
+      },
+      {
+        "matched": false,
+        "stage": "real_manual_close_cas_result"
+      },
+      {
+        "errorCode": "REVISION_CONFLICT",
+        "httpStatus": 409,
+        "revision": 3,
+        "stage": "stale_close_rejected"
+      },
+      {
+        "revision": 3,
+        "stage": "close_owned_read",
+        "status": "published"
+      },
+      {
+        "revision": 3,
+        "stage": "close_owned_read",
+        "status": "published"
+      },
+      {
+        "httpStatus": 200,
+        "revision": 4,
+        "stage": "fresh_manual_close_committed",
+        "status": "closed"
+      },
+      {
+        "httpStatus": 201,
+        "participations": 1,
+        "responses": 1,
+        "revision": 4,
+        "stage": "closed_same_key_retry_preserved"
+      }
+    ]
+  },
+  "race.submit_wins.anonymous_false.repeat_true": {
+    "allowRepeat": true,
+    "anonymous": false,
+    "events": [
+      {
+        "revision": 2,
+        "stage": "close_owned_read",
+        "status": "published"
+      },
+      {
+        "revision": 2,
+        "stage": "manual_close_write_wait"
+      },
+      {
+        "httpStatus": 201,
+        "revision": 3,
+        "stage": "submit_committed",
+        "status": "published"
+      },
+      {
+        "matched": false,
+        "stage": "real_manual_close_cas_result"
+      },
+      {
+        "errorCode": "REVISION_CONFLICT",
+        "httpStatus": 409,
+        "revision": 3,
+        "stage": "stale_close_rejected"
+      },
+      {
+        "revision": 3,
+        "stage": "close_owned_read",
+        "status": "published"
+      },
+      {
+        "revision": 3,
+        "stage": "close_owned_read",
+        "status": "published"
+      },
+      {
+        "httpStatus": 200,
+        "revision": 4,
+        "stage": "fresh_manual_close_committed",
+        "status": "closed"
+      },
+      {
+        "httpStatus": 201,
+        "participations": 0,
+        "responses": 1,
+        "revision": 4,
+        "stage": "closed_same_key_retry_preserved"
+      }
+    ]
+  },
+  "race.submit_wins.anonymous_true.repeat_true": {
+    "allowRepeat": true,
+    "anonymous": true,
+    "events": [
+      {
+        "revision": 2,
+        "stage": "close_owned_read",
+        "status": "published"
+      },
+      {
+        "revision": 2,
+        "stage": "manual_close_write_wait"
+      },
+      {
+        "httpStatus": 201,
+        "revision": 3,
+        "stage": "submit_committed",
+        "status": "published"
+      },
+      {
+        "matched": false,
+        "stage": "real_manual_close_cas_result"
+      },
+      {
+        "errorCode": "REVISION_CONFLICT",
+        "httpStatus": 409,
+        "revision": 3,
+        "stage": "stale_close_rejected"
+      },
+      {
+        "revision": 3,
+        "stage": "close_owned_read",
+        "status": "published"
+      },
+      {
+        "revision": 3,
+        "stage": "close_owned_read",
+        "status": "published"
+      },
+      {
+        "httpStatus": 200,
+        "revision": 4,
+        "stage": "fresh_manual_close_committed",
+        "status": "closed"
+      },
+      {
+        "httpStatus": 201,
+        "participations": 0,
+        "responses": 1,
+        "revision": 4,
+        "stage": "closed_same_key_retry_preserved"
+      }
+    ]
+  }
+}

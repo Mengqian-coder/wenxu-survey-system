@@ -1,0 +1,50 @@
+[
+  {
+    "className": "tests.test_consistency",
+    "name": "test_manual_close_wins_before_transaction_write[no-repeat-named]",
+    "seconds": 3.977,
+    "passed": true
+  },
+  {
+    "className": "tests.test_consistency",
+    "name": "test_manual_close_wins_before_transaction_write[no-repeat-anonymous]",
+    "seconds": 0.713,
+    "passed": true
+  },
+  {
+    "className": "tests.test_consistency",
+    "name": "test_manual_close_wins_before_transaction_write[repeat-named]",
+    "seconds": 0.78,
+    "passed": true
+  },
+  {
+    "className": "tests.test_consistency",
+    "name": "test_manual_close_wins_before_transaction_write[repeat-anonymous]",
+    "seconds": 0.776,
+    "passed": true
+  },
+  {
+    "className": "tests.test_consistency",
+    "name": "test_committed_submission_makes_paused_close_revision_stale[no-repeat-named]",
+    "seconds": 0.921,
+    "passed": true
+  },
+  {
+    "className": "tests.test_consistency",
+    "name": "test_committed_submission_makes_paused_close_revision_stale[no-repeat-anonymous]",
+    "seconds": 0.967,
+    "passed": true
+  },
+  {
+    "className": "tests.test_consistency",
+    "name": "test_committed_submission_makes_paused_close_revision_stale[repeat-named]",
+    "seconds": 0.802,
+    "passed": true
+  },
+  {
+    "className": "tests.test_consistency",
+    "name": "test_committed_submission_makes_paused_close_revision_stale[repeat-anonymous]",
+    "seconds": 1.524,
+    "passed": true
+  }
+]

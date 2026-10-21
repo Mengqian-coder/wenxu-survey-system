@@ -1,0 +1,14 @@
+backend/.venv/
+backend/.env
+**/__pycache__/
+**/.pytest_cache/
+**/.ruff_cache/
+*.pyc
+output/
+frontend/node_modules/
+frontend/.env.local
+frontend/.env.*.local
+frontend/output/
+frontend/test-results/
+frontend/playwright-report/
+backend/pytest-cache-files-*/

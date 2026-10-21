@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuites>
+	<testcase name="创建与调整顺序保持稳定 ID，不修改原数组" time="0.008896" classname="test" file="D:\I_love_studying\快乐数据大三上\数据库系统\数据库实验\frontend\tests\editor-utils.test.js"/>
+	<testcase name="从服务器加载时深复制题目且保留所有题目及选项 ID" time="0.000740" classname="test" file="D:\I_love_studying\快乐数据大三上\数据库系统\数据库实验\frontend\tests\editor-utils.test.js"/>
+	<testcase name="删除失效跳转时以所属题目和规则 ID 联合识别，保留其他题的同名规则" time="0.000573" classname="test" file="D:\I_love_studying\快乐数据大三上\数据库系统\数据库实验\frontend\tests\editor-utils.test.js"/>
+	<testcase name="删除选项只移除引用该选项的规则" time="0.000351" classname="test" file="D:\I_love_studying\快乐数据大三上\数据库系统\数据库实验\frontend\tests\editor-utils.test.js"/>
+	<testcase name="表单将字符串限制转换为严格数字并省略未配置上下限" time="0.001205" classname="test" file="D:\I_love_studying\快乐数据大三上\数据库系统\数据库实验\frontend\tests\editor-utils.test.js"/>
+	<testcase name="已发布问卷仅生成允许修改的字段，不携带锁定题目和身份配置" time="0.000220" classname="test" file="D:\I_love_studying\快乐数据大三上\数据库系统\数据库实验\frontend\tests\editor-utils.test.js"/>
+	<testcase name="标题容量按 Unicode 码点计算，发布空问卷和向前跳转均被拒绝" time="0.002389" classname="test" file="D:\I_love_studying\快乐数据大三上\数据库系统\数据库实验\frontend\tests\editor-utils.test.js"/>
+	<testcase name="文本首尾空白标准化，空答案统一为 null，保留 Unicode 内容" time="0.004554" classname="test" file="D:\I_love_studying\快乐数据大三上\数据库系统\数据库实验\frontend\tests\fill-utils.test.js"/>
+	<testcase name="单选只能引用现有选项，空值交由后端判断是否必答" time="0.000708" classname="test" file="D:\I_love_studying\快乐数据大三上\数据库系统\数据库实验\frontend\tests\fill-utils.test.js"/>
+	<testcase name="多选按选项定义顺序标准化且不修改输入数组" time="0.004554" classname="test" file="D:\I_love_studying\快乐数据大三上\数据库系统\数据库实验\frontend\tests\fill-utils.test.js"/>
+	<testcase name="数字接受十进制和科学计数法，空白转为 null，负零统一为零" time="0.000416" classname="test" file="D:\I_love_studying\快乐数据大三上\数据库系统\数据库实验\frontend\tests\fill-utils.test.js"/>
+	<testcase name="数字拒绝非法输入 NaN" time="0.000283" classname="test" file="D:\I_love_studying\快乐数据大三上\数据库系统\数据库实验\frontend\tests\fill-utils.test.js"/>
+	<testcase name="数字拒绝非法输入 Infinity" time="0.000128" classname="test" file="D:\I_love_studying\快乐数据大三上\数据库系统\数据库实验\frontend\tests\fill-utils.test.js"/>
+	<testcase name="数字拒绝非法输入 1e999" time="0.000145" classname="test" file="D:\I_love_studying\快乐数据大三上\数据库系统\数据库实验\frontend\tests\fill-utils.test.js"/>
+	<testcase name="数字拒绝非法输入 0x10" time="0.000150" classname="test" file="D:\I_love_studying\快乐数据大三上\数据库系统\数据库实验\frontend\tests\fill-utils.test.js"/>
+	<testcase name="数字拒绝非法输入 12abc" time="0.000149" classname="test" file="D:\I_love_studying\快乐数据大三上\数据库系统\数据库实验\frontend\tests\fill-utils.test.js"/>
+	<testcase name="数字拒绝非法输入 true" time="0.000259" classname="test" file="D:\I_love_studying\快乐数据大三上\数据库系统\数据库实验\frontend\tests\fill-utils.test.js"/>
+	<testcase name="整数模式拒绝小数和不安全整数，接受安全边界" time="0.000285" classname="test" file="D:\I_love_studying\快乐数据大三上\数据库系统\数据库实验\frontend\tests\fill-utils.test.js"/>
+	<testcase name="仅调整多选顺序、文本首尾空白和等值数字均不算修改答案" time="0.000318" classname="test" file="D:\I_love_studying\快乐数据大三上\数据库系统\数据库实验\frontend\tests\fill-utils.test.js"/>
+	<testcase name="返回题目时正确恢复控件输入，不共享多选数组引用" time="0.000262" classname="test" file="D:\I_love_studying\快乐数据大三上\数据库系统\数据库实验\frontend\tests\fill-utils.test.js"/>
+	<testcase name="提交确认页显示选项文字、数字与选填留空含义" time="0.000215" classname="test" file="D:\I_love_studying\快乐数据大三上\数据库系统\数据库实验\frontend\tests\fill-utils.test.js"/>
+	<testcase name="填写提示包含数量、长度及整数范围边界" time="0.000519" classname="test" file="D:\I_love_studying\快乐数据大三上\数据库系统\数据库实验\frontend\tests\fill-utils.test.js"/>
+	<!-- tests 22 -->
+	<!-- suites 0 -->
+	<!-- pass 22 -->
+	<!-- fail 0 -->
+	<!-- cancelled 0 -->
+	<!-- skipped 0 -->
+	<!-- todo 0 -->
+	<!-- duration_ms 217.9362 -->
+</testsuites>

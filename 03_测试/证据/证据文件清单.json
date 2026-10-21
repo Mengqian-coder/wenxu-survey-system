@@ -1,0 +1,157 @@
+[
+  {
+    "path": "backend-console.txt",
+    "bytes": 970,
+    "sha256": "35349617775b03d721fc6db14830b279ee5dc69ee45246ddc20a1286610a3ce7"
+  },
+  {
+    "path": "backend-junit.xml",
+    "bytes": 41264,
+    "sha256": "4bf0bae918fdf7fdf4fdd1585f02bb939eb7a8d5190aefcdb43eb3591f99cd34"
+  },
+  {
+    "path": "e2e/report/index.html",
+    "bytes": 541652,
+    "sha256": "0ae9fc9089b65e04a6046ba518274d356468291caf8ef574789401964f8a1299"
+  },
+  {
+    "path": "e2e/results.json",
+    "bytes": 10749,
+    "sha256": "a4463b47cb7f09a4a6b2459608036dd66bce84c56b44d1573e41cdc5c12de6c1"
+  },
+  {
+    "path": "e2e/screenshots/desktop-dashboard.png",
+    "bytes": 199450,
+    "sha256": "fc1317184bc63657fd81bdd6887c8b767fcb2ac7fae823bbb4ae175b7efdc765"
+  },
+  {
+    "path": "e2e/screenshots/desktop-editor.png",
+    "bytes": 147413,
+    "sha256": "bd7c86a570e6e1cc306dab4cf7c0de3447bf76b59d61c856cfa17ad7c5abb426"
+  },
+  {
+    "path": "e2e/screenshots/desktop-filling.png",
+    "bytes": 40764,
+    "sha256": "00defafafc5ef990c38c638b9bedaad9a8310ef7a7df13de0ec45d2d6010fc53"
+  },
+  {
+    "path": "e2e/screenshots/desktop-results.png",
+    "bytes": 137955,
+    "sha256": "a961655f61f53dc7e9cfe0c8dbcb063e365beec9485db987cfb70cd79a25443c"
+  },
+  {
+    "path": "e2e/screenshots/mobile-dashboard.png",
+    "bytes": 155604,
+    "sha256": "abb24dfe804318ed3d214fdd422a7a606bc2057dcac6ac89539ecf9aa027dc9c"
+  },
+  {
+    "path": "e2e/screenshots/mobile-editor.png",
+    "bytes": 58444,
+    "sha256": "e11316cd59e3710a26f7f4db697f016269a3c86c75a79e12e4728c2593ac7fcd"
+  },
+  {
+    "path": "e2e/screenshots/mobile-filling.png",
+    "bytes": 33857,
+    "sha256": "fa84f09ed6fd659469da15e582f87b0b76f1d35779a4c4a9e08e1da4e00e4890"
+  },
+  {
+    "path": "e2e-console.txt",
+    "bytes": 504,
+    "sha256": "5f8f90353b2bb3518502ccefded94f8ef40110c12aad69a4f714635ee6d8d172"
+  },
+  {
+    "path": "frontend-junit.xml",
+    "bytes": 5233,
+    "sha256": "c45fc66695c1d5a80bf65909f9107bac0e80ac9c39dbc52f34716cf88482d376"
+  },
+  {
+    "path": "frontend-stderr.txt",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "run-summary.json",
+    "bytes": 8803,
+    "sha256": "db2d05ffbdbf3d86becdfcd94df4594e219b7e8f82ade5dffd5a8409df0df22f"
+  },
+  {
+    "path": "关闭提交竞争专项/backend-console.txt",
+    "bytes": 970,
+    "sha256": "ce6ab1ade0630a6af26e53e2addd71f66189fa3686bbd95cdbcf2b9426710870"
+  },
+  {
+    "path": "关闭提交竞争专项/backend-junit.xml",
+    "bytes": 52413,
+    "sha256": "89a5bb94a962620fa9667cf4d4561333dfc4a1432e638cbbbaf23afc0a6d6484"
+  },
+  {
+    "path": "关闭提交竞争专项/run-summary.json",
+    "bytes": 5579,
+    "sha256": "f20e4d2e7c194ce3ad70d1c6240c37b47a81fa163d10aa7a331faaead5e485a1"
+  },
+  {
+    "path": "关闭提交竞争专项/targeted-console.txt",
+    "bytes": 647,
+    "sha256": "4c8cae01eab69bdd63f350e051bd7dd2cf2dff808f518a2d15094f62f1d42f7e"
+  },
+  {
+    "path": "关闭提交竞争专项/targeted-junit.xml",
+    "bytes": 11394,
+    "sha256": "71489a1faf04c6ecc8f17155486a54d771d5ec34571aca7d9fa453d5bf8a53e8"
+  },
+  {
+    "path": "关闭提交竞争专项/专项摘要.json",
+    "bytes": 620,
+    "sha256": "7b6ecafe6f796cb0b0806f95e97f0edafb53ec3fc30ddd9d133f06d5364e6906"
+  },
+  {
+    "path": "关闭提交竞争专项/专项用例明细.json",
+    "bytes": 1488,
+    "sha256": "af105866177f07ab80d863bf0ce6df310add16086aaafcd0141ce8ea6a73ae88"
+  },
+  {
+    "path": "关闭提交竞争专项/受控时序记录.json",
+    "bytes": 9557,
+    "sha256": "4ed62b7e1c85f94522e7ce38e8cf12f8889b8863ff011ee07e6a67bd3d5e6cc6"
+  },
+  {
+    "path": "关闭提交竞争专项/后端回归用例明细.json",
+    "bytes": 56628,
+    "sha256": "b3ec4bb912045fbf64e5b2a79883459ae9c609bb77b523c39fed4c4e9677afd8"
+  },
+  {
+    "path": "尝试记录/20261019T025838Z-0a8a51.json",
+    "bytes": 6219,
+    "sha256": "208b5db273a42204335935b9eef42ac77857802cafaa0e5c32a7be86e59ecfe0"
+  },
+  {
+    "path": "尝试记录/20261019T030442Z-0eaf16.json",
+    "bytes": 5598,
+    "sha256": "a262c55fc81adc6710ee5174f72d5b4b4cc82fafb1a2f64d3b7aa10030926671"
+  },
+  {
+    "path": "尝试记录/20261019T030442Z-46cf5c.json",
+    "bytes": 5577,
+    "sha256": "5d921b7f87d0fc5f8ee16c3a493bf10e75f827cdfc9b5e84e0cf5cb078931096"
+  },
+  {
+    "path": "尝试记录/首次受阻-e2e-console.txt",
+    "bytes": 1173,
+    "sha256": "add529f90e894134e6a408c7661dbe807db304e5aaf6cd23b7f5c60c8f73eb66"
+  },
+  {
+    "path": "尝试记录/首次受阻-frontend-junit.xml",
+    "bytes": 2537,
+    "sha256": "3577700b7957a2f1e6cdf487334a20ea3257a727438c55efbf3319d8edda8a92"
+  },
+  {
+    "path": "尝试记录/首次受阻-Vite子进程.txt",
+    "bytes": 2211,
+    "sha256": "fbf10f34eededfeece8e740782f2bf25dd57849969d444dbc51022143b525184"
+  },
+  {
+    "path": "执行用例明细.json",
+    "bytes": 69244,
+    "sha256": "f26c7187cc55ee03b7438bdc44a6398b41ef8bdb449bb177be9108f64ff7db82"
+  }
+]

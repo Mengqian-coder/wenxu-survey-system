@@ -1,0 +1,22 @@
+# 完成报告仅用于课程平台提交，不进入仓库
+/04_项目完成报告/
+
+# 本地配置与依赖；保留无真实密钥的模板
+**/.env
+**/.env.local
+**/.env.*.local
+**/.venv/
+**/venv/
+**/node_modules/
+
+# 运行数据与测试生成文件；已归档的 03_测试/证据 保留
+/01_代码/output/
+/01_代码/frontend/output/
+**/__pycache__/
+**/.pytest_cache/
+**/.ruff_cache/
+**/test-results/
+**/playwright-report/
+*.pyc
+
+# frontend/dist 为开箱体验所需构建文件，应提交

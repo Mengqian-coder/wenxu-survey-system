@@ -1,0 +1,102 @@
+{
+  "runId": "20261019T025838Z-0a8a51",
+  "startedAtUtc": "2026-10-19T02:58:39.133886+00:00",
+  "python": "3.12.14",
+  "dependencies": {
+    "pytest": "9.1.1",
+    "pymongo": "4.19.0",
+    "fastapi": "0.143.3"
+  },
+  "scope": "Only selected suites are counted. MongoDB fixtures create isolated child processes.",
+  "suites": {
+    "backend": {
+      "exitCode": 0,
+      "counts": {
+        "total": 302,
+        "passed": 302,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "evidence": [
+        "backend-junit.xml",
+        "backend-console.txt"
+      ],
+      "passed": true,
+      "elapsedSeconds": 117.172
+    },
+    "frontend": {
+      "exitCode": 1,
+      "counts": {
+        "total": 2,
+        "passed": 0,
+        "failed": 2,
+        "errors": 0,
+        "skipped": 0
+      },
+      "evidence": [
+        "frontend-junit.xml",
+        "frontend-stderr.txt"
+      ],
+      "passed": false,
+      "elapsedSeconds": 0.125
+    },
+    "e2e": {
+      "exitCode": 1,
+      "passed": false,
+      "error": "[Errno 2] No such file or directory: 'D:\\\\I_love_studying\\\\快乐数据大三上\\\\数据库系统\\\\数据库实验\\\\output\\\\test-cycle-20261019-final\\\\e2e\\\\results.json'",
+      "elapsedSeconds": 7.781
+    }
+  },
+  "finishedAtUtc": "2026-10-19T03:00:44.317691+00:00",
+  "sourceFilesSha256": {
+    "backend/app/__init__.py": "7a759f67dee9283b937657ae526e2b415cba36019dcd14a5dd2a9857266afbc5",
+    "backend/app/bootstrap.py": "5c28a8da4387a551a5ede0688ea0768b80aba2ec35f85def258b61d86d1a3c9c",
+    "backend/app/config.py": "1d23080b6c1cd68cf04af557358894805d34da6e648fc1c8efbe29708410ed25",
+    "backend/app/domain.py": "a674f026d34cbef54c36d3fd61b5a3b64b7367e055a6ccd851184448772877d5",
+    "backend/app/errors.py": "5e500dd90f23e0437dcfbeabaa8d804856283399575209f7d03951e20925e44d",
+    "backend/app/frontend.py": "ec55124019bc70a677c098f8c46698ea7b1f7acf03f5edab6a1ea40cd5015210",
+    "backend/app/main.py": "c0873db9788a518482365d4b7985b3df04a6fa3f556f91293bdc38391831e9eb",
+    "backend/app/models.py": "cb42fb97882664b8384ad6058297b755d44b4cb8cdafe438b646e99060475743",
+    "backend/app/security.py": "1d9d8530b76d53bcf6c8fc9dda251e673c23ed0a5f9168fdcbd48dd3537786e0",
+    "backend/app/service.py": "c2d30833174cb4d50a39b06fad24fbb2369cb9a93b52a24d85e5f898c4398248",
+    "backend/requirements-lock.txt": "7113a05e824421b4c8f6a294d1ff33aa2e1f5d198aa32a0d34fd068ecd94e209",
+    "backend/requirements.txt": "fe1d472aca85bbfb8fc1a0da08ae043b5ff2e341d834a893338aa34e80c1be99",
+    "backend/scripts/dev_mongo.py": "054fdd24b87fbdae4f38e1bcd0ff4212c72c12be1e3e5b6bea58650f63dd01b9",
+    "backend/scripts/run_tests.py": "27e9346c3cccf96b68369d642ed60b67b064bfc4329b655ef8bdcd4c0a21c4bb",
+    "backend/scripts/setup_env.py": "042fc134a2c40bd0911bb1e9205c815f81073ec2390c1e36f8447ecae677371d",
+    "backend/tests/conftest.py": "fdb507563caefe57c9c320dd94c6ce76898030a588b756893888e41541952a9e",
+    "backend/tests/test_api.py": "4a649629c886315e33d0397ca78649857b5c7304a462cd15015ac8f1484aaf4a",
+    "backend/tests/test_consistency.py": "de2a9c1d5374d0cc8179fd7c0aba9610aaf0972c83955daa2f155c207fdf4aa3",
+    "backend/tests/test_database_schema.py": "66780309d8628fcb45c9a89011f525a23304dc3e2ea115258c47d5da7571042e",
+    "backend/tests/test_domain.py": "63e5996bc16c5360098186cbaf769be860bff82ff36630f4632c657368e3ccba",
+    "backend/tests/test_frontend_support.py": "2291acac4918cb6543725ed7bd208b24446a8eac3bdbe2fc341169e913f940f5",
+    "database/export-schema.js": "8ead927445c84da8da844f50b9ec07808fec2bf1b7dfacc7b5ffa3fd0e4b18bf",
+    "database/init-mongodb.js": "3806fc2a4d700a216546c01821cfe24aac32f52bbe0fbfb2852750f0a994da3e",
+    "database/schema-definitions.json": "4740ec7cdea682604ddbc27931ffddbda9063110938743df117bd5e242b37e63",
+    "frontend/package-lock.json": "cb9e91d9a5e783e84a3850e0df54c30bfbd7004f1c259cd6c5611073908fe3ee",
+    "frontend/package.json": "ec25b8a4c76d33c451b13d38e4216c52d772dce78fb8edaa56c0e1092855be6a",
+    "frontend/playwright.config.js": "0119ffe7067c7a35d632792e8029a04920ef9098b19edcb5d458f7dbfe97b6bc",
+    "frontend/src/api.js": "496f22d88b0f7b767e5813cee58fabb30c792b3ef12f21d635145ecfc1f7415b",
+    "frontend/src/App.jsx": "4cadb2d8fac4f4330b7fac3dc428df0e873a5ceead7b091e2fbe7b2b0d8eac70",
+    "frontend/src/components.jsx": "80c6af32ef0983a0b828466a7409aa098222fe9a1ddad062fef6a1545d512fa4",
+    "frontend/src/context.jsx": "082b730179a3db72336b003d5ecfe08cb451c426fbb462b2e5d8f0689121f034",
+    "frontend/src/detail-styles.css": "b16b317a0668a96b348fd79d4534d2f49058643a2c8295a7913453d4870a9d81",
+    "frontend/src/editor-utils.js": "e212691f3bb7f06b7c2265492df1a62d34345f49bd15a2ac5a144ec92963093a",
+    "frontend/src/fill-utils.js": "1a28ea1d642bb7dfe7621977d2057e2097fe64f13b2fec62456d780b16d6f90e",
+    "frontend/src/main.jsx": "2595d22b6d1383c9db864d4e9becb2488e834a875467f337a0b5ee5db0b84084",
+    "frontend/src/pages/Auth.jsx": "8feead4fdcd1c6708130564dd6e38fc051d116fbe6e2551eba7227bed3d5e1ff",
+    "frontend/src/pages/Dashboard.jsx": "962b100a7e70a4dffbd283c62b422489796da3e711ac2139415e67258b8a8f45",
+    "frontend/src/pages/Editor.jsx": "760494f6ade10537b08c31ab6abed642896581e0f6eb090c0ad68042ccab17ec",
+    "frontend/src/pages/Fill.jsx": "24002f8a3da51e644f88652f8a8fd8c4868c356468abe2d2d3e887e8b3e1ede3",
+    "frontend/src/pages/Results.jsx": "2d8b4073da3c35db3bd1eb3863ac300f6b459f6e5bf12325b9793f7e685e179b",
+    "frontend/src/styles.css": "32008a55f41d93fe8cbe9093b102db06d4eff9147e234bd968ce415c5eac8b58",
+    "frontend/tests/business.spec.js": "d257563632d4074f98bad172732e4ed443604937ed5e556916234cd16df1e4fd",
+    "frontend/tests/editor-utils.test.js": "38379acb3636256e37dd6cc2602321ff4dc63f1e296c59e0d66cfaa1cef64320",
+    "frontend/tests/fill-utils.test.js": "f2f9cebbec4d9894fc3fa8f44b879b1529e8510445bf20d5e8453b4ae135e5d8",
+    "frontend/tests/start-e2e.py": "65bfb30f9c39c4ab04044553ea60114628a23da549fdd5c1a34bbda8a42008ca",
+    "frontend/vite.config.js": "b4b6b13707ae75a6425d399fe8f38452c87a247606d783b94fca6d39766e49fb"
+  },
+  "sourcesUnchangedDuringRun": true,
+  "passed": false
+}

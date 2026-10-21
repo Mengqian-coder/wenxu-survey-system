@@ -1,0 +1,892 @@
+{
+  "users": {
+    "schema": {
+      "bsonType": "object",
+      "additionalProperties": false,
+      "required": [
+        "_id",
+        "username",
+        "usernameKey",
+        "passwordHash",
+        "createdAt",
+        "updatedAt"
+      ],
+      "properties": {
+        "_id": {
+          "bsonType": "objectId"
+        },
+        "username": {
+          "bsonType": "string",
+          "minLength": 3,
+          "maxLength": 32
+        },
+        "usernameKey": {
+          "bsonType": "string",
+          "minLength": 3,
+          "maxLength": 128
+        },
+        "passwordHash": {
+          "bsonType": "string",
+          "minLength": 1,
+          "maxLength": 1024
+        },
+        "createdAt": {
+          "bsonType": "date"
+        },
+        "updatedAt": {
+          "bsonType": "date"
+        }
+      }
+    },
+    "indexes": [
+      {
+        "key": {
+          "usernameKey": 1
+        },
+        "name": "uq_users_usernameKey",
+        "unique": true
+      }
+    ]
+  },
+  "surveys": {
+    "schema": {
+      "bsonType": "object",
+      "additionalProperties": false,
+      "required": [
+        "_id",
+        "ownerId",
+        "publicId",
+        "title",
+        "description",
+        "status",
+        "settings",
+        "deadlineAt",
+        "questions",
+        "schemaVersion",
+        "revision",
+        "createdAt",
+        "updatedAt",
+        "publishedAt",
+        "closedAt",
+        "closeReason"
+      ],
+      "properties": {
+        "_id": {
+          "bsonType": "objectId"
+        },
+        "ownerId": {
+          "bsonType": "objectId"
+        },
+        "publicId": {
+          "bsonType": "string",
+          "pattern": "^[0-9a-f]{32}$"
+        },
+        "title": {
+          "bsonType": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "description": {
+          "bsonType": "string",
+          "minLength": 0,
+          "maxLength": 5000
+        },
+        "status": {
+          "enum": [
+            "draft",
+            "published",
+            "closed"
+          ]
+        },
+        "settings": {
+          "bsonType": "object",
+          "additionalProperties": false,
+          "required": [
+            "anonymous",
+            "allowRepeat"
+          ],
+          "properties": {
+            "anonymous": {
+              "bsonType": "bool"
+            },
+            "allowRepeat": {
+              "bsonType": "bool"
+            }
+          }
+        },
+        "deadlineAt": {
+          "bsonType": [
+            "date",
+            "null"
+          ]
+        },
+        "questions": {
+          "bsonType": "array",
+          "items": {
+            "oneOf": [
+              {
+                "bsonType": "object",
+                "additionalProperties": false,
+                "required": [
+                  "id",
+                  "title",
+                  "description",
+                  "required",
+                  "type",
+                  "validation",
+                  "options",
+                  "jumpRules"
+                ],
+                "properties": {
+                  "id": {
+                    "bsonType": "string",
+                    "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$"
+                  },
+                  "title": {
+                    "bsonType": "string",
+                    "minLength": 1,
+                    "maxLength": 2000
+                  },
+                  "description": {
+                    "bsonType": "string",
+                    "minLength": 0,
+                    "maxLength": 2000
+                  },
+                  "required": {
+                    "bsonType": "bool"
+                  },
+                  "type": {
+                    "enum": [
+                      "single"
+                    ]
+                  },
+                  "validation": {
+                    "bsonType": "object",
+                    "additionalProperties": false,
+                    "properties": {}
+                  },
+                  "options": {
+                    "bsonType": "array",
+                    "items": {
+                      "bsonType": "object",
+                      "additionalProperties": false,
+                      "required": [
+                        "id",
+                        "label"
+                      ],
+                      "properties": {
+                        "id": {
+                          "bsonType": "string",
+                          "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$"
+                        },
+                        "label": {
+                          "bsonType": "string",
+                          "minLength": 1,
+                          "maxLength": 500
+                        }
+                      }
+                    },
+                    "minItems": 2,
+                    "maxItems": 50
+                  },
+                  "jumpRules": {
+                    "bsonType": "array",
+                    "items": {
+                      "bsonType": "object",
+                      "additionalProperties": false,
+                      "required": [
+                        "id",
+                        "condition",
+                        "target"
+                      ],
+                      "properties": {
+                        "id": {
+                          "bsonType": "string",
+                          "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$"
+                        },
+                        "condition": {
+                          "bsonType": "object",
+                          "additionalProperties": false,
+                          "required": [
+                            "operator",
+                            "value"
+                          ],
+                          "properties": {
+                            "operator": {
+                              "enum": [
+                                "eq"
+                              ]
+                            },
+                            "value": {
+                              "bsonType": "string",
+                              "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$"
+                            }
+                          }
+                        },
+                        "target": {
+                          "oneOf": [
+                            {
+                              "bsonType": "object",
+                              "additionalProperties": false,
+                              "required": [
+                                "kind",
+                                "questionId"
+                              ],
+                              "properties": {
+                                "kind": {
+                                  "enum": [
+                                    "question"
+                                  ]
+                                },
+                                "questionId": {
+                                  "bsonType": "string",
+                                  "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$"
+                                }
+                              }
+                            },
+                            {
+                              "bsonType": "object",
+                              "additionalProperties": false,
+                              "required": [
+                                "kind"
+                              ],
+                              "properties": {
+                                "kind": {
+                                  "enum": [
+                                    "end"
+                                  ]
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    "minItems": 0,
+                    "maxItems": 20
+                  }
+                }
+              },
+              {
+                "bsonType": "object",
+                "additionalProperties": false,
+                "required": [
+                  "id",
+                  "title",
+                  "description",
+                  "required",
+                  "type",
+                  "validation",
+                  "options",
+                  "jumpRules"
+                ],
+                "properties": {
+                  "id": {
+                    "bsonType": "string",
+                    "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$"
+                  },
+                  "title": {
+                    "bsonType": "string",
+                    "minLength": 1,
+                    "maxLength": 2000
+                  },
+                  "description": {
+                    "bsonType": "string",
+                    "minLength": 0,
+                    "maxLength": 2000
+                  },
+                  "required": {
+                    "bsonType": "bool"
+                  },
+                  "type": {
+                    "enum": [
+                      "multiple"
+                    ]
+                  },
+                  "validation": {
+                    "bsonType": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "minSelections": {
+                        "bsonType": [
+                          "int",
+                          "long"
+                        ],
+                        "minimum": 0,
+                        "maximum": 50
+                      },
+                      "maxSelections": {
+                        "bsonType": [
+                          "int",
+                          "long"
+                        ],
+                        "minimum": 0,
+                        "maximum": 50
+                      }
+                    }
+                  },
+                  "options": {
+                    "bsonType": "array",
+                    "items": {
+                      "bsonType": "object",
+                      "additionalProperties": false,
+                      "required": [
+                        "id",
+                        "label"
+                      ],
+                      "properties": {
+                        "id": {
+                          "bsonType": "string",
+                          "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$"
+                        },
+                        "label": {
+                          "bsonType": "string",
+                          "minLength": 1,
+                          "maxLength": 500
+                        }
+                      }
+                    },
+                    "minItems": 2,
+                    "maxItems": 50
+                  },
+                  "jumpRules": {
+                    "bsonType": "array",
+                    "items": {
+                      "bsonType": "object",
+                      "additionalProperties": false,
+                      "required": [
+                        "id",
+                        "condition",
+                        "target"
+                      ],
+                      "properties": {
+                        "id": {
+                          "bsonType": "string",
+                          "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$"
+                        },
+                        "condition": {
+                          "bsonType": "object",
+                          "additionalProperties": false,
+                          "required": [
+                            "operator",
+                            "values"
+                          ],
+                          "properties": {
+                            "operator": {
+                              "enum": [
+                                "containsAny",
+                                "containsAll",
+                                "setEquals"
+                              ]
+                            },
+                            "values": {
+                              "bsonType": "array",
+                              "items": {
+                                "bsonType": "string",
+                                "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$"
+                              },
+                              "minItems": 1,
+                              "maxItems": 50,
+                              "uniqueItems": true
+                            }
+                          }
+                        },
+                        "target": {
+                          "oneOf": [
+                            {
+                              "bsonType": "object",
+                              "additionalProperties": false,
+                              "required": [
+                                "kind",
+                                "questionId"
+                              ],
+                              "properties": {
+                                "kind": {
+                                  "enum": [
+                                    "question"
+                                  ]
+                                },
+                                "questionId": {
+                                  "bsonType": "string",
+                                  "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$"
+                                }
+                              }
+                            },
+                            {
+                              "bsonType": "object",
+                              "additionalProperties": false,
+                              "required": [
+                                "kind"
+                              ],
+                              "properties": {
+                                "kind": {
+                                  "enum": [
+                                    "end"
+                                  ]
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    "minItems": 0,
+                    "maxItems": 20
+                  }
+                }
+              },
+              {
+                "bsonType": "object",
+                "additionalProperties": false,
+                "required": [
+                  "id",
+                  "title",
+                  "description",
+                  "required",
+                  "type",
+                  "validation",
+                  "jumpRules"
+                ],
+                "properties": {
+                  "id": {
+                    "bsonType": "string",
+                    "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$"
+                  },
+                  "title": {
+                    "bsonType": "string",
+                    "minLength": 1,
+                    "maxLength": 2000
+                  },
+                  "description": {
+                    "bsonType": "string",
+                    "minLength": 0,
+                    "maxLength": 2000
+                  },
+                  "required": {
+                    "bsonType": "bool"
+                  },
+                  "type": {
+                    "enum": [
+                      "text"
+                    ]
+                  },
+                  "validation": {
+                    "bsonType": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "minLength": {
+                        "bsonType": [
+                          "int",
+                          "long"
+                        ],
+                        "minimum": 0,
+                        "maximum": 10000
+                      },
+                      "maxLength": {
+                        "bsonType": [
+                          "int",
+                          "long"
+                        ],
+                        "minimum": 0,
+                        "maximum": 10000
+                      }
+                    }
+                  },
+                  "jumpRules": {
+                    "bsonType": "array",
+                    "maxItems": 0
+                  }
+                }
+              },
+              {
+                "bsonType": "object",
+                "additionalProperties": false,
+                "required": [
+                  "id",
+                  "title",
+                  "description",
+                  "required",
+                  "type",
+                  "validation",
+                  "jumpRules"
+                ],
+                "properties": {
+                  "id": {
+                    "bsonType": "string",
+                    "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$"
+                  },
+                  "title": {
+                    "bsonType": "string",
+                    "minLength": 1,
+                    "maxLength": 2000
+                  },
+                  "description": {
+                    "bsonType": "string",
+                    "minLength": 0,
+                    "maxLength": 2000
+                  },
+                  "required": {
+                    "bsonType": "bool"
+                  },
+                  "type": {
+                    "enum": [
+                      "number"
+                    ]
+                  },
+                  "validation": {
+                    "bsonType": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "integerOnly"
+                    ],
+                    "properties": {
+                      "min": {
+                        "bsonType": [
+                          "int",
+                          "long",
+                          "double",
+                          "decimal"
+                        ]
+                      },
+                      "max": {
+                        "bsonType": [
+                          "int",
+                          "long",
+                          "double",
+                          "decimal"
+                        ]
+                      },
+                      "integerOnly": {
+                        "bsonType": "bool"
+                      }
+                    }
+                  },
+                  "jumpRules": {
+                    "bsonType": "array",
+                    "items": {
+                      "bsonType": "object",
+                      "additionalProperties": false,
+                      "required": [
+                        "id",
+                        "condition",
+                        "target"
+                      ],
+                      "properties": {
+                        "id": {
+                          "bsonType": "string",
+                          "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$"
+                        },
+                        "condition": {
+                          "oneOf": [
+                            {
+                              "bsonType": "object",
+                              "additionalProperties": false,
+                              "required": [
+                                "operator",
+                                "value"
+                              ],
+                              "properties": {
+                                "operator": {
+                                  "enum": [
+                                    "gt",
+                                    "gte",
+                                    "lt",
+                                    "lte",
+                                    "eq"
+                                  ]
+                                },
+                                "value": {
+                                  "bsonType": [
+                                    "int",
+                                    "long",
+                                    "double",
+                                    "decimal"
+                                  ]
+                                }
+                              }
+                            },
+                            {
+                              "bsonType": "object",
+                              "additionalProperties": false,
+                              "required": [
+                                "operator",
+                                "min",
+                                "max"
+                              ],
+                              "properties": {
+                                "operator": {
+                                  "enum": [
+                                    "between"
+                                  ]
+                                },
+                                "min": {
+                                  "bsonType": [
+                                    "int",
+                                    "long",
+                                    "double",
+                                    "decimal"
+                                  ]
+                                },
+                                "max": {
+                                  "bsonType": [
+                                    "int",
+                                    "long",
+                                    "double",
+                                    "decimal"
+                                  ]
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        "target": {
+                          "oneOf": [
+                            {
+                              "bsonType": "object",
+                              "additionalProperties": false,
+                              "required": [
+                                "kind",
+                                "questionId"
+                              ],
+                              "properties": {
+                                "kind": {
+                                  "enum": [
+                                    "question"
+                                  ]
+                                },
+                                "questionId": {
+                                  "bsonType": "string",
+                                  "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$"
+                                }
+                              }
+                            },
+                            {
+                              "bsonType": "object",
+                              "additionalProperties": false,
+                              "required": [
+                                "kind"
+                              ],
+                              "properties": {
+                                "kind": {
+                                  "enum": [
+                                    "end"
+                                  ]
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    "minItems": 0,
+                    "maxItems": 20
+                  }
+                }
+              }
+            ]
+          },
+          "minItems": 0,
+          "maxItems": 100
+        },
+        "schemaVersion": {
+          "bsonType": [
+            "int",
+            "long"
+          ],
+          "enum": [
+            1
+          ]
+        },
+        "revision": {
+          "bsonType": [
+            "int",
+            "long"
+          ],
+          "minimum": 1
+        },
+        "createdAt": {
+          "bsonType": "date"
+        },
+        "updatedAt": {
+          "bsonType": "date"
+        },
+        "publishedAt": {
+          "bsonType": [
+            "date",
+            "null"
+          ]
+        },
+        "closedAt": {
+          "bsonType": [
+            "date",
+            "null"
+          ]
+        },
+        "closeReason": {
+          "enum": [
+            null,
+            "manual",
+            "deadline"
+          ]
+        }
+      }
+    },
+    "indexes": [
+      {
+        "key": {
+          "publicId": 1
+        },
+        "name": "uq_surveys_publicId",
+        "unique": true
+      },
+      {
+        "key": {
+          "ownerId": 1,
+          "createdAt": -1,
+          "_id": -1
+        },
+        "name": "ix_surveys_owner_created"
+      }
+    ]
+  },
+  "responses": {
+    "schema": {
+      "bsonType": "object",
+      "additionalProperties": false,
+      "required": [
+        "_id",
+        "surveyId",
+        "submissionKey",
+        "answers",
+        "submittedAt",
+        "schemaVersion"
+      ],
+      "properties": {
+        "_id": {
+          "bsonType": "objectId"
+        },
+        "surveyId": {
+          "bsonType": "objectId"
+        },
+        "respondentId": {
+          "bsonType": "objectId"
+        },
+        "submissionKey": {
+          "bsonType": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "answers": {
+          "bsonType": "array",
+          "items": {
+            "bsonType": "object",
+            "additionalProperties": false,
+            "required": [
+              "questionId",
+              "value"
+            ],
+            "properties": {
+              "questionId": {
+                "bsonType": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$"
+              },
+              "value": {
+                "oneOf": [
+                  {
+                    "bsonType": "null"
+                  },
+                  {
+                    "bsonType": "string",
+                    "minLength": 1,
+                    "maxLength": 10000
+                  },
+                  {
+                    "bsonType": "array",
+                    "items": {
+                      "bsonType": "string",
+                      "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,63}$"
+                    },
+                    "minItems": 1,
+                    "maxItems": 50,
+                    "uniqueItems": true
+                  },
+                  {
+                    "bsonType": [
+                      "int",
+                      "long",
+                      "double",
+                      "decimal"
+                    ]
+                  }
+                ]
+              }
+            }
+          },
+          "minItems": 1,
+          "maxItems": 100
+        },
+        "submittedAt": {
+          "bsonType": "date"
+        },
+        "schemaVersion": {
+          "bsonType": [
+            "int",
+            "long"
+          ],
+          "enum": [
+            1
+          ]
+        }
+      }
+    },
+    "indexes": [
+      {
+        "key": {
+          "surveyId": 1,
+          "submittedAt": -1,
+          "_id": -1
+        },
+        "name": "ix_responses_survey_submitted"
+      },
+      {
+        "key": {
+          "surveyId": 1,
+          "submissionKey": 1
+        },
+        "name": "uq_responses_survey_submission",
+        "unique": true
+      }
+    ]
+  },
+  "participations": {
+    "schema": {
+      "bsonType": "object",
+      "additionalProperties": false,
+      "required": [
+        "_id",
+        "surveyId",
+        "userId"
+      ],
+      "properties": {
+        "_id": {
+          "bsonType": "objectId"
+        },
+        "surveyId": {
+          "bsonType": "objectId"
+        },
+        "userId": {
+          "bsonType": "objectId"
+        }
+      }
+    },
+    "indexes": [
+      {
+        "key": {
+          "surveyId": 1,
+          "userId": 1
+        },
+        "name": "uq_participations_survey_user",
+        "unique": true
+      }
+    ]
+  }
+}

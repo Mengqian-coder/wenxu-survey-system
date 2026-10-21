@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "targetedCases": 8,
+  "backendRegressionCases": 310,
+  "targetedIncludedInRegression": true,
+  "frontendRerun": false,
+  "reusedFrontendEvidence": {
+    "unitPassed": 22,
+    "e2ePassed": 5,
+    "sourceRun": "20261019T025838Z-0a8a51-aggregate"
+  },
+  "changedTestFiles": [
+    "backend/tests/test_consistency.py"
+  ],
+  "productionFilesUnchanged": 27,
+  "currentSourcesMatchSubmission": true,
+  "regressionRunId": "20261019T052638Z-cd12a5",
+  "scope": "Latest backend run includes the 8 controlled races. Prior frontend evidence is retained; no claim of a new full-stack run."
+}

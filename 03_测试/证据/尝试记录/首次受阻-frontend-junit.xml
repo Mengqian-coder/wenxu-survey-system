@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuites>
+	<testcase name="D:\I_love_studying\快乐数据大三上\数据库系统\数据库实验\frontend\tests\editor-utils.test.js" time="0.003447" classname="test" file="D:\I_love_studying\快乐数据大三上\数据库系统\数据库实验\frontend\tests\editor-utils.test.js" failure="spawn EPERM">
+		<failure type="testCodeFailure" message="spawn EPERM">
+[Error [ERR_TEST_FAILURE]: spawn EPERM] {
+  code: 'ERR_TEST_FAILURE',
+  failureType: 'testCodeFailure',
+  cause: Error: spawn EPERM
+      at ChildProcess.spawn (node:internal/child_process:458:11)
+      at spawn (node:child_process:813:9)
+      at TestContext.&lt;anonymous> (node:internal/test_runner/runner:517:19)
+      at FileTest.runInAsyncScope (node:async_hooks:227:14)
+      at FileTest.run (node:internal/test_runner/test:1382:25)
+      at FileTest.start (node:internal/test_runner/test:1242:17)
+      at runTestFile (node:internal/test_runner/runner:599:32)
+      at node:internal/test_runner/runner:1013:25
+      at node:internal/per_context/primordials:599:37
+      at new Promise (&lt;anonymous>) {
+    errno: -4048,
+    code: 'EPERM',
+    syscall: 'spawn'
+  }
+}
+		</failure>
+	</testcase>
+	<testcase name="D:\I_love_studying\快乐数据大三上\数据库系统\数据库实验\frontend\tests\fill-utils.test.js" time="0.001547" classname="test" file="D:\I_love_studying\快乐数据大三上\数据库系统\数据库实验\frontend\tests\fill-utils.test.js" failure="spawn EPERM">
+		<failure type="testCodeFailure" message="spawn EPERM">
+[Error [ERR_TEST_FAILURE]: spawn EPERM] {
+  code: 'ERR_TEST_FAILURE',
+  failureType: 'testCodeFailure',
+  cause: Error: spawn EPERM
+      at ChildProcess.spawn (node:internal/child_process:458:11)
+      at spawn (node:child_process:813:9)
+      at TestContext.&lt;anonymous> (node:internal/test_runner/runner:517:19)
+      at FileTest.runInAsyncScope (node:async_hooks:227:14)
+      at FileTest.run (node:internal/test_runner/test:1382:25)
+      at FileTest.start (node:internal/test_runner/test:1242:17)
+      at runTestFile (node:internal/test_runner/runner:599:32)
+      at node:internal/test_runner/runner:1013:25
+      at node:internal/per_context/primordials:599:37
+      at new Promise (&lt;anonymous>) {
+    errno: -4048,
+    code: 'EPERM',
+    syscall: 'spawn'
+  }
+}
+		</failure>
+	</testcase>
+	<!-- tests 2 -->
+	<!-- suites 0 -->
+	<!-- pass 0 -->
+	<!-- fail 2 -->
+	<!-- cancelled 0 -->
+	<!-- skipped 0 -->
+	<!-- todo 0 -->
+	<!-- duration_ms 19.243 -->
+</testsuites>
