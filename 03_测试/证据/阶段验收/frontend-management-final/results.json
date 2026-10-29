@@ -1,0 +1,482 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.EXE",
+      "D:\\I_love_studying\\快乐数据大三上\\数据库系统\\数据库实验\\提交材料\\问序_GitHub\\01_代码\\frontend\\node_modules\\@playwright\\test\\cli.js",
+      "test"
+    ],
+    "configFile": "D:\\I_love_studying\\快乐数据大三上\\数据库系统\\数据库实验\\提交材料\\问序_GitHub\\01_代码\\frontend\\playwright.config.js",
+    "rootDir": "D:/I_love_studying/快乐数据大三上/数据库系统/数据库实验/提交材料/问序_GitHub/01_代码/frontend/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/I_love_studying/快乐数据大三上/数据库系统/数据库实验/提交材料/问序_GitHub/01_代码/output/frontend-management-final/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "D:/I_love_studying/快乐数据大三上/数据库系统/数据库实验/提交材料/问序_GitHub/01_代码/frontend/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.js"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\I_love_studying\\快乐数据大三上\\数据库系统\\数据库实验\\提交材料\\问序_GitHub\\01_代码\\output\\frontend-management-final\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "",
+        "testDir": "D:\\I_love_studying\\快乐数据大三上\\数据库系统\\数据库实验\\提交材料\\问序_GitHub\\01_代码\\frontend\\tests",
+        "snapshotDir": "D:\\I_love_studying\\快乐数据大三上\\数据库系统\\数据库实验\\提交材料\\问序_GitHub\\01_代码\\frontend\\tests",
+        "testIgnore": [],
+        "testMatch": "**/*.spec.js",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5174",
+          "channel": "msedge",
+          "headless": true,
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "actionTimeout": 10000,
+          "navigationTimeout": 15000,
+          "screenshot": "only-on-failure",
+          "trace": "retain-on-failure"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": ""
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "html",
+        {
+          "outputFolder": "D:\\I_love_studying\\快乐数据大三上\\数据库系统\\数据库实验\\提交材料\\问序_GitHub\\01_代码\\output\\frontend-management-final\\report",
+          "open": "never"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "D:\\I_love_studying\\快乐数据大三上\\数据库系统\\数据库实验\\提交材料\\问序_GitHub\\01_代码\\output\\frontend-management-final\\results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "business.spec.js",
+      "file": "business.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "未登录访问受保护页面会返回登录，错误凭据有明确反馈",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7154,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-22T10:16:10.075Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "211788be765d1f2e035e-28de1b6d49bf94c9f719",
+          "file": "business.spec.js",
+          "line": 94,
+          "column": 1
+        },
+        {
+          "title": "创建四类题目并发布，匿名填写、修改清空、提交、统计与移动端完整闭环",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 30647,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "通过注册表单创建账号",
+                      "duration": 8744
+                    },
+                    {
+                      "title": "用界面配置四种题型、校验和向后跳转",
+                      "duration": 6421
+                    },
+                    {
+                      "title": "发布后题目、规则与匿名设置锁定",
+                      "duration": 307
+                    },
+                    {
+                      "title": "另一浏览器会话登录后填写，必答题有服务端校验",
+                      "duration": 9089
+                    },
+                    {
+                      "title": "只返回查看不清空，修改前面答案后清空所有后续答案并重新跳转",
+                      "duration": 643
+                    },
+                    {
+                      "title": "禁止同一账号重复填写",
+                      "duration": 210
+                    },
+                    {
+                      "title": "独立账号的真实提交为统计页补充样本",
+                      "duration": 535
+                    },
+                    {
+                      "title": "结果页面使用真实统计，单题内容和原始匿名答卷可查看",
+                      "duration": 499
+                    },
+                    {
+                      "title": "工作空间状态筛选、搜索、真实计数与移动端布局",
+                      "duration": 2132
+                    },
+                    {
+                      "title": "关闭后不再接受填写",
+                      "duration": 715
+                    }
+                  ],
+                  "startTime": "2026-10-22T10:16:17.582Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "211788be765d1f2e035e-0803661ae3658adbba7c",
+          "file": "business.spec.js",
+          "line": 104,
+          "column": 1
+        },
+        {
+          "title": "草稿版本冲突保留本地输入，确认重新加载后读取服务器最新值",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8083,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-22T10:16:48.242Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "211788be765d1f2e035e-8887526f0a6e625a1179",
+          "file": "business.spec.js",
+          "line": 333,
+          "column": 1
+        },
+        {
+          "title": "服务器已保存但响应丢失时，保留原答案和凭据重试且只生成一份答卷",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8258,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-22T10:16:56.337Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "211788be765d1f2e035e-ae7d7424a898fb690e76",
+          "file": "business.spec.js",
+          "line": 352,
+          "column": 1
+        },
+        {
+          "title": "编辑保存收到真实 401 后原地重新登录，未保存修改保持并可继续保存",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 9142,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-22T10:17:04.609Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "211788be765d1f2e035e-d20771244ea86cb34d7a",
+          "file": "business.spec.js",
+          "line": 390,
+          "column": 1
+        },
+        {
+          "title": "建题与恢复成功丢包后刷新确认只执行一次，历史选用与另存独立题身份分离",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 13628,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-22T10:17:13.767Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "211788be765d1f2e035e-b68f9c18b59e8885acb7",
+          "file": "business.spec.js",
+          "line": 428,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "management.spec.js",
+      "file": "management.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "历史恢复、整题共享、独立副本再共享、撤权后旧草稿发布、引用隐私和题库管理",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 32072,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-22T10:17:27.434Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bd49cee0b7dfb65b9204-fc1dadcee45e699e5801",
+          "file": "management.spec.js",
+          "line": 48,
+          "column": 1
+        },
+        {
+          "title": "慢请求返回时不能把上一题库或题目的内容覆盖到当前编辑对象",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 14021,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-22T10:17:59.521Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bd49cee0b7dfb65b9204-92101d36fcf834a206b6",
+          "file": "management.spec.js",
+          "line": 123,
+          "column": 1
+        },
+        {
+          "title": "归档题仍可加入多个题库整理，题库删除的丢失响应用原请求确认",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 16240,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-22T10:18:13.554Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bd49cee0b7dfb65b9204-408b4180ef8b4b433407",
+          "file": "management.spec.js",
+          "line": 147,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-22T10:16:09.306Z",
+    "duration": 141712.86200000002,
+    "expected": 9,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

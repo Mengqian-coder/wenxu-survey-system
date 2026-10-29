@@ -1,0 +1,14 @@
+{
+  "startedAtUtc": "2026-10-23T05:34:57.927093+00:00",
+  "finishedAtUtc": "2026-10-23T05:35:04.044232+00:00",
+  "scope": "Initial sandbox startup attempt; no browser tests executed.",
+  "passed": false,
+  "exitCode": 1,
+  "counts": {"total": 0, "passed": 0, "failed": 0},
+  "cause": "Vite/esbuild child process spawn EPERM in sandbox, before frontend service readiness.",
+  "qaPorts": {"api": 56167, "frontend": 56168},
+  "sourcesUnchangedDuringRun": true,
+  "sourceFileCount": 42,
+  "evidence": ["runs/33590b9616eca4a2/frontend.log", "runs/33590b9616eca4a2/backend.log"],
+  "note": "This failure record is retained separately from the subsequent approved successful run in this directory. Existing development services were not used."
+}

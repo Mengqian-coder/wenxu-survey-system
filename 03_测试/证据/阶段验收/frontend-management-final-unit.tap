@@ -1,0 +1,220 @@
+TAP version 13
+# Subtest: 创建与调整顺序保持稳定 ID，不修改原数组
+ok 1 - 创建与调整顺序保持稳定 ID，不修改原数组
+  ---
+  duration_ms: 8.3624
+  type: 'test'
+  ...
+# Subtest: 从服务器加载时深复制题目且保留所有题目及选项 ID
+ok 2 - 从服务器加载时深复制题目且保留所有题目及选项 ID
+  ---
+  duration_ms: 0.9077
+  type: 'test'
+  ...
+# Subtest: 删除失效跳转时以所属题目和规则 ID 联合识别，保留其他题的同名规则
+ok 3 - 删除失效跳转时以所属题目和规则 ID 联合识别，保留其他题的同名规则
+  ---
+  duration_ms: 0.7213
+  type: 'test'
+  ...
+# Subtest: 删除选项只移除引用该选项的规则
+ok 4 - 删除选项只移除引用该选项的规则
+  ---
+  duration_ms: 0.2918
+  type: 'test'
+  ...
+# Subtest: 表单将字符串限制转换为严格数字并省略未配置上下限
+ok 5 - 表单将字符串限制转换为严格数字并省略未配置上下限
+  ---
+  duration_ms: 0.9476
+  type: 'test'
+  ...
+# Subtest: 问卷只发送引用和卷内配置，不把快照内容、版本号或来源写回
+ok 6 - 问卷只发送引用和卷内配置，不把快照内容、版本号或来源写回
+  ---
+  duration_ms: 1.9787
+  type: 'test'
+  ...
+# Subtest: 替换版本保留卷内ID和必答，清空可能失效的本题跳转
+ok 7 - 替换版本保留卷内ID和必答，清空可能失效的本题跳转
+  ---
+  duration_ms: 0.4526
+  type: 'test'
+  ...
+# Subtest: 已发布问卷仅生成允许修改的字段，不携带锁定题目和身份配置
+ok 8 - 已发布问卷仅生成允许修改的字段，不携带锁定题目和身份配置
+  ---
+  duration_ms: 0.269
+  type: 'test'
+  ...
+# Subtest: 标题容量按 Unicode 码点计算，发布空问卷和向前跳转均被拒绝
+ok 9 - 标题容量按 Unicode 码点计算，发布空问卷和向前跳转均被拒绝
+  ---
+  duration_ms: 1.0126
+  type: 'test'
+  ...
+# Subtest: 文本首尾空白标准化，空答案统一为 null，保留 Unicode 内容
+ok 10 - 文本首尾空白标准化，空答案统一为 null，保留 Unicode 内容
+  ---
+  duration_ms: 0.9646
+  type: 'test'
+  ...
+# Subtest: 单选只能引用现有选项，空值交由后端判断是否必答
+ok 11 - 单选只能引用现有选项，空值交由后端判断是否必答
+  ---
+  duration_ms: 0.4835
+  type: 'test'
+  ...
+# Subtest: 多选按选项定义顺序标准化且不修改输入数组
+ok 12 - 多选按选项定义顺序标准化且不修改输入数组
+  ---
+  duration_ms: 0.8263
+  type: 'test'
+  ...
+# Subtest: 数字接受十进制和科学计数法，空白转为 null，负零统一为零
+ok 13 - 数字接受十进制和科学计数法，空白转为 null，负零统一为零
+  ---
+  duration_ms: 0.3052
+  type: 'test'
+  ...
+# Subtest: 数字拒绝非法输入 NaN
+ok 14 - 数字拒绝非法输入 NaN
+  ---
+  duration_ms: 0.1656
+  type: 'test'
+  ...
+# Subtest: 数字拒绝非法输入 Infinity
+ok 15 - 数字拒绝非法输入 Infinity
+  ---
+  duration_ms: 0.0995
+  type: 'test'
+  ...
+# Subtest: 数字拒绝非法输入 1e999
+ok 16 - 数字拒绝非法输入 1e999
+  ---
+  duration_ms: 0.0934
+  type: 'test'
+  ...
+# Subtest: 数字拒绝非法输入 0x10
+ok 17 - 数字拒绝非法输入 0x10
+  ---
+  duration_ms: 0.1067
+  type: 'test'
+  ...
+# Subtest: 数字拒绝非法输入 12abc
+ok 18 - 数字拒绝非法输入 12abc
+  ---
+  duration_ms: 0.1266
+  type: 'test'
+  ...
+# Subtest: 数字拒绝非法输入 true
+ok 19 - 数字拒绝非法输入 true
+  ---
+  duration_ms: 0.1521
+  type: 'test'
+  ...
+# Subtest: 整数模式拒绝小数和不安全整数，接受安全边界
+ok 20 - 整数模式拒绝小数和不安全整数，接受安全边界
+  ---
+  duration_ms: 0.1799
+  type: 'test'
+  ...
+# Subtest: 仅调整多选顺序、文本首尾空白和等值数字均不算修改答案
+ok 21 - 仅调整多选顺序、文本首尾空白和等值数字均不算修改答案
+  ---
+  duration_ms: 0.1761
+  type: 'test'
+  ...
+# Subtest: 返回题目时正确恢复控件输入，不共享多选数组引用
+ok 22 - 返回题目时正确恢复控件输入，不共享多选数组引用
+  ---
+  duration_ms: 0.1458
+  type: 'test'
+  ...
+# Subtest: 提交确认页显示选项文字、数字与选填留空含义
+ok 23 - 提交确认页显示选项文字、数字与选填留空含义
+  ---
+  duration_ms: 0.1526
+  type: 'test'
+  ...
+# Subtest: 填写提示包含数量、长度及整数范围边界
+ok 24 - 填写提示包含数量、长度及整数范围边界
+  ---
+  duration_ms: 0.3637
+  type: 'test'
+  ...
+# Subtest: 题库管理的成功回执打开当前题库，删除返回列表，不误跳问卷或题目
+ok 25 - 题库管理的成功回执打开当前题库，删除返回列表，不误跳问卷或题目
+  ---
+  duration_ms: 0.8707
+  type: 'test'
+  ...
+# Subtest: 题目副本回执跳转新身份，共享回执保留原题目，问卷回执正确导航
+ok 26 - 题目副本回执跳转新身份，共享回执保留原题目，问卷回执正确导航
+  ---
+  duration_ms: 0.3184
+  type: 'test'
+  ...
+# Subtest: 失效题库占位、归档题目和无使用权限的题目不能从选题器新增使用
+ok 27 - 失效题库占位、归档题目和无使用权限的题目不能从选题器新增使用
+  ---
+  duration_ms: 1.1409
+  type: 'test'
+  ...
+# Subtest: 恢复版本的内容来源按baseVersionId定位，避免误显示成上一编号
+ok 28 - 恢复版本的内容来源按baseVersionId定位，避免误显示成上一编号
+  ---
+  duration_ms: 0.2485
+  type: 'test'
+  ...
+# Subtest: 题库选项加载所有分页，避免只能选用第一百个以内的分类
+ok 29 - 题库选项加载所有分页，避免只能选用第一百个以内的分类
+  ---
+  duration_ms: 0.4999
+  type: 'test'
+  ...
+# Subtest: 双击共享同一请求和Promise，成功后才移除pending
+ok 30 - 双击共享同一请求和Promise，成功后才移除pending
+  ---
+  duration_ms: 3.5131
+  type: 'test'
+  ...
+# Subtest: 响应丢失、刷新、重新登录仍重用原key和原revision，不发送修改后的意图
+ok 31 - 响应丢失、刷新、重新登录仍重用原key和原revision，不发送修改后的意图
+  ---
+  duration_ms: 0.7945
+  type: 'test'
+  ...
+# Subtest: 不同账号pending隔离，失败回滚后才允许明确的新操作生成新key
+ok 32 - 不同账号pending隔离，失败回滚后才允许明确的新操作生成新key
+  ---
+  duration_ms: 0.3117
+  type: 'test'
+  ...
+# Subtest: 处理中、未知提交、服务异常和401保留确认凭据；明确422结束该意图
+ok 33 - 处理中、未知提交、服务异常和401保留确认凭据；明确422结束该意图
+  ---
+  duration_ms: 0.1188
+  type: 'test'
+  ...
+# Subtest: 无法持久化key时在发出请求前失败，避免刷新后重建操作
+ok 34 - 无法持久化key时在发出请求前失败，避免刷新后重建操作
+  ---
+  duration_ms: 0.1906
+  type: 'test'
+  ...
+# Subtest: 独立pending条目避免其他标签页清理成功请求时覆盖尚未确认的请求
+ok 35 - 独立pending条目避免其他标签页清理成功请求时覆盖尚未确认的请求
+  ---
+  duration_ms: 7.9744
+  type: 'test'
+  ...
+1..35
+# tests 35
+# suites 0
+# pass 35
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 183.993

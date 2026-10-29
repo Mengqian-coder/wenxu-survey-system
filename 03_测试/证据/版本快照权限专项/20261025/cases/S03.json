@@ -1,0 +1,1178 @@
+{
+  "caseId": "S03",
+  "title": "删除选项后旧跳转被后端拒绝；清空本题跳转后换版成功",
+  "startedAtUtc": "2026-10-25T02:49:53.030790+00:00",
+  "finishedAtUtc": "2026-10-25T02:49:53.141480+00:00",
+  "passed": true,
+  "exceptionType": null,
+  "database": "test_backend_e292af60606949128d823aa14422af98",
+  "environment": {
+    "database": "test_backend_e292af60606949128d823aa14422af98",
+    "mongoVersion": "8.3.11",
+    "replicaSet": "backend_test_rs",
+    "writablePrimary": true,
+    "apiTransport": "FastAPI TestClient / ASGI routes; real MongoDB replica set"
+  },
+  "scope": "Synthetic isolated API/MongoDB scenario; credentials redacted; binary values represented by length and SHA-256.",
+  "steps": [
+    {
+      "kind": "http",
+      "actor": "所有者",
+      "method": "POST",
+      "path": "/api/questions",
+      "requestBody": {
+        "content": {
+          "type": "single",
+          "title": "课程选择 v1",
+          "description": "证据专用合成题目",
+          "validation": {},
+          "options": [
+            {
+              "id": "a",
+              "label": "选项 A"
+            },
+            {
+              "id": "b",
+              "label": "选项 B"
+            },
+            {
+              "id": "c",
+              "label": "选项 C"
+            }
+          ]
+        }
+      },
+      "expectedStatus": 201,
+      "actualStatus": 201,
+      "responseBody": {
+        "question": {
+          "_id": "6add6e5124341bec11a15e1d",
+          "ownerId": "6add6e5024341bec11a15e1b",
+          "revision": 1,
+          "latestVersionId": "6add6e5124341bec11a15e1e",
+          "archivedAt": null,
+          "createdAt": "2026-10-25T02:49:53.041000+00:00",
+          "updatedAt": "2026-10-25T02:49:53.041000+00:00",
+          "latestVersion": {
+            "_id": "6add6e5124341bec11a15e1e",
+            "versionNo": 1,
+            "baseVersionId": null,
+            "operation": "create",
+            "createdAt": "2026-10-25T02:49:53.041000+00:00",
+            "archivedAt": null,
+            "title": "课程选择 v1",
+            "type": "single"
+          },
+          "permissions": {
+            "canManage": true,
+            "canUse": true
+          },
+          "origin": {
+            "kind": "original"
+          }
+        },
+        "version": {
+          "_id": "6add6e5124341bec11a15e1e",
+          "questionId": "6add6e5124341bec11a15e1d",
+          "versionNo": 1,
+          "baseVersionId": null,
+          "operation": "create",
+          "content": {
+            "title": "课程选择 v1",
+            "description": "证据专用合成题目",
+            "type": "single",
+            "validation": {},
+            "options": [
+              {
+                "id": "a",
+                "label": "选项 A"
+              },
+              {
+                "id": "b",
+                "label": "选项 B"
+              },
+              {
+                "id": "c",
+                "label": "选项 C"
+              }
+            ]
+          },
+          "createdBy": "6add6e5024341bec11a15e1b",
+          "createdAt": "2026-10-25T02:49:53.041000+00:00",
+          "archivedAt": null,
+          "permissions": {
+            "canUse": true
+          }
+        }
+      },
+      "passed": true,
+      "elapsedMs": 19.636
+    },
+    {
+      "kind": "http",
+      "actor": "所有者",
+      "method": "POST",
+      "path": "/api/surveys",
+      "requestBody": {
+        "title": "证据问卷",
+        "settings": {
+          "anonymous": true,
+          "allowRepeat": true
+        },
+        "questions": [
+          {
+            "id": "local_choice",
+            "questionId": "6add6e5124341bec11a15e1d",
+            "versionId": "6add6e5124341bec11a15e1e",
+            "required": false,
+            "jumpRules": [
+              {
+                "id": "jump_b",
+                "condition": {
+                  "operator": "eq",
+                  "value": "b"
+                },
+                "target": {
+                  "kind": "end"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "expectedStatus": 201,
+      "actualStatus": 201,
+      "responseBody": {
+        "_id": "6add6e5124341bec11a15e20",
+        "ownerId": "6add6e5024341bec11a15e1b",
+        "publicId": "eeab541b75a1091954cd25e101b89d56",
+        "title": "证据问卷",
+        "description": "",
+        "settings": {
+          "anonymous": true,
+          "allowRepeat": true
+        },
+        "deadlineAt": null,
+        "status": "draft",
+        "questions": [
+          {
+            "id": "local_choice",
+            "title": "课程选择 v1",
+            "description": "证据专用合成题目",
+            "required": false,
+            "type": "single",
+            "validation": {},
+            "options": [
+              {
+                "id": "a",
+                "label": "选项 A"
+              },
+              {
+                "id": "b",
+                "label": "选项 B"
+              },
+              {
+                "id": "c",
+                "label": "选项 C"
+              }
+            ],
+            "jumpRules": [
+              {
+                "id": "jump_b",
+                "condition": {
+                  "operator": "eq",
+                  "value": "b"
+                },
+                "target": {
+                  "kind": "end"
+                }
+              }
+            ],
+            "questionId": "6add6e5124341bec11a15e1d",
+            "versionId": "6add6e5124341bec11a15e1e",
+            "versionNo": 1
+          }
+        ],
+        "schemaVersion": 2,
+        "revision": 1,
+        "createdAt": "2026-10-25T02:49:53.059000+00:00",
+        "updatedAt": "2026-10-25T02:49:53.059000+00:00",
+        "publishedAt": null,
+        "closedAt": null,
+        "closeReason": null
+      },
+      "passed": true,
+      "elapsedMs": 18.486
+    },
+    {
+      "kind": "http",
+      "actor": "所有者",
+      "method": "POST",
+      "path": "/api/questions/6add6e5124341bec11a15e1d/versions",
+      "requestBody": {
+        "revision": 1,
+        "baseVersionId": "6add6e5124341bec11a15e1e",
+        "content": {
+          "type": "single",
+          "title": "课程选择 v2",
+          "description": "证据专用合成题目",
+          "validation": {},
+          "options": [
+            {
+              "id": "a",
+              "label": "选项 A"
+            },
+            {
+              "id": "c",
+              "label": "选项 C"
+            }
+          ]
+        }
+      },
+      "expectedStatus": 201,
+      "actualStatus": 201,
+      "responseBody": {
+        "question": {
+          "_id": "6add6e5124341bec11a15e1d",
+          "ownerId": "6add6e5024341bec11a15e1b",
+          "revision": 2,
+          "latestVersionId": "6add6e5124341bec11a15e22",
+          "archivedAt": null,
+          "createdAt": "2026-10-25T02:49:53.041000+00:00",
+          "updatedAt": "2026-10-25T02:49:53.079000+00:00",
+          "latestVersion": {
+            "_id": "6add6e5124341bec11a15e22",
+            "versionNo": 2,
+            "baseVersionId": "6add6e5124341bec11a15e1e",
+            "operation": "edit",
+            "createdAt": "2026-10-25T02:49:53.079000+00:00",
+            "archivedAt": null,
+            "title": "课程选择 v2",
+            "type": "single"
+          },
+          "permissions": {
+            "canManage": true,
+            "canUse": true
+          },
+          "origin": {
+            "kind": "original"
+          }
+        },
+        "version": {
+          "_id": "6add6e5124341bec11a15e22",
+          "questionId": "6add6e5124341bec11a15e1d",
+          "versionNo": 2,
+          "baseVersionId": "6add6e5124341bec11a15e1e",
+          "operation": "edit",
+          "content": {
+            "title": "课程选择 v2",
+            "description": "证据专用合成题目",
+            "type": "single",
+            "validation": {},
+            "options": [
+              {
+                "id": "a",
+                "label": "选项 A"
+              },
+              {
+                "id": "c",
+                "label": "选项 C"
+              }
+            ]
+          },
+          "createdBy": "6add6e5024341bec11a15e1b",
+          "createdAt": "2026-10-25T02:49:53.079000+00:00",
+          "archivedAt": null,
+          "permissions": {
+            "canUse": true
+          }
+        }
+      },
+      "passed": true,
+      "elapsedMs": 19.346
+    },
+    {
+      "kind": "database",
+      "label": "失效换版请求前",
+      "collections": {
+        "questions": {
+          "count": 1,
+          "sha256": "f6e832790a369b07bd9d483bc64cf885903a36cd50bb2074077c0cb7b0242bb8",
+          "documents": [
+            {
+              "_id": "6add6e5124341bec11a15e1d",
+              "ownerId": "6add6e5024341bec11a15e1b",
+              "latestVersionId": "6add6e5124341bec11a15e22",
+              "versionSeq": 2,
+              "origin": {
+                "kind": "original"
+              },
+              "revision": 2,
+              "guardRevision": 1,
+              "archivedAt": null,
+              "createdAt": "2026-10-25T02:49:53.041000+00:00",
+              "updatedAt": "2026-10-25T02:49:53.079000+00:00"
+            }
+          ]
+        },
+        "question_versions": {
+          "count": 2,
+          "sha256": "a61a2655a0fe5985b7dfee7801116bd8ff8c5568eb579c5c7ca07856c21c0376",
+          "documents": [
+            {
+              "_id": "6add6e5124341bec11a15e1e",
+              "questionId": "6add6e5124341bec11a15e1d",
+              "versionNo": 1,
+              "baseVersionId": null,
+              "operation": "create",
+              "content": {
+                "title": "课程选择 v1",
+                "description": "证据专用合成题目",
+                "type": "single",
+                "validation": {},
+                "options": [
+                  {
+                    "id": "a",
+                    "label": "选项 A"
+                  },
+                  {
+                    "id": "b",
+                    "label": "选项 B"
+                  },
+                  {
+                    "id": "c",
+                    "label": "选项 C"
+                  }
+                ]
+              },
+              "createdBy": "6add6e5024341bec11a15e1b",
+              "createdAt": "2026-10-25T02:49:53.041000+00:00",
+              "archivedAt": null
+            },
+            {
+              "_id": "6add6e5124341bec11a15e22",
+              "questionId": "6add6e5124341bec11a15e1d",
+              "versionNo": 2,
+              "baseVersionId": "6add6e5124341bec11a15e1e",
+              "operation": "edit",
+              "content": {
+                "title": "课程选择 v2",
+                "description": "证据专用合成题目",
+                "type": "single",
+                "validation": {},
+                "options": [
+                  {
+                    "id": "a",
+                    "label": "选项 A"
+                  },
+                  {
+                    "id": "c",
+                    "label": "选项 C"
+                  }
+                ]
+              },
+              "createdBy": "6add6e5024341bec11a15e1b",
+              "createdAt": "2026-10-25T02:49:53.079000+00:00",
+              "archivedAt": null
+            }
+          ]
+        },
+        "surveys": {
+          "count": 1,
+          "sha256": "06d18b243ba10c3a04bca0799400913b7f2f320afeafc56ded0416d3ac1f0bf4",
+          "documents": [
+            {
+              "_id": "6add6e5124341bec11a15e20",
+              "ownerId": "6add6e5024341bec11a15e1b",
+              "publicId": "eeab541b75a1091954cd25e101b89d56",
+              "title": "证据问卷",
+              "description": "",
+              "settings": {
+                "anonymous": true,
+                "allowRepeat": true
+              },
+              "deadlineAt": null,
+              "status": "draft",
+              "questions": [
+                {
+                  "id": "local_choice",
+                  "title": "课程选择 v1",
+                  "description": "证据专用合成题目",
+                  "required": false,
+                  "type": "single",
+                  "validation": {},
+                  "options": [
+                    {
+                      "id": "a",
+                      "label": "选项 A"
+                    },
+                    {
+                      "id": "b",
+                      "label": "选项 B"
+                    },
+                    {
+                      "id": "c",
+                      "label": "选项 C"
+                    }
+                  ],
+                  "jumpRules": [
+                    {
+                      "id": "jump_b",
+                      "condition": {
+                        "operator": "eq",
+                        "value": "b"
+                      },
+                      "target": {
+                        "kind": "end"
+                      }
+                    }
+                  ],
+                  "questionId": "6add6e5124341bec11a15e1d",
+                  "versionId": "6add6e5124341bec11a15e1e",
+                  "versionNo": 1
+                }
+              ],
+              "schemaVersion": 2,
+              "revision": 1,
+              "createdAt": "2026-10-25T02:49:53.059000+00:00",
+              "updatedAt": "2026-10-25T02:49:53.059000+00:00",
+              "publishedAt": null,
+              "closedAt": null,
+              "closeReason": null
+            }
+          ]
+        },
+        "mutation_receipts": {
+          "count": 3,
+          "sha256": "68e1b5cab2b729b9f1ccaf00a16d34340fca9ab2fee380d06d1436295612071b",
+          "documents": [
+            {
+              "_id": "6add6e5124341bec11a15e1c",
+              "actorId": "6add6e5024341bec11a15e1b",
+              "key": "6d59a47d-0b90-4ce7-ac03-9b087a344113",
+              "operationId": "question.create",
+              "target": "/api/questions",
+              "canonicalVersion": 1,
+              "fingerprint": "3e76735d03a142637b2082a82f58cc877b854e2bcef1684a135eb0b617945590",
+              "status": "succeeded",
+              "resultRefs": {
+                "questionId": "6add6e5124341bec11a15e1d",
+                "versionId": "6add6e5124341bec11a15e1e"
+              },
+              "createdAt": "2026-10-25T02:49:53.039000+00:00",
+              "completedAt": "2026-10-25T02:49:53.046000+00:00",
+              "httpStatus": 201,
+              "response": {
+                "mode": "inline",
+                "byteLength": 1032,
+                "sha256": "3a015937dd5353514c6b619a18748891835310e8b9d2ab2c31a7e83dcf9ac933",
+                "data": {
+                  "binaryOmitted": true,
+                  "bytes": 1032,
+                  "sha256": "3a015937dd5353514c6b619a18748891835310e8b9d2ab2c31a7e83dcf9ac933"
+                }
+              }
+            },
+            {
+              "_id": "6add6e5124341bec11a15e1f",
+              "actorId": "6add6e5024341bec11a15e1b",
+              "key": "559d3257-99b6-4363-ba18-5fc397271972",
+              "operationId": "survey.create",
+              "target": "/api/surveys",
+              "canonicalVersion": 1,
+              "fingerprint": "6cbb77e3abc030a4fb480b6a9f60cd88d94e1c9c70f525c0b57812906bf67de4",
+              "status": "succeeded",
+              "resultRefs": {
+                "surveyId": "6add6e5124341bec11a15e20"
+              },
+              "createdAt": "2026-10-25T02:49:53.058000+00:00",
+              "completedAt": "2026-10-25T02:49:53.064000+00:00",
+              "httpStatus": 201,
+              "response": {
+                "mode": "inline",
+                "byteLength": 863,
+                "sha256": "9019abad370d35fae86e4d2bd520b28b0d4bda5bb5e94f8f1d270e36d450aba3",
+                "data": {
+                  "binaryOmitted": true,
+                  "bytes": 863,
+                  "sha256": "9019abad370d35fae86e4d2bd520b28b0d4bda5bb5e94f8f1d270e36d450aba3"
+                }
+              }
+            },
+            {
+              "_id": "6add6e5124341bec11a15e21",
+              "actorId": "6add6e5024341bec11a15e1b",
+              "key": "edc8943a-905d-433f-86df-a73e4bb6f036",
+              "operationId": "question.version.create",
+              "target": "/api/questions/6add6e5124341bec11a15e1d/versions",
+              "canonicalVersion": 1,
+              "fingerprint": "646de21e4890124d9ff06c8a8527704914e51f407a90723824285c190ffc166f",
+              "status": "succeeded",
+              "resultRefs": {
+                "questionId": "6add6e5124341bec11a15e1d",
+                "versionId": "6add6e5124341bec11a15e22"
+              },
+              "createdAt": "2026-10-25T02:49:53.076000+00:00",
+              "completedAt": "2026-10-25T02:49:53.083000+00:00",
+              "httpStatus": 201,
+              "response": {
+                "mode": "inline",
+                "byteLength": 1042,
+                "sha256": "2b92467abeb44a68d346562b2352d074dae4eb5d38fc1b2fb2dbebd05228284e",
+                "data": {
+                  "binaryOmitted": true,
+                  "bytes": 1042,
+                  "sha256": "2b92467abeb44a68d346562b2352d074dae4eb5d38fc1b2fb2dbebd05228284e"
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "kind": "http",
+      "actor": "所有者",
+      "method": "PATCH",
+      "path": "/api/surveys/6add6e5124341bec11a15e20",
+      "requestBody": {
+        "revision": 1,
+        "questions": [
+          {
+            "id": "local_choice",
+            "questionId": "6add6e5124341bec11a15e1d",
+            "versionId": "6add6e5124341bec11a15e22",
+            "required": false,
+            "jumpRules": [
+              {
+                "id": "jump_b",
+                "condition": {
+                  "operator": "eq",
+                  "value": "b"
+                },
+                "target": {
+                  "kind": "end"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "expectedStatus": 422,
+      "actualStatus": 422,
+      "responseBody": {
+        "error": {
+          "code": "VALIDATION_ERROR",
+          "message": "跳转条件引用了不存在的选项",
+          "details": {
+            "questionId": "local_choice"
+          }
+        }
+      },
+      "passed": true,
+      "elapsedMs": 14.149
+    },
+    {
+      "kind": "assertion",
+      "label": "引用已删除选项的跳转被拒绝",
+      "passed": true,
+      "observed": {
+        "error": {
+          "code": "VALIDATION_ERROR",
+          "message": "跳转条件引用了不存在的选项",
+          "details": {
+            "questionId": "local_choice"
+          }
+        }
+      }
+    },
+    {
+      "kind": "database",
+      "label": "失效换版请求后",
+      "collections": {
+        "questions": {
+          "count": 1,
+          "sha256": "f6e832790a369b07bd9d483bc64cf885903a36cd50bb2074077c0cb7b0242bb8",
+          "documents": [
+            {
+              "_id": "6add6e5124341bec11a15e1d",
+              "ownerId": "6add6e5024341bec11a15e1b",
+              "latestVersionId": "6add6e5124341bec11a15e22",
+              "versionSeq": 2,
+              "origin": {
+                "kind": "original"
+              },
+              "revision": 2,
+              "guardRevision": 1,
+              "archivedAt": null,
+              "createdAt": "2026-10-25T02:49:53.041000+00:00",
+              "updatedAt": "2026-10-25T02:49:53.079000+00:00"
+            }
+          ]
+        },
+        "question_versions": {
+          "count": 2,
+          "sha256": "a61a2655a0fe5985b7dfee7801116bd8ff8c5568eb579c5c7ca07856c21c0376",
+          "documents": [
+            {
+              "_id": "6add6e5124341bec11a15e1e",
+              "questionId": "6add6e5124341bec11a15e1d",
+              "versionNo": 1,
+              "baseVersionId": null,
+              "operation": "create",
+              "content": {
+                "title": "课程选择 v1",
+                "description": "证据专用合成题目",
+                "type": "single",
+                "validation": {},
+                "options": [
+                  {
+                    "id": "a",
+                    "label": "选项 A"
+                  },
+                  {
+                    "id": "b",
+                    "label": "选项 B"
+                  },
+                  {
+                    "id": "c",
+                    "label": "选项 C"
+                  }
+                ]
+              },
+              "createdBy": "6add6e5024341bec11a15e1b",
+              "createdAt": "2026-10-25T02:49:53.041000+00:00",
+              "archivedAt": null
+            },
+            {
+              "_id": "6add6e5124341bec11a15e22",
+              "questionId": "6add6e5124341bec11a15e1d",
+              "versionNo": 2,
+              "baseVersionId": "6add6e5124341bec11a15e1e",
+              "operation": "edit",
+              "content": {
+                "title": "课程选择 v2",
+                "description": "证据专用合成题目",
+                "type": "single",
+                "validation": {},
+                "options": [
+                  {
+                    "id": "a",
+                    "label": "选项 A"
+                  },
+                  {
+                    "id": "c",
+                    "label": "选项 C"
+                  }
+                ]
+              },
+              "createdBy": "6add6e5024341bec11a15e1b",
+              "createdAt": "2026-10-25T02:49:53.079000+00:00",
+              "archivedAt": null
+            }
+          ]
+        },
+        "surveys": {
+          "count": 1,
+          "sha256": "06d18b243ba10c3a04bca0799400913b7f2f320afeafc56ded0416d3ac1f0bf4",
+          "documents": [
+            {
+              "_id": "6add6e5124341bec11a15e20",
+              "ownerId": "6add6e5024341bec11a15e1b",
+              "publicId": "eeab541b75a1091954cd25e101b89d56",
+              "title": "证据问卷",
+              "description": "",
+              "settings": {
+                "anonymous": true,
+                "allowRepeat": true
+              },
+              "deadlineAt": null,
+              "status": "draft",
+              "questions": [
+                {
+                  "id": "local_choice",
+                  "title": "课程选择 v1",
+                  "description": "证据专用合成题目",
+                  "required": false,
+                  "type": "single",
+                  "validation": {},
+                  "options": [
+                    {
+                      "id": "a",
+                      "label": "选项 A"
+                    },
+                    {
+                      "id": "b",
+                      "label": "选项 B"
+                    },
+                    {
+                      "id": "c",
+                      "label": "选项 C"
+                    }
+                  ],
+                  "jumpRules": [
+                    {
+                      "id": "jump_b",
+                      "condition": {
+                        "operator": "eq",
+                        "value": "b"
+                      },
+                      "target": {
+                        "kind": "end"
+                      }
+                    }
+                  ],
+                  "questionId": "6add6e5124341bec11a15e1d",
+                  "versionId": "6add6e5124341bec11a15e1e",
+                  "versionNo": 1
+                }
+              ],
+              "schemaVersion": 2,
+              "revision": 1,
+              "createdAt": "2026-10-25T02:49:53.059000+00:00",
+              "updatedAt": "2026-10-25T02:49:53.059000+00:00",
+              "publishedAt": null,
+              "closedAt": null,
+              "closeReason": null
+            }
+          ]
+        },
+        "mutation_receipts": {
+          "count": 3,
+          "sha256": "68e1b5cab2b729b9f1ccaf00a16d34340fca9ab2fee380d06d1436295612071b",
+          "documents": [
+            {
+              "_id": "6add6e5124341bec11a15e1c",
+              "actorId": "6add6e5024341bec11a15e1b",
+              "key": "6d59a47d-0b90-4ce7-ac03-9b087a344113",
+              "operationId": "question.create",
+              "target": "/api/questions",
+              "canonicalVersion": 1,
+              "fingerprint": "3e76735d03a142637b2082a82f58cc877b854e2bcef1684a135eb0b617945590",
+              "status": "succeeded",
+              "resultRefs": {
+                "questionId": "6add6e5124341bec11a15e1d",
+                "versionId": "6add6e5124341bec11a15e1e"
+              },
+              "createdAt": "2026-10-25T02:49:53.039000+00:00",
+              "completedAt": "2026-10-25T02:49:53.046000+00:00",
+              "httpStatus": 201,
+              "response": {
+                "mode": "inline",
+                "byteLength": 1032,
+                "sha256": "3a015937dd5353514c6b619a18748891835310e8b9d2ab2c31a7e83dcf9ac933",
+                "data": {
+                  "binaryOmitted": true,
+                  "bytes": 1032,
+                  "sha256": "3a015937dd5353514c6b619a18748891835310e8b9d2ab2c31a7e83dcf9ac933"
+                }
+              }
+            },
+            {
+              "_id": "6add6e5124341bec11a15e1f",
+              "actorId": "6add6e5024341bec11a15e1b",
+              "key": "559d3257-99b6-4363-ba18-5fc397271972",
+              "operationId": "survey.create",
+              "target": "/api/surveys",
+              "canonicalVersion": 1,
+              "fingerprint": "6cbb77e3abc030a4fb480b6a9f60cd88d94e1c9c70f525c0b57812906bf67de4",
+              "status": "succeeded",
+              "resultRefs": {
+                "surveyId": "6add6e5124341bec11a15e20"
+              },
+              "createdAt": "2026-10-25T02:49:53.058000+00:00",
+              "completedAt": "2026-10-25T02:49:53.064000+00:00",
+              "httpStatus": 201,
+              "response": {
+                "mode": "inline",
+                "byteLength": 863,
+                "sha256": "9019abad370d35fae86e4d2bd520b28b0d4bda5bb5e94f8f1d270e36d450aba3",
+                "data": {
+                  "binaryOmitted": true,
+                  "bytes": 863,
+                  "sha256": "9019abad370d35fae86e4d2bd520b28b0d4bda5bb5e94f8f1d270e36d450aba3"
+                }
+              }
+            },
+            {
+              "_id": "6add6e5124341bec11a15e21",
+              "actorId": "6add6e5024341bec11a15e1b",
+              "key": "edc8943a-905d-433f-86df-a73e4bb6f036",
+              "operationId": "question.version.create",
+              "target": "/api/questions/6add6e5124341bec11a15e1d/versions",
+              "canonicalVersion": 1,
+              "fingerprint": "646de21e4890124d9ff06c8a8527704914e51f407a90723824285c190ffc166f",
+              "status": "succeeded",
+              "resultRefs": {
+                "questionId": "6add6e5124341bec11a15e1d",
+                "versionId": "6add6e5124341bec11a15e22"
+              },
+              "createdAt": "2026-10-25T02:49:53.076000+00:00",
+              "completedAt": "2026-10-25T02:49:53.083000+00:00",
+              "httpStatus": 201,
+              "response": {
+                "mode": "inline",
+                "byteLength": 1042,
+                "sha256": "2b92467abeb44a68d346562b2352d074dae4eb5d38fc1b2fb2dbebd05228284e",
+                "data": {
+                  "binaryOmitted": true,
+                  "bytes": 1042,
+                  "sha256": "2b92467abeb44a68d346562b2352d074dae4eb5d38fc1b2fb2dbebd05228284e"
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "kind": "assertion",
+      "label": "失败换版不改变旧卷修订号、快照及关联记录",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "kind": "http",
+      "actor": "所有者",
+      "method": "PATCH",
+      "path": "/api/surveys/6add6e5124341bec11a15e20",
+      "requestBody": {
+        "revision": 1,
+        "questions": [
+          {
+            "id": "local_choice",
+            "questionId": "6add6e5124341bec11a15e1d",
+            "versionId": "6add6e5124341bec11a15e22",
+            "required": false,
+            "jumpRules": []
+          }
+        ]
+      },
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "responseBody": {
+        "_id": "6add6e5124341bec11a15e20",
+        "ownerId": "6add6e5024341bec11a15e1b",
+        "publicId": "eeab541b75a1091954cd25e101b89d56",
+        "title": "证据问卷",
+        "description": "",
+        "settings": {
+          "anonymous": true,
+          "allowRepeat": true
+        },
+        "deadlineAt": null,
+        "status": "draft",
+        "questions": [
+          {
+            "id": "local_choice",
+            "title": "课程选择 v2",
+            "description": "证据专用合成题目",
+            "required": false,
+            "type": "single",
+            "validation": {},
+            "options": [
+              {
+                "id": "a",
+                "label": "选项 A"
+              },
+              {
+                "id": "c",
+                "label": "选项 C"
+              }
+            ],
+            "jumpRules": [],
+            "questionId": "6add6e5124341bec11a15e1d",
+            "versionId": "6add6e5124341bec11a15e22",
+            "versionNo": 2
+          }
+        ],
+        "schemaVersion": 2,
+        "revision": 2,
+        "createdAt": "2026-10-25T02:49:53.059000+00:00",
+        "updatedAt": "2026-10-25T02:49:53.124000+00:00",
+        "publishedAt": null,
+        "closedAt": null,
+        "closeReason": null
+      },
+      "passed": true,
+      "elapsedMs": 20.99
+    },
+    {
+      "kind": "assertion",
+      "label": "清空规则后可使用 v2，卷内 ID 和选填保留",
+      "passed": true,
+      "observed": {
+        "id": "local_choice",
+        "title": "课程选择 v2",
+        "description": "证据专用合成题目",
+        "required": false,
+        "type": "single",
+        "validation": {},
+        "options": [
+          {
+            "id": "a",
+            "label": "选项 A"
+          },
+          {
+            "id": "c",
+            "label": "选项 C"
+          }
+        ],
+        "jumpRules": [],
+        "questionId": "6add6e5124341bec11a15e1d",
+        "versionId": "6add6e5124341bec11a15e22",
+        "versionNo": 2
+      }
+    },
+    {
+      "kind": "database",
+      "label": "合法换版后的记录",
+      "collections": {
+        "questions": {
+          "count": 1,
+          "sha256": "1fa693bee8b33d0bc181e2088a5e01998b03a3034c51120aefb9c83d5a0cc863",
+          "documents": [
+            {
+              "_id": "6add6e5124341bec11a15e1d",
+              "ownerId": "6add6e5024341bec11a15e1b",
+              "latestVersionId": "6add6e5124341bec11a15e22",
+              "versionSeq": 2,
+              "origin": {
+                "kind": "original"
+              },
+              "revision": 2,
+              "guardRevision": 2,
+              "archivedAt": null,
+              "createdAt": "2026-10-25T02:49:53.041000+00:00",
+              "updatedAt": "2026-10-25T02:49:53.079000+00:00"
+            }
+          ]
+        },
+        "question_versions": {
+          "count": 2,
+          "sha256": "a61a2655a0fe5985b7dfee7801116bd8ff8c5568eb579c5c7ca07856c21c0376",
+          "documents": [
+            {
+              "_id": "6add6e5124341bec11a15e1e",
+              "questionId": "6add6e5124341bec11a15e1d",
+              "versionNo": 1,
+              "baseVersionId": null,
+              "operation": "create",
+              "content": {
+                "title": "课程选择 v1",
+                "description": "证据专用合成题目",
+                "type": "single",
+                "validation": {},
+                "options": [
+                  {
+                    "id": "a",
+                    "label": "选项 A"
+                  },
+                  {
+                    "id": "b",
+                    "label": "选项 B"
+                  },
+                  {
+                    "id": "c",
+                    "label": "选项 C"
+                  }
+                ]
+              },
+              "createdBy": "6add6e5024341bec11a15e1b",
+              "createdAt": "2026-10-25T02:49:53.041000+00:00",
+              "archivedAt": null
+            },
+            {
+              "_id": "6add6e5124341bec11a15e22",
+              "questionId": "6add6e5124341bec11a15e1d",
+              "versionNo": 2,
+              "baseVersionId": "6add6e5124341bec11a15e1e",
+              "operation": "edit",
+              "content": {
+                "title": "课程选择 v2",
+                "description": "证据专用合成题目",
+                "type": "single",
+                "validation": {},
+                "options": [
+                  {
+                    "id": "a",
+                    "label": "选项 A"
+                  },
+                  {
+                    "id": "c",
+                    "label": "选项 C"
+                  }
+                ]
+              },
+              "createdBy": "6add6e5024341bec11a15e1b",
+              "createdAt": "2026-10-25T02:49:53.079000+00:00",
+              "archivedAt": null
+            }
+          ]
+        },
+        "surveys": {
+          "count": 1,
+          "sha256": "7722cfc50ad6b55d381f89f81c5d1f6bf48f91ecffca32c31171817ef75b7443",
+          "documents": [
+            {
+              "_id": "6add6e5124341bec11a15e20",
+              "ownerId": "6add6e5024341bec11a15e1b",
+              "publicId": "eeab541b75a1091954cd25e101b89d56",
+              "title": "证据问卷",
+              "description": "",
+              "settings": {
+                "anonymous": true,
+                "allowRepeat": true
+              },
+              "deadlineAt": null,
+              "status": "draft",
+              "questions": [
+                {
+                  "id": "local_choice",
+                  "title": "课程选择 v2",
+                  "description": "证据专用合成题目",
+                  "required": false,
+                  "type": "single",
+                  "validation": {},
+                  "options": [
+                    {
+                      "id": "a",
+                      "label": "选项 A"
+                    },
+                    {
+                      "id": "c",
+                      "label": "选项 C"
+                    }
+                  ],
+                  "jumpRules": [],
+                  "questionId": "6add6e5124341bec11a15e1d",
+                  "versionId": "6add6e5124341bec11a15e22",
+                  "versionNo": 2
+                }
+              ],
+              "schemaVersion": 2,
+              "revision": 2,
+              "createdAt": "2026-10-25T02:49:53.059000+00:00",
+              "updatedAt": "2026-10-25T02:49:53.124000+00:00",
+              "publishedAt": null,
+              "closedAt": null,
+              "closeReason": null
+            }
+          ]
+        },
+        "mutation_receipts": {
+          "count": 4,
+          "sha256": "327913ed2fcd1c7156be21145a683ea11af75e9013b28bfd9e7d30eaedb29be8",
+          "documents": [
+            {
+              "_id": "6add6e5124341bec11a15e1c",
+              "actorId": "6add6e5024341bec11a15e1b",
+              "key": "6d59a47d-0b90-4ce7-ac03-9b087a344113",
+              "operationId": "question.create",
+              "target": "/api/questions",
+              "canonicalVersion": 1,
+              "fingerprint": "3e76735d03a142637b2082a82f58cc877b854e2bcef1684a135eb0b617945590",
+              "status": "succeeded",
+              "resultRefs": {
+                "questionId": "6add6e5124341bec11a15e1d",
+                "versionId": "6add6e5124341bec11a15e1e"
+              },
+              "createdAt": "2026-10-25T02:49:53.039000+00:00",
+              "completedAt": "2026-10-25T02:49:53.046000+00:00",
+              "httpStatus": 201,
+              "response": {
+                "mode": "inline",
+                "byteLength": 1032,
+                "sha256": "3a015937dd5353514c6b619a18748891835310e8b9d2ab2c31a7e83dcf9ac933",
+                "data": {
+                  "binaryOmitted": true,
+                  "bytes": 1032,
+                  "sha256": "3a015937dd5353514c6b619a18748891835310e8b9d2ab2c31a7e83dcf9ac933"
+                }
+              }
+            },
+            {
+              "_id": "6add6e5124341bec11a15e1f",
+              "actorId": "6add6e5024341bec11a15e1b",
+              "key": "559d3257-99b6-4363-ba18-5fc397271972",
+              "operationId": "survey.create",
+              "target": "/api/surveys",
+              "canonicalVersion": 1,
+              "fingerprint": "6cbb77e3abc030a4fb480b6a9f60cd88d94e1c9c70f525c0b57812906bf67de4",
+              "status": "succeeded",
+              "resultRefs": {
+                "surveyId": "6add6e5124341bec11a15e20"
+              },
+              "createdAt": "2026-10-25T02:49:53.058000+00:00",
+              "completedAt": "2026-10-25T02:49:53.064000+00:00",
+              "httpStatus": 201,
+              "response": {
+                "mode": "inline",
+                "byteLength": 863,
+                "sha256": "9019abad370d35fae86e4d2bd520b28b0d4bda5bb5e94f8f1d270e36d450aba3",
+                "data": {
+                  "binaryOmitted": true,
+                  "bytes": 863,
+                  "sha256": "9019abad370d35fae86e4d2bd520b28b0d4bda5bb5e94f8f1d270e36d450aba3"
+                }
+              }
+            },
+            {
+              "_id": "6add6e5124341bec11a15e21",
+              "actorId": "6add6e5024341bec11a15e1b",
+              "key": "edc8943a-905d-433f-86df-a73e4bb6f036",
+              "operationId": "question.version.create",
+              "target": "/api/questions/6add6e5124341bec11a15e1d/versions",
+              "canonicalVersion": 1,
+              "fingerprint": "646de21e4890124d9ff06c8a8527704914e51f407a90723824285c190ffc166f",
+              "status": "succeeded",
+              "resultRefs": {
+                "questionId": "6add6e5124341bec11a15e1d",
+                "versionId": "6add6e5124341bec11a15e22"
+              },
+              "createdAt": "2026-10-25T02:49:53.076000+00:00",
+              "completedAt": "2026-10-25T02:49:53.083000+00:00",
+              "httpStatus": 201,
+              "response": {
+                "mode": "inline",
+                "byteLength": 1042,
+                "sha256": "2b92467abeb44a68d346562b2352d074dae4eb5d38fc1b2fb2dbebd05228284e",
+                "data": {
+                  "binaryOmitted": true,
+                  "bytes": 1042,
+                  "sha256": "2b92467abeb44a68d346562b2352d074dae4eb5d38fc1b2fb2dbebd05228284e"
+                }
+              }
+            },
+            {
+              "_id": "6add6e5124341bec11a15e24",
+              "actorId": "6add6e5024341bec11a15e1b",
+              "key": "4bf3c6b5-a662-43d4-a5c8-4ecea202edbe",
+              "operationId": "survey.patch",
+              "target": "/api/surveys/6add6e5124341bec11a15e20",
+              "canonicalVersion": 1,
+              "fingerprint": "ec6081e76e1127b4e95423f9cc31447f6ffa0a03d3b1bb829deaa17d6a8a705d",
+              "status": "succeeded",
+              "resultRefs": {
+                "surveyId": "6add6e5124341bec11a15e20"
+              },
+              "createdAt": "2026-10-25T02:49:53.121000+00:00",
+              "completedAt": "2026-10-25T02:49:53.130000+00:00",
+              "httpStatus": 200,
+              "response": {
+                "mode": "inline",
+                "byteLength": 752,
+                "sha256": "69de3fa771ae988d47d33554931077b4cde97c1e372eb6965f0da36c21469ea3",
+                "data": {
+                  "binaryOmitted": true,
+                  "bytes": 752,
+                  "sha256": "69de3fa771ae988d47d33554931077b4cde97c1e372eb6965f0da36c21469ea3"
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

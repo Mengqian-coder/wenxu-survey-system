@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import {
-  buildSurveyPayload, codePointLength, createQuestion, EditorValidationError,
+  buildSurveyPayload, buildQuestionContent, codePointLength, createQuestion, EditorValidationError, versionToInstance,
   invalidJumpTargets, moveItem, removeInvalidJumpTargets, removeQuestionOption,
   surveyToForm,
 } from '../src/editor-utils.js';
@@ -9,6 +9,7 @@ import {
 const target = questionId => ({ kind: 'question', questionId });
 const rule = (id, questionId, value = 'a') => ({ id, condition: { operator: 'eq', value }, target: target(questionId) });
 const simple = (id, jumpRules = []) => ({
+  questionId: id.replace(/[^0-9]/g, '').padStart(24, '0'), versionId: '100000000000000000000001', versionNo: 1,
   id, type: 'single', title: `问题 ${id}`, description: '', required: true,
   options: [{ id: 'a', label: '选项 A' }, { id: 'b', label: '选项 B' }], validation: {}, jumpRules,
 });
@@ -56,10 +57,38 @@ test('表单将字符串限制转换为严格数字并省略未配置上下限',
   const number = createQuestion('number');
   number.title = '每周学习小时';
   number.validation = { integerOnly: true, min: '0', max: '' };
+  assert.deepEqual(buildQuestionContent(number).validation, { integerOnly: true, min: 0 });
+  number.questionId = '100000000000000000000001'; number.versionId = '200000000000000000000001';
   const payload = buildSurveyPayload(form([number]), { publish: true });
-  assert.deepEqual(payload.questions[0].validation, { integerOnly: true, min: 0 });
+  assert.deepEqual(Object.keys(payload.questions[0]).sort(), ['id', 'jumpRules', 'questionId', 'required', 'versionId']);
   assert.equal(payload.deadlineAt, null);
   assert.equal(payload.questions[0].id, number.id);
+});
+
+test('问卷只发送引用和卷内配置，不把快照内容、版本号或来源写回', () => {
+  const question = {...simple('q1'), ownerId: 'private', origin: {kind: 'copy'}};
+  const result = buildSurveyPayload(form([question])).questions[0];
+  assert.deepEqual(result, {id: 'q1', questionId: question.questionId, versionId: question.versionId, required: true, jumpRules: []});
+  assert.throws(() => buildSurveyPayload(form([{...createQuestion('text'), title: '尚未入库'}])), /尚未保存/);
+  assert.throws(() => buildSurveyPayload(form([question, {...question, id: 'q2', versionId: '300000000000000000000001'}])), /只能出现一次/);
+});
+
+test('替换版本保留卷内ID和必答，清空可能失效的本题跳转', () => {
+  const previous = simple('q1', [rule('a', 'q2')]); previous.required = false;
+  const version = {_id: '300000000000000000000001', versionNo: 3, content: {type: 'text', title: '新题干', description: '', validation: {maxLength: 100}}};
+  const next = versionToInstance(previous.questionId, version, previous);
+  assert.equal(next.id, previous.id); assert.equal(next.required, false); assert.equal(next.versionNo, 3);
+  assert.deepEqual(next.jumpRules, []); assert.equal(next.title, '新题干'); assert.equal(previous.jumpRules.length, 1);
+});
+
+test('再次选用当前版本不清空已配置跳转，返回配置不与原对象共享', () => {
+  const previous = simple('q1', [rule('a', 'q2')]); previous.required = false;
+  const version = {_id: previous.versionId, versionNo: 1, content: {type: previous.type, title: previous.title, options: previous.options, validation: previous.validation}};
+  const next = versionToInstance(previous.questionId, version, previous);
+  assert.equal(next.id, previous.id); assert.equal(next.required, false);
+  assert.deepEqual(next.jumpRules, previous.jumpRules);
+  next.jumpRules[0].target.questionId = 'another';
+  assert.equal(previous.jumpRules[0].target.questionId, 'q2');
 });
 
 test('已发布问卷仅生成允许修改的字段，不携带锁定题目和身份配置', () => {

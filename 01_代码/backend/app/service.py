@@ -9,7 +9,7 @@ from pymongo.errors import DuplicateKeyError
 from pymongo.read_concern import ReadConcern
 from pymongo.write_concern import WriteConcern
 
-from .domain import validate_questions, validate_submission, preview_answers
+from .domain import validate_submission, preview_answers
 from .errors import APIError
 from .security import (
     decode_token, dummy_hash, issue_token, normalize_username, password_hasher,
@@ -82,44 +82,48 @@ class SurveyService:
             raise APIError(401, "INVALID_TOKEN", "账号不存在或认证已失效")
         return user
 
-    def _expire(self, survey, now=None):
+    def _expire(self, survey, now=None, session=None):
         now = now or utcnow()
         if survey["status"] == "published" and survey["deadlineAt"] is not None and survey["deadlineAt"] <= now:
             updated = self.db.surveys.find_one_and_update(
                 {"_id": survey["_id"], "status": "published", "deadlineAt": {"$lte": now}},
                 [{"$set": {"status": "closed", "closedAt": "$deadlineAt", "closeReason": "deadline", "updatedAt": now,
-                            "revision": {"$add": ["$revision", 1]}}}], return_document=ReturnDocument.AFTER,
+                            "revision": {"$add": ["$revision", 1]}}}], return_document=ReturnDocument.AFTER, session=session,
             )
-            return updated or self.db.surveys.find_one({"_id": survey["_id"]})
+            return updated or self.db.surveys.find_one({"_id": survey["_id"]}, session=session)
         return survey
 
-    def owned(self, survey_id, user):
-        survey = self.db.surveys.find_one({"_id": object_id(survey_id), "ownerId": user["_id"]})
+    def owned(self, survey_id, user, session=None):
+        survey = self.db.surveys.find_one({"_id": object_id(survey_id), "ownerId": user["_id"]}, session=session)
         if not survey:
             raise APIError(404, "NOT_FOUND", "问卷不存在")
-        return self._expire(survey)
+        return self._expire(survey, session=session)
 
     @staticmethod
     def _deadline(value, now):
         if value is not None and value <= now:
             raise APIError(422, "INVALID_DEADLINE", "截止时间必须晚于当前时间")
 
-    def create(self, body, user):
+    def create(self, body, user, session=None):
+        from .question_service import QuestionService
         now = utcnow()
         self._deadline(body.deadlineAt, now)
-        questions = validate_questions([q.model_dump(exclude_none=True) for q in body.questions])
+        questions = QuestionService(self.db).bind(body.questions, user, session=session)
         doc = dict(
             _id=ObjectId(), ownerId=user["_id"], publicId=secrets.token_hex(16),
             title=body.title, description=body.description, settings=body.settings.model_dump(),
-            deadlineAt=body.deadlineAt, status="draft", questions=questions, schemaVersion=1, revision=1,
+            deadlineAt=body.deadlineAt, status="draft", questions=questions, schemaVersion=2, revision=1,
             createdAt=now, updatedAt=now, publishedAt=None, closedAt=None, closeReason=None,
         )
         ensure_size(doc)
         for _ in range(3):
             try:
-                self.db.surveys.insert_one(doc)
+                self.db.surveys.insert_one(doc, session=session)
                 return serialize(doc)
             except DuplicateKeyError:
+                if session is not None:
+                    # A failed transaction cannot be reused after a unique-key error.
+                    raise
                 doc["publicId"] = secrets.token_hex(16)
         raise APIError(503, "ID_COLLISION", "暂时无法分配分享标识，请重试")
 
@@ -148,8 +152,9 @@ class SurveyService:
             doc.pop("questions", None)
         return serialize(dict(items=docs, total=self.db.surveys.count_documents(query), page=page, pageSize=page_size))
 
-    def patch(self, survey_id, body, user):
-        survey = self.owned(survey_id, user)
+    def patch(self, survey_id, body, user, session=None):
+        from .question_service import QuestionService
+        survey = self.owned(survey_id, user, session=session)
         if survey["revision"] != body.revision:
             raise APIError(409, "REVISION_CONFLICT", "问卷已被修改，请刷新后重试")
         fields = body.model_fields_set - {"revision"}
@@ -167,7 +172,9 @@ class SurveyService:
             # the MongoDB settings object always contains both required flags.
             values["settings"] = body.settings.model_dump()
         if "questions" in fields:
-            values["questions"] = validate_questions([q.model_dump(exclude_none=True) for q in body.questions])
+            if survey["schemaVersion"] != 2:
+                raise APIError(409, "LEGACY_SURVEY_REQUIRES_MIGRATION", "旧版问卷需先迁移后才能修改题目结构")
+            values["questions"] = QuestionService(self.db).bind(body.questions, user, survey["questions"], session)
         if "deadlineAt" in fields:
             self._deadline(body.deadlineAt, now)
         values["updatedAt"] = now
@@ -176,31 +183,33 @@ class SurveyService:
         query = {"_id": survey["_id"], "ownerId": user["_id"], "revision": body.revision, "status": survey["status"]}
         if survey["status"] == "published":
             query["$or"] = [{"deadlineAt": None}, {"deadlineAt": {"$gt": now}}]
-        updated = self.db.surveys.find_one_and_update(query, {"$set": values, "$inc": {"revision": 1}}, return_document=ReturnDocument.AFTER)
+        updated = self.db.surveys.find_one_and_update(query, {"$set": values, "$inc": {"revision": 1}}, return_document=ReturnDocument.AFTER, session=session)
         if not updated:
             raise APIError(409, "REVISION_CONFLICT", "问卷状态已改变，请刷新后重试")
         return serialize(updated)
 
-    def publish(self, survey_id, revision, user):
-        survey = self.owned(survey_id, user)
+    def publish(self, survey_id, revision, user, session=None):
+        from .question_service import validate_snapshot
+        survey = self.owned(survey_id, user, session=session)
         if survey["revision"] != revision:
             raise APIError(409, "REVISION_CONFLICT", "问卷已被修改，请刷新后重试")
         if survey["status"] != "draft":
             raise APIError(409, "INVALID_STATE", "只有草稿问卷可以发布")
-        validate_questions(survey["questions"], publish=True)
+        validate_snapshot(survey["questions"], publish=True)
         now = utcnow()
         self._deadline(survey["deadlineAt"], now)
         updated = self.db.surveys.find_one_and_update(
             {"_id": survey["_id"], "ownerId": user["_id"], "revision": revision, "status": "draft"},
             {"$set": {"status": "published", "publishedAt": now, "updatedAt": now}, "$inc": {"revision": 1}},
             return_document=ReturnDocument.AFTER,
+            session=session,
         )
         if not updated:
             raise APIError(409, "REVISION_CONFLICT", "问卷已改变，请刷新后重试")
         return serialize(updated)
 
-    def close(self, survey_id, revision, user):
-        survey = self.owned(survey_id, user)
+    def close(self, survey_id, revision, user, session=None):
+        survey = self.owned(survey_id, user, session=session)
         if survey["revision"] != revision:
             raise APIError(409, "REVISION_CONFLICT", "问卷已被修改，请刷新后重试")
         if survey["status"] != "published":
@@ -210,6 +219,7 @@ class SurveyService:
             {"_id": survey["_id"], "ownerId": user["_id"], "revision": revision, "status": "published"},
             {"$set": {"status": "closed", "closedAt": now, "closeReason": "manual", "updatedAt": now}, "$inc": {"revision": 1}},
             return_document=ReturnDocument.AFTER,
+            session=session,
         )
         if not updated:
             raise APIError(409, "REVISION_CONFLICT", "问卷已改变，请刷新后重试")
@@ -229,7 +239,8 @@ class SurveyService:
         # Exclude internal rule definitions and ownership from participant data.
         fields = ("_id", "publicId", "title", "description", "status", "settings", "deadlineAt", "questions")
         public = {k: survey[k] for k in fields}
-        public["questions"] = [{k: v for k, v in q.items() if k != "jumpRules"} for q in survey["questions"]]
+        allowed = {"id", "type", "title", "description", "required", "validation", "options"}
+        public["questions"] = [{k: v for k, v in q.items() if k in allowed} for q in survey["questions"]]
         public["canSubmit"] = survey["settings"]["allowRepeat"] or not self.db.participations.find_one({"surveyId": survey["_id"], "userId": user["_id"]})
         return serialize(public)
 
@@ -242,8 +253,9 @@ class SurveyService:
         return {"submissionKey": key, "submissionToken": token}
 
     def preview(self, public_id, body, user):
+        from .question_service import answer_definition
         survey = self._public(public_id)
-        return preview_answers(survey["questions"], [a.model_dump() for a in body.answers], body.changedQuestionId)
+        return preview_answers(answer_definition(survey["questions"]), [a.model_dump() for a in body.answers], body.changedQuestionId)
 
     @staticmethod
     def _retry_matches(existing, answers, user, survey):
@@ -252,13 +264,14 @@ class SurveyService:
         return {"submitted": True}
 
     def submit(self, public_id, body, user, received_at):
+        from .question_service import answer_definition
         survey = self.db.surveys.find_one({"publicId": public_id})
         if not survey or survey["status"] == "draft":
             raise APIError(404, "NOT_FOUND", "问卷不存在或尚未发布")
         claims = decode_token(self.settings, body.submissionToken, "submission")
         if claims["sub"] != str(user["_id"]) or claims.get("sid") != str(survey["_id"]) or claims.get("key") != body.submissionKey:
             raise APIError(403, "SUBMISSION_TOKEN_MISMATCH", "填写凭据与账号、问卷或提交标识不匹配")
-        answers = validate_submission(survey["questions"], [a.model_dump() for a in body.answers])
+        answers = validate_submission(answer_definition(survey["questions"]), [a.model_dump() for a in body.answers])
         key_query = {"surveyId": survey["_id"], "submissionKey": body.submissionKey}
         existing = self.db.responses.find_one(key_query)
         if existing:

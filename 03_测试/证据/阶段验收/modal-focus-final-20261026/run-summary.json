@@ -1,0 +1,47 @@
+{
+    "date":  "2026-10-26",
+    "scope":  "Selected Edge browser checks against isolated QA services; no backend full-suite rerun",
+    "regressionBeforeFix":  {
+                                "expected":  0,
+                                "unexpected":  1,
+                                "file":  "../modal-focus-before-20261026-allowed/results.json",
+                                "observed":  "After the first character 课, the bank-name input became inactive"
+                            },
+    "browser":  {
+                    "startTime":  "2026-10-26T05:35:23.651Z",
+                    "duration":  55150.567,
+                    "expected":  6,
+                    "skipped":  0,
+                    "unexpected":  0,
+                    "flaky":  0
+                },
+    "browserFiles":  [
+                         "management.spec.js",
+                         "version-switch.spec.js"
+                     ],
+    "frontendUnit":  {
+                         "source":  "npm --prefix frontend test tool output in this task",
+                         "failed":  0,
+                         "passed":  39
+                     },
+    "productionBuild":  {
+                            "runtime8001PageStatus":  200,
+                            "runtime8001AssetStatus":  200,
+                            "asset":  "/assets/index-B6PloyOh.js",
+                            "passed":  true
+                        },
+    "sourceHashesAtRecordTime":  {
+                                     "frontend/src/components.jsx":  "71778d60cdd9aeb41ad048c28c608df6868fef46f4c2e58f82ff6e6d17ad6f52",
+                                     "frontend/tests/management.spec.js":  "083e248a504210a41c44fd2de8914ffee3d0d412f51e810f587fdc784eead775",
+                                     "frontend/dist/index.html":  "10501bb591c8677e6475df52ee2748a20313e8aa5b82dec7925d3935ba6bc7d0",
+                                     "frontend/dist/assets/index-B6PloyOh.js":  "66b7ecf6abb10cb128518f36afbc90cb49d87c495568e7b3fda934bb18bfa223"
+                                 },
+    "evidence":  [
+                     "results.json",
+                     "report/index.html"
+                 ],
+    "limitations":  [
+                        "Character insertion is checked in real Edge; native operating-system IME composition is not automated",
+                        "Focus return is asserted for Escape/cancel with an enabled trigger; asynchronous-save return focus is outside this fix"
+                    ]
+}

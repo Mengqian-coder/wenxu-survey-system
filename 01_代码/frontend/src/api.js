@@ -1,4 +1,5 @@
 const BASE = '/api';
+import {executeMutation, prepareMutation} from './mutations';
 
 export class ApiError extends Error {
   constructor(message, {status = 0, code = 'NETWORK_ERROR', details = null} = {}) {
@@ -8,10 +9,10 @@ export class ApiError extends Error {
   }
 }
 
-async function request(method, path, data) {
+async function request(method, path, data, extraHeaders = {}) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), 25000);
-  const headers = {Accept: 'application/json'};
+  const headers = {Accept: 'application/json', ...extraHeaders};
   const token = sessionStorage.getItem('wenxu.access');
   if (token) headers.Authorization = `Bearer ${token}`;
   if (data !== undefined) headers['Content-Type'] = 'application/json';
@@ -44,6 +45,8 @@ export const api = {
   get: path => request('GET', path),
   post: (path, data) => request('POST', path, data),
   patch: (path, data) => request('PATCH', path, data),
+  mutate: (actorId, slot, method, path, data, label) => executeMutation(prepareMutation(actorId, slot, method, path, data, {label}), request),
+  retryMutation: entry => executeMutation(entry, request),
 };
 
 export const dateTime = value => value ? new Intl.DateTimeFormat('zh-CN', {

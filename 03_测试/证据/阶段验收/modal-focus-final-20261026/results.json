@@ -1,0 +1,354 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.EXE",
+      "D:\\I_love_studying\\快乐数据大三上\\数据库系统\\数据库实验\\提交材料\\问序_GitHub\\01_代码\\frontend\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "management.spec.js",
+      "version-switch.spec.js"
+    ],
+    "configFile": "D:\\I_love_studying\\快乐数据大三上\\数据库系统\\数据库实验\\提交材料\\问序_GitHub\\01_代码\\frontend\\playwright.config.js",
+    "rootDir": "D:/I_love_studying/快乐数据大三上/数据库系统/数据库实验/提交材料/问序_GitHub/01_代码/frontend/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/I_love_studying/快乐数据大三上/数据库系统/数据库实验/提交材料/问序_GitHub/01_代码/output/modal-focus-final-20261026/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "D:/I_love_studying/快乐数据大三上/数据库系统/数据库实验/提交材料/问序_GitHub/01_代码/frontend/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.js"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\I_love_studying\\快乐数据大三上\\数据库系统\\数据库实验\\提交材料\\问序_GitHub\\01_代码\\output\\modal-focus-final-20261026\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "",
+        "testDir": "D:\\I_love_studying\\快乐数据大三上\\数据库系统\\数据库实验\\提交材料\\问序_GitHub\\01_代码\\frontend\\tests",
+        "snapshotDir": "D:\\I_love_studying\\快乐数据大三上\\数据库系统\\数据库实验\\提交材料\\问序_GitHub\\01_代码\\frontend\\tests",
+        "testIgnore": [],
+        "testMatch": "**/*.spec.js",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:56135",
+          "channel": "msedge",
+          "headless": true,
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "actionTimeout": 10000,
+          "navigationTimeout": 15000,
+          "screenshot": "only-on-failure",
+          "trace": "retain-on-failure"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": ""
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "html",
+        {
+          "outputFolder": "D:\\I_love_studying\\快乐数据大三上\\数据库系统\\数据库实验\\提交材料\\问序_GitHub\\01_代码\\output\\modal-focus-final-20261026\\report",
+          "open": "never"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "D:\\I_love_studying\\快乐数据大三上\\数据库系统\\数据库实验\\提交材料\\问序_GitHub\\01_代码\\output\\modal-focus-final-20261026\\results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "management.spec.js",
+      "file": "management.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "题库弹窗逐字符输入保持焦点，支持编辑、键盘导航和取消回焦",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4625,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-26T05:35:24.254Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bd49cee0b7dfb65b9204-62a712cc7185d6142ae4",
+          "file": "management.spec.js",
+          "line": 48,
+          "column": 1
+        },
+        {
+          "title": "历史恢复、整题共享、独立副本再共享、撤权后旧草稿发布、引用隐私和题库管理",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 15713,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-26T05:35:29.213Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bd49cee0b7dfb65b9204-fc1dadcee45e699e5801",
+          "file": "management.spec.js",
+          "line": 142,
+          "column": 1
+        },
+        {
+          "title": "慢请求返回时不能把上一题库或题目的内容覆盖到当前编辑对象",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5704,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-26T05:35:44.941Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bd49cee0b7dfb65b9204-92101d36fcf834a206b6",
+          "file": "management.spec.js",
+          "line": 217,
+          "column": 1
+        },
+        {
+          "title": "归档题仍可加入多个题库整理，题库删除的丢失响应用原请求确认",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 15145,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-26T05:35:50.660Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bd49cee0b7dfb65b9204-408b4180ef8b4b433407",
+          "file": "management.spec.js",
+          "line": 241,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "version-switch.spec.js",
+      "file": "version-switch.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "删除选项的换版影响显式告知，取消不改配置，确认并保存后仅清空本题跳转",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7787,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "重新查看当前版本不会重设跳转",
+                      "duration": 317
+                    },
+                    {
+                      "title": "预览显示版本与卷内配置边界及具体影响",
+                      "duration": 1411
+                    },
+                    {
+                      "title": "确认仅改本地，保存才提交，保留其他卷内配置",
+                      "duration": 1464
+                    }
+                  ],
+                  "startTime": "2026-10-26T05:36:05.844Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fe26d635a04245a54bfb-20f20e46100a3f0d8b03",
+          "file": "version-switch.spec.js",
+          "line": 64,
+          "column": 1
+        },
+        {
+          "title": "没有本题跳转时仍说明换版和题型变化，选用后无需清空规则确认且保存前不落库",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4094,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-26T05:36:13.651Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fe26d635a04245a54bfb-8116037440d022f11018",
+          "file": "version-switch.spec.js",
+          "line": 168,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-26T05:35:23.651Z",
+    "duration": 55150.567,
+    "expected": 6,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "runId": "20261023T050525Z-management-backend-8b1fe5",
+  "scope": "All backend tests; source hash covers backend app/tests/scripts/requirements and database definitions only. Frontend is verified separately.",
+  "suites": {
+    "backend": {
+      "exitCode": 0,
+      "counts": {
+        "total": 508,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0,
+        "passed": 508
+      },
+      "elapsedSeconds": 440.511
+    }
+  },
+  "sourceFilesSha256": {
+    "backend/app/__init__.py": "7a759f67dee9283b937657ae526e2b415cba36019dcd14a5dd2a9857266afbc5",
+    "backend/app/bank_contracts.py": "469d755aae6e40293ca2003cf8507726166d5b8d750477e2f0c210e60f5212d7",
+    "backend/app/bank_service.py": "5c117fc201c3a81901a8b403fc5e9bdaa7ccab29ddee932cf1958588f2e9697d",
+    "backend/app/bootstrap.py": "81030b835e052c774b5114091a8bf85f81229198338a818c26025a31e20c3c7f",
+    "backend/app/config.py": "1d23080b6c1cd68cf04af557358894805d34da6e648fc1c8efbe29708410ed25",
+    "backend/app/domain.py": "a674f026d34cbef54c36d3fd61b5a3b64b7367e055a6ccd851184448772877d5",
+    "backend/app/errors.py": "5e500dd90f23e0437dcfbeabaa8d804856283399575209f7d03951e20925e44d",
+    "backend/app/frontend.py": "ec55124019bc70a677c098f8c46698ea7b1f7acf03f5edab6a1ea40cd5015210",
+    "backend/app/idempotency.py": "4bf973fb2af0757d16bdabe746f640e7cb030c9942b286c95da6ae0aa2c8187f",
+    "backend/app/main.py": "f6e7de0430fa83feb0680a89fd8b3c1b559110b7a85a39514a2bf727f243f39d",
+    "backend/app/migration.py": "69479f3d4d61f863c7b68e11c7eb84c6fc2859cf313d8c5590af86f34a2ace0c",
+    "backend/app/models.py": "9a85e108708c81b8620c8560b8a74b876dac7ddf163d4e62f8f84dabb5d9b404",
+    "backend/app/question_service.py": "2678afb777f81cf9727c7663330e3d91b89db79958d5a258ee556103d13a4f87",
+    "backend/app/security.py": "1d9d8530b76d53bcf6c8fc9dda251e673c23ed0a5f9168fdcbd48dd3537786e0",
+    "backend/app/service.py": "53b2e6985f7b27b5de19dcfc2c24f3bd6fa47783e0004a93727ff650790c5093",
+    "backend/app/statistics_contracts.py": "6c20f5273f81a0392bb692a6a80f9e542cc46992d7eea6c5b98dd7e650006d0c",
+    "backend/app/statistics_service.py": "a391ee070f34c613a33e60a569be7dc5bddc3460fe6be516798c5358af9af4cf",
+    "backend/app/views.py": "aeb80ffc77c161b2a142120f84501f66438af7265c1a214894d701f578fbd9c3",
+    "backend/requirements-lock.txt": "7113a05e824421b4c8f6a294d1ff33aa2e1f5d198aa32a0d34fd068ecd94e209",
+    "backend/requirements.txt": "fe1d472aca85bbfb8fc1a0da08ae043b5ff2e341d834a893338aa34e80c1be99",
+    "backend/scripts/create_delivery.py": "10e13891df27bd5aad35b503b0a1fb0eb6e04742d13edb347566ab2d36c4e816",
+    "backend/scripts/dev_mongo.py": "054fdd24b87fbdae4f38e1bcd0ff4212c72c12be1e3e5b6bea58650f63dd01b9",
+    "backend/scripts/migrate_legacy_surveys.py": "51d4a493efa31aaf3867104b3c97305331806730fbbb0123300f87d302281164",
+    "backend/scripts/run_tests.py": "27e9346c3cccf96b68369d642ed60b67b064bfc4329b655ef8bdcd4c0a21c4bb",
+    "backend/scripts/setup_env.py": "042fc134a2c40bd0911bb1e9205c815f81073ec2390c1e36f8447ecae677371d",
+    "backend/tests/conftest.py": "fdb507563caefe57c9c320dd94c6ce76898030a588b756893888e41541952a9e",
+    "backend/tests/test_api.py": "c12b1958f08f07ab4a8839a33a0e6003c4c5ea5f9d797872409c798b25bcbfd3",
+    "backend/tests/test_consistency.py": "ddb380d4e5f4af884927fd993b0a6d89ab1eb68bf886bff2721cee695775eccd",
+    "backend/tests/test_cross_survey_statistics.py": "0f14350375551f2e2ea7a0cae2edd121305516c99f474811ca477749b03931a9",
+    "backend/tests/test_database_schema.py": "c15a88fb443a51952b9d1264644fea18a6db7c841d8196d5e9b23497f0a86090",
+    "backend/tests/test_domain.py": "63e5996bc16c5360098186cbaf769be860bff82ff36630f4632c657368e3ccba",
+    "backend/tests/test_frontend_support.py": "4e0d9b211090968dacc19f171c90333bbbb75f8a7e15b809a1f8834def0e4087",
+    "backend/tests/test_legacy_migration.py": "c646f6c8281c7b86a8989c07eb0f01ec13ebcf0f10808b91bfbd6d2cfa74ebad",
+    "backend/tests/test_library_flow.py": "480a86a1fc0f3f45da5a52ff4b8374fbac1934e9ad73518f1a20e6b702608f7b",
+    "backend/tests/test_library_schema.py": "b1be990e5234b21002e552b7873a93ced867f918fe757aaf1befaa5e442f59ae",
+    "backend/tests/test_management_races.py": "428e9ff4ef406452ae5a4a08c59dfae0dbcb40c7de100921e79eecaf4c2d0f57",
+    "backend/tests/test_mutation_idempotency.py": "a0d487ee4315e9afb71aac8fdb7184db8b725782023a49cc4976fdf741afe180",
+    "backend/tests/test_question_banks.py": "ff66c131a7b61a95b5e2f5bcb499dc8b02b7d27119b539296e6bf4f59b6c3374",
+    "backend/tests/test_question_sharing.py": "f9cea51b963680ad60639ea7c8f1b6357957e46c5bbc60fcdb5e17e125d0bd59",
+    "database/export-schema.js": "8ead927445c84da8da844f50b9ec07808fec2bf1b7dfacc7b5ffa3fd0e4b18bf",
+    "database/init-mongodb.js": "31a10f94f4d6deca27b366935584307ba84a8b8b53b8dc9dbbfbbbd47de4ddde",
+    "database/schema-definitions.json": "cb814e5020c201fa36e30ebd1f8d92181c23f0836e749fa5921edcc198f54370"
+  },
+  "sourcesUnchangedDuringRun": true,
+  "passed": true
+}

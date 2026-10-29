@@ -37,12 +37,14 @@ export function EmptyState({icon = 'file', title, description, action}) {
 }
 export function Modal({open, title, children, onClose, onConfirm, confirmText = '确认', cancelText = '取消', danger, busy, footer}) {
   const dialog = useRef(null), previousFocus = useRef(null);
+  const latest = useRef({busy, onClose});
+  useEffect(() => {latest.current = {busy, onClose};}, [busy, onClose]);
   useEffect(() => {
     if (!open) return;
     previousFocus.current = document.activeElement;
     dialog.current?.focus();
     const keydown = event => {
-      if (event.key === 'Escape' && !busy) onClose?.();
+      if (event.key === 'Escape' && !latest.current.busy) latest.current.onClose?.();
       if (event.key !== 'Tab') return;
       const items = Array.from(dialog.current?.querySelectorAll('button:not(:disabled), input, select, textarea, a[href], [tabindex="0"]') || []);
       if (!items.length) { event.preventDefault(); return; }
@@ -54,7 +56,7 @@ export function Modal({open, title, children, onClose, onConfirm, confirmText = 
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
     return () => {document.removeEventListener('keydown', keydown); document.body.style.overflow = previousOverflow; previousFocus.current?.focus();};
-  }, [open, busy, onClose]);
+  }, [open]);
   if (!open) return null;
   return <div className="modal-backdrop" onMouseDown={e => e.target === e.currentTarget && !busy && onClose?.()}>
     <section className="modal" ref={dialog} role="dialog" aria-modal="true" aria-labelledby="dialog-title" tabIndex={-1}>

@@ -23,6 +23,8 @@ from app.domain import DomainError, validate_questions
 
 
 COLLECTIONS = ("users", "surveys", "responses", "participations")
+ALL_COLLECTIONS = (*COLLECTIONS, "questions", "question_versions", "question_shares",
+                   "question_banks", "question_bank_items", "mutation_receipts", "mutation_response_chunks")
 NOW = datetime(2026, 10, 19, 2, 0, 0, 123000, tzinfo=timezone.utc)
 USER_ID = ObjectId("000000000000000000000001")
 OTHER_USER_ID = ObjectId("000000000000000000000002")
@@ -160,7 +162,7 @@ def metadata_snapshot(database):
             "options": database[name].options(),
             "indexes": sorted((dict(index) for index in database[name].list_indexes()), key=lambda item: item["name"]),
         }
-        for name in COLLECTIONS
+        for name in ALL_COLLECTIONS
     }
 
 
@@ -465,6 +467,7 @@ EXPECTED_INDEXES = {
         "_id_": ([("_id", 1)], True),
         "uq_surveys_publicId": ([("publicId", 1)], True),
         "ix_surveys_owner_created": ([("ownerId", 1), ("createdAt", -1), ("_id", -1)], False),
+        "ix_surveys_question_owner": ([("questions.questionId", 1), ("ownerId", 1)], False),
     },
     "responses": {
         "_id_": ([("_id", 1)], True),
@@ -479,7 +482,7 @@ EXPECTED_INDEXES = {
 
 
 def test_index_names_keys_order_and_uniqueness_match_the_contract(schema_db):
-    assert set(schema_db.list_collection_names()) == set(COLLECTIONS)
+    assert set(schema_db.list_collection_names()) == set(ALL_COLLECTIONS)
     for name, expected in EXPECTED_INDEXES.items():
         actual = {index["name"]: index for index in schema_db[name].list_indexes()}
         assert set(actual) == set(expected)

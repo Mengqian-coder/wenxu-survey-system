@@ -105,7 +105,7 @@ export class EditorValidationError extends Error {
 }
 
 /** Normalize UI strings into strict request types; collect readable problems. */
-export function buildSurveyPayload(form, { locked = false, publish = false, now = Date.now() } = {}) {
+function normalizeSurvey(form, { locked = false, publish = false, now = Date.now() } = {}) {
   const issues = [];
   const add = (message, questionId, field) => issues.push({ message, questionId, field });
   const text = (value, max, label, questionId, required = false) => {
@@ -216,4 +216,36 @@ export function buildSurveyPayload(form, { locked = false, publish = false, now 
   }
   if (issues.length) throw new EditorValidationError(issues);
   return payload;
+}
+
+export function buildQuestionContent(question) {
+  const normalized = normalizeSurvey({title: '题目', description: '', settings: {anonymous: true, allowRepeat: false}, deadline: '', questions: [{...question, required: false, jumpRules: []}]}).questions[0];
+  const {id, required, jumpRules, ...content} = normalized;
+  return content;
+}
+
+export function buildSurveyPayload(form, options = {}) {
+  const payload = normalizeSurvey(form, options);
+  if (!payload.questions) return payload;
+  const issues = [], seen = new Set();
+  payload.questions = payload.questions.map((question, index) => {
+    const source = form.questions[index];
+    if (!/^[a-f0-9]{24}$/.test(source.questionId || '') || !/^[a-f0-9]{24}$/.test(source.versionId || '')) {
+      issues.push({questionId: source.id, message: `第 ${index + 1} 题尚未保存为独立题目，请从题目列表选用正式版本`});
+    }
+    if (seen.has(source.questionId)) issues.push({questionId: source.id, message: '同一道题目在一份问卷中只能出现一次，不同版本也不能重复'});
+    seen.add(source.questionId);
+    return {id: question.id, questionId: source.questionId, versionId: source.versionId, required: question.required, jumpRules: question.jumpRules};
+  });
+  if (issues.length) throw new EditorValidationError(issues);
+  return payload;
+}
+
+export function versionToInstance(questionId, version, previous = null) {
+  return {
+    ...structuredClone(version.content), id: previous?.id || makeId('q'),
+    questionId, versionId: version._id, versionNo: version.versionNo,
+    required: previous?.required ?? true,
+    jumpRules: previous?.questionId === questionId && previous.versionId === version._id ? structuredClone(previous.jumpRules) : [],
+  };
 }

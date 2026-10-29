@@ -1,0 +1,2127 @@
+{
+  "documents": [
+    "README.md",
+    "01_代码/backend/README.md",
+    "01_代码/frontend/README.md",
+    "02_文档/01_系统说明.md",
+    "02_文档/02_数据库设计.md",
+    "02_文档/03_API说明.md",
+    "02_文档/04_关键逻辑说明.md",
+    "02_文档/05_AI使用日志.md",
+    "02_文档/06_新版业务规则.md",
+    "02_文档/07_新版数据模型设计.md",
+    "02_文档/08_新版接口设计.md",
+    "02_文档/09_基础流程实现说明.md",
+    "02_文档/10_管理能力实现说明.md",
+    "02_文档/11_跨问卷统计实现说明.md",
+    "02_文档/12_旧问卷显式迁移说明.md",
+    "02_文档/13_第二阶段AI使用日志.md",
+    "02_文档/附件/前端设计.md",
+    "03_测试/01_测试计划与方法.md",
+    "03_测试/02_用例覆盖表.md",
+    "03_测试/03_执行结果.md",
+    "03_测试/04_关闭与提交竞争专项.md",
+    "03_测试/05_版本快照与权限执行证据.md",
+    "03_测试/06_新增功能人工体验脚本.md",
+    "03_测试/07_校验边界与反例补测.md",
+    "03_测试/README.md",
+    "03_测试/证据/版本快照权限专项/20261025/验收摘要.md",
+    "03_测试/证据/阶段验收/modal-focus-before-20261026-allowed/report/data/4f8e063bfa2ac1b65c74afb9725a798ae9f059b5.md",
+    "03_测试/证据/阶段验收/modal-focus-before-20261026-allowed/原始失败附件/management-题库弹窗逐字符输入保持焦点，支持编辑、键盘导航和关闭回焦/error-context.md",
+    "04_项目完成报告/问序第二阶段项目完成报告.md"
+  ],
+  "documentCount": 29,
+  "localReferenceCount": 298,
+  "missingReferences": [],
+  "runtimeOutputDependencies": [],
+  "htmlResourceCount": 17,
+  "missingHtmlResources": [],
+  "references": [
+    {
+      "document": "README.md",
+      "target": "01_代码/frontend/README.md",
+      "resolved": "01_代码/frontend/README.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "README.md",
+      "target": "02_文档/06_新版业务规则.md",
+      "resolved": "02_文档/06_新版业务规则.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "README.md",
+      "target": "03_测试/README.md",
+      "resolved": "03_测试/README.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "README.md",
+      "target": "02_文档/09_基础流程实现说明.md",
+      "resolved": "02_文档/09_基础流程实现说明.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "README.md",
+      "target": "02_文档/10_管理能力实现说明.md",
+      "resolved": "02_文档/10_管理能力实现说明.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "README.md",
+      "target": "02_文档/11_跨问卷统计实现说明.md",
+      "resolved": "02_文档/11_跨问卷统计实现说明.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "README.md",
+      "target": "02_文档/12_旧问卷显式迁移说明.md",
+      "resolved": "02_文档/12_旧问卷显式迁移说明.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "README.md",
+      "target": "02_文档/05_AI使用日志.md",
+      "resolved": "02_文档/05_AI使用日志.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "README.md",
+      "target": "02_文档/13_第二阶段AI使用日志.md",
+      "resolved": "02_文档/13_第二阶段AI使用日志.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "README.md",
+      "target": "03_测试/06_新增功能人工体验脚本.md",
+      "resolved": "03_测试/06_新增功能人工体验脚本.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "README.md",
+      "target": "02_文档/附件/openapi-v2.json",
+      "resolved": "02_文档/附件/openapi-v2.json",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "README.md",
+      "target": "01_代码/",
+      "resolved": "01_代码",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "README.md",
+      "target": "02_文档/",
+      "resolved": "02_文档",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "README.md",
+      "target": "03_测试/README.md",
+      "resolved": "03_测试/README.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "01_代码/backend/README.md",
+      "target": "../../README.md",
+      "resolved": "README.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "01_代码/backend/README.md",
+      "target": "../../02_文档/03_API说明.md",
+      "resolved": "02_文档/03_API说明.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "01_代码/backend/README.md",
+      "target": "../../02_文档/04_关键逻辑说明.md",
+      "resolved": "02_文档/04_关键逻辑说明.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "01_代码/backend/README.md",
+      "target": "../../02_文档/02_数据库设计.md",
+      "resolved": "02_文档/02_数据库设计.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "01_代码/backend/README.md",
+      "target": "../../03_测试/README.md",
+      "resolved": "03_测试/README.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "01_代码/frontend/README.md",
+      "target": "../../README.md",
+      "resolved": "README.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "01_代码/frontend/README.md",
+      "target": "../../README.md",
+      "resolved": "README.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "01_代码/frontend/README.md",
+      "target": "../../02_文档/附件/前端设计.md",
+      "resolved": "02_文档/附件/前端设计.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "01_代码/frontend/README.md",
+      "target": "../../02_文档/01_系统说明.md",
+      "resolved": "02_文档/01_系统说明.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "01_代码/frontend/README.md",
+      "target": "../../03_测试/README.md",
+      "resolved": "03_测试/README.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/01_系统说明.md",
+      "target": "../01_代码/frontend/src/",
+      "resolved": "01_代码/frontend/src",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/01_系统说明.md",
+      "target": "../01_代码/backend/app/main.py",
+      "resolved": "01_代码/backend/app/main.py",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/01_系统说明.md",
+      "target": "../01_代码/backend/app/models.py",
+      "resolved": "01_代码/backend/app/models.py",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/01_系统说明.md",
+      "target": "../01_代码/backend/app/service.py",
+      "resolved": "01_代码/backend/app/service.py",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/01_系统说明.md",
+      "target": "../01_代码/backend/app/domain.py",
+      "resolved": "01_代码/backend/app/domain.py",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/01_系统说明.md",
+      "target": "../01_代码/database/",
+      "resolved": "01_代码/database",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/01_系统说明.md",
+      "target": "../README.md",
+      "resolved": "README.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/01_系统说明.md",
+      "target": "02_数据库设计.md",
+      "resolved": "02_文档/02_数据库设计.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/01_系统说明.md",
+      "target": "03_API说明.md",
+      "resolved": "02_文档/03_API说明.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/01_系统说明.md",
+      "target": "04_关键逻辑说明.md",
+      "resolved": "02_文档/04_关键逻辑说明.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/01_系统说明.md",
+      "target": "附件/前端设计.md",
+      "resolved": "02_文档/附件/前端设计.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/01_系统说明.md",
+      "target": "../03_测试/03_执行结果.md",
+      "resolved": "03_测试/03_执行结果.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/01_系统说明.md",
+      "target": "../03_测试/04_关闭与提交竞争专项.md",
+      "resolved": "03_测试/04_关闭与提交竞争专项.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/02_数据库设计.md",
+      "target": "../01_代码/database/init-mongodb.js",
+      "resolved": "01_代码/database/init-mongodb.js",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/02_数据库设计.md",
+      "target": "../01_代码/database/schema-definitions.json",
+      "resolved": "01_代码/database/schema-definitions.json",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/02_数据库设计.md",
+      "target": "../01_代码/backend/app/models.py",
+      "resolved": "01_代码/backend/app/models.py",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/02_数据库设计.md",
+      "target": "../01_代码/backend/app/domain.py",
+      "resolved": "01_代码/backend/app/domain.py",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/02_数据库设计.md",
+      "target": "../01_代码/backend/app/service.py",
+      "resolved": "01_代码/backend/app/service.py",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/02_数据库设计.md",
+      "target": "04_关键逻辑说明.md",
+      "resolved": "02_文档/04_关键逻辑说明.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/02_数据库设计.md",
+      "target": "03_API说明.md",
+      "resolved": "02_文档/03_API说明.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/02_数据库设计.md",
+      "target": "03_API说明.md",
+      "resolved": "02_文档/03_API说明.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/02_数据库设计.md",
+      "target": "04_关键逻辑说明.md",
+      "resolved": "02_文档/04_关键逻辑说明.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/02_数据库设计.md",
+      "target": "../01_代码/backend/app/bootstrap.py",
+      "resolved": "01_代码/backend/app/bootstrap.py",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/02_数据库设计.md",
+      "target": "../README.md",
+      "resolved": "README.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/02_数据库设计.md",
+      "target": "../01_代码/backend/README.md",
+      "resolved": "01_代码/backend/README.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/03_API说明.md",
+      "target": "../01_代码/backend/app/main.py",
+      "resolved": "01_代码/backend/app/main.py",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/03_API说明.md",
+      "target": "../01_代码/backend/app/models.py",
+      "resolved": "01_代码/backend/app/models.py",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/03_API说明.md",
+      "target": "../01_代码/backend/app/service.py",
+      "resolved": "01_代码/backend/app/service.py",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/03_API说明.md",
+      "target": "04_关键逻辑说明.md",
+      "resolved": "02_文档/04_关键逻辑说明.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/03_API说明.md",
+      "target": "04_关键逻辑说明.md",
+      "resolved": "02_文档/04_关键逻辑说明.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/03_API说明.md",
+      "target": "附件/openapi.json",
+      "resolved": "02_文档/附件/openapi.json",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/04_关键逻辑说明.md",
+      "target": "02_数据库设计.md",
+      "resolved": "02_文档/02_数据库设计.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/04_关键逻辑说明.md",
+      "target": "03_API说明.md",
+      "resolved": "02_文档/03_API说明.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/04_关键逻辑说明.md",
+      "target": "../01_代码/backend/app/main.py",
+      "resolved": "01_代码/backend/app/main.py",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/04_关键逻辑说明.md",
+      "target": "../01_代码/backend/app/models.py",
+      "resolved": "01_代码/backend/app/models.py",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/04_关键逻辑说明.md",
+      "target": "../01_代码/backend/app/security.py",
+      "resolved": "01_代码/backend/app/security.py",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/04_关键逻辑说明.md",
+      "target": "../01_代码/backend/app/service.py",
+      "resolved": "01_代码/backend/app/service.py",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/04_关键逻辑说明.md",
+      "target": "../01_代码/backend/app/domain.py",
+      "resolved": "01_代码/backend/app/domain.py",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/04_关键逻辑说明.md",
+      "target": "../01_代码/frontend/src/fill-utils.js",
+      "resolved": "01_代码/frontend/src/fill-utils.js",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/04_关键逻辑说明.md",
+      "target": "../01_代码/frontend/src/pages/Fill.jsx",
+      "resolved": "01_代码/frontend/src/pages/Fill.jsx",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/04_关键逻辑说明.md",
+      "target": "../01_代码/frontend/src/api.js",
+      "resolved": "01_代码/frontend/src/api.js",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/04_关键逻辑说明.md",
+      "target": "03_API说明.md",
+      "resolved": "02_文档/03_API说明.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/04_关键逻辑说明.md",
+      "target": "02_数据库设计.md",
+      "resolved": "02_文档/02_数据库设计.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/06_新版业务规则.md",
+      "target": "09_基础流程实现说明.md",
+      "resolved": "02_文档/09_基础流程实现说明.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/06_新版业务规则.md",
+      "target": "10_管理能力实现说明.md",
+      "resolved": "02_文档/10_管理能力实现说明.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/06_新版业务规则.md",
+      "target": "11_跨问卷统计实现说明.md",
+      "resolved": "02_文档/11_跨问卷统计实现说明.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/06_新版业务规则.md",
+      "target": "../03_测试/README.md",
+      "resolved": "03_测试/README.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/07_新版数据模型设计.md",
+      "target": "06_新版业务规则.md",
+      "resolved": "02_文档/06_新版业务规则.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/07_新版数据模型设计.md",
+      "target": "02_数据库设计.md",
+      "resolved": "02_文档/02_数据库设计.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/07_新版数据模型设计.md",
+      "target": "09_基础流程实现说明.md",
+      "resolved": "02_文档/09_基础流程实现说明.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/07_新版数据模型设计.md",
+      "target": "12_旧问卷显式迁移说明.md",
+      "resolved": "02_文档/12_旧问卷显式迁移说明.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/07_新版数据模型设计.md",
+      "target": "08_新版接口设计.md",
+      "resolved": "02_文档/08_新版接口设计.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/08_新版接口设计.md",
+      "target": "06_新版业务规则.md",
+      "resolved": "02_文档/06_新版业务规则.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/08_新版接口设计.md",
+      "target": "07_新版数据模型设计.md",
+      "resolved": "02_文档/07_新版数据模型设计.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/08_新版接口设计.md",
+      "target": "09_基础流程实现说明.md",
+      "resolved": "02_文档/09_基础流程实现说明.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/08_新版接口设计.md",
+      "target": "10_管理能力实现说明.md",
+      "resolved": "02_文档/10_管理能力实现说明.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/08_新版接口设计.md",
+      "target": "11_跨问卷统计实现说明.md",
+      "resolved": "02_文档/11_跨问卷统计实现说明.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/08_新版接口设计.md",
+      "target": "附件/openapi-v2.json",
+      "resolved": "02_文档/附件/openapi-v2.json",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/08_新版接口设计.md",
+      "target": "附件/openapi-v2-draft.json",
+      "resolved": "02_文档/附件/openapi-v2-draft.json",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/08_新版接口设计.md",
+      "target": "03_API说明.md",
+      "resolved": "02_文档/03_API说明.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/08_新版接口设计.md",
+      "target": "07_新版数据模型设计.md",
+      "resolved": "02_文档/07_新版数据模型设计.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/09_基础流程实现说明.md",
+      "target": "06_新版业务规则.md",
+      "resolved": "02_文档/06_新版业务规则.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/09_基础流程实现说明.md",
+      "target": "07_新版数据模型设计.md",
+      "resolved": "02_文档/07_新版数据模型设计.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/09_基础流程实现说明.md",
+      "target": "08_新版接口设计.md",
+      "resolved": "02_文档/08_新版接口设计.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/09_基础流程实现说明.md",
+      "target": "10_管理能力实现说明.md",
+      "resolved": "02_文档/10_管理能力实现说明.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/09_基础流程实现说明.md",
+      "target": "11_跨问卷统计实现说明.md",
+      "resolved": "02_文档/11_跨问卷统计实现说明.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/09_基础流程实现说明.md",
+      "target": "12_旧问卷显式迁移说明.md",
+      "resolved": "02_文档/12_旧问卷显式迁移说明.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/09_基础流程实现说明.md",
+      "target": "../03_测试/README.md",
+      "resolved": "03_测试/README.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/09_基础流程实现说明.md",
+      "target": "../README.md",
+      "resolved": "README.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/09_基础流程实现说明.md",
+      "target": "附件/openapi-v2-basic.json",
+      "resolved": "02_文档/附件/openapi-v2-basic.json",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/09_基础流程实现说明.md",
+      "target": "../03_测试/证据/阶段验收/test-runs/20261022T094108Z-cd677f/run-summary.json",
+      "resolved": "03_测试/证据/阶段验收/test-runs/20261022T094108Z-cd677f/run-summary.json",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/09_基础流程实现说明.md",
+      "target": "../03_测试/证据/阶段验收/test-runs/20261022T094511Z-aaf2b6/run-summary.json",
+      "resolved": "03_测试/证据/阶段验收/test-runs/20261022T094511Z-aaf2b6/run-summary.json",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/10_管理能力实现说明.md",
+      "target": "09_基础流程实现说明.md",
+      "resolved": "02_文档/09_基础流程实现说明.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/10_管理能力实现说明.md",
+      "target": "06_新版业务规则.md",
+      "resolved": "02_文档/06_新版业务规则.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/10_管理能力实现说明.md",
+      "target": "08_新版接口设计.md",
+      "resolved": "02_文档/08_新版接口设计.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/10_管理能力实现说明.md",
+      "target": "11_跨问卷统计实现说明.md",
+      "resolved": "02_文档/11_跨问卷统计实现说明.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/10_管理能力实现说明.md",
+      "target": "12_旧问卷显式迁移说明.md",
+      "resolved": "02_文档/12_旧问卷显式迁移说明.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/10_管理能力实现说明.md",
+      "target": "../03_测试/README.md",
+      "resolved": "03_测试/README.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/10_管理能力实现说明.md",
+      "target": "附件/openapi-v2-management.json",
+      "resolved": "02_文档/附件/openapi-v2-management.json",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/10_管理能力实现说明.md",
+      "target": "../README.md",
+      "resolved": "README.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/10_管理能力实现说明.md",
+      "target": "../03_测试/证据/阶段验收/test-runs/20261022T101030Z-management-backend-daa43e/run-summary.json",
+      "resolved": "03_测试/证据/阶段验收/test-runs/20261022T101030Z-management-backend-daa43e/run-summary.json",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/10_管理能力实现说明.md",
+      "target": "../03_测试/证据/阶段验收/frontend-management-final-unit.tap",
+      "resolved": "03_测试/证据/阶段验收/frontend-management-final-unit.tap",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/10_管理能力实现说明.md",
+      "target": "../03_测试/证据/阶段验收/frontend-management-final/results.json",
+      "resolved": "03_测试/证据/阶段验收/frontend-management-final/results.json",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/10_管理能力实现说明.md",
+      "target": "../03_测试/证据/阶段验收/frontend-management-final/report/index.html",
+      "resolved": "03_测试/证据/阶段验收/frontend-management-final/report/index.html",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/10_管理能力实现说明.md",
+      "target": "../03_测试/证据/阶段验收/frontend-management-final/source-manifest-before.json",
+      "resolved": "03_测试/证据/阶段验收/frontend-management-final/source-manifest-before.json",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/10_管理能力实现说明.md",
+      "target": "../03_测试/证据/阶段验收/frontend-management-final/source-manifest-after.json",
+      "resolved": "03_测试/证据/阶段验收/frontend-management-final/source-manifest-after.json",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/11_跨问卷统计实现说明.md",
+      "target": "06_新版业务规则.md",
+      "resolved": "02_文档/06_新版业务规则.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/11_跨问卷统计实现说明.md",
+      "target": "08_新版接口设计.md",
+      "resolved": "02_文档/08_新版接口设计.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/11_跨问卷统计实现说明.md",
+      "target": "../03_测试/README.md",
+      "resolved": "03_测试/README.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/11_跨问卷统计实现说明.md",
+      "target": "../README.md",
+      "resolved": "README.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/11_跨问卷统计实现说明.md",
+      "target": "12_旧问卷显式迁移说明.md",
+      "resolved": "02_文档/12_旧问卷显式迁移说明.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/11_跨问卷统计实现说明.md",
+      "target": "附件/openapi-v2.json",
+      "resolved": "02_文档/附件/openapi-v2.json",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/11_跨问卷统计实现说明.md",
+      "target": "../01_代码/backend/app/statistics_service.py",
+      "resolved": "01_代码/backend/app/statistics_service.py",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/11_跨问卷统计实现说明.md",
+      "target": "../01_代码/backend/app/statistics_contracts.py",
+      "resolved": "01_代码/backend/app/statistics_contracts.py",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/11_跨问卷统计实现说明.md",
+      "target": "../01_代码/backend/tests/test_cross_survey_statistics.py",
+      "resolved": "01_代码/backend/tests/test_cross_survey_statistics.py",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/11_跨问卷统计实现说明.md",
+      "target": "../03_测试/README.md",
+      "resolved": "03_测试/README.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/12_旧问卷显式迁移说明.md",
+      "target": "../01_代码/backend/tests/test_legacy_migration.py",
+      "resolved": "01_代码/backend/tests/test_legacy_migration.py",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/13_第二阶段AI使用日志.md",
+      "target": "06_新版业务规则.md",
+      "resolved": "02_文档/06_新版业务规则.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/13_第二阶段AI使用日志.md",
+      "target": "09_基础流程实现说明.md",
+      "resolved": "02_文档/09_基础流程实现说明.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/13_第二阶段AI使用日志.md",
+      "target": "10_管理能力实现说明.md",
+      "resolved": "02_文档/10_管理能力实现说明.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/13_第二阶段AI使用日志.md",
+      "target": "11_跨问卷统计实现说明.md",
+      "resolved": "02_文档/11_跨问卷统计实现说明.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/13_第二阶段AI使用日志.md",
+      "target": "12_旧问卷显式迁移说明.md",
+      "resolved": "02_文档/12_旧问卷显式迁移说明.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/13_第二阶段AI使用日志.md",
+      "target": "../03_测试/05_版本快照与权限执行证据.md",
+      "resolved": "03_测试/05_版本快照与权限执行证据.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/附件/前端设计.md",
+      "target": "../../01_代码/frontend/src/pages/Editor.jsx",
+      "resolved": "01_代码/frontend/src/pages/Editor.jsx",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/附件/前端设计.md",
+      "target": "../../01_代码/frontend/src/editor-utils.js",
+      "resolved": "01_代码/frontend/src/editor-utils.js",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/附件/前端设计.md",
+      "target": "../../01_代码/frontend/src/pages/Fill.jsx",
+      "resolved": "01_代码/frontend/src/pages/Fill.jsx",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/附件/前端设计.md",
+      "target": "../../01_代码/frontend/src/fill-utils.js",
+      "resolved": "01_代码/frontend/src/fill-utils.js",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/附件/前端设计.md",
+      "target": "../../01_代码/frontend/src/pages/Results.jsx",
+      "resolved": "01_代码/frontend/src/pages/Results.jsx",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/附件/前端设计.md",
+      "target": "../../01_代码/frontend/src/api.js",
+      "resolved": "01_代码/frontend/src/api.js",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/附件/前端设计.md",
+      "target": "../03_API说明.md",
+      "resolved": "02_文档/03_API说明.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/附件/前端设计.md",
+      "target": "../04_关键逻辑说明.md",
+      "resolved": "02_文档/04_关键逻辑说明.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "02_文档/附件/前端设计.md",
+      "target": "../../README.md",
+      "resolved": "README.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/01_测试计划与方法.md",
+      "target": "../02_文档/01_系统说明.md",
+      "resolved": "02_文档/01_系统说明.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/01_测试计划与方法.md",
+      "target": "../02_文档/02_数据库设计.md",
+      "resolved": "02_文档/02_数据库设计.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/01_测试计划与方法.md",
+      "target": "../02_文档/04_关键逻辑说明.md",
+      "resolved": "02_文档/04_关键逻辑说明.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/01_测试计划与方法.md",
+      "target": "02_用例覆盖表.md",
+      "resolved": "03_测试/02_用例覆盖表.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/01_测试计划与方法.md",
+      "target": "03_执行结果.md",
+      "resolved": "03_测试/03_执行结果.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/01_测试计划与方法.md",
+      "target": "04_关闭与提交竞争专项.md",
+      "resolved": "03_测试/04_关闭与提交竞争专项.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/01_测试计划与方法.md",
+      "target": "README.md",
+      "resolved": "03_测试/README.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/02_用例覆盖表.md",
+      "target": "03_执行结果.md",
+      "resolved": "03_测试/03_执行结果.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/02_用例覆盖表.md",
+      "target": "01_测试计划与方法.md",
+      "resolved": "03_测试/01_测试计划与方法.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/02_用例覆盖表.md",
+      "target": "README.md",
+      "resolved": "03_测试/README.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/02_用例覆盖表.md",
+      "target": "../01_代码/backend/tests/test_domain.py",
+      "resolved": "01_代码/backend/tests/test_domain.py",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/02_用例覆盖表.md",
+      "target": "../01_代码/backend/tests/test_api.py",
+      "resolved": "01_代码/backend/tests/test_api.py",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/02_用例覆盖表.md",
+      "target": "../01_代码/backend/tests/test_frontend_support.py",
+      "resolved": "01_代码/backend/tests/test_frontend_support.py",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/02_用例覆盖表.md",
+      "target": "../01_代码/frontend/tests/editor-utils.test.js",
+      "resolved": "01_代码/frontend/tests/editor-utils.test.js",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/02_用例覆盖表.md",
+      "target": "../01_代码/frontend/tests/fill-utils.test.js",
+      "resolved": "01_代码/frontend/tests/fill-utils.test.js",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/02_用例覆盖表.md",
+      "target": "../01_代码/frontend/tests/business.spec.js",
+      "resolved": "01_代码/frontend/tests/business.spec.js",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/02_用例覆盖表.md",
+      "target": "../01_代码/backend/tests/test_database_schema.py",
+      "resolved": "01_代码/backend/tests/test_database_schema.py",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/02_用例覆盖表.md",
+      "target": "../01_代码/backend/tests/test_consistency.py",
+      "resolved": "01_代码/backend/tests/test_consistency.py",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/02_用例覆盖表.md",
+      "target": "04_关闭与提交竞争专项.md",
+      "resolved": "03_测试/04_关闭与提交竞争专项.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/02_用例覆盖表.md",
+      "target": "04_关闭与提交竞争专项.md",
+      "resolved": "03_测试/04_关闭与提交竞争专项.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/03_执行结果.md",
+      "target": "04_关闭与提交竞争专项.md",
+      "resolved": "03_测试/04_关闭与提交竞争专项.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/03_执行结果.md",
+      "target": "证据/关闭提交竞争专项/专项摘要.json",
+      "resolved": "03_测试/证据/关闭提交竞争专项/专项摘要.json",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/03_执行结果.md",
+      "target": "证据/关闭提交竞争专项/targeted-junit.xml",
+      "resolved": "03_测试/证据/关闭提交竞争专项/targeted-junit.xml",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/03_执行结果.md",
+      "target": "证据/关闭提交竞争专项/受控时序记录.json",
+      "resolved": "03_测试/证据/关闭提交竞争专项/受控时序记录.json",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/03_执行结果.md",
+      "target": "证据/关闭提交竞争专项/专项用例明细.json",
+      "resolved": "03_测试/证据/关闭提交竞争专项/专项用例明细.json",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/03_执行结果.md",
+      "target": "证据/关闭提交竞争专项/backend-junit.xml",
+      "resolved": "03_测试/证据/关闭提交竞争专项/backend-junit.xml",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/03_执行结果.md",
+      "target": "证据/关闭提交竞争专项/backend-console.txt",
+      "resolved": "03_测试/证据/关闭提交竞争专项/backend-console.txt",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/03_执行结果.md",
+      "target": "证据/关闭提交竞争专项/run-summary.json",
+      "resolved": "03_测试/证据/关闭提交竞争专项/run-summary.json",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/03_执行结果.md",
+      "target": "证据/尝试记录/",
+      "resolved": "03_测试/证据/尝试记录",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/03_执行结果.md",
+      "target": "证据/run-summary.json",
+      "resolved": "03_测试/证据/run-summary.json",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/03_执行结果.md",
+      "target": "证据/执行用例明细.json",
+      "resolved": "03_测试/证据/执行用例明细.json",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/03_执行结果.md",
+      "target": "证据/backend-junit.xml",
+      "resolved": "03_测试/证据/backend-junit.xml",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/03_执行结果.md",
+      "target": "证据/backend-console.txt",
+      "resolved": "03_测试/证据/backend-console.txt",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/03_执行结果.md",
+      "target": "证据/frontend-junit.xml",
+      "resolved": "03_测试/证据/frontend-junit.xml",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/03_执行结果.md",
+      "target": "证据/e2e/results.json",
+      "resolved": "03_测试/证据/e2e/results.json",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/03_执行结果.md",
+      "target": "证据/e2e/report/index.html",
+      "resolved": "03_测试/证据/e2e/report/index.html",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/03_执行结果.md",
+      "target": "证据/e2e/screenshots/",
+      "resolved": "03_测试/证据/e2e/screenshots",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/03_执行结果.md",
+      "target": "README.md",
+      "resolved": "03_测试/README.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/04_关闭与提交竞争专项.md",
+      "target": "03_执行结果.md",
+      "resolved": "03_测试/03_执行结果.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/04_关闭与提交竞争专项.md",
+      "target": "../01_代码/backend/tests/test_consistency.py",
+      "resolved": "01_代码/backend/tests/test_consistency.py",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/04_关闭与提交竞争专项.md",
+      "target": "证据/关闭提交竞争专项/受控时序记录.json",
+      "resolved": "03_测试/证据/关闭提交竞争专项/受控时序记录.json",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/04_关闭与提交竞争专项.md",
+      "target": "README.md",
+      "resolved": "03_测试/README.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/05_版本快照与权限执行证据.md",
+      "target": "证据/版本快照权限专项/20261025/验收摘要.md",
+      "resolved": "03_测试/证据/版本快照权限专项/20261025/验收摘要.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/05_版本快照与权限执行证据.md",
+      "target": "证据/版本快照权限专项/20261025/cases/V01.json",
+      "resolved": "03_测试/证据/版本快照权限专项/20261025/cases/V01.json",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/05_版本快照与权限执行证据.md",
+      "target": "证据/版本快照权限专项/20261025/cases/S01.json",
+      "resolved": "03_测试/证据/版本快照权限专项/20261025/cases/S01.json",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/05_版本快照与权限执行证据.md",
+      "target": "证据/版本快照权限专项/20261025/cases/S02.json",
+      "resolved": "03_测试/证据/版本快照权限专项/20261025/cases/S02.json",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/05_版本快照与权限执行证据.md",
+      "target": "证据/版本快照权限专项/20261025/cases/S03.json",
+      "resolved": "03_测试/证据/版本快照权限专项/20261025/cases/S03.json",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/05_版本快照与权限执行证据.md",
+      "target": "证据/版本快照权限专项/20261025/cases/P01.json",
+      "resolved": "03_测试/证据/版本快照权限专项/20261025/cases/P01.json",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/05_版本快照与权限执行证据.md",
+      "target": "证据/版本快照权限专项/20261025/cases/P02.json",
+      "resolved": "03_测试/证据/版本快照权限专项/20261025/cases/P02.json",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/05_版本快照与权限执行证据.md",
+      "target": "证据/版本快照权限专项/20261025/cases/P03.json",
+      "resolved": "03_测试/证据/版本快照权限专项/20261025/cases/P03.json",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/05_版本快照与权限执行证据.md",
+      "target": "证据/版本快照权限专项/20261025/backend-junit.xml",
+      "resolved": "03_测试/证据/版本快照权限专项/20261025/backend-junit.xml",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/05_版本快照与权限执行证据.md",
+      "target": "证据/版本快照权限专项/20261025/run-summary.json",
+      "resolved": "03_测试/证据/版本快照权限专项/20261025/run-summary.json",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/05_版本快照与权限执行证据.md",
+      "target": "证据/版本快照权限专项/20261025/run-summary.json",
+      "resolved": "03_测试/证据/版本快照权限专项/20261025/run-summary.json",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/05_版本快照与权限执行证据.md",
+      "target": "证据/版本快照权限专项/20261025/backend-junit.xml",
+      "resolved": "03_测试/证据/版本快照权限专项/20261025/backend-junit.xml",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/05_版本快照与权限执行证据.md",
+      "target": "证据/版本快照权限专项/20261025/pytest-console.txt",
+      "resolved": "03_测试/证据/版本快照权限专项/20261025/pytest-console.txt",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/05_版本快照与权限执行证据.md",
+      "target": "证据/版本快照权限专项/20261025/source-manifest-before.json",
+      "resolved": "03_测试/证据/版本快照权限专项/20261025/source-manifest-before.json",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/05_版本快照与权限执行证据.md",
+      "target": "证据/版本快照权限专项/20261025/source-manifest-after.json",
+      "resolved": "03_测试/证据/版本快照权限专项/20261025/source-manifest-after.json",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/05_版本快照与权限执行证据.md",
+      "target": "证据/版本快照权限专项/20261025/artifact-manifest.json",
+      "resolved": "03_测试/证据/版本快照权限专项/20261025/artifact-manifest.json",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/05_版本快照与权限执行证据.md",
+      "target": "证据/版本快照权限专项/20261025/publish-receipt.json",
+      "resolved": "03_测试/证据/版本快照权限专项/20261025/publish-receipt.json",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/05_版本快照与权限执行证据.md",
+      "target": "../README.md",
+      "resolved": "README.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/05_版本快照与权限执行证据.md",
+      "target": "../01_代码/backend/tests/evidence_support.py",
+      "resolved": "01_代码/backend/tests/evidence_support.py",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/05_版本快照与权限执行证据.md",
+      "target": "../01_代码/backend/tests/test_version_snapshot_evidence.py",
+      "resolved": "01_代码/backend/tests/test_version_snapshot_evidence.py",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/05_版本快照与权限执行证据.md",
+      "target": "../01_代码/backend/tests/test_permission_evidence.py",
+      "resolved": "01_代码/backend/tests/test_permission_evidence.py",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/05_版本快照与权限执行证据.md",
+      "target": "../01_代码/backend/scripts/run_mechanism_evidence.py",
+      "resolved": "01_代码/backend/scripts/run_mechanism_evidence.py",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/06_新增功能人工体验脚本.md",
+      "target": "05_版本快照与权限执行证据.md",
+      "resolved": "03_测试/05_版本快照与权限执行证据.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/06_新增功能人工体验脚本.md",
+      "target": "../README.md",
+      "resolved": "README.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/06_新增功能人工体验脚本.md",
+      "target": "../02_文档/12_旧问卷显式迁移说明.md",
+      "resolved": "02_文档/12_旧问卷显式迁移说明.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/07_校验边界与反例补测.md",
+      "target": "../01_代码/backend/tests/test_request_size_evidence.py",
+      "resolved": "01_代码/backend/tests/test_request_size_evidence.py",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/07_校验边界与反例补测.md",
+      "target": "../01_代码/backend/tests/test_api.py",
+      "resolved": "01_代码/backend/tests/test_api.py",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/07_校验边界与反例补测.md",
+      "target": "../01_代码/backend/tests/test_bson_size_evidence.py",
+      "resolved": "01_代码/backend/tests/test_bson_size_evidence.py",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/07_校验边界与反例补测.md",
+      "target": "../01_代码/backend/tests/test_library_flow.py",
+      "resolved": "01_代码/backend/tests/test_library_flow.py",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/07_校验边界与反例补测.md",
+      "target": "../01_代码/backend/tests/test_cross_survey_statistics.py",
+      "resolved": "01_代码/backend/tests/test_cross_survey_statistics.py",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/07_校验边界与反例补测.md",
+      "target": "../01_代码/backend/tests/test_question_banks.py",
+      "resolved": "01_代码/backend/tests/test_question_banks.py",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/07_校验边界与反例补测.md",
+      "target": "../01_代码/backend/tests/test_question_sharing.py",
+      "resolved": "01_代码/backend/tests/test_question_sharing.py",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/07_校验边界与反例补测.md",
+      "target": "../01_代码/backend/tests/test_mutation_idempotency.py",
+      "resolved": "01_代码/backend/tests/test_mutation_idempotency.py",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/07_校验边界与反例补测.md",
+      "target": "../01_代码/backend/tests/test_frontend_support.py",
+      "resolved": "01_代码/backend/tests/test_frontend_support.py",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/07_校验边界与反例补测.md",
+      "target": "证据/校验补测专项/validation-followup-01/run-summary.json",
+      "resolved": "03_测试/证据/校验补测专项/validation-followup-01/run-summary.json",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/07_校验边界与反例补测.md",
+      "target": "证据/校验补测专项/validation-followup-01/backend-junit.xml",
+      "resolved": "03_测试/证据/校验补测专项/validation-followup-01/backend-junit.xml",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/07_校验边界与反例补测.md",
+      "target": "证据/校验补测专项/validation-followup-01/pytest-console.txt",
+      "resolved": "03_测试/证据/校验补测专项/validation-followup-01/pytest-console.txt",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/07_校验边界与反例补测.md",
+      "target": "证据/校验补测专项/validation-followup-01/source-manifest-before.json",
+      "resolved": "03_测试/证据/校验补测专项/validation-followup-01/source-manifest-before.json",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/07_校验边界与反例补测.md",
+      "target": "证据/校验补测专项/validation-followup-01/source-manifest-after.json",
+      "resolved": "03_测试/证据/校验补测专项/validation-followup-01/source-manifest-after.json",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/07_校验边界与反例补测.md",
+      "target": "证据/校验补测专项/validation-followup-01/artifact-manifest.json",
+      "resolved": "03_测试/证据/校验补测专项/validation-followup-01/artifact-manifest.json",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/07_校验边界与反例补测.md",
+      "target": "证据/校验补测专项/validation-followup-01/publish-receipt.json",
+      "resolved": "03_测试/证据/校验补测专项/validation-followup-01/publish-receipt.json",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/07_校验边界与反例补测.md",
+      "target": "../README.md",
+      "resolved": "README.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/07_校验边界与反例补测.md",
+      "target": "06_新增功能人工体验脚本.md",
+      "resolved": "03_测试/06_新增功能人工体验脚本.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/README.md",
+      "target": "01_测试计划与方法.md",
+      "resolved": "03_测试/01_测试计划与方法.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/README.md",
+      "target": "02_用例覆盖表.md",
+      "resolved": "03_测试/02_用例覆盖表.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/README.md",
+      "target": "03_执行结果.md",
+      "resolved": "03_测试/03_执行结果.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/README.md",
+      "target": "04_关闭与提交竞争专项.md",
+      "resolved": "03_测试/04_关闭与提交竞争专项.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/README.md",
+      "target": "05_版本快照与权限执行证据.md",
+      "resolved": "03_测试/05_版本快照与权限执行证据.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/README.md",
+      "target": "06_新增功能人工体验脚本.md",
+      "resolved": "03_测试/06_新增功能人工体验脚本.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/README.md",
+      "target": "07_校验边界与反例补测.md",
+      "resolved": "03_测试/07_校验边界与反例补测.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/README.md",
+      "target": "证据/阶段验收/test-runs/20261023T050525Z-management-backend-8b1fe5/run-summary.json",
+      "resolved": "03_测试/证据/阶段验收/test-runs/20261023T050525Z-management-backend-8b1fe5/run-summary.json",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/README.md",
+      "target": "证据/阶段验收/modal-focus-final-20261026/run-summary.json",
+      "resolved": "03_测试/证据/阶段验收/modal-focus-final-20261026/run-summary.json",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/README.md",
+      "target": "证据/阶段验收/cross-survey-delivery-e2e/results.json",
+      "resolved": "03_测试/证据/阶段验收/cross-survey-delivery-e2e/results.json",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/README.md",
+      "target": "证据/阶段验收/version-switch-final/run-summary.json",
+      "resolved": "03_测试/证据/阶段验收/version-switch-final/run-summary.json",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/README.md",
+      "target": "证据/阶段验收/modal-focus-final-20261026/run-summary.json",
+      "resolved": "03_测试/证据/阶段验收/modal-focus-final-20261026/run-summary.json",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/README.md",
+      "target": "证据/版本快照权限专项/20261025/验收摘要.md",
+      "resolved": "03_测试/证据/版本快照权限专项/20261025/验收摘要.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/README.md",
+      "target": "证据/校验补测专项/validation-followup-01/run-summary.json",
+      "resolved": "03_测试/证据/校验补测专项/validation-followup-01/run-summary.json",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/README.md",
+      "target": "../README.md",
+      "resolved": "README.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/README.md",
+      "target": "04_关闭与提交竞争专项.md",
+      "resolved": "03_测试/04_关闭与提交竞争专项.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/README.md",
+      "target": "05_版本快照与权限执行证据.md",
+      "resolved": "03_测试/05_版本快照与权限执行证据.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/README.md",
+      "target": "07_校验边界与反例补测.md",
+      "resolved": "03_测试/07_校验边界与反例补测.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/README.md",
+      "target": "证据/",
+      "resolved": "03_测试/证据",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/README.md",
+      "target": "证据/关闭提交竞争专项/",
+      "resolved": "03_测试/证据/关闭提交竞争专项",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/README.md",
+      "target": "证据/版本快照权限专项/",
+      "resolved": "03_测试/证据/版本快照权限专项",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/README.md",
+      "target": "证据/校验补测专项/",
+      "resolved": "03_测试/证据/校验补测专项",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/README.md",
+      "target": "证据/阶段验收/",
+      "resolved": "03_测试/证据/阶段验收",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/README.md",
+      "target": "../01_代码/backend/scripts/run_tests.py",
+      "resolved": "01_代码/backend/scripts/run_tests.py",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/README.md",
+      "target": "../01_代码/backend/tests/conftest.py",
+      "resolved": "01_代码/backend/tests/conftest.py",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/README.md",
+      "target": "../02_文档/09_基础流程实现说明.md",
+      "resolved": "02_文档/09_基础流程实现说明.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/README.md",
+      "target": "../02_文档/10_管理能力实现说明.md",
+      "resolved": "02_文档/10_管理能力实现说明.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/README.md",
+      "target": "../02_文档/11_跨问卷统计实现说明.md",
+      "resolved": "02_文档/11_跨问卷统计实现说明.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/README.md",
+      "target": "../02_文档/12_旧问卷显式迁移说明.md",
+      "resolved": "02_文档/12_旧问卷显式迁移说明.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/README.md",
+      "target": "../02_文档/05_AI使用日志.md",
+      "resolved": "02_文档/05_AI使用日志.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/README.md",
+      "target": "../02_文档/13_第二阶段AI使用日志.md",
+      "resolved": "02_文档/13_第二阶段AI使用日志.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/证据/版本快照权限专项/20261025/验收摘要.md",
+      "target": "cases/V01.json",
+      "resolved": "03_测试/证据/版本快照权限专项/20261025/cases/V01.json",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/证据/版本快照权限专项/20261025/验收摘要.md",
+      "target": "cases/S01.json",
+      "resolved": "03_测试/证据/版本快照权限专项/20261025/cases/S01.json",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/证据/版本快照权限专项/20261025/验收摘要.md",
+      "target": "cases/S02.json",
+      "resolved": "03_测试/证据/版本快照权限专项/20261025/cases/S02.json",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/证据/版本快照权限专项/20261025/验收摘要.md",
+      "target": "cases/S03.json",
+      "resolved": "03_测试/证据/版本快照权限专项/20261025/cases/S03.json",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/证据/版本快照权限专项/20261025/验收摘要.md",
+      "target": "cases/P01.json",
+      "resolved": "03_测试/证据/版本快照权限专项/20261025/cases/P01.json",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/证据/版本快照权限专项/20261025/验收摘要.md",
+      "target": "cases/P02.json",
+      "resolved": "03_测试/证据/版本快照权限专项/20261025/cases/P02.json",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/证据/版本快照权限专项/20261025/验收摘要.md",
+      "target": "cases/P03.json",
+      "resolved": "03_测试/证据/版本快照权限专项/20261025/cases/P03.json",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/证据/版本快照权限专项/20261025/验收摘要.md",
+      "target": "run-summary.json",
+      "resolved": "03_测试/证据/版本快照权限专项/20261025/run-summary.json",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/证据/版本快照权限专项/20261025/验收摘要.md",
+      "target": "backend-junit.xml",
+      "resolved": "03_测试/证据/版本快照权限专项/20261025/backend-junit.xml",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/证据/版本快照权限专项/20261025/验收摘要.md",
+      "target": "pytest-console.txt",
+      "resolved": "03_测试/证据/版本快照权限专项/20261025/pytest-console.txt",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/证据/版本快照权限专项/20261025/验收摘要.md",
+      "target": "source-manifest-before.json",
+      "resolved": "03_测试/证据/版本快照权限专项/20261025/source-manifest-before.json",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/证据/版本快照权限专项/20261025/验收摘要.md",
+      "target": "source-manifest-after.json",
+      "resolved": "03_测试/证据/版本快照权限专项/20261025/source-manifest-after.json",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "03_测试/证据/版本快照权限专项/20261025/验收摘要.md",
+      "target": "artifact-manifest.json",
+      "resolved": "03_测试/证据/版本快照权限专项/20261025/artifact-manifest.json",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "04_项目完成报告/问序第二阶段项目完成报告.md",
+      "target": "../02_文档/06_新版业务规则.md",
+      "resolved": "02_文档/06_新版业务规则.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "04_项目完成报告/问序第二阶段项目完成报告.md",
+      "target": "附件/题目版本与问卷快照关系.png",
+      "resolved": "04_项目完成报告/附件/题目版本与问卷快照关系.png",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "04_项目完成报告/问序第二阶段项目完成报告.md",
+      "target": "../01_代码/backend/app/",
+      "resolved": "01_代码/backend/app",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "04_项目完成报告/问序第二阶段项目完成报告.md",
+      "target": "../01_代码/frontend/src/",
+      "resolved": "01_代码/frontend/src",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "04_项目完成报告/问序第二阶段项目完成报告.md",
+      "target": "../02_文档/附件/openapi-v2.json",
+      "resolved": "02_文档/附件/openapi-v2.json",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "04_项目完成报告/问序第二阶段项目完成报告.md",
+      "target": "../01_代码/database/init-mongodb.js",
+      "resolved": "01_代码/database/init-mongodb.js",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "04_项目完成报告/问序第二阶段项目完成报告.md",
+      "target": "../01_代码/database/schema-definitions.json",
+      "resolved": "01_代码/database/schema-definitions.json",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "04_项目完成报告/问序第二阶段项目完成报告.md",
+      "target": "../02_文档/12_旧问卷显式迁移说明.md",
+      "resolved": "02_文档/12_旧问卷显式迁移说明.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "04_项目完成报告/问序第二阶段项目完成报告.md",
+      "target": "../02_文档/13_第二阶段AI使用日志.md",
+      "resolved": "02_文档/13_第二阶段AI使用日志.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "04_项目完成报告/问序第二阶段项目完成报告.md",
+      "target": "../03_测试/07_校验边界与反例补测.md",
+      "resolved": "03_测试/07_校验边界与反例补测.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "04_项目完成报告/问序第二阶段项目完成报告.md",
+      "target": "../03_测试/证据/阶段验收/test-runs/20261023T050525Z-management-backend-8b1fe5/run-summary.json",
+      "resolved": "03_测试/证据/阶段验收/test-runs/20261023T050525Z-management-backend-8b1fe5/run-summary.json",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "04_项目完成报告/问序第二阶段项目完成报告.md",
+      "target": "../03_测试/证据/阶段验收/cross-survey-delivery-e2e/results.json",
+      "resolved": "03_测试/证据/阶段验收/cross-survey-delivery-e2e/results.json",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "04_项目完成报告/问序第二阶段项目完成报告.md",
+      "target": "../03_测试/证据/阶段验收/version-switch-final/run-summary.json",
+      "resolved": "03_测试/证据/阶段验收/version-switch-final/run-summary.json",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "04_项目完成报告/问序第二阶段项目完成报告.md",
+      "target": "../03_测试/证据/阶段验收/modal-focus-final-20261026/run-summary.json",
+      "resolved": "03_测试/证据/阶段验收/modal-focus-final-20261026/run-summary.json",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "04_项目完成报告/问序第二阶段项目完成报告.md",
+      "target": "../03_测试/证据/校验补测专项/validation-followup-01/run-summary.json",
+      "resolved": "03_测试/证据/校验补测专项/validation-followup-01/run-summary.json",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "04_项目完成报告/问序第二阶段项目完成报告.md",
+      "target": "../03_测试/05_版本快照与权限执行证据.md",
+      "resolved": "03_测试/05_版本快照与权限执行证据.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "04_项目完成报告/问序第二阶段项目完成报告.md",
+      "target": "../03_测试/证据/版本快照权限专项/20261025/验收摘要.md",
+      "resolved": "03_测试/证据/版本快照权限专项/20261025/验收摘要.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "04_项目完成报告/问序第二阶段项目完成报告.md",
+      "target": "../README.md",
+      "resolved": "README.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "04_项目完成报告/问序第二阶段项目完成报告.md",
+      "target": "../03_测试/证据/阶段验收/modal-focus-before-20261026/runs/34e888e6e912bebb/frontend.log",
+      "resolved": "03_测试/证据/阶段验收/modal-focus-before-20261026/runs/34e888e6e912bebb/frontend.log",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "04_项目完成报告/问序第二阶段项目完成报告.md",
+      "target": "../03_测试/证据/阶段验收/modal-focus-before-20261026-allowed/results.json",
+      "resolved": "03_测试/证据/阶段验收/modal-focus-before-20261026-allowed/results.json",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "04_项目完成报告/问序第二阶段项目完成报告.md",
+      "target": "../02_文档/06_新版业务规则.md",
+      "resolved": "02_文档/06_新版业务规则.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "04_项目完成报告/问序第二阶段项目完成报告.md",
+      "target": "../02_文档/07_新版数据模型设计.md",
+      "resolved": "02_文档/07_新版数据模型设计.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "04_项目完成报告/问序第二阶段项目完成报告.md",
+      "target": "../02_文档/08_新版接口设计.md",
+      "resolved": "02_文档/08_新版接口设计.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "04_项目完成报告/问序第二阶段项目完成报告.md",
+      "target": "../02_文档/09_基础流程实现说明.md",
+      "resolved": "02_文档/09_基础流程实现说明.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "04_项目完成报告/问序第二阶段项目完成报告.md",
+      "target": "../02_文档/10_管理能力实现说明.md",
+      "resolved": "02_文档/10_管理能力实现说明.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "04_项目完成报告/问序第二阶段项目完成报告.md",
+      "target": "../02_文档/11_跨问卷统计实现说明.md",
+      "resolved": "02_文档/11_跨问卷统计实现说明.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "04_项目完成报告/问序第二阶段项目完成报告.md",
+      "target": "../02_文档/12_旧问卷显式迁移说明.md",
+      "resolved": "02_文档/12_旧问卷显式迁移说明.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "04_项目完成报告/问序第二阶段项目完成报告.md",
+      "target": "../03_测试/README.md",
+      "resolved": "03_测试/README.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "04_项目完成报告/问序第二阶段项目完成报告.md",
+      "target": "../02_文档/13_第二阶段AI使用日志.md",
+      "resolved": "02_文档/13_第二阶段AI使用日志.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "04_项目完成报告/问序第二阶段项目完成报告.md",
+      "target": "../03_测试/05_版本快照与权限执行证据.md",
+      "resolved": "03_测试/05_版本快照与权限执行证据.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "04_项目完成报告/问序第二阶段项目完成报告.md",
+      "target": "../03_测试/07_校验边界与反例补测.md",
+      "resolved": "03_测试/07_校验边界与反例补测.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "04_项目完成报告/问序第二阶段项目完成报告.md",
+      "target": "../03_测试/06_新增功能人工体验脚本.md",
+      "resolved": "03_测试/06_新增功能人工体验脚本.md",
+      "exists": true,
+      "runtimeOutputDependency": false
+    },
+    {
+      "document": "04_项目完成报告/问序第二阶段项目完成报告.md",
+      "target": "附件/跨问卷数字统计界面.png",
+      "resolved": "04_项目完成报告/附件/跨问卷数字统计界面.png",
+      "exists": true,
+      "runtimeOutputDependency": false
+    }
+  ]
+}

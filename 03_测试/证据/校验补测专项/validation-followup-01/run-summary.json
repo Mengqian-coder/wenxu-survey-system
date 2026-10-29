@@ -1,0 +1,1014 @@
+{
+  "runId": "20261026T085823Z-6f6b9d",
+  "startedAtUtc": "2026-10-26T08:58:23.324809+00:00",
+  "scope": "Selected validation follow-ups and affected backend regression; isolated real MongoDB; no browser or full-backend rerun",
+  "python": "3.13.15",
+  "dependencies": {
+    "pytest": "9.1.1",
+    "pymongo": "4.19.0",
+    "fastapi": "0.143.3",
+    "httpx": "0.28.1"
+  },
+  "selectedTests": [
+    "tests/test_request_size_evidence.py",
+    "tests/test_bson_size_evidence.py",
+    "tests/test_api.py::test_request_body_limit_rejects_declared_and_actual_oversize",
+    "tests/test_library_flow.py",
+    "tests/test_cross_survey_statistics.py",
+    "tests/test_question_banks.py",
+    "tests/test_question_sharing.py",
+    "tests/test_mutation_idempotency.py",
+    "tests/test_management_races.py",
+    "tests/test_frontend_support.py"
+  ],
+  "command": [
+    "D:\\I_love_studying\\快乐数据大三上\\数据库系统\\数据库实验\\提交材料\\问序_GitHub\\01_代码\\backend\\.venv\\Scripts\\python.exe",
+    "-B",
+    "-m",
+    "pytest",
+    "-q",
+    "-o",
+    "junit_family=xunit1",
+    "--junitxml=D:\\I_love_studying\\快乐数据大三上\\数据库系统\\数据库实验\\提交材料\\问序_GitHub\\01_代码\\output\\validation-evidence\\20261026T085823Z-6f6b9d\\backend-junit.xml",
+    "tests/test_request_size_evidence.py",
+    "tests/test_bson_size_evidence.py",
+    "tests/test_api.py::test_request_body_limit_rejects_declared_and_actual_oversize",
+    "tests/test_library_flow.py",
+    "tests/test_cross_survey_statistics.py",
+    "tests/test_question_banks.py",
+    "tests/test_question_sharing.py",
+    "tests/test_mutation_idempotency.py",
+    "tests/test_management_races.py",
+    "tests/test_frontend_support.py"
+  ],
+  "pytest": {
+    "exitCode": 0,
+    "elapsedSeconds": 98.768,
+    "counts": {
+      "total": 125,
+      "passed": 125,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "testcases": [
+      {
+        "classname": "tests.test_request_size_evidence",
+        "name": "test_default_request_limit_accepts_real_boundary_and_persists[12MiB-minus-one]",
+        "outcome": "passed",
+        "elapsedSeconds": "2.199",
+        "properties": {
+          "request_bytes": "12582911",
+          "http_status": "201",
+          "database_result": "one user inserted; all existing documents unchanged"
+        }
+      },
+      {
+        "classname": "tests.test_request_size_evidence",
+        "name": "test_default_request_limit_accepts_real_boundary_and_persists[12MiB-exact]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.673",
+        "properties": {
+          "request_bytes": "12582912",
+          "http_status": "201",
+          "database_result": "one user inserted; all existing documents unchanged"
+        }
+      },
+      {
+        "classname": "tests.test_request_size_evidence",
+        "name": "test_default_request_limit_rejects_declared_one_byte_over",
+        "outcome": "passed",
+        "elapsedSeconds": "0.449",
+        "properties": {
+          "request_bytes": "12582913",
+          "declared_bytes": "12582913",
+          "http_status": "413",
+          "error_code": "REQUEST_TOO_LARGE",
+          "database_result": "full database snapshot unchanged"
+        }
+      },
+      {
+        "classname": "tests.test_request_size_evidence",
+        "name": "test_default_request_limit_measures_streamed_one_byte_over[forged-small-content-length]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.480",
+        "properties": {
+          "request_bytes": "12582913",
+          "declared_bytes": "1",
+          "measured_chunks": "13",
+          "measured_bytes": "12582913",
+          "http_status": "413",
+          "error_code": "REQUEST_TOO_LARGE",
+          "database_result": "full database snapshot unchanged"
+        }
+      },
+      {
+        "classname": "tests.test_request_size_evidence",
+        "name": "test_default_request_limit_measures_streamed_one_byte_over[missing-content-length]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.426",
+        "properties": {
+          "request_bytes": "12582913",
+          "declared_bytes": "absent",
+          "measured_chunks": "13",
+          "measured_bytes": "12582913",
+          "http_status": "413",
+          "error_code": "REQUEST_TOO_LARGE",
+          "database_result": "full database snapshot unchanged"
+        }
+      },
+      {
+        "classname": "tests.test_bson_size_evidence",
+        "name": "test_real_bson_encoded_size_boundary[limit-minus-one]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.098",
+        "properties": {
+          "scope": "real BSON encoding and production ensure_size; no Mongo write",
+          "limit_bytes": "16777216",
+          "actual_bson_bytes": "16777215",
+          "offset_bytes": "-1",
+          "result": "accepted by size guard"
+        }
+      },
+      {
+        "classname": "tests.test_bson_size_evidence",
+        "name": "test_real_bson_encoded_size_boundary[exact-limit]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.092",
+        "properties": {
+          "scope": "real BSON encoding and production ensure_size; no Mongo write",
+          "limit_bytes": "16777216",
+          "actual_bson_bytes": "16777216",
+          "offset_bytes": "0",
+          "result": "accepted by size guard"
+        }
+      },
+      {
+        "classname": "tests.test_bson_size_evidence",
+        "name": "test_real_bson_encoded_size_boundary[limit-plus-one]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.115",
+        "properties": {
+          "scope": "real BSON encoding and production ensure_size; no Mongo write",
+          "limit_bytes": "16777216",
+          "actual_bson_bytes": "16777217",
+          "offset_bytes": "1",
+          "status": "413",
+          "error_code": "DOCUMENT_TOO_LARGE"
+        }
+      },
+      {
+        "classname": "tests.test_bson_size_evidence",
+        "name": "test_oversized_final_survey_is_rejected_before_write_and_transaction_is_unchanged[create]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.664",
+        "properties": {
+          "scope": "fault-injected internal snapshot; real HTTP, guard and Mongo transaction",
+          "operation": "create",
+          "request_bytes": "245",
+          "limit_bytes": "16777216",
+          "actual_final_bson_bytes": "16777217",
+          "status": "413",
+          "error_code": "DOCUMENT_TOO_LARGE",
+          "final_survey_write_attempts": "0",
+          "collection_count": "11",
+          "document_counts": "{\"mutation_receipts\": 2, \"mutation_response_chunks\": 0, \"participations\": 0, \"question_bank_items\": 0, \"question_banks\": 0, \"question_shares\": 0, \"question_versions\": 1, \"questions\": 1, \"responses\": 0, \"surveys\": 1, \"users\": 1}",
+          "database_before_sha256": "a029d7c381eaed6da2c5a0c3db9020e55d774406196fbea91f2587d2a46f46d1",
+          "database_after_sha256": "a029d7c381eaed6da2c5a0c3db9020e55d774406196fbea91f2587d2a46f46d1",
+          "all_persisted_documents_unchanged": "True"
+        }
+      },
+      {
+        "classname": "tests.test_bson_size_evidence",
+        "name": "test_oversized_final_survey_is_rejected_before_write_and_transaction_is_unchanged[patch]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.622",
+        "properties": {
+          "scope": "fault-injected internal snapshot; real HTTP, guard and Mongo transaction",
+          "operation": "patch",
+          "request_bytes": "163",
+          "limit_bytes": "16777216",
+          "actual_final_bson_bytes": "16777217",
+          "status": "413",
+          "error_code": "DOCUMENT_TOO_LARGE",
+          "final_survey_write_attempts": "0",
+          "collection_count": "11",
+          "document_counts": "{\"mutation_receipts\": 2, \"mutation_response_chunks\": 0, \"participations\": 0, \"question_bank_items\": 0, \"question_banks\": 0, \"question_shares\": 0, \"question_versions\": 1, \"questions\": 1, \"responses\": 0, \"surveys\": 1, \"users\": 1}",
+          "database_before_sha256": "37a11d8810f968f0d6a60ffca72fcac7ba1b11f1aaa4451c6387f4f19d2ac701",
+          "database_after_sha256": "37a11d8810f968f0d6a60ffca72fcac7ba1b11f1aaa4451c6387f4f19d2ac701",
+          "all_persisted_documents_unchanged": "True"
+        }
+      },
+      {
+        "classname": "tests.test_api",
+        "name": "test_request_body_limit_rejects_declared_and_actual_oversize",
+        "outcome": "passed",
+        "elapsedSeconds": "0.428",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_library_flow",
+        "name": "test_independent_question_version_pinned_publish_fill_and_results",
+        "outcome": "passed",
+        "elapsedSeconds": "0.719",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_library_flow",
+        "name": "test_two_history_operations_restore_new_version_and_select_old_without_new_version",
+        "outcome": "passed",
+        "elapsedSeconds": "0.640",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_library_flow",
+        "name": "test_duplicate_identity_and_client_snapshot_rejected_without_partial_write",
+        "outcome": "passed",
+        "elapsedSeconds": "0.517",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_library_flow",
+        "name": "test_archive_blocks_new_binding_but_keeps_saved_draft_publishable",
+        "outcome": "passed",
+        "elapsedSeconds": "0.773",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_library_flow",
+        "name": "test_version_archive_is_independent_and_requires_fresh_permission_for_new_instance",
+        "outcome": "passed",
+        "elapsedSeconds": "0.547",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_library_flow",
+        "name": "test_copy_has_independent_identity_and_source_relation",
+        "outcome": "passed",
+        "elapsedSeconds": "0.659",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_library_flow",
+        "name": "test_new_version_and_management_require_owner_and_version_membership",
+        "outcome": "passed",
+        "elapsedSeconds": "0.620",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_library_flow",
+        "name": "test_saved_shared_binding_survives_revocation_and_removal_then_readd_does_not",
+        "outcome": "passed",
+        "elapsedSeconds": "0.687",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_library_flow",
+        "name": "test_all_content_kinds_can_be_saved_and_selected[single]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.699",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_library_flow",
+        "name": "test_all_content_kinds_can_be_saved_and_selected[multiple]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.672",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_library_flow",
+        "name": "test_all_content_kinds_can_be_saved_and_selected[text]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.629",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_library_flow",
+        "name": "test_all_content_kinds_can_be_saved_and_selected[number]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.522",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_library_flow",
+        "name": "test_new_binding_and_archive_serialize_at_real_master_write[True]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.798",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_library_flow",
+        "name": "test_new_binding_and_archive_serialize_at_real_master_write[False]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.599",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_library_flow",
+        "name": "test_legacy_survey_stays_fillable_and_requires_explicit_structure_migration",
+        "outcome": "passed",
+        "elapsedSeconds": "0.762",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_cross_survey_statistics",
+        "name": "test_exact_version_merges_local_ids_and_counts_same_person_per_submission",
+        "outcome": "passed",
+        "elapsedSeconds": "0.880",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_cross_survey_statistics",
+        "name": "test_new_restored_and_copied_versions_are_never_merged",
+        "outcome": "passed",
+        "elapsedSeconds": "0.874",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_cross_survey_statistics",
+        "name": "test_saved_reference_without_responses_returns_zero_and_null[single]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.537",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_cross_survey_statistics",
+        "name": "test_saved_reference_without_responses_returns_zero_and_null[multiple]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.547",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_cross_survey_statistics",
+        "name": "test_saved_reference_without_responses_returns_zero_and_null[text]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.679",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_cross_survey_statistics",
+        "name": "test_saved_reference_without_responses_returns_zero_and_null[number]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.544",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_cross_survey_statistics",
+        "name": "test_null_and_skipped_answers_share_unanswered_bucket[single]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.852",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_cross_survey_statistics",
+        "name": "test_null_and_skipped_answers_share_unanswered_bucket[multiple]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.851",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_cross_survey_statistics",
+        "name": "test_null_and_skipped_answers_share_unanswered_bucket[text]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.710",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_cross_survey_statistics",
+        "name": "test_null_and_skipped_answers_share_unanswered_bucket[number]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.889",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_cross_survey_statistics",
+        "name": "test_option_ratios_use_answered_count_across_surveys",
+        "outcome": "passed",
+        "elapsedSeconds": "0.685",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_cross_survey_statistics",
+        "name": "test_numeric_aggregates_remain_finite_for_supported_double_boundaries[numbers0-1.7e+308]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.832",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_cross_survey_statistics",
+        "name": "test_numeric_aggregates_remain_finite_for_supported_double_boundaries[numbers1--1.7e+308]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.828",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_cross_survey_statistics",
+        "name": "test_numeric_aggregates_remain_finite_for_supported_double_boundaries[numbers2-0]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.781",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_cross_survey_statistics",
+        "name": "test_numeric_aggregates_remain_finite_for_supported_double_boundaries[numbers3--0.3333333333333333]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.731",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_cross_survey_statistics",
+        "name": "test_values_paginate_by_submitted_time_then_response_id_and_expose_only_value[text-values0]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.704",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_cross_survey_statistics",
+        "name": "test_values_paginate_by_submitted_time_then_response_id_and_expose_only_value[number-values1]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.699",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_cross_survey_statistics",
+        "name": "test_choice_values_endpoint_rejects_with_explicit_conflict[single]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.511",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_cross_survey_statistics",
+        "name": "test_choice_values_endpoint_rejects_with_explicit_conflict[multiple]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.669",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_cross_survey_statistics",
+        "name": "test_source_owner_and_recipient_do_not_gain_statistics_without_own_reference",
+        "outcome": "passed",
+        "elapsedSeconds": "0.724",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_cross_survey_statistics",
+        "name": "test_shared_statistics_survive_revoke_archive_and_missing_library_records",
+        "outcome": "passed",
+        "elapsedSeconds": "0.919",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_cross_survey_statistics",
+        "name": "test_directory_uses_highest_used_snapshot_searches_literally_and_paginates",
+        "outcome": "passed",
+        "elapsedSeconds": "0.542",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_cross_survey_statistics",
+        "name": "test_legacy_v1_surveys_keep_existing_statistics_but_do_not_enter_cross_survey_directory",
+        "outcome": "passed",
+        "elapsedSeconds": "0.658",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_cross_survey_statistics",
+        "name": "test_large_history_streams_lookup_without_building_a_16mib_response_array",
+        "outcome": "passed",
+        "elapsedSeconds": "0.793",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_cross_survey_statistics",
+        "name": "test_statistics_require_authentication[]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.426",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_cross_survey_statistics",
+        "name": "test_statistics_require_authentication[/versions]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.389",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_cross_survey_statistics",
+        "name": "test_statistics_require_authentication[/statistics]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.611",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_cross_survey_statistics",
+        "name": "test_statistics_require_authentication[/values]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.448",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_cross_survey_statistics",
+        "name": "test_directory_validates_paging[page=0]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.502",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_cross_survey_statistics",
+        "name": "test_directory_validates_paging[page=-1]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.441",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_cross_survey_statistics",
+        "name": "test_directory_validates_paging[pageSize=0]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.496",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_cross_survey_statistics",
+        "name": "test_directory_validates_paging[pageSize=101]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.495",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_cross_survey_statistics",
+        "name": "test_directory_validates_paging[page=1.5]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.516",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_cross_survey_statistics",
+        "name": "test_unknown_or_mismatched_question_and_version_are_indistinguishable",
+        "outcome": "passed",
+        "elapsedSeconds": "0.577",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_question_banks",
+        "name": "test_bank_metadata_is_owned_trimmed_and_paginated",
+        "outcome": "passed",
+        "elapsedSeconds": "0.614",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_question_banks",
+        "name": "test_bank_metadata_revision_changes_only_for_actual_metadata_changes",
+        "outcome": "passed",
+        "elapsedSeconds": "0.684",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_question_banks",
+        "name": "test_bank_creation_rejects_invalid_or_forged_fields[body0]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.455",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_question_banks",
+        "name": "test_bank_creation_rejects_invalid_or_forged_fields[body1]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.440",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_question_banks",
+        "name": "test_bank_creation_rejects_invalid_or_forged_fields[body2]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.488",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_question_banks",
+        "name": "test_bank_creation_rejects_invalid_or_forged_fields[body3]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.487",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_question_banks",
+        "name": "test_bank_creation_rejects_invalid_or_forged_fields[body4]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.427",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_question_banks",
+        "name": "test_bank_creation_rejects_invalid_or_forged_fields[body5]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.433",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_question_banks",
+        "name": "test_bank_patch_requires_valid_metadata[changes0]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.527",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_question_banks",
+        "name": "test_bank_patch_requires_valid_metadata[changes1]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.510",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_question_banks",
+        "name": "test_bank_patch_requires_valid_metadata[changes2]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.623",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_question_banks",
+        "name": "test_bank_patch_requires_valid_metadata[changes3]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.811",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_question_banks",
+        "name": "test_bank_patch_requires_valid_metadata[changes4]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.501",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_question_banks",
+        "name": "test_membership_requires_current_read_permission_and_bank_ownership",
+        "outcome": "passed",
+        "elapsedSeconds": "0.908",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_question_banks",
+        "name": "test_revocation_keeps_private_placeholder_paging_and_allows_cleanup",
+        "outcome": "passed",
+        "elapsedSeconds": "0.859",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_question_banks",
+        "name": "test_archived_questions_can_be_classified_in_multiple_banks_without_copying",
+        "outcome": "passed",
+        "elapsedSeconds": "0.596",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_question_banks",
+        "name": "test_deleting_bank_only_removes_container_and_memberships",
+        "outcome": "passed",
+        "elapsedSeconds": "0.818",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_question_banks",
+        "name": "test_bank_add_remove_delete_replay_preserves_original_result_without_resurrection",
+        "outcome": "passed",
+        "elapsedSeconds": "0.661",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_question_banks",
+        "name": "test_bank_create_and_patch_replay_precede_current_state_checks",
+        "outcome": "passed",
+        "elapsedSeconds": "0.693",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_question_banks",
+        "name": "test_every_bank_mutation_requires_key_and_bodyless_routes_reject_payload",
+        "outcome": "passed",
+        "elapsedSeconds": "0.525",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_question_banks",
+        "name": "test_concurrent_bank_add_and_delete_never_leave_orphan_memberships",
+        "outcome": "passed",
+        "elapsedSeconds": "0.654",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_question_banks",
+        "name": "test_bank_add_and_revoke_share_one_permission_coordination_point",
+        "outcome": "passed",
+        "elapsedSeconds": "0.630",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_question_sharing",
+        "name": "test_grant_exact_registered_username_uses_existing_normalization_and_hides_internal_fields",
+        "outcome": "passed",
+        "elapsedSeconds": "0.673",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_question_sharing",
+        "name": "test_registered_unicode_username_with_expanding_lowercase_can_receive_grant_and_replay",
+        "outcome": "passed",
+        "elapsedSeconds": "0.712",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_question_sharing",
+        "name": "test_unknown_and_self_share_roll_back_revision_and_receipt[missing_user-SHARE_RECIPIENT_NOT_FOUND]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.561",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_question_sharing",
+        "name": "test_unknown_and_self_share_roll_back_revision_and_receipt[  \\uff2f\\uff37\\uff2e\\uff25\\uff32  -SELF_SHARE_NOT_ALLOWED]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.528",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_question_sharing",
+        "name": "test_grant_revoke_regrant_reuses_relation_and_checks_revision_even_for_noop",
+        "outcome": "passed",
+        "elapsedSeconds": "0.881",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_question_sharing",
+        "name": "test_share_list_states_pagination_and_current_parent_revision",
+        "outcome": "passed",
+        "elapsedSeconds": "0.814",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_question_sharing",
+        "name": "test_management_permissions_and_share_membership_do_not_leak_to_recipients",
+        "outcome": "passed",
+        "elapsedSeconds": "0.854",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_question_sharing",
+        "name": "test_whole_question_grant_covers_old_and_future_versions_but_copy_can_be_shared_independently",
+        "outcome": "passed",
+        "elapsedSeconds": "0.864",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_question_sharing",
+        "name": "test_revoked_saved_draft_keeps_required_and_jump_rules_independent_and_can_publish_fill",
+        "outcome": "passed",
+        "elapsedSeconds": "0.976",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_question_sharing",
+        "name": "test_revocation_blocks_every_new_use_even_from_existing_draft[version]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.781",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_question_sharing",
+        "name": "test_revocation_blocks_every_new_use_even_from_existing_draft[instance]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.757",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_question_sharing",
+        "name": "test_revocation_blocks_every_new_use_even_from_existing_draft[remove_and_readd]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.804",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_question_sharing",
+        "name": "test_successful_copy_replays_original_receipt_after_revoke_without_new_source_use",
+        "outcome": "passed",
+        "elapsedSeconds": "0.855",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_question_sharing",
+        "name": "test_usage_counts_distinct_current_surveys_and_exposes_only_owner_details",
+        "outcome": "passed",
+        "elapsedSeconds": "1.072",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_question_sharing",
+        "name": "test_grants_reject_client_selected_permissions_or_user_ids[body0]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.762",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_question_sharing",
+        "name": "test_grants_reject_client_selected_permissions_or_user_ids[body1]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.603",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_question_sharing",
+        "name": "test_grants_reject_client_selected_permissions_or_user_ids[body2]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.659",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_question_sharing",
+        "name": "test_share_receipt_replays_original_result_without_overwriting_later_access_state[grant]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.674",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_question_sharing",
+        "name": "test_share_receipt_replays_original_result_without_overwriting_later_access_state[revoke]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.684",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_question_sharing",
+        "name": "test_failed_grant_key_is_retryable_after_recipient_registers_and_normalized_replay_matches",
+        "outcome": "passed",
+        "elapsedSeconds": "0.751",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_question_sharing",
+        "name": "test_shared_management_requires_idempotency_key_without_state_change[grant]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.724",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_question_sharing",
+        "name": "test_shared_management_requires_idempotency_key_without_state_change[revoke]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.648",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_question_sharing",
+        "name": "test_usage_covers_all_saved_states_and_expired_status_without_mutating_survey",
+        "outcome": "passed",
+        "elapsedSeconds": "0.609",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_mutation_idempotency",
+        "name": "test_management_requires_lowercase_uuid_v4[None]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.580",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_mutation_idempotency",
+        "name": "test_management_requires_lowercase_uuid_v4[not-a-uuid]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.483",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_mutation_idempotency",
+        "name": "test_management_requires_lowercase_uuid_v4[89F2D440-5D6E-4D77-A2C3-8A12D3974809]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.444",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_mutation_idempotency",
+        "name": "test_management_requires_lowercase_uuid_v4[89f2d440-5d6e-1d77-a2c3-8a12d3974809]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.463",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_mutation_idempotency",
+        "name": "test_replay_is_original_response_before_current_revision_and_archive",
+        "outcome": "passed",
+        "elapsedSeconds": "0.525",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_mutation_idempotency",
+        "name": "test_restore_replay_does_not_create_another_version",
+        "outcome": "passed",
+        "elapsedSeconds": "0.561",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_mutation_idempotency",
+        "name": "test_same_key_concurrency_and_actor_scope",
+        "outcome": "passed",
+        "elapsedSeconds": "0.668",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_mutation_idempotency",
+        "name": "test_large_response_chunks_are_exact_and_corruption_never_reexecutes",
+        "outcome": "passed",
+        "elapsedSeconds": "0.711",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_mutation_idempotency",
+        "name": "test_abort_after_receipt_and_chunks_rolls_back_everything",
+        "outcome": "passed",
+        "elapsedSeconds": "0.551",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_mutation_idempotency",
+        "name": "test_commit_succeeded_but_confirmation_lost_keeps_key_and_never_reexecutes",
+        "outcome": "passed",
+        "elapsedSeconds": "0.667",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_mutation_idempotency",
+        "name": "test_cors_allows_management_protocol",
+        "outcome": "passed",
+        "elapsedSeconds": "0.532",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_mutation_idempotency",
+        "name": "test_patch_fingerprint_keeps_top_level_presence_and_nested_defaults",
+        "outcome": "passed",
+        "elapsedSeconds": "0.604",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_mutation_idempotency",
+        "name": "test_openapi_declares_concrete_new_responses_and_replay_headers",
+        "outcome": "passed",
+        "elapsedSeconds": "0.646",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_mutation_idempotency",
+        "name": "test_actual_management_and_public_json_matches_typed_contracts",
+        "outcome": "passed",
+        "elapsedSeconds": "0.686",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_management_races",
+        "name": "test_revoke_serializes_with_new_use_and_retries_actual_write_conflict[True-binding]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.740",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_management_races",
+        "name": "test_revoke_serializes_with_new_use_and_retries_actual_write_conflict[True-copy]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.787",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_management_races",
+        "name": "test_revoke_serializes_with_new_use_and_retries_actual_write_conflict[False-binding]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.706",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_management_races",
+        "name": "test_revoke_serializes_with_new_use_and_retries_actual_write_conflict[False-copy]",
+        "outcome": "passed",
+        "elapsedSeconds": "0.746",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_frontend_support",
+        "name": "test_dashboard_filters_literal_search_counts_and_ownership",
+        "outcome": "passed",
+        "elapsedSeconds": "0.839",
+        "properties": {}
+      },
+      {
+        "classname": "tests.test_frontend_support",
+        "name": "test_production_frontend_spa_routes_and_api_asset_404",
+        "outcome": "passed",
+        "elapsedSeconds": "15.420",
+        "properties": {}
+      }
+    ]
+  },
+  "sourcesUnchangedDuringRun": true,
+  "sourceFileCount": 50,
+  "changedSourceFiles": [],
+  "finishedAtUtc": "2026-10-26T09:00:02.251629+00:00",
+  "passed": true
+}

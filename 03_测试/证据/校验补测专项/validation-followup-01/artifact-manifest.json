@@ -1,0 +1,26 @@
+{
+  "runId": "20261026T085823Z-6f6b9d",
+  "algorithm": "SHA-256",
+  "files": {
+    "run-summary.json": {
+      "bytes": 37882,
+      "sha256": "51f144a204c1913364a00cbbb3260537958d94c63c9ad63f47ff5971517ffbb5"
+    },
+    "pytest-console.txt": {
+      "bytes": 763,
+      "sha256": "45962f664a10c9050f51bd02c787e1cd97ddb376c3aa5c00077c3506e666d3b3"
+    },
+    "source-manifest-before.json": {
+      "bytes": 5278,
+      "sha256": "c57af0149eb63e395f31a6c1e5cb18c15766feb4d5d66d73cbfe9998758aefd6"
+    },
+    "source-manifest-after.json": {
+      "bytes": 5278,
+      "sha256": "c57af0149eb63e395f31a6c1e5cb18c15766feb4d5d66d73cbfe9998758aefd6"
+    },
+    "backend-junit.xml": {
+      "bytes": 29339,
+      "sha256": "2738f9256254cf852015f30adc1cfc897ec1abf6f6072037c7149a0226d2473e"
+    }
+  }
+}

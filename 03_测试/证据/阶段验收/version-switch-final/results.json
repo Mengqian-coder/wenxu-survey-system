@@ -1,0 +1,209 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.EXE",
+      "D:\\I_love_studying\\快乐数据大三上\\数据库系统\\数据库实验\\提交材料\\问序_GitHub\\01_代码\\frontend\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "version-switch.spec.js"
+    ],
+    "configFile": "D:\\I_love_studying\\快乐数据大三上\\数据库系统\\数据库实验\\提交材料\\问序_GitHub\\01_代码\\frontend\\playwright.config.js",
+    "rootDir": "D:/I_love_studying/快乐数据大三上/数据库系统/数据库实验/提交材料/问序_GitHub/01_代码/frontend/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/I_love_studying/快乐数据大三上/数据库系统/数据库实验/提交材料/问序_GitHub/01_代码/output/version-switch-final/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "D:/I_love_studying/快乐数据大三上/数据库系统/数据库实验/提交材料/问序_GitHub/01_代码/frontend/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.js"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\I_love_studying\\快乐数据大三上\\数据库系统\\数据库实验\\提交材料\\问序_GitHub\\01_代码\\output\\version-switch-final\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "",
+        "testDir": "D:\\I_love_studying\\快乐数据大三上\\数据库系统\\数据库实验\\提交材料\\问序_GitHub\\01_代码\\frontend\\tests",
+        "snapshotDir": "D:\\I_love_studying\\快乐数据大三上\\数据库系统\\数据库实验\\提交材料\\问序_GitHub\\01_代码\\frontend\\tests",
+        "testIgnore": [],
+        "testMatch": "**/*.spec.js",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:56265",
+          "channel": "msedge",
+          "headless": true,
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "actionTimeout": 10000,
+          "navigationTimeout": 15000,
+          "screenshot": "only-on-failure",
+          "trace": "retain-on-failure"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": ""
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "html",
+        {
+          "outputFolder": "D:\\I_love_studying\\快乐数据大三上\\数据库系统\\数据库实验\\提交材料\\问序_GitHub\\01_代码\\output\\version-switch-final\\report",
+          "open": "never"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "D:\\I_love_studying\\快乐数据大三上\\数据库系统\\数据库实验\\提交材料\\问序_GitHub\\01_代码\\output\\version-switch-final\\results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "version-switch.spec.js",
+      "file": "version-switch.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "删除选项的换版影响显式告知，取消不改配置，确认并保存后仅清空本题跳转",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 10595,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "重新查看当前版本不会重设跳转",
+                      "duration": 230
+                    },
+                    {
+                      "title": "预览显示版本与卷内配置边界及具体影响",
+                      "duration": 3913
+                    },
+                    {
+                      "title": "确认仅改本地，保存才提交，保留其他卷内配置",
+                      "duration": 1059
+                    }
+                  ],
+                  "startTime": "2026-10-23T05:35:52.984Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fe26d635a04245a54bfb-20f20e46100a3f0d8b03",
+          "file": "version-switch.spec.js",
+          "line": 64,
+          "column": 1
+        },
+        {
+          "title": "没有本题跳转时仍说明换版和题型变化，选用后无需清空规则确认且保存前不落库",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 9591,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-23T05:36:03.920Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fe26d635a04245a54bfb-8116037440d022f11018",
+          "file": "version-switch.spec.js",
+          "line": 168,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-23T05:35:52.477Z",
+    "duration": 21479.900999999998,
+    "expected": 2,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

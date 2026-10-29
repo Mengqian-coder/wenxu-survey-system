@@ -18,15 +18,23 @@ import pytest
 
 import test_api as helpers
 
+# Opt into distinct management keys just as test_api does; the raw integration
+# client used by idempotency tests continues to require explicit headers.
+api = helpers.api
+
 
 def unrelated_records(snapshot, survey):
     """An operation on one survey cannot rewrite other surveys or any users."""
     survey_id = ObjectId(survey["_id"])
+    receipts = [row for row in snapshot["mutation_receipts"] if str(survey_id) not in row["target"]]
+    receipt_ids = {row["_id"] for row in receipts}
     return {
         **snapshot,
         "surveys": [row for row in snapshot["surveys"] if row["_id"] != survey_id],
         "responses": [row for row in snapshot["responses"] if row["surveyId"] != survey_id],
         "participations": [row for row in snapshot["participations"] if row["surveyId"] != survey_id],
+        "mutation_receipts": receipts,
+        "mutation_response_chunks": [row for row in snapshot["mutation_response_chunks"] if row["receiptId"] in receipt_ids],
     }
 
 
@@ -44,7 +52,7 @@ def test_unauthenticated_operations_preserve_populated_database(api, db, headers
 
     operations = [
         ("get", "/api/surveys", None),
-        ("post", "/api/surveys", helpers.survey_body()),
+        ("post", "/api/surveys", helpers.survey_body(questions=[helpers.reference(item) for item in draft["questions"]])),
         ("get", f"/api/surveys/{active['_id']}", None),
         ("patch", f"/api/surveys/{draft['_id']}", {"revision": draft["revision"], "title": "不应保存"}),
         ("post", f"/api/surveys/{draft['_id']}/publish", {"revision": draft["revision"]}),
@@ -164,7 +172,7 @@ def _target_collection(collection, db):
 def _seed_manual_close_race(api, db, anonymous, allow_repeat):
     _, owner = helpers.register(api, "owner")
     user, filler = helpers.register(api, "filler")
-    # A populated unrelated survey protects all four collections, not just counts.
+    # A populated unrelated survey protects complete records, not just counts.
     canary = helpers.publish(api, owner, helpers.create_survey(api, owner))
     helpers.assert_submitted(helpers.submit(
         api, filler, canary, helpers.start(api, filler, canary), [helpers.answer("Canary answer")],
@@ -331,7 +339,7 @@ def test_committed_submission_makes_paused_close_revision_stale(
         if (
             _target_collection(collection, db)
             and filter == {"_id": survey_id, "ownerId": before_survey["ownerId"]}
-            and kwargs.get("session") is None
+            and kwargs.get("session") is not None
         ):
             trace.add("close_owned_read", status=result["status"], revision=result["revision"])
         return result
@@ -343,7 +351,7 @@ def test_committed_submission_makes_paused_close_revision_stale(
                 "_id": survey_id, "ownerId": before_survey["ownerId"],
                 "revision": revision, "status": "published",
             }
-            and kwargs.get("session") is None
+            and kwargs.get("session") is not None
             and isinstance(update, dict)
             and update.get("$set", {}).get("closeReason") == "manual"
         ):
@@ -353,7 +361,14 @@ def test_committed_submission_makes_paused_close_revision_stale(
             assert update["$set"]["status"] == "closed"
             trace.add("manual_close_write_wait", revision=revision)
             gate.pause_first()
-            result = original_find_one_and_update(collection, filter, update, *args, **kwargs)
+            try:
+                result = original_find_one_and_update(collection, filter, update, *args, **kwargs)
+            except PyMongoError as error:
+                trace.add(
+                    "real_manual_close_write_error", mongoCode=getattr(error, "code", None),
+                    transientTransactionError=error.has_error_label("TransientTransactionError"),
+                )
+                raise
             trace.add("real_manual_close_cas_result", matched=result is not None)
             return result
         return original_find_one_and_update(collection, filter, update, *args, **kwargs)
@@ -394,10 +409,14 @@ def test_committed_submission_makes_paused_close_revision_stale(
             assert helpers.database_snapshot(db) == committed_snapshot
             assert gate.calls == 1
             reads = [event for event in trace.events if event["stage"] == "close_owned_read"]
-            assert reads == [{"stage": "close_owned_read", "status": "published", "revision": revision}]
-            assert [event for event in trace.events if event["stage"] == "real_manual_close_cas_result"] == [
-                {"stage": "real_manual_close_cas_result", "matched": False},
+            assert reads[0] == {"stage": "close_owned_read", "status": "published", "revision": revision}
+            assert len(reads) >= 2
+            assert all(event == {"stage": "close_owned_read", "status": "published", "revision": revision + 1}
+                       for event in reads[1:])
+            assert [event for event in trace.events if event["stage"] == "real_manual_close_write_error"] == [
+                {"stage": "real_manual_close_write_error", "mongoCode": 112, "transientTransactionError": True},
             ]
+            assert not any(event["stage"] == "real_manual_close_cas_result" for event in trace.events)
             trace.add("stale_close_rejected", httpStatus=409, errorCode="REVISION_CONFLICT", revision=revision + 1)
 
             # Read a genuinely fresh revision rather than deriving one for the request.

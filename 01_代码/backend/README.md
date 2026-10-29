@@ -1,6 +1,6 @@
 # 问序后端
 
-后端使用 FastAPI 和同步 PyMongo，MongoDB 副本集提供事务支持。安装、数据库管理和服务启动统一见 [安装与运行](../README.md)。
+后端使用 FastAPI 和同步 PyMongo，MongoDB 副本集提供事务支持。安装、数据库管理和服务启动统一见 [安装与运行](../../README.md)。
 
 ## 源码入口
 
@@ -18,7 +18,7 @@
 
 ## 配置
 
-`setup_env.py` 在本机生成 `backend/.env`，已有文件不覆盖。`SECRET_KEY` 更换后已有凭据失效，不应随材料提交。
+`scripts/setup_env.py` 在本机生成 `backend/.env`，已有文件不覆盖。`SECRET_KEY` 更换后已有凭据失效，不应随材料提交。下表是配置类的底层默认值；根 README 的推荐启动方案明确使用 `27019/rs0` 和 `survey_system_v2`，日常运行以生成的本机配置为准。
 
 | 环境变量 | 默认值或用途 |
 |---|---|
@@ -35,7 +35,7 @@
 
 ## 数据库定义维护
 
-正常启动读取同级 `database/schema-definitions.json`，创建或更新四集合验证器和六个业务索引，无需 Node.js 或 mongosh。初始化不插入示例数据，也不迁移、清理或修复历史数据。
+正常启动读取 `01_代码/database/schema-definitions.json`，创建或更新当前 11 个集合的验证器和相应索引，无需 Node.js 或 mongosh。初始化不插入示例数据，也不迁移、清理或修复历史数据。
 
 如需单独初始化受本项目管理的开发实例，从 **`01_代码`** 执行：
 

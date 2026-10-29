@@ -1,0 +1,1309 @@
+{
+  "caseId": "S02",
+  "title": "v2 删除 B：旧卷仍展示并接受 B，新卷拒绝 B，已发布卷禁止换版",
+  "startedAtUtc": "2026-10-25T02:49:51.590607+00:00",
+  "finishedAtUtc": "2026-10-25T02:49:51.897960+00:00",
+  "passed": true,
+  "exceptionType": null,
+  "database": "test_backend_269ce283724e43088e7104e277462c57",
+  "environment": {
+    "database": "test_backend_269ce283724e43088e7104e277462c57",
+    "mongoVersion": "8.3.11",
+    "replicaSet": "backend_test_rs",
+    "writablePrimary": true,
+    "apiTransport": "FastAPI TestClient / ASGI routes; real MongoDB replica set"
+  },
+  "scope": "Synthetic isolated API/MongoDB scenario; credentials redacted; binary values represented by length and SHA-256.",
+  "steps": [
+    {
+      "kind": "http",
+      "actor": "所有者",
+      "method": "POST",
+      "path": "/api/questions",
+      "requestBody": {
+        "content": {
+          "type": "single",
+          "title": "课程选择 v1",
+          "description": "证据专用合成题目",
+          "validation": {},
+          "options": [
+            {
+              "id": "a",
+              "label": "选项 A"
+            },
+            {
+              "id": "b",
+              "label": "选项 B"
+            },
+            {
+              "id": "c",
+              "label": "选项 C"
+            }
+          ]
+        }
+      },
+      "expectedStatus": 201,
+      "actualStatus": 201,
+      "responseBody": {
+        "question": {
+          "_id": "6add6e4f24341bec11a15e0d",
+          "ownerId": "6add6e4f24341bec11a15e0a",
+          "revision": 1,
+          "latestVersionId": "6add6e4f24341bec11a15e0e",
+          "archivedAt": null,
+          "createdAt": "2026-10-25T02:49:51.598000+00:00",
+          "updatedAt": "2026-10-25T02:49:51.598000+00:00",
+          "latestVersion": {
+            "_id": "6add6e4f24341bec11a15e0e",
+            "versionNo": 1,
+            "baseVersionId": null,
+            "operation": "create",
+            "createdAt": "2026-10-25T02:49:51.598000+00:00",
+            "archivedAt": null,
+            "title": "课程选择 v1",
+            "type": "single"
+          },
+          "permissions": {
+            "canManage": true,
+            "canUse": true
+          },
+          "origin": {
+            "kind": "original"
+          }
+        },
+        "version": {
+          "_id": "6add6e4f24341bec11a15e0e",
+          "questionId": "6add6e4f24341bec11a15e0d",
+          "versionNo": 1,
+          "baseVersionId": null,
+          "operation": "create",
+          "content": {
+            "title": "课程选择 v1",
+            "description": "证据专用合成题目",
+            "type": "single",
+            "validation": {},
+            "options": [
+              {
+                "id": "a",
+                "label": "选项 A"
+              },
+              {
+                "id": "b",
+                "label": "选项 B"
+              },
+              {
+                "id": "c",
+                "label": "选项 C"
+              }
+            ]
+          },
+          "createdBy": "6add6e4f24341bec11a15e0a",
+          "createdAt": "2026-10-25T02:49:51.598000+00:00",
+          "archivedAt": null,
+          "permissions": {
+            "canUse": true
+          }
+        }
+      },
+      "passed": true,
+      "elapsedMs": 15.39
+    },
+    {
+      "kind": "http",
+      "actor": "所有者",
+      "method": "POST",
+      "path": "/api/surveys",
+      "requestBody": {
+        "title": "旧卷固定 v1",
+        "settings": {
+          "anonymous": true,
+          "allowRepeat": true
+        },
+        "questions": [
+          {
+            "id": "local_choice",
+            "questionId": "6add6e4f24341bec11a15e0d",
+            "versionId": "6add6e4f24341bec11a15e0e",
+            "required": true,
+            "jumpRules": []
+          }
+        ]
+      },
+      "expectedStatus": 201,
+      "actualStatus": 201,
+      "responseBody": {
+        "_id": "6add6e4f24341bec11a15e10",
+        "ownerId": "6add6e4f24341bec11a15e0a",
+        "publicId": "8081957a078fb55d3037b354935b04dd",
+        "title": "旧卷固定 v1",
+        "description": "",
+        "settings": {
+          "anonymous": true,
+          "allowRepeat": true
+        },
+        "deadlineAt": null,
+        "status": "draft",
+        "questions": [
+          {
+            "id": "local_choice",
+            "title": "课程选择 v1",
+            "description": "证据专用合成题目",
+            "required": true,
+            "type": "single",
+            "validation": {},
+            "options": [
+              {
+                "id": "a",
+                "label": "选项 A"
+              },
+              {
+                "id": "b",
+                "label": "选项 B"
+              },
+              {
+                "id": "c",
+                "label": "选项 C"
+              }
+            ],
+            "jumpRules": [],
+            "questionId": "6add6e4f24341bec11a15e0d",
+            "versionId": "6add6e4f24341bec11a15e0e",
+            "versionNo": 1
+          }
+        ],
+        "schemaVersion": 2,
+        "revision": 1,
+        "createdAt": "2026-10-25T02:49:51.613000+00:00",
+        "updatedAt": "2026-10-25T02:49:51.613000+00:00",
+        "publishedAt": null,
+        "closedAt": null,
+        "closeReason": null
+      },
+      "passed": true,
+      "elapsedMs": 18.126
+    },
+    {
+      "kind": "http",
+      "actor": "所有者",
+      "method": "POST",
+      "path": "/api/surveys/6add6e4f24341bec11a15e10/publish",
+      "requestBody": {
+        "revision": 1
+      },
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "responseBody": {
+        "_id": "6add6e4f24341bec11a15e10",
+        "ownerId": "6add6e4f24341bec11a15e0a",
+        "publicId": "8081957a078fb55d3037b354935b04dd",
+        "title": "旧卷固定 v1",
+        "description": "",
+        "settings": {
+          "anonymous": true,
+          "allowRepeat": true
+        },
+        "deadlineAt": null,
+        "status": "published",
+        "questions": [
+          {
+            "id": "local_choice",
+            "title": "课程选择 v1",
+            "description": "证据专用合成题目",
+            "required": true,
+            "type": "single",
+            "validation": {},
+            "options": [
+              {
+                "id": "a",
+                "label": "选项 A"
+              },
+              {
+                "id": "b",
+                "label": "选项 B"
+              },
+              {
+                "id": "c",
+                "label": "选项 C"
+              }
+            ],
+            "jumpRules": [],
+            "questionId": "6add6e4f24341bec11a15e0d",
+            "versionId": "6add6e4f24341bec11a15e0e",
+            "versionNo": 1
+          }
+        ],
+        "schemaVersion": 2,
+        "revision": 2,
+        "createdAt": "2026-10-25T02:49:51.613000+00:00",
+        "updatedAt": "2026-10-25T02:49:51.635000+00:00",
+        "publishedAt": "2026-10-25T02:49:51.635000+00:00",
+        "closedAt": null,
+        "closeReason": null
+      },
+      "passed": true,
+      "elapsedMs": 16.454
+    },
+    {
+      "kind": "database",
+      "label": "原题修改前的已发布旧卷",
+      "collections": {
+        "surveys": {
+          "count": 1,
+          "sha256": "1a048e3a9482df6f2f8601223fa395f3172cb67101f84e4558cb377770684a98",
+          "documents": [
+            {
+              "_id": "6add6e4f24341bec11a15e10",
+              "ownerId": "6add6e4f24341bec11a15e0a",
+              "publicId": "8081957a078fb55d3037b354935b04dd",
+              "title": "旧卷固定 v1",
+              "description": "",
+              "settings": {
+                "anonymous": true,
+                "allowRepeat": true
+              },
+              "deadlineAt": null,
+              "status": "published",
+              "questions": [
+                {
+                  "id": "local_choice",
+                  "title": "课程选择 v1",
+                  "description": "证据专用合成题目",
+                  "required": true,
+                  "type": "single",
+                  "validation": {},
+                  "options": [
+                    {
+                      "id": "a",
+                      "label": "选项 A"
+                    },
+                    {
+                      "id": "b",
+                      "label": "选项 B"
+                    },
+                    {
+                      "id": "c",
+                      "label": "选项 C"
+                    }
+                  ],
+                  "jumpRules": [],
+                  "questionId": "6add6e4f24341bec11a15e0d",
+                  "versionId": "6add6e4f24341bec11a15e0e",
+                  "versionNo": 1
+                }
+              ],
+              "schemaVersion": 2,
+              "revision": 2,
+              "createdAt": "2026-10-25T02:49:51.613000+00:00",
+              "updatedAt": "2026-10-25T02:49:51.635000+00:00",
+              "publishedAt": "2026-10-25T02:49:51.635000+00:00",
+              "closedAt": null,
+              "closeReason": null
+            }
+          ]
+        }
+      }
+    },
+    {
+      "kind": "http",
+      "actor": "所有者",
+      "method": "POST",
+      "path": "/api/questions/6add6e4f24341bec11a15e0d/versions",
+      "requestBody": {
+        "revision": 1,
+        "baseVersionId": "6add6e4f24341bec11a15e0e",
+        "content": {
+          "type": "single",
+          "title": "课程选择 v2",
+          "description": "证据专用合成题目",
+          "validation": {},
+          "options": [
+            {
+              "id": "a",
+              "label": "选项 A"
+            },
+            {
+              "id": "c",
+              "label": "选项 C"
+            }
+          ]
+        }
+      },
+      "expectedStatus": 201,
+      "actualStatus": 201,
+      "responseBody": {
+        "question": {
+          "_id": "6add6e4f24341bec11a15e0d",
+          "ownerId": "6add6e4f24341bec11a15e0a",
+          "revision": 2,
+          "latestVersionId": "6add6e4f24341bec11a15e13",
+          "archivedAt": null,
+          "createdAt": "2026-10-25T02:49:51.598000+00:00",
+          "updatedAt": "2026-10-25T02:49:51.655000+00:00",
+          "latestVersion": {
+            "_id": "6add6e4f24341bec11a15e13",
+            "versionNo": 2,
+            "baseVersionId": "6add6e4f24341bec11a15e0e",
+            "operation": "edit",
+            "createdAt": "2026-10-25T02:49:51.655000+00:00",
+            "archivedAt": null,
+            "title": "课程选择 v2",
+            "type": "single"
+          },
+          "permissions": {
+            "canManage": true,
+            "canUse": true
+          },
+          "origin": {
+            "kind": "original"
+          }
+        },
+        "version": {
+          "_id": "6add6e4f24341bec11a15e13",
+          "questionId": "6add6e4f24341bec11a15e0d",
+          "versionNo": 2,
+          "baseVersionId": "6add6e4f24341bec11a15e0e",
+          "operation": "edit",
+          "content": {
+            "title": "课程选择 v2",
+            "description": "证据专用合成题目",
+            "type": "single",
+            "validation": {},
+            "options": [
+              {
+                "id": "a",
+                "label": "选项 A"
+              },
+              {
+                "id": "c",
+                "label": "选项 C"
+              }
+            ]
+          },
+          "createdBy": "6add6e4f24341bec11a15e0a",
+          "createdAt": "2026-10-25T02:49:51.655000+00:00",
+          "archivedAt": null,
+          "permissions": {
+            "canUse": true
+          }
+        }
+      },
+      "passed": true,
+      "elapsedMs": 25.263
+    },
+    {
+      "kind": "database",
+      "label": "原题修改后的同一旧卷",
+      "collections": {
+        "surveys": {
+          "count": 1,
+          "sha256": "1a048e3a9482df6f2f8601223fa395f3172cb67101f84e4558cb377770684a98",
+          "documents": [
+            {
+              "_id": "6add6e4f24341bec11a15e10",
+              "ownerId": "6add6e4f24341bec11a15e0a",
+              "publicId": "8081957a078fb55d3037b354935b04dd",
+              "title": "旧卷固定 v1",
+              "description": "",
+              "settings": {
+                "anonymous": true,
+                "allowRepeat": true
+              },
+              "deadlineAt": null,
+              "status": "published",
+              "questions": [
+                {
+                  "id": "local_choice",
+                  "title": "课程选择 v1",
+                  "description": "证据专用合成题目",
+                  "required": true,
+                  "type": "single",
+                  "validation": {},
+                  "options": [
+                    {
+                      "id": "a",
+                      "label": "选项 A"
+                    },
+                    {
+                      "id": "b",
+                      "label": "选项 B"
+                    },
+                    {
+                      "id": "c",
+                      "label": "选项 C"
+                    }
+                  ],
+                  "jumpRules": [],
+                  "questionId": "6add6e4f24341bec11a15e0d",
+                  "versionId": "6add6e4f24341bec11a15e0e",
+                  "versionNo": 1
+                }
+              ],
+              "schemaVersion": 2,
+              "revision": 2,
+              "createdAt": "2026-10-25T02:49:51.613000+00:00",
+              "updatedAt": "2026-10-25T02:49:51.635000+00:00",
+              "publishedAt": "2026-10-25T02:49:51.635000+00:00",
+              "closedAt": null,
+              "closeReason": null
+            }
+          ]
+        }
+      }
+    },
+    {
+      "kind": "assertion",
+      "label": "原题追加 v2 后旧卷完整文档不变",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "kind": "http",
+      "actor": "所有者",
+      "method": "POST",
+      "path": "/api/surveys",
+      "requestBody": {
+        "title": "新卷固定 v2",
+        "settings": {
+          "anonymous": true,
+          "allowRepeat": true
+        },
+        "questions": [
+          {
+            "id": "local_choice",
+            "questionId": "6add6e4f24341bec11a15e0d",
+            "versionId": "6add6e4f24341bec11a15e13",
+            "required": true,
+            "jumpRules": []
+          }
+        ]
+      },
+      "expectedStatus": 201,
+      "actualStatus": 201,
+      "responseBody": {
+        "_id": "6add6e4f24341bec11a15e15",
+        "ownerId": "6add6e4f24341bec11a15e0a",
+        "publicId": "84367fa1adc991fd44055f9822e2d618",
+        "title": "新卷固定 v2",
+        "description": "",
+        "settings": {
+          "anonymous": true,
+          "allowRepeat": true
+        },
+        "deadlineAt": null,
+        "status": "draft",
+        "questions": [
+          {
+            "id": "local_choice",
+            "title": "课程选择 v2",
+            "description": "证据专用合成题目",
+            "required": true,
+            "type": "single",
+            "validation": {},
+            "options": [
+              {
+                "id": "a",
+                "label": "选项 A"
+              },
+              {
+                "id": "c",
+                "label": "选项 C"
+              }
+            ],
+            "jumpRules": [],
+            "questionId": "6add6e4f24341bec11a15e0d",
+            "versionId": "6add6e4f24341bec11a15e13",
+            "versionNo": 2
+          }
+        ],
+        "schemaVersion": 2,
+        "revision": 1,
+        "createdAt": "2026-10-25T02:49:51.677000+00:00",
+        "updatedAt": "2026-10-25T02:49:51.677000+00:00",
+        "publishedAt": null,
+        "closedAt": null,
+        "closeReason": null
+      },
+      "passed": true,
+      "elapsedMs": 21.565
+    },
+    {
+      "kind": "http",
+      "actor": "所有者",
+      "method": "POST",
+      "path": "/api/surveys/6add6e4f24341bec11a15e15/publish",
+      "requestBody": {
+        "revision": 1
+      },
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "responseBody": {
+        "_id": "6add6e4f24341bec11a15e15",
+        "ownerId": "6add6e4f24341bec11a15e0a",
+        "publicId": "84367fa1adc991fd44055f9822e2d618",
+        "title": "新卷固定 v2",
+        "description": "",
+        "settings": {
+          "anonymous": true,
+          "allowRepeat": true
+        },
+        "deadlineAt": null,
+        "status": "published",
+        "questions": [
+          {
+            "id": "local_choice",
+            "title": "课程选择 v2",
+            "description": "证据专用合成题目",
+            "required": true,
+            "type": "single",
+            "validation": {},
+            "options": [
+              {
+                "id": "a",
+                "label": "选项 A"
+              },
+              {
+                "id": "c",
+                "label": "选项 C"
+              }
+            ],
+            "jumpRules": [],
+            "questionId": "6add6e4f24341bec11a15e0d",
+            "versionId": "6add6e4f24341bec11a15e13",
+            "versionNo": 2
+          }
+        ],
+        "schemaVersion": 2,
+        "revision": 2,
+        "createdAt": "2026-10-25T02:49:51.677000+00:00",
+        "updatedAt": "2026-10-25T02:49:51.702000+00:00",
+        "publishedAt": "2026-10-25T02:49:51.702000+00:00",
+        "closedAt": null,
+        "closeReason": null
+      },
+      "passed": true,
+      "elapsedMs": 25.603
+    },
+    {
+      "kind": "http",
+      "actor": "填写者",
+      "method": "GET",
+      "path": "/api/public/surveys/8081957a078fb55d3037b354935b04dd",
+      "requestBody": null,
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "responseBody": {
+        "_id": "6add6e4f24341bec11a15e10",
+        "publicId": "8081957a078fb55d3037b354935b04dd",
+        "title": "旧卷固定 v1",
+        "description": "",
+        "status": "published",
+        "settings": {
+          "anonymous": true,
+          "allowRepeat": true
+        },
+        "deadlineAt": null,
+        "questions": [
+          {
+            "id": "local_choice",
+            "required": true,
+            "title": "课程选择 v1",
+            "description": "证据专用合成题目",
+            "type": "single",
+            "validation": {},
+            "options": [
+              {
+                "id": "a",
+                "label": "选项 A"
+              },
+              {
+                "id": "b",
+                "label": "选项 B"
+              },
+              {
+                "id": "c",
+                "label": "选项 C"
+              }
+            ]
+          }
+        ],
+        "canSubmit": true
+      },
+      "passed": true,
+      "elapsedMs": 9.052
+    },
+    {
+      "kind": "assertion",
+      "label": "填写展示由本卷快照决定是否存在 B",
+      "passed": true,
+      "observed": {
+        "_id": "6add6e4f24341bec11a15e10",
+        "publicId": "8081957a078fb55d3037b354935b04dd",
+        "title": "旧卷固定 v1",
+        "description": "",
+        "status": "published",
+        "settings": {
+          "anonymous": true,
+          "allowRepeat": true
+        },
+        "deadlineAt": null,
+        "questions": [
+          {
+            "id": "local_choice",
+            "required": true,
+            "title": "课程选择 v1",
+            "description": "证据专用合成题目",
+            "type": "single",
+            "validation": {},
+            "options": [
+              {
+                "id": "a",
+                "label": "选项 A"
+              },
+              {
+                "id": "b",
+                "label": "选项 B"
+              },
+              {
+                "id": "c",
+                "label": "选项 C"
+              }
+            ]
+          }
+        ],
+        "canSubmit": true
+      }
+    },
+    {
+      "kind": "http",
+      "actor": "填写者",
+      "method": "POST",
+      "path": "/api/public/surveys/8081957a078fb55d3037b354935b04dd/start",
+      "requestBody": null,
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "responseBody": {
+        "submissionKey": "[REDACTED]",
+        "submissionToken": "[REDACTED]"
+      },
+      "passed": true,
+      "elapsedMs": 7.79
+    },
+    {
+      "kind": "http",
+      "actor": "填写者",
+      "method": "POST",
+      "path": "/api/public/surveys/8081957a078fb55d3037b354935b04dd/submit",
+      "requestBody": {
+        "submissionKey": "[REDACTED]",
+        "submissionToken": "[REDACTED]",
+        "answers": [
+          {
+            "questionId": "local_choice",
+            "value": "b"
+          }
+        ]
+      },
+      "expectedStatus": 201,
+      "actualStatus": 201,
+      "responseBody": {
+        "submitted": true
+      },
+      "passed": true,
+      "elapsedMs": 28.687
+    },
+    {
+      "kind": "http",
+      "actor": "填写者",
+      "method": "GET",
+      "path": "/api/public/surveys/84367fa1adc991fd44055f9822e2d618",
+      "requestBody": null,
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "responseBody": {
+        "_id": "6add6e4f24341bec11a15e15",
+        "publicId": "84367fa1adc991fd44055f9822e2d618",
+        "title": "新卷固定 v2",
+        "description": "",
+        "status": "published",
+        "settings": {
+          "anonymous": true,
+          "allowRepeat": true
+        },
+        "deadlineAt": null,
+        "questions": [
+          {
+            "id": "local_choice",
+            "required": true,
+            "title": "课程选择 v2",
+            "description": "证据专用合成题目",
+            "type": "single",
+            "validation": {},
+            "options": [
+              {
+                "id": "a",
+                "label": "选项 A"
+              },
+              {
+                "id": "c",
+                "label": "选项 C"
+              }
+            ]
+          }
+        ],
+        "canSubmit": true
+      },
+      "passed": true,
+      "elapsedMs": 8.374
+    },
+    {
+      "kind": "assertion",
+      "label": "填写展示由本卷快照决定是否存在 B",
+      "passed": true,
+      "observed": {
+        "_id": "6add6e4f24341bec11a15e15",
+        "publicId": "84367fa1adc991fd44055f9822e2d618",
+        "title": "新卷固定 v2",
+        "description": "",
+        "status": "published",
+        "settings": {
+          "anonymous": true,
+          "allowRepeat": true
+        },
+        "deadlineAt": null,
+        "questions": [
+          {
+            "id": "local_choice",
+            "required": true,
+            "title": "课程选择 v2",
+            "description": "证据专用合成题目",
+            "type": "single",
+            "validation": {},
+            "options": [
+              {
+                "id": "a",
+                "label": "选项 A"
+              },
+              {
+                "id": "c",
+                "label": "选项 C"
+              }
+            ]
+          }
+        ],
+        "canSubmit": true
+      }
+    },
+    {
+      "kind": "http",
+      "actor": "填写者",
+      "method": "POST",
+      "path": "/api/public/surveys/84367fa1adc991fd44055f9822e2d618/start",
+      "requestBody": null,
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "responseBody": {
+        "submissionKey": "[REDACTED]",
+        "submissionToken": "[REDACTED]"
+      },
+      "passed": true,
+      "elapsedMs": 7.715
+    },
+    {
+      "kind": "http",
+      "actor": "填写者",
+      "method": "POST",
+      "path": "/api/public/surveys/84367fa1adc991fd44055f9822e2d618/submit",
+      "requestBody": {
+        "submissionKey": "[REDACTED]",
+        "submissionToken": "[REDACTED]",
+        "answers": [
+          {
+            "questionId": "local_choice",
+            "value": "b"
+          }
+        ]
+      },
+      "expectedStatus": 422,
+      "actualStatus": 422,
+      "responseBody": {
+        "error": {
+          "code": "VALIDATION_ERROR",
+          "message": "单选答案必须是一个有效选项 ID",
+          "details": {
+            "questionId": "local_choice"
+          }
+        }
+      },
+      "passed": true,
+      "elapsedMs": 9.433
+    },
+    {
+      "kind": "assertion",
+      "label": "新卷拒绝 B 且不多存一份答卷",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "kind": "http",
+      "actor": "填写者",
+      "method": "POST",
+      "path": "/api/public/surveys/84367fa1adc991fd44055f9822e2d618/submit",
+      "requestBody": {
+        "submissionKey": "[REDACTED]",
+        "submissionToken": "[REDACTED]",
+        "answers": [
+          {
+            "questionId": "local_choice",
+            "value": "a"
+          }
+        ]
+      },
+      "expectedStatus": 201,
+      "actualStatus": 201,
+      "responseBody": {
+        "submitted": true
+      },
+      "passed": true,
+      "elapsedMs": 21.298
+    },
+    {
+      "kind": "http",
+      "actor": "所有者",
+      "method": "GET",
+      "path": "/api/surveys/6add6e4f24341bec11a15e10",
+      "requestBody": null,
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "responseBody": {
+        "_id": "6add6e4f24341bec11a15e10",
+        "ownerId": "6add6e4f24341bec11a15e0a",
+        "publicId": "8081957a078fb55d3037b354935b04dd",
+        "title": "旧卷固定 v1",
+        "description": "",
+        "settings": {
+          "anonymous": true,
+          "allowRepeat": true
+        },
+        "deadlineAt": null,
+        "status": "published",
+        "revision": 3,
+        "createdAt": "2026-10-25T02:49:51.613000Z",
+        "updatedAt": "2026-10-25T02:49:51.750000Z",
+        "publishedAt": "2026-10-25T02:49:51.635000Z",
+        "closedAt": null,
+        "closeReason": null,
+        "schemaVersion": 2,
+        "questions": [
+          {
+            "questionId": "6add6e4f24341bec11a15e0d",
+            "versionId": "6add6e4f24341bec11a15e0e",
+            "versionNo": 1,
+            "id": "local_choice",
+            "title": "课程选择 v1",
+            "description": "证据专用合成题目",
+            "required": true,
+            "type": "single",
+            "validation": {},
+            "options": [
+              {
+                "id": "a",
+                "label": "选项 A"
+              },
+              {
+                "id": "b",
+                "label": "选项 B"
+              },
+              {
+                "id": "c",
+                "label": "选项 C"
+              }
+            ],
+            "jumpRules": []
+          }
+        ]
+      },
+      "passed": true,
+      "elapsedMs": 11.579
+    },
+    {
+      "kind": "http",
+      "actor": "所有者",
+      "method": "PATCH",
+      "path": "/api/surveys/6add6e4f24341bec11a15e10",
+      "requestBody": {
+        "revision": 3,
+        "questions": [
+          {
+            "id": "local_choice",
+            "questionId": "6add6e4f24341bec11a15e0d",
+            "versionId": "6add6e4f24341bec11a15e13",
+            "required": true,
+            "jumpRules": []
+          }
+        ]
+      },
+      "expectedStatus": 409,
+      "actualStatus": 409,
+      "responseBody": {
+        "error": {
+          "code": "SURVEY_LOCKED",
+          "message": "发布后禁止修改题目、选项、规则和填写设置"
+        }
+      },
+      "passed": true,
+      "elapsedMs": 14.121
+    },
+    {
+      "kind": "assertion",
+      "label": "发布冻结拒绝换版",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "kind": "database",
+      "label": "旧卷最终快照",
+      "collections": {
+        "surveys": {
+          "count": 1,
+          "sha256": "7b7d4affc4e4ca0175b1c7d2fae2b7bc4ae7b1be59512456f5b35df54336d661",
+          "documents": [
+            {
+              "_id": "6add6e4f24341bec11a15e10",
+              "ownerId": "6add6e4f24341bec11a15e0a",
+              "publicId": "8081957a078fb55d3037b354935b04dd",
+              "title": "旧卷固定 v1",
+              "description": "",
+              "settings": {
+                "anonymous": true,
+                "allowRepeat": true
+              },
+              "deadlineAt": null,
+              "status": "published",
+              "questions": [
+                {
+                  "id": "local_choice",
+                  "title": "课程选择 v1",
+                  "description": "证据专用合成题目",
+                  "required": true,
+                  "type": "single",
+                  "validation": {},
+                  "options": [
+                    {
+                      "id": "a",
+                      "label": "选项 A"
+                    },
+                    {
+                      "id": "b",
+                      "label": "选项 B"
+                    },
+                    {
+                      "id": "c",
+                      "label": "选项 C"
+                    }
+                  ],
+                  "jumpRules": [],
+                  "questionId": "6add6e4f24341bec11a15e0d",
+                  "versionId": "6add6e4f24341bec11a15e0e",
+                  "versionNo": 1
+                }
+              ],
+              "schemaVersion": 2,
+              "revision": 3,
+              "createdAt": "2026-10-25T02:49:51.613000+00:00",
+              "updatedAt": "2026-10-25T02:49:51.750000+00:00",
+              "publishedAt": "2026-10-25T02:49:51.635000+00:00",
+              "closedAt": null,
+              "closeReason": null
+            }
+          ]
+        }
+      }
+    },
+    {
+      "kind": "assertion",
+      "label": "填写和拒绝换版均不改变旧卷题目快照",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "kind": "http",
+      "actor": "所有者",
+      "method": "GET",
+      "path": "/api/question-statistics/6add6e4f24341bec11a15e0d/versions/6add6e4f24341bec11a15e0e",
+      "requestBody": null,
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "responseBody": {
+        "questionId": "6add6e4f24341bec11a15e0d",
+        "versionId": "6add6e4f24341bec11a15e0e",
+        "versionNo": 1,
+        "title": "课程选择 v1",
+        "surveyCount": 1,
+        "totalResponses": 1,
+        "answeredCount": 1,
+        "unansweredCount": 0,
+        "type": "single",
+        "options": [
+          {
+            "optionId": "a",
+            "label": "选项 A",
+            "count": 0,
+            "ratio": 0.0
+          },
+          {
+            "optionId": "b",
+            "label": "选项 B",
+            "count": 1,
+            "ratio": 1.0
+          },
+          {
+            "optionId": "c",
+            "label": "选项 C",
+            "count": 0,
+            "ratio": 0.0
+          }
+        ]
+      },
+      "passed": true,
+      "elapsedMs": 42.396
+    },
+    {
+      "kind": "assertion",
+      "label": "同题不同版本独立统计",
+      "passed": true,
+      "observed": {
+        "questionId": "6add6e4f24341bec11a15e0d",
+        "versionId": "6add6e4f24341bec11a15e0e",
+        "versionNo": 1,
+        "title": "课程选择 v1",
+        "surveyCount": 1,
+        "totalResponses": 1,
+        "answeredCount": 1,
+        "unansweredCount": 0,
+        "type": "single",
+        "options": [
+          {
+            "optionId": "a",
+            "label": "选项 A",
+            "count": 0,
+            "ratio": 0.0
+          },
+          {
+            "optionId": "b",
+            "label": "选项 B",
+            "count": 1,
+            "ratio": 1.0
+          },
+          {
+            "optionId": "c",
+            "label": "选项 C",
+            "count": 0,
+            "ratio": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "kind": "http",
+      "actor": "所有者",
+      "method": "GET",
+      "path": "/api/question-statistics/6add6e4f24341bec11a15e0d/versions/6add6e4f24341bec11a15e13",
+      "requestBody": null,
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "responseBody": {
+        "questionId": "6add6e4f24341bec11a15e0d",
+        "versionId": "6add6e4f24341bec11a15e13",
+        "versionNo": 2,
+        "title": "课程选择 v2",
+        "surveyCount": 1,
+        "totalResponses": 1,
+        "answeredCount": 1,
+        "unansweredCount": 0,
+        "type": "single",
+        "options": [
+          {
+            "optionId": "a",
+            "label": "选项 A",
+            "count": 1,
+            "ratio": 1.0
+          },
+          {
+            "optionId": "c",
+            "label": "选项 C",
+            "count": 0,
+            "ratio": 0.0
+          }
+        ]
+      },
+      "passed": true,
+      "elapsedMs": 12.445
+    },
+    {
+      "kind": "assertion",
+      "label": "同题不同版本独立统计",
+      "passed": true,
+      "observed": {
+        "questionId": "6add6e4f24341bec11a15e0d",
+        "versionId": "6add6e4f24341bec11a15e13",
+        "versionNo": 2,
+        "title": "课程选择 v2",
+        "surveyCount": 1,
+        "totalResponses": 1,
+        "answeredCount": 1,
+        "unansweredCount": 0,
+        "type": "single",
+        "options": [
+          {
+            "optionId": "a",
+            "label": "选项 A",
+            "count": 1,
+            "ratio": 1.0
+          },
+          {
+            "optionId": "c",
+            "label": "选项 C",
+            "count": 0,
+            "ratio": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "kind": "database",
+      "label": "最终两卷快照与两份真实答卷",
+      "collections": {
+        "surveys": {
+          "count": 2,
+          "sha256": "3933c556113ef2a6ddc734f641197ff19fbd854d12e5e58a0365ae81d7ab37fd",
+          "documents": [
+            {
+              "_id": "6add6e4f24341bec11a15e10",
+              "ownerId": "6add6e4f24341bec11a15e0a",
+              "publicId": "8081957a078fb55d3037b354935b04dd",
+              "title": "旧卷固定 v1",
+              "description": "",
+              "settings": {
+                "anonymous": true,
+                "allowRepeat": true
+              },
+              "deadlineAt": null,
+              "status": "published",
+              "questions": [
+                {
+                  "id": "local_choice",
+                  "title": "课程选择 v1",
+                  "description": "证据专用合成题目",
+                  "required": true,
+                  "type": "single",
+                  "validation": {},
+                  "options": [
+                    {
+                      "id": "a",
+                      "label": "选项 A"
+                    },
+                    {
+                      "id": "b",
+                      "label": "选项 B"
+                    },
+                    {
+                      "id": "c",
+                      "label": "选项 C"
+                    }
+                  ],
+                  "jumpRules": [],
+                  "questionId": "6add6e4f24341bec11a15e0d",
+                  "versionId": "6add6e4f24341bec11a15e0e",
+                  "versionNo": 1
+                }
+              ],
+              "schemaVersion": 2,
+              "revision": 3,
+              "createdAt": "2026-10-25T02:49:51.613000+00:00",
+              "updatedAt": "2026-10-25T02:49:51.750000+00:00",
+              "publishedAt": "2026-10-25T02:49:51.635000+00:00",
+              "closedAt": null,
+              "closeReason": null
+            },
+            {
+              "_id": "6add6e4f24341bec11a15e15",
+              "ownerId": "6add6e4f24341bec11a15e0a",
+              "publicId": "84367fa1adc991fd44055f9822e2d618",
+              "title": "新卷固定 v2",
+              "description": "",
+              "settings": {
+                "anonymous": true,
+                "allowRepeat": true
+              },
+              "deadlineAt": null,
+              "status": "published",
+              "questions": [
+                {
+                  "id": "local_choice",
+                  "title": "课程选择 v2",
+                  "description": "证据专用合成题目",
+                  "required": true,
+                  "type": "single",
+                  "validation": {},
+                  "options": [
+                    {
+                      "id": "a",
+                      "label": "选项 A"
+                    },
+                    {
+                      "id": "c",
+                      "label": "选项 C"
+                    }
+                  ],
+                  "jumpRules": [],
+                  "questionId": "6add6e4f24341bec11a15e0d",
+                  "versionId": "6add6e4f24341bec11a15e13",
+                  "versionNo": 2
+                }
+              ],
+              "schemaVersion": 2,
+              "revision": 3,
+              "createdAt": "2026-10-25T02:49:51.677000+00:00",
+              "updatedAt": "2026-10-25T02:49:51.803000+00:00",
+              "publishedAt": "2026-10-25T02:49:51.702000+00:00",
+              "closedAt": null,
+              "closeReason": null
+            }
+          ]
+        },
+        "responses": {
+          "count": 2,
+          "sha256": "ba42cd2a5a1f244f47b6369001a8011a1d31a83b1d5d07bb4bda1ba945ee97d0",
+          "documents": [
+            {
+              "_id": "6add6e4f24341bec11a15e17",
+              "surveyId": "6add6e4f24341bec11a15e10",
+              "submissionKey": "[REDACTED]",
+              "answers": [
+                {
+                  "questionId": "local_choice",
+                  "value": "b"
+                }
+              ],
+              "submittedAt": "2026-10-25T02:49:51.736000+00:00",
+              "schemaVersion": 1
+            },
+            {
+              "_id": "6add6e4f24341bec11a15e18",
+              "surveyId": "6add6e4f24341bec11a15e15",
+              "submissionKey": "[REDACTED]",
+              "answers": [
+                {
+                  "questionId": "local_choice",
+                  "value": "a"
+                }
+              ],
+              "submittedAt": "2026-10-25T02:49:51.793000+00:00",
+              "schemaVersion": 1
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

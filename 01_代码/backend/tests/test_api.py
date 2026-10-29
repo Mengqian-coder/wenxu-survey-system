@@ -8,6 +8,7 @@ from datetime import datetime, timedelta, timezone
 import math
 import sys
 import threading
+import uuid
 
 from bson import ObjectId
 import jwt
@@ -15,6 +16,26 @@ import pytest
 
 
 PASSWORD = "correct-horse-battery-123!"
+
+
+@pytest.fixture
+def api(api, monkeypatch):
+    """Each legacy management action expresses a distinct intention.
+
+    The raw conftest client remains unchanged for the dedicated idempotency
+    contract tests, which explicitly exercise missing, reused and replayed keys.
+    """
+    original_request = api.request
+
+    def request(method, url, **kwargs):
+        if method.upper() in {"POST", "PATCH", "PUT", "DELETE"} and str(url).startswith(("/api/surveys", "/api/questions")):
+            headers = dict(kwargs.get("headers") or {})
+            headers.setdefault("Idempotency-Key", str(uuid.uuid4()))
+            kwargs["headers"] = headers
+        return original_request(method, url, **kwargs)
+
+    monkeypatch.setattr(api, "request", request)
+    return api
 
 
 def register(api, username):
@@ -43,9 +64,36 @@ def survey_body(*, anonymous=True, allow_repeat=False, questions=None):
 
 
 def create_survey(api, headers, **kwargs):
-    response = api.post("/api/surveys", headers=headers, json=survey_body(**kwargs))
+    body = survey_body(**kwargs)
+    body["questions"] = library_references(api, headers, body["questions"])
+    response = api.post("/api/surveys", headers=headers, json=body)
     assert response.status_code == 201, response.text
     return response.json()
+
+
+def question_content(question):
+    return {key: value for key, value in question.items() if key not in {
+        "id", "required", "jumpRules", "questionId", "versionId", "versionNo",
+    }}
+
+
+def reference(question):
+    return {key: question[key] for key in ("id", "questionId", "versionId", "required", "jumpRules")}
+
+
+def library_references(api, headers, questions):
+    """Create independent saved questions, then bind their exact first versions."""
+    references = []
+    for question in questions:
+        saved = api.post("/api/questions", headers=headers, json={"content": question_content(question)})
+        assert saved.status_code == 201, saved.text
+        result = saved.json()
+        references.append({
+            "id": question["id"], "questionId": result["question"]["_id"],
+            "versionId": result["version"]["_id"], "required": question["required"],
+            "jumpRules": question["jumpRules"],
+        })
+    return references
 
 
 def publish(api, headers, survey):
@@ -219,7 +267,7 @@ def test_publish_requirements_and_structure_lock(api, db):
     assert_api_error(api.post(f"/api/surveys/{empty['_id']}/publish", headers=owner, json={"revision": empty["revision"]}), 422, "VALIDATION_ERROR")
     assert database_snapshot(db) == before_empty_publish
     added = api.patch(f"/api/surveys/{empty['_id']}", headers=owner, json={
-        "revision": empty["revision"], "questions": [question("q1"), question("q2")],
+        "revision": empty["revision"], "questions": library_references(api, owner, [question("q1"), question("q2")]),
     })
     assert added.status_code == 200 and len(added.json()["questions"]) == 2
     assert publish(api, owner, added.json())["status"] == "published"
@@ -227,8 +275,8 @@ def test_publish_requirements_and_structure_lock(api, db):
     sid = survey["_id"]
     frozen = database_snapshot(db)
     for fields in (
-        {"questions": [question("changed")]},
-        {"questions": survey["questions"]},
+        {"questions": [{**reference(survey["questions"][0]), "id": "changed"}]},
+        {"questions": [reference(item) for item in survey["questions"]]},
         {"settings": {"anonymous": False, "allowRepeat": False}},
         {"settings": {"anonymous": True, "allowRepeat": True}},
     ):
@@ -251,21 +299,26 @@ def test_draft_settings_patch_stores_nested_defaults(api, db):
     assert db.surveys.find_one({"_id": ObjectId(survey["_id"])})["settings"] == response.json()["settings"]
 
 
-@pytest.mark.parametrize("mutate,error_code", [
-    (lambda qs: qs.append(deepcopy(qs[0])), "VALIDATION_ERROR"),
-    (lambda qs: qs[0]["options"].append({"id": "yes", "label": "重复ID"}), "VALIDATION_ERROR"),
-    (lambda qs: qs[0]["jumpRules"][0]["target"].update(questionId="q1"), "VALIDATION_ERROR"),
-    (lambda qs: qs[0]["jumpRules"][0]["target"].update(questionId="missing"), "VALIDATION_ERROR"),
-    (lambda qs: qs[1]["validation"].update(minSelections=3, maxSelections=1), "VALIDATION_ERROR"),
-    (lambda qs: qs[2]["validation"].update(min=101, max=100), "VALIDATION_ERROR"),
-    (lambda qs: qs[3]["validation"].update(maxLength=10001), "INVALID_REQUEST"),
+@pytest.mark.parametrize("mutate,error_code,content_index", [
+    (lambda qs: qs.append(deepcopy(qs[0])), "DUPLICATE_INSTANCE", None),
+    (lambda qs: qs[0]["options"].append({"id": "yes", "label": "重复ID"}), "VALIDATION_ERROR", 0),
+    (lambda qs: qs[0]["jumpRules"][0]["target"].update(questionId="q1"), "VALIDATION_ERROR", None),
+    (lambda qs: qs[0]["jumpRules"][0]["target"].update(questionId="missing"), "VALIDATION_ERROR", None),
+    (lambda qs: qs[1]["validation"].update(minSelections=3, maxSelections=1), "VALIDATION_ERROR", 1),
+    (lambda qs: qs[2]["validation"].update(min=101, max=100), "VALIDATION_ERROR", 2),
+    (lambda qs: qs[3]["validation"].update(maxLength=10001), "INVALID_REQUEST", 3),
 ])
-def test_invalid_survey_configuration_is_rejected(api, db, mutate, error_code):
+def test_invalid_survey_configuration_is_rejected(api, db, mutate, error_code, content_index):
     _, owner = register(api, "owner")
     questions = branching_questions()
     mutate(questions)
-    before = database_snapshot(db)
-    response = api.post("/api/surveys", headers=owner, json=survey_body(questions=questions))
+    if content_index is not None:
+        before = database_snapshot(db)
+        response = api.post("/api/questions", headers=owner, json={"content": question_content(questions[content_index])})
+    else:
+        references = library_references(api, owner, questions)
+        before = database_snapshot(db)
+        response = api.post("/api/surveys", headers=owner, json=survey_body(questions=references))
     assert_api_error(response, 422, error_code)
     assert database_snapshot(db) == before
 
@@ -359,7 +412,10 @@ def test_anonymous_submission_is_separate_idempotent_and_user_bound(api, db):
     assert database_snapshot(db) == committed
     assert_api_error(api.post(f"/api/public/surveys/{survey['publicId']}/start", headers=filler), 409, "ALREADY_SUBMITTED")
     assert database_snapshot(db) == committed
-    assert set(db.list_collection_names()) == {"users", "surveys", "responses", "participations"}
+    assert set(db.list_collection_names()) == {
+        "users", "surveys", "responses", "participations", "questions", "question_versions",
+        "question_shares", "question_banks", "question_bank_items", "mutation_receipts", "mutation_response_chunks",
+    }
     listing = api.get(f"/api/surveys/{survey['_id']}/responses", headers=owner).json()
     assert listing["total"] == 1
     assert listing["items"][0]["_id"] == str(state["responses"][0]["_id"])
@@ -652,16 +708,26 @@ def test_tokens_enforce_expiry_purpose_and_submission_key_binding(api, db):
     survey_state(db, survey, responses=0, participations=0, revision=survey["revision"])
 
 
-def test_request_body_limit_rejects_declared_and_actual_oversize(api):
+def test_request_body_limit_rejects_declared_and_actual_oversize(api, db):
     settings = api.app.state.settings
     old_limit = settings.max_request_bytes
     settings.max_request_bytes = 1024
+    before = database_snapshot(db)
     try:
-        assert api.post("/api/auth/register", content=b"x" * 1025).status_code == 413
+        assert_api_error(api.post("/api/auth/register", content=b"x" * 1025), 413, "REQUEST_TOO_LARGE")
+        assert database_snapshot(db) == before
         # An untrusted small header must not bypass the measured body limit.
-        assert api.post("/api/auth/register", content=b"x" * 1025, headers={"Content-Length": "1"}).status_code == 413
+        assert_api_error(
+            api.post("/api/auth/register", content=b"x" * 1025, headers={"Content-Length": "1"}),
+            413, "REQUEST_TOO_LARGE",
+        )
+        assert database_snapshot(db) == before
         for length in ("not-a-number", "-1"):
-            assert api.post("/api/auth/register", content=b"{}", headers={"Content-Length": length}).status_code == 413
+            assert_api_error(
+                api.post("/api/auth/register", content=b"{}", headers={"Content-Length": length}),
+                413, "REQUEST_TOO_LARGE",
+            )
+            assert database_snapshot(db) == before
     finally:
         settings.max_request_bytes = old_limit
 
@@ -691,6 +757,7 @@ def test_cors_uses_explicit_lifespan_settings(api):
 def test_unknown_fields_and_client_supplied_owner_are_rejected(api, db):
     _, owner = register(api, "owner")
     body = survey_body()
+    body["questions"] = library_references(api, owner, body["questions"])
     body["ownerId"] = str(ObjectId())
     before = database_snapshot(db)
     assert_api_error(api.post("/api/surveys", headers=owner, json=body), 422, "INVALID_REQUEST")

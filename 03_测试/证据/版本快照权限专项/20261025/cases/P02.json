@@ -1,0 +1,3756 @@
+{
+  "caseId": "P02",
+  "title": "撤权阻止新增引用，已存草稿和独立副本继续工作",
+  "startedAtUtc": "2026-10-25T02:49:56.759383+00:00",
+  "finishedAtUtc": "2026-10-25T02:49:57.370497+00:00",
+  "passed": true,
+  "exceptionType": null,
+  "database": "test_backend_3fec37ab49d345e3ae1279cfa34f17d9",
+  "environment": {
+    "database": "test_backend_3fec37ab49d345e3ae1279cfa34f17d9",
+    "mongoVersion": "8.3.11",
+    "replicaSet": "backend_test_rs",
+    "writablePrimary": true,
+    "apiTransport": "FastAPI TestClient / ASGI routes; real MongoDB replica set"
+  },
+  "scope": "Synthetic isolated API/MongoDB scenario; credentials redacted; binary values represented by length and SHA-256.",
+  "steps": [
+    {
+      "kind": "http",
+      "actor": "owner",
+      "method": "POST",
+      "path": "/api/questions",
+      "requestBody": {
+        "content": {
+          "type": "text",
+          "title": "P02 已保存的共享题",
+          "description": "权限执行证据",
+          "validation": {}
+        }
+      },
+      "expectedStatus": 201,
+      "actualStatus": 201,
+      "responseBody": {
+        "question": {
+          "_id": "6add6e5424341bec11a15e4d",
+          "ownerId": "6add6e5424341bec11a15e49",
+          "revision": 1,
+          "latestVersionId": "6add6e5424341bec11a15e4e",
+          "archivedAt": null,
+          "createdAt": "2026-10-25T02:49:56.767000+00:00",
+          "updatedAt": "2026-10-25T02:49:56.767000+00:00",
+          "latestVersion": {
+            "_id": "6add6e5424341bec11a15e4e",
+            "versionNo": 1,
+            "baseVersionId": null,
+            "operation": "create",
+            "createdAt": "2026-10-25T02:49:56.767000+00:00",
+            "archivedAt": null,
+            "title": "P02 已保存的共享题",
+            "type": "text"
+          },
+          "permissions": {
+            "canManage": true,
+            "canUse": true
+          },
+          "origin": {
+            "kind": "original"
+          }
+        },
+        "version": {
+          "_id": "6add6e5424341bec11a15e4e",
+          "questionId": "6add6e5424341bec11a15e4d",
+          "versionNo": 1,
+          "baseVersionId": null,
+          "operation": "create",
+          "content": {
+            "title": "P02 已保存的共享题",
+            "description": "权限执行证据",
+            "type": "text",
+            "validation": {}
+          },
+          "createdBy": "6add6e5424341bec11a15e49",
+          "createdAt": "2026-10-25T02:49:56.767000+00:00",
+          "archivedAt": null,
+          "permissions": {
+            "canUse": true
+          }
+        }
+      },
+      "passed": true,
+      "elapsedMs": 17.126
+    },
+    {
+      "kind": "http",
+      "actor": "owner",
+      "method": "POST",
+      "path": "/api/questions/6add6e5424341bec11a15e4d/versions",
+      "requestBody": {
+        "revision": 1,
+        "baseVersionId": "6add6e5424341bec11a15e4e",
+        "content": {
+          "type": "text",
+          "title": "P02 不能在撤权后切入的版本",
+          "description": "权限执行证据",
+          "validation": {}
+        }
+      },
+      "expectedStatus": 201,
+      "actualStatus": 201,
+      "responseBody": {
+        "question": {
+          "_id": "6add6e5424341bec11a15e4d",
+          "ownerId": "6add6e5424341bec11a15e49",
+          "revision": 2,
+          "latestVersionId": "6add6e5424341bec11a15e50",
+          "archivedAt": null,
+          "createdAt": "2026-10-25T02:49:56.767000+00:00",
+          "updatedAt": "2026-10-25T02:49:56.793000+00:00",
+          "latestVersion": {
+            "_id": "6add6e5424341bec11a15e50",
+            "versionNo": 2,
+            "baseVersionId": "6add6e5424341bec11a15e4e",
+            "operation": "edit",
+            "createdAt": "2026-10-25T02:49:56.793000+00:00",
+            "archivedAt": null,
+            "title": "P02 不能在撤权后切入的版本",
+            "type": "text"
+          },
+          "permissions": {
+            "canManage": true,
+            "canUse": true
+          },
+          "origin": {
+            "kind": "original"
+          }
+        },
+        "version": {
+          "_id": "6add6e5424341bec11a15e50",
+          "questionId": "6add6e5424341bec11a15e4d",
+          "versionNo": 2,
+          "baseVersionId": "6add6e5424341bec11a15e4e",
+          "operation": "edit",
+          "content": {
+            "title": "P02 不能在撤权后切入的版本",
+            "description": "权限执行证据",
+            "type": "text",
+            "validation": {}
+          },
+          "createdBy": "6add6e5424341bec11a15e49",
+          "createdAt": "2026-10-25T02:49:56.793000+00:00",
+          "archivedAt": null,
+          "permissions": {
+            "canUse": true
+          }
+        }
+      },
+      "passed": true,
+      "elapsedMs": 31.633
+    },
+    {
+      "kind": "http",
+      "actor": "owner",
+      "method": "POST",
+      "path": "/api/questions/6add6e5424341bec11a15e4d/shares",
+      "requestBody": {
+        "revision": 2,
+        "recipientUsername": "p02_recipient"
+      },
+      "expectedStatus": 201,
+      "actualStatus": 201,
+      "responseBody": {
+        "questionRevision": 3,
+        "share": {
+          "_id": "6add6e5424341bec11a15e52",
+          "grantedAt": "2026-10-25T02:49:56.825000+00:00",
+          "revokedAt": null,
+          "createdAt": "2026-10-25T02:49:56.825000+00:00",
+          "updatedAt": "2026-10-25T02:49:56.825000+00:00",
+          "recipient": {
+            "_id": "6add6e5424341bec11a15e4a",
+            "username": "p02_recipient"
+          }
+        }
+      },
+      "passed": true,
+      "elapsedMs": 29.468
+    },
+    {
+      "kind": "http",
+      "actor": "recipient",
+      "method": "POST",
+      "path": "/api/surveys",
+      "requestBody": {
+        "title": "P02 保留历史引用的草稿",
+        "description": "权限执行证据",
+        "settings": {
+          "anonymous": true,
+          "allowRepeat": true
+        },
+        "questions": [
+          {
+            "id": "q1",
+            "questionId": "6add6e5424341bec11a15e4d",
+            "versionId": "6add6e5424341bec11a15e4e",
+            "required": true,
+            "jumpRules": []
+          }
+        ]
+      },
+      "expectedStatus": 201,
+      "actualStatus": 201,
+      "responseBody": {
+        "_id": "6add6e5424341bec11a15e54",
+        "ownerId": "6add6e5424341bec11a15e4a",
+        "publicId": "62f6f9a01f07ccd07ade76379bf8e90b",
+        "title": "P02 保留历史引用的草稿",
+        "description": "权限执行证据",
+        "settings": {
+          "anonymous": true,
+          "allowRepeat": true
+        },
+        "deadlineAt": null,
+        "status": "draft",
+        "questions": [
+          {
+            "id": "q1",
+            "title": "P02 已保存的共享题",
+            "description": "权限执行证据",
+            "required": true,
+            "type": "text",
+            "validation": {},
+            "jumpRules": [],
+            "questionId": "6add6e5424341bec11a15e4d",
+            "versionId": "6add6e5424341bec11a15e4e",
+            "versionNo": 1
+          }
+        ],
+        "schemaVersion": 2,
+        "revision": 1,
+        "createdAt": "2026-10-25T02:49:56.848000+00:00",
+        "updatedAt": "2026-10-25T02:49:56.848000+00:00",
+        "publishedAt": null,
+        "closedAt": null,
+        "closeReason": null
+      },
+      "passed": true,
+      "elapsedMs": 27.308
+    },
+    {
+      "kind": "http",
+      "actor": "recipient",
+      "method": "POST",
+      "path": "/api/surveys",
+      "requestBody": {
+        "title": "P02 删除后不可重加",
+        "description": "权限执行证据",
+        "settings": {
+          "anonymous": true,
+          "allowRepeat": true
+        },
+        "questions": [
+          {
+            "id": "q1",
+            "questionId": "6add6e5424341bec11a15e4d",
+            "versionId": "6add6e5424341bec11a15e4e",
+            "required": true,
+            "jumpRules": []
+          }
+        ]
+      },
+      "expectedStatus": 201,
+      "actualStatus": 201,
+      "responseBody": {
+        "_id": "6add6e5424341bec11a15e56",
+        "ownerId": "6add6e5424341bec11a15e4a",
+        "publicId": "399ee84855b31627dfb4364e0c6ba1e9",
+        "title": "P02 删除后不可重加",
+        "description": "权限执行证据",
+        "settings": {
+          "anonymous": true,
+          "allowRepeat": true
+        },
+        "deadlineAt": null,
+        "status": "draft",
+        "questions": [
+          {
+            "id": "q1",
+            "title": "P02 已保存的共享题",
+            "description": "权限执行证据",
+            "required": true,
+            "type": "text",
+            "validation": {},
+            "jumpRules": [],
+            "questionId": "6add6e5424341bec11a15e4d",
+            "versionId": "6add6e5424341bec11a15e4e",
+            "versionNo": 1
+          }
+        ],
+        "schemaVersion": 2,
+        "revision": 1,
+        "createdAt": "2026-10-25T02:49:56.875000+00:00",
+        "updatedAt": "2026-10-25T02:49:56.875000+00:00",
+        "publishedAt": null,
+        "closedAt": null,
+        "closeReason": null
+      },
+      "passed": true,
+      "elapsedMs": 25.277
+    },
+    {
+      "kind": "http",
+      "actor": "recipient",
+      "method": "POST",
+      "path": "/api/surveys",
+      "requestBody": {
+        "title": "P02 不能新增实例的草稿",
+        "description": "权限执行证据",
+        "settings": {
+          "anonymous": true,
+          "allowRepeat": true
+        },
+        "questions": []
+      },
+      "expectedStatus": 201,
+      "actualStatus": 201,
+      "responseBody": {
+        "_id": "6add6e5424341bec11a15e58",
+        "ownerId": "6add6e5424341bec11a15e4a",
+        "publicId": "138d2bb635a1b31adc6dabcf8f9e4adb",
+        "title": "P02 不能新增实例的草稿",
+        "description": "权限执行证据",
+        "settings": {
+          "anonymous": true,
+          "allowRepeat": true
+        },
+        "deadlineAt": null,
+        "status": "draft",
+        "questions": [],
+        "schemaVersion": 2,
+        "revision": 1,
+        "createdAt": "2026-10-25T02:49:56.900000+00:00",
+        "updatedAt": "2026-10-25T02:49:56.900000+00:00",
+        "publishedAt": null,
+        "closedAt": null,
+        "closeReason": null
+      },
+      "passed": true,
+      "elapsedMs": 17.32
+    },
+    {
+      "kind": "http",
+      "actor": "recipient",
+      "method": "POST",
+      "path": "/api/questions/6add6e5424341bec11a15e4d/copies",
+      "requestBody": {
+        "versionId": "6add6e5424341bec11a15e4e"
+      },
+      "expectedStatus": 201,
+      "actualStatus": 201,
+      "responseBody": {
+        "question": {
+          "_id": "6add6e5424341bec11a15e5a",
+          "ownerId": "6add6e5424341bec11a15e4a",
+          "revision": 1,
+          "latestVersionId": "6add6e5424341bec11a15e5b",
+          "archivedAt": null,
+          "createdAt": "2026-10-25T02:49:56.925000+00:00",
+          "updatedAt": "2026-10-25T02:49:56.925000+00:00",
+          "latestVersion": {
+            "_id": "6add6e5424341bec11a15e5b",
+            "versionNo": 1,
+            "baseVersionId": null,
+            "operation": "copy",
+            "createdAt": "2026-10-25T02:49:56.925000+00:00",
+            "archivedAt": null,
+            "title": "P02 已保存的共享题",
+            "type": "text"
+          },
+          "permissions": {
+            "canManage": true,
+            "canUse": true
+          },
+          "origin": {
+            "kind": "copy",
+            "questionId": "6add6e5424341bec11a15e4d",
+            "versionId": "6add6e5424341bec11a15e4e"
+          }
+        },
+        "version": {
+          "_id": "6add6e5424341bec11a15e5b",
+          "questionId": "6add6e5424341bec11a15e5a",
+          "versionNo": 1,
+          "baseVersionId": null,
+          "operation": "copy",
+          "content": {
+            "title": "P02 已保存的共享题",
+            "description": "权限执行证据",
+            "type": "text",
+            "validation": {}
+          },
+          "createdBy": "6add6e5424341bec11a15e4a",
+          "createdAt": "2026-10-25T02:49:56.925000+00:00",
+          "archivedAt": null,
+          "permissions": {
+            "canUse": true
+          }
+        }
+      },
+      "passed": true,
+      "elapsedMs": 29.575
+    },
+    {
+      "kind": "assertion",
+      "label": "另存副本拥有独立题目身份和所有者",
+      "passed": true,
+      "observed": {
+        "_id": "6add6e5424341bec11a15e5a",
+        "ownerId": "6add6e5424341bec11a15e4a",
+        "revision": 1,
+        "latestVersionId": "6add6e5424341bec11a15e5b",
+        "archivedAt": null,
+        "createdAt": "2026-10-25T02:49:56.925000+00:00",
+        "updatedAt": "2026-10-25T02:49:56.925000+00:00",
+        "latestVersion": {
+          "_id": "6add6e5424341bec11a15e5b",
+          "versionNo": 1,
+          "baseVersionId": null,
+          "operation": "copy",
+          "createdAt": "2026-10-25T02:49:56.925000+00:00",
+          "archivedAt": null,
+          "title": "P02 已保存的共享题",
+          "type": "text"
+        },
+        "permissions": {
+          "canManage": true,
+          "canUse": true
+        },
+        "origin": {
+          "kind": "copy",
+          "questionId": "6add6e5424341bec11a15e4d",
+          "versionId": "6add6e5424341bec11a15e4e"
+        }
+      }
+    },
+    {
+      "kind": "http",
+      "actor": "owner",
+      "method": "POST",
+      "path": "/api/questions/6add6e5424341bec11a15e4d/shares/6add6e5424341bec11a15e52/revoke",
+      "requestBody": {
+        "revision": 3
+      },
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "responseBody": {
+        "questionRevision": 4,
+        "share": {
+          "_id": "6add6e5424341bec11a15e52",
+          "grantedAt": "2026-10-25T02:49:56.825000+00:00",
+          "revokedAt": "2026-10-25T02:49:56.952000+00:00",
+          "createdAt": "2026-10-25T02:49:56.825000+00:00",
+          "updatedAt": "2026-10-25T02:49:56.952000+00:00",
+          "recipient": {
+            "_id": "6add6e5424341bec11a15e4a",
+            "username": "p02_recipient"
+          }
+        }
+      },
+      "passed": true,
+      "elapsedMs": 25.162
+    },
+    {
+      "kind": "assertion",
+      "label": "授权关系已显式撤销",
+      "passed": true,
+      "observed": {
+        "questionRevision": 4,
+        "share": {
+          "_id": "6add6e5424341bec11a15e52",
+          "grantedAt": "2026-10-25T02:49:56.825000+00:00",
+          "revokedAt": "2026-10-25T02:49:56.952000+00:00",
+          "createdAt": "2026-10-25T02:49:56.825000+00:00",
+          "updatedAt": "2026-10-25T02:49:56.952000+00:00",
+          "recipient": {
+            "_id": "6add6e5424341bec11a15e4a",
+            "username": "p02_recipient"
+          }
+        }
+      }
+    },
+    {
+      "kind": "database",
+      "label": "撤权完成后的基线",
+      "collections": {
+        "questions": {
+          "count": 2,
+          "sha256": "f45354576afdf3042c42ee602338d030018aea47abc4cdb6fb01ca8cb93d040b",
+          "documents": [
+            {
+              "_id": "6add6e5424341bec11a15e4d",
+              "ownerId": "6add6e5424341bec11a15e49",
+              "latestVersionId": "6add6e5424341bec11a15e50",
+              "versionSeq": 2,
+              "origin": {
+                "kind": "original"
+              },
+              "revision": 4,
+              "guardRevision": 5,
+              "archivedAt": null,
+              "createdAt": "2026-10-25T02:49:56.767000+00:00",
+              "updatedAt": "2026-10-25T02:49:56.952000+00:00"
+            },
+            {
+              "_id": "6add6e5424341bec11a15e5a",
+              "ownerId": "6add6e5424341bec11a15e4a",
+              "latestVersionId": "6add6e5424341bec11a15e5b",
+              "versionSeq": 1,
+              "origin": {
+                "kind": "copy",
+                "questionId": "6add6e5424341bec11a15e4d",
+                "versionId": "6add6e5424341bec11a15e4e"
+              },
+              "revision": 1,
+              "guardRevision": 0,
+              "archivedAt": null,
+              "createdAt": "2026-10-25T02:49:56.925000+00:00",
+              "updatedAt": "2026-10-25T02:49:56.925000+00:00"
+            }
+          ]
+        },
+        "question_versions": {
+          "count": 3,
+          "sha256": "bd8b66d0cf2d592d414db8d2936471e4929753934bd83f43cd1084e38b84a0c4",
+          "documents": [
+            {
+              "_id": "6add6e5424341bec11a15e4e",
+              "questionId": "6add6e5424341bec11a15e4d",
+              "versionNo": 1,
+              "baseVersionId": null,
+              "operation": "create",
+              "content": {
+                "title": "P02 已保存的共享题",
+                "description": "权限执行证据",
+                "type": "text",
+                "validation": {}
+              },
+              "createdBy": "6add6e5424341bec11a15e49",
+              "createdAt": "2026-10-25T02:49:56.767000+00:00",
+              "archivedAt": null
+            },
+            {
+              "_id": "6add6e5424341bec11a15e50",
+              "questionId": "6add6e5424341bec11a15e4d",
+              "versionNo": 2,
+              "baseVersionId": "6add6e5424341bec11a15e4e",
+              "operation": "edit",
+              "content": {
+                "title": "P02 不能在撤权后切入的版本",
+                "description": "权限执行证据",
+                "type": "text",
+                "validation": {}
+              },
+              "createdBy": "6add6e5424341bec11a15e49",
+              "createdAt": "2026-10-25T02:49:56.793000+00:00",
+              "archivedAt": null
+            },
+            {
+              "_id": "6add6e5424341bec11a15e5b",
+              "questionId": "6add6e5424341bec11a15e5a",
+              "versionNo": 1,
+              "baseVersionId": null,
+              "operation": "copy",
+              "content": {
+                "title": "P02 已保存的共享题",
+                "description": "权限执行证据",
+                "type": "text",
+                "validation": {}
+              },
+              "createdBy": "6add6e5424341bec11a15e4a",
+              "createdAt": "2026-10-25T02:49:56.925000+00:00",
+              "archivedAt": null
+            }
+          ]
+        },
+        "question_shares": {
+          "count": 1,
+          "sha256": "0ed6e9632224557f6c229fb95f17b12f447c71690838bdd4314c69b57019643a",
+          "documents": [
+            {
+              "_id": "6add6e5424341bec11a15e52",
+              "questionId": "6add6e5424341bec11a15e4d",
+              "recipientId": "6add6e5424341bec11a15e4a",
+              "grantedBy": "6add6e5424341bec11a15e49",
+              "grantedAt": "2026-10-25T02:49:56.825000+00:00",
+              "revokedAt": "2026-10-25T02:49:56.952000+00:00",
+              "revision": 2,
+              "createdAt": "2026-10-25T02:49:56.825000+00:00",
+              "updatedAt": "2026-10-25T02:49:56.952000+00:00"
+            }
+          ]
+        },
+        "surveys": {
+          "count": 3,
+          "sha256": "1add4adb0270a51d7874501816c430588fe16af88015a0725f5dd11428b37953",
+          "documents": [
+            {
+              "_id": "6add6e5424341bec11a15e54",
+              "ownerId": "6add6e5424341bec11a15e4a",
+              "publicId": "62f6f9a01f07ccd07ade76379bf8e90b",
+              "title": "P02 保留历史引用的草稿",
+              "description": "权限执行证据",
+              "settings": {
+                "anonymous": true,
+                "allowRepeat": true
+              },
+              "deadlineAt": null,
+              "status": "draft",
+              "questions": [
+                {
+                  "id": "q1",
+                  "title": "P02 已保存的共享题",
+                  "description": "权限执行证据",
+                  "required": true,
+                  "type": "text",
+                  "validation": {},
+                  "jumpRules": [],
+                  "questionId": "6add6e5424341bec11a15e4d",
+                  "versionId": "6add6e5424341bec11a15e4e",
+                  "versionNo": 1
+                }
+              ],
+              "schemaVersion": 2,
+              "revision": 1,
+              "createdAt": "2026-10-25T02:49:56.848000+00:00",
+              "updatedAt": "2026-10-25T02:49:56.848000+00:00",
+              "publishedAt": null,
+              "closedAt": null,
+              "closeReason": null
+            },
+            {
+              "_id": "6add6e5424341bec11a15e56",
+              "ownerId": "6add6e5424341bec11a15e4a",
+              "publicId": "399ee84855b31627dfb4364e0c6ba1e9",
+              "title": "P02 删除后不可重加",
+              "description": "权限执行证据",
+              "settings": {
+                "anonymous": true,
+                "allowRepeat": true
+              },
+              "deadlineAt": null,
+              "status": "draft",
+              "questions": [
+                {
+                  "id": "q1",
+                  "title": "P02 已保存的共享题",
+                  "description": "权限执行证据",
+                  "required": true,
+                  "type": "text",
+                  "validation": {},
+                  "jumpRules": [],
+                  "questionId": "6add6e5424341bec11a15e4d",
+                  "versionId": "6add6e5424341bec11a15e4e",
+                  "versionNo": 1
+                }
+              ],
+              "schemaVersion": 2,
+              "revision": 1,
+              "createdAt": "2026-10-25T02:49:56.875000+00:00",
+              "updatedAt": "2026-10-25T02:49:56.875000+00:00",
+              "publishedAt": null,
+              "closedAt": null,
+              "closeReason": null
+            },
+            {
+              "_id": "6add6e5424341bec11a15e58",
+              "ownerId": "6add6e5424341bec11a15e4a",
+              "publicId": "138d2bb635a1b31adc6dabcf8f9e4adb",
+              "title": "P02 不能新增实例的草稿",
+              "description": "权限执行证据",
+              "settings": {
+                "anonymous": true,
+                "allowRepeat": true
+              },
+              "deadlineAt": null,
+              "status": "draft",
+              "questions": [],
+              "schemaVersion": 2,
+              "revision": 1,
+              "createdAt": "2026-10-25T02:49:56.900000+00:00",
+              "updatedAt": "2026-10-25T02:49:56.900000+00:00",
+              "publishedAt": null,
+              "closedAt": null,
+              "closeReason": null
+            }
+          ]
+        },
+        "responses": {
+          "count": 0,
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "documents": []
+        },
+        "participations": {
+          "count": 0,
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "documents": []
+        },
+        "mutation_receipts": {
+          "count": 8,
+          "sha256": "44e8b67d37a1a0ef8f83c76b32b11644bb372e3bf7bc85dbb996714c2221a5f2",
+          "documents": [
+            {
+              "_id": "6add6e5424341bec11a15e4c",
+              "actorId": "6add6e5424341bec11a15e49",
+              "key": "32f1349f-c22e-484c-865f-9b2cfaeefc3b",
+              "operationId": "question.create",
+              "target": "/api/questions",
+              "canonicalVersion": 1,
+              "fingerprint": "e651b298cb7129d0c436ab014f96846b79e75f077fd6436a65a9ce96ca4b6af9",
+              "status": "succeeded",
+              "resultRefs": {
+                "questionId": "6add6e5424341bec11a15e4d",
+                "versionId": "6add6e5424341bec11a15e4e"
+              },
+              "createdAt": "2026-10-25T02:49:56.766000+00:00",
+              "completedAt": "2026-10-25T02:49:56.772000+00:00",
+              "httpStatus": 201,
+              "response": {
+                "mode": "inline",
+                "byteLength": 940,
+                "sha256": "127e5c7822de461501c3025ab334316a66fd2a430bd72fd4873231d71b4b9ac1",
+                "data": {
+                  "binaryOmitted": true,
+                  "bytes": 940,
+                  "sha256": "127e5c7822de461501c3025ab334316a66fd2a430bd72fd4873231d71b4b9ac1"
+                }
+              }
+            },
+            {
+              "_id": "6add6e5424341bec11a15e4f",
+              "actorId": "6add6e5424341bec11a15e49",
+              "key": "5900a917-bde3-4776-91e9-239139535f34",
+              "operationId": "question.version.create",
+              "target": "/api/questions/6add6e5424341bec11a15e4d/versions",
+              "canonicalVersion": 1,
+              "fingerprint": "19945ee5a452092356283e9be1ac590b7a06404087f8e2db817cfedfb2e06fe3",
+              "status": "succeeded",
+              "resultRefs": {
+                "questionId": "6add6e5424341bec11a15e4d",
+                "versionId": "6add6e5424341bec11a15e50"
+              },
+              "createdAt": "2026-10-25T02:49:56.788000+00:00",
+              "completedAt": "2026-10-25T02:49:56.802000+00:00",
+              "httpStatus": 201,
+              "response": {
+                "mode": "inline",
+                "byteLength": 1004,
+                "sha256": "d4cb7f9b102719a33774fd979a0b6486094dd68424a0489aa4ab666eb647285d",
+                "data": {
+                  "binaryOmitted": true,
+                  "bytes": 1004,
+                  "sha256": "d4cb7f9b102719a33774fd979a0b6486094dd68424a0489aa4ab666eb647285d"
+                }
+              }
+            },
+            {
+              "_id": "6add6e5424341bec11a15e51",
+              "actorId": "6add6e5424341bec11a15e49",
+              "key": "79e49d78-dc1e-46db-b1f0-ebd9e50e932d",
+              "operationId": "question.share.grant",
+              "target": "/api/questions/6add6e5424341bec11a15e4d/shares",
+              "canonicalVersion": 1,
+              "fingerprint": "8e875dc5619c14ef6891f969c46bc600dd4da13590f7627e3cc70781962de80c",
+              "status": "succeeded",
+              "resultRefs": {
+                "shareId": "6add6e5424341bec11a15e52"
+              },
+              "createdAt": "2026-10-25T02:49:56.820000+00:00",
+              "completedAt": "2026-10-25T02:49:56.829000+00:00",
+              "httpStatus": 201,
+              "response": {
+                "mode": "inline",
+                "byteLength": 297,
+                "sha256": "420b2ba4ca1c13ada5d4cec66ecf5f31fc425f7dba7aad7b8da41a32181a0e32",
+                "data": {
+                  "binaryOmitted": true,
+                  "bytes": 297,
+                  "sha256": "420b2ba4ca1c13ada5d4cec66ecf5f31fc425f7dba7aad7b8da41a32181a0e32"
+                }
+              }
+            },
+            {
+              "_id": "6add6e5424341bec11a15e53",
+              "actorId": "6add6e5424341bec11a15e4a",
+              "key": "9796f119-8a47-4873-9c8d-f14c09afb6f6",
+              "operationId": "survey.create",
+              "target": "/api/surveys",
+              "canonicalVersion": 1,
+              "fingerprint": "6b795fc4ff143dd1a72117bb90277582f5f2287fde1eae98d5a72e7a596d5391",
+              "status": "succeeded",
+              "resultRefs": {
+                "surveyId": "6add6e5424341bec11a15e54"
+              },
+              "createdAt": "2026-10-25T02:49:56.847000+00:00",
+              "completedAt": "2026-10-25T02:49:56.858000+00:00",
+              "httpStatus": 201,
+              "response": {
+                "mode": "inline",
+                "byteLength": 708,
+                "sha256": "647bdddeae53d2fdf80a2f14aceb4d74640f11ade9a22c356aae9a5b1148786e",
+                "data": {
+                  "binaryOmitted": true,
+                  "bytes": 708,
+                  "sha256": "647bdddeae53d2fdf80a2f14aceb4d74640f11ade9a22c356aae9a5b1148786e"
+                }
+              }
+            },
+            {
+              "_id": "6add6e5424341bec11a15e55",
+              "actorId": "6add6e5424341bec11a15e4a",
+              "key": "c7948d53-5826-4e56-8c8d-a11ddf664b53",
+              "operationId": "survey.create",
+              "target": "/api/surveys",
+              "canonicalVersion": 1,
+              "fingerprint": "3e6a9dc856f3141c1567ea44ec7484d4741cf71a579cdd19123bc128f2463ad1",
+              "status": "succeeded",
+              "resultRefs": {
+                "surveyId": "6add6e5424341bec11a15e56"
+              },
+              "createdAt": "2026-10-25T02:49:56.874000+00:00",
+              "completedAt": "2026-10-25T02:49:56.884000+00:00",
+              "httpStatus": 201,
+              "response": {
+                "mode": "inline",
+                "byteLength": 702,
+                "sha256": "dd2d6936f24f50c3a33a608dada03ec978671fda628a780423572656dd56b582",
+                "data": {
+                  "binaryOmitted": true,
+                  "bytes": 702,
+                  "sha256": "dd2d6936f24f50c3a33a608dada03ec978671fda628a780423572656dd56b582"
+                }
+              }
+            },
+            {
+              "_id": "6add6e5424341bec11a15e57",
+              "actorId": "6add6e5424341bec11a15e4a",
+              "key": "542ad4f6-2316-4e6b-b985-9a81508cfbfe",
+              "operationId": "survey.create",
+              "target": "/api/surveys",
+              "canonicalVersion": 1,
+              "fingerprint": "a4a703d1d082b7945fca6865be6c85f6d1df7e80b8f8ef8bbd318f8376cc338c",
+              "status": "succeeded",
+              "resultRefs": {
+                "surveyId": "6add6e5424341bec11a15e58"
+              },
+              "createdAt": "2026-10-25T02:49:56.898000+00:00",
+              "completedAt": "2026-10-25T02:49:56.902000+00:00",
+              "httpStatus": 201,
+              "response": {
+                "mode": "inline",
+                "byteLength": 472,
+                "sha256": "e6540a6481cb429ab05bd6c9fb57432d33ab8428c4aab1b26a5f97b74c9949e6",
+                "data": {
+                  "binaryOmitted": true,
+                  "bytes": 472,
+                  "sha256": "e6540a6481cb429ab05bd6c9fb57432d33ab8428c4aab1b26a5f97b74c9949e6"
+                }
+              }
+            },
+            {
+              "_id": "6add6e5424341bec11a15e59",
+              "actorId": "6add6e5424341bec11a15e4a",
+              "key": "c451d7d1-3fde-4668-8013-11ca54011e4b",
+              "operationId": "question.copy",
+              "target": "/api/questions/6add6e5424341bec11a15e4d/copies",
+              "canonicalVersion": 1,
+              "fingerprint": "aa37ad0909606ae6ebfaf6953ac588470f988067b2386c6329eaa87a4fbccf09",
+              "status": "succeeded",
+              "resultRefs": {
+                "questionId": "6add6e5424341bec11a15e5a",
+                "versionId": "6add6e5424341bec11a15e5b"
+              },
+              "createdAt": "2026-10-25T02:49:56.917000+00:00",
+              "completedAt": "2026-10-25T02:49:56.931000+00:00",
+              "httpStatus": 201,
+              "response": {
+                "mode": "inline",
+                "byteLength": 1011,
+                "sha256": "cc357f08766cd490c74efb91ae2cfc862504b95087eecaafba2460c285a5c333",
+                "data": {
+                  "binaryOmitted": true,
+                  "bytes": 1011,
+                  "sha256": "cc357f08766cd490c74efb91ae2cfc862504b95087eecaafba2460c285a5c333"
+                }
+              }
+            },
+            {
+              "_id": "6add6e5424341bec11a15e5c",
+              "actorId": "6add6e5424341bec11a15e49",
+              "key": "4b6fa26c-ac83-410c-a4a1-ed67b2f13c09",
+              "operationId": "question.share.revoke",
+              "target": "/api/questions/6add6e5424341bec11a15e4d/shares/6add6e5424341bec11a15e52/revoke",
+              "canonicalVersion": 1,
+              "fingerprint": "76cdd8879f213d5340160bc3cbda44965810a2ad122ab39e4aac220a985f0e3b",
+              "status": "succeeded",
+              "resultRefs": {
+                "shareId": "6add6e5424341bec11a15e52"
+              },
+              "createdAt": "2026-10-25T02:49:56.947000+00:00",
+              "completedAt": "2026-10-25T02:49:56.956000+00:00",
+              "httpStatus": 200,
+              "response": {
+                "mode": "inline",
+                "byteLength": 327,
+                "sha256": "e3cddcfc9ee8419c8e5b04d5e81ab2b2baa207ae8feb2a19490fdbc4488f3cd8",
+                "data": {
+                  "binaryOmitted": true,
+                  "bytes": 327,
+                  "sha256": "e3cddcfc9ee8419c8e5b04d5e81ab2b2baa207ae8feb2a19490fdbc4488f3cd8"
+                }
+              }
+            }
+          ]
+        },
+        "mutation_response_chunks": {
+          "count": 0,
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "documents": []
+        }
+      }
+    },
+    {
+      "kind": "http",
+      "actor": "recipient",
+      "method": "GET",
+      "path": "/api/questions/6add6e5424341bec11a15e4d",
+      "requestBody": null,
+      "expectedStatus": 404,
+      "actualStatus": 404,
+      "responseBody": {
+        "error": {
+          "code": "NOT_FOUND",
+          "message": "题目不存在"
+        }
+      },
+      "passed": true,
+      "elapsedMs": 8.643
+    },
+    {
+      "kind": "assertion",
+      "label": "recipient: GET /api/questions/6add6e5424341bec11a15e4d 使用统一拒绝码",
+      "passed": true,
+      "observed": {
+        "error": {
+          "code": "NOT_FOUND",
+          "message": "题目不存在"
+        }
+      }
+    },
+    {
+      "kind": "http",
+      "actor": "recipient",
+      "method": "GET",
+      "path": "/api/questions/6add6e5424341bec11a15e4d/versions",
+      "requestBody": null,
+      "expectedStatus": 404,
+      "actualStatus": 404,
+      "responseBody": {
+        "error": {
+          "code": "NOT_FOUND",
+          "message": "题目不存在"
+        }
+      },
+      "passed": true,
+      "elapsedMs": 9.141
+    },
+    {
+      "kind": "assertion",
+      "label": "recipient: GET /api/questions/6add6e5424341bec11a15e4d/versions 使用统一拒绝码",
+      "passed": true,
+      "observed": {
+        "error": {
+          "code": "NOT_FOUND",
+          "message": "题目不存在"
+        }
+      }
+    },
+    {
+      "kind": "http",
+      "actor": "recipient",
+      "method": "GET",
+      "path": "/api/questions/6add6e5424341bec11a15e4d/versions/6add6e5424341bec11a15e4e",
+      "requestBody": null,
+      "expectedStatus": 404,
+      "actualStatus": 404,
+      "responseBody": {
+        "error": {
+          "code": "NOT_FOUND",
+          "message": "题目不存在"
+        }
+      },
+      "passed": true,
+      "elapsedMs": 7.605
+    },
+    {
+      "kind": "assertion",
+      "label": "recipient: GET /api/questions/6add6e5424341bec11a15e4d/versions/6add6e5424341bec11a15e4e 使用统一拒绝码",
+      "passed": true,
+      "observed": {
+        "error": {
+          "code": "NOT_FOUND",
+          "message": "题目不存在"
+        }
+      }
+    },
+    {
+      "kind": "http",
+      "actor": "recipient",
+      "method": "POST",
+      "path": "/api/questions/6add6e5424341bec11a15e4d/copies",
+      "requestBody": {
+        "versionId": "6add6e5424341bec11a15e4e"
+      },
+      "expectedStatus": 404,
+      "actualStatus": 404,
+      "responseBody": {
+        "error": {
+          "code": "NOT_FOUND",
+          "message": "题目不存在"
+        }
+      },
+      "passed": true,
+      "elapsedMs": 12.445
+    },
+    {
+      "kind": "assertion",
+      "label": "recipient: POST /api/questions/6add6e5424341bec11a15e4d/copies 使用统一拒绝码",
+      "passed": true,
+      "observed": {
+        "error": {
+          "code": "NOT_FOUND",
+          "message": "题目不存在"
+        }
+      }
+    },
+    {
+      "kind": "http",
+      "actor": "recipient",
+      "method": "POST",
+      "path": "/api/surveys",
+      "requestBody": {
+        "title": "P02 不允许的新引用",
+        "description": "",
+        "settings": {
+          "anonymous": true,
+          "allowRepeat": true
+        },
+        "questions": [
+          {
+            "id": "q1",
+            "questionId": "6add6e5424341bec11a15e4d",
+            "versionId": "6add6e5424341bec11a15e4e",
+            "required": true,
+            "jumpRules": []
+          }
+        ]
+      },
+      "expectedStatus": 404,
+      "actualStatus": 404,
+      "responseBody": {
+        "error": {
+          "code": "NOT_FOUND",
+          "message": "题目不存在"
+        }
+      },
+      "passed": true,
+      "elapsedMs": 10.441
+    },
+    {
+      "kind": "assertion",
+      "label": "recipient: POST /api/surveys 使用统一拒绝码",
+      "passed": true,
+      "observed": {
+        "error": {
+          "code": "NOT_FOUND",
+          "message": "题目不存在"
+        }
+      }
+    },
+    {
+      "kind": "http",
+      "actor": "recipient",
+      "method": "PATCH",
+      "path": "/api/surveys/6add6e5424341bec11a15e54",
+      "requestBody": {
+        "revision": 1,
+        "questions": [
+          {
+            "id": "q1",
+            "questionId": "6add6e5424341bec11a15e4d",
+            "versionId": "6add6e5424341bec11a15e50",
+            "required": true,
+            "jumpRules": []
+          }
+        ]
+      },
+      "expectedStatus": 404,
+      "actualStatus": 404,
+      "responseBody": {
+        "error": {
+          "code": "NOT_FOUND",
+          "message": "题目不存在"
+        }
+      },
+      "passed": true,
+      "elapsedMs": 13.045
+    },
+    {
+      "kind": "assertion",
+      "label": "recipient: PATCH /api/surveys/6add6e5424341bec11a15e54 使用统一拒绝码",
+      "passed": true,
+      "observed": {
+        "error": {
+          "code": "NOT_FOUND",
+          "message": "题目不存在"
+        }
+      }
+    },
+    {
+      "kind": "http",
+      "actor": "recipient",
+      "method": "PATCH",
+      "path": "/api/surveys/6add6e5424341bec11a15e54",
+      "requestBody": {
+        "revision": 1,
+        "questions": [
+          {
+            "id": "new_instance",
+            "questionId": "6add6e5424341bec11a15e4d",
+            "versionId": "6add6e5424341bec11a15e4e",
+            "required": true,
+            "jumpRules": []
+          }
+        ]
+      },
+      "expectedStatus": 404,
+      "actualStatus": 404,
+      "responseBody": {
+        "error": {
+          "code": "NOT_FOUND",
+          "message": "题目不存在"
+        }
+      },
+      "passed": true,
+      "elapsedMs": 12.552
+    },
+    {
+      "kind": "assertion",
+      "label": "recipient: PATCH /api/surveys/6add6e5424341bec11a15e54 使用统一拒绝码",
+      "passed": true,
+      "observed": {
+        "error": {
+          "code": "NOT_FOUND",
+          "message": "题目不存在"
+        }
+      }
+    },
+    {
+      "kind": "http",
+      "actor": "recipient",
+      "method": "PATCH",
+      "path": "/api/surveys/6add6e5424341bec11a15e58",
+      "requestBody": {
+        "revision": 1,
+        "questions": [
+          {
+            "id": "new_instance",
+            "questionId": "6add6e5424341bec11a15e4d",
+            "versionId": "6add6e5424341bec11a15e4e",
+            "required": true,
+            "jumpRules": []
+          }
+        ]
+      },
+      "expectedStatus": 404,
+      "actualStatus": 404,
+      "responseBody": {
+        "error": {
+          "code": "NOT_FOUND",
+          "message": "题目不存在"
+        }
+      },
+      "passed": true,
+      "elapsedMs": 14.376
+    },
+    {
+      "kind": "assertion",
+      "label": "recipient: PATCH /api/surveys/6add6e5424341bec11a15e58 使用统一拒绝码",
+      "passed": true,
+      "observed": {
+        "error": {
+          "code": "NOT_FOUND",
+          "message": "题目不存在"
+        }
+      }
+    },
+    {
+      "kind": "database",
+      "label": "新增引用、换版、另存和新增实例全部拒绝后的快照",
+      "collections": {
+        "questions": {
+          "count": 2,
+          "sha256": "f45354576afdf3042c42ee602338d030018aea47abc4cdb6fb01ca8cb93d040b",
+          "documents": [
+            {
+              "_id": "6add6e5424341bec11a15e4d",
+              "ownerId": "6add6e5424341bec11a15e49",
+              "latestVersionId": "6add6e5424341bec11a15e50",
+              "versionSeq": 2,
+              "origin": {
+                "kind": "original"
+              },
+              "revision": 4,
+              "guardRevision": 5,
+              "archivedAt": null,
+              "createdAt": "2026-10-25T02:49:56.767000+00:00",
+              "updatedAt": "2026-10-25T02:49:56.952000+00:00"
+            },
+            {
+              "_id": "6add6e5424341bec11a15e5a",
+              "ownerId": "6add6e5424341bec11a15e4a",
+              "latestVersionId": "6add6e5424341bec11a15e5b",
+              "versionSeq": 1,
+              "origin": {
+                "kind": "copy",
+                "questionId": "6add6e5424341bec11a15e4d",
+                "versionId": "6add6e5424341bec11a15e4e"
+              },
+              "revision": 1,
+              "guardRevision": 0,
+              "archivedAt": null,
+              "createdAt": "2026-10-25T02:49:56.925000+00:00",
+              "updatedAt": "2026-10-25T02:49:56.925000+00:00"
+            }
+          ]
+        },
+        "question_versions": {
+          "count": 3,
+          "sha256": "bd8b66d0cf2d592d414db8d2936471e4929753934bd83f43cd1084e38b84a0c4",
+          "documents": [
+            {
+              "_id": "6add6e5424341bec11a15e4e",
+              "questionId": "6add6e5424341bec11a15e4d",
+              "versionNo": 1,
+              "baseVersionId": null,
+              "operation": "create",
+              "content": {
+                "title": "P02 已保存的共享题",
+                "description": "权限执行证据",
+                "type": "text",
+                "validation": {}
+              },
+              "createdBy": "6add6e5424341bec11a15e49",
+              "createdAt": "2026-10-25T02:49:56.767000+00:00",
+              "archivedAt": null
+            },
+            {
+              "_id": "6add6e5424341bec11a15e50",
+              "questionId": "6add6e5424341bec11a15e4d",
+              "versionNo": 2,
+              "baseVersionId": "6add6e5424341bec11a15e4e",
+              "operation": "edit",
+              "content": {
+                "title": "P02 不能在撤权后切入的版本",
+                "description": "权限执行证据",
+                "type": "text",
+                "validation": {}
+              },
+              "createdBy": "6add6e5424341bec11a15e49",
+              "createdAt": "2026-10-25T02:49:56.793000+00:00",
+              "archivedAt": null
+            },
+            {
+              "_id": "6add6e5424341bec11a15e5b",
+              "questionId": "6add6e5424341bec11a15e5a",
+              "versionNo": 1,
+              "baseVersionId": null,
+              "operation": "copy",
+              "content": {
+                "title": "P02 已保存的共享题",
+                "description": "权限执行证据",
+                "type": "text",
+                "validation": {}
+              },
+              "createdBy": "6add6e5424341bec11a15e4a",
+              "createdAt": "2026-10-25T02:49:56.925000+00:00",
+              "archivedAt": null
+            }
+          ]
+        },
+        "question_shares": {
+          "count": 1,
+          "sha256": "0ed6e9632224557f6c229fb95f17b12f447c71690838bdd4314c69b57019643a",
+          "documents": [
+            {
+              "_id": "6add6e5424341bec11a15e52",
+              "questionId": "6add6e5424341bec11a15e4d",
+              "recipientId": "6add6e5424341bec11a15e4a",
+              "grantedBy": "6add6e5424341bec11a15e49",
+              "grantedAt": "2026-10-25T02:49:56.825000+00:00",
+              "revokedAt": "2026-10-25T02:49:56.952000+00:00",
+              "revision": 2,
+              "createdAt": "2026-10-25T02:49:56.825000+00:00",
+              "updatedAt": "2026-10-25T02:49:56.952000+00:00"
+            }
+          ]
+        },
+        "surveys": {
+          "count": 3,
+          "sha256": "1add4adb0270a51d7874501816c430588fe16af88015a0725f5dd11428b37953",
+          "documents": [
+            {
+              "_id": "6add6e5424341bec11a15e54",
+              "ownerId": "6add6e5424341bec11a15e4a",
+              "publicId": "62f6f9a01f07ccd07ade76379bf8e90b",
+              "title": "P02 保留历史引用的草稿",
+              "description": "权限执行证据",
+              "settings": {
+                "anonymous": true,
+                "allowRepeat": true
+              },
+              "deadlineAt": null,
+              "status": "draft",
+              "questions": [
+                {
+                  "id": "q1",
+                  "title": "P02 已保存的共享题",
+                  "description": "权限执行证据",
+                  "required": true,
+                  "type": "text",
+                  "validation": {},
+                  "jumpRules": [],
+                  "questionId": "6add6e5424341bec11a15e4d",
+                  "versionId": "6add6e5424341bec11a15e4e",
+                  "versionNo": 1
+                }
+              ],
+              "schemaVersion": 2,
+              "revision": 1,
+              "createdAt": "2026-10-25T02:49:56.848000+00:00",
+              "updatedAt": "2026-10-25T02:49:56.848000+00:00",
+              "publishedAt": null,
+              "closedAt": null,
+              "closeReason": null
+            },
+            {
+              "_id": "6add6e5424341bec11a15e56",
+              "ownerId": "6add6e5424341bec11a15e4a",
+              "publicId": "399ee84855b31627dfb4364e0c6ba1e9",
+              "title": "P02 删除后不可重加",
+              "description": "权限执行证据",
+              "settings": {
+                "anonymous": true,
+                "allowRepeat": true
+              },
+              "deadlineAt": null,
+              "status": "draft",
+              "questions": [
+                {
+                  "id": "q1",
+                  "title": "P02 已保存的共享题",
+                  "description": "权限执行证据",
+                  "required": true,
+                  "type": "text",
+                  "validation": {},
+                  "jumpRules": [],
+                  "questionId": "6add6e5424341bec11a15e4d",
+                  "versionId": "6add6e5424341bec11a15e4e",
+                  "versionNo": 1
+                }
+              ],
+              "schemaVersion": 2,
+              "revision": 1,
+              "createdAt": "2026-10-25T02:49:56.875000+00:00",
+              "updatedAt": "2026-10-25T02:49:56.875000+00:00",
+              "publishedAt": null,
+              "closedAt": null,
+              "closeReason": null
+            },
+            {
+              "_id": "6add6e5424341bec11a15e58",
+              "ownerId": "6add6e5424341bec11a15e4a",
+              "publicId": "138d2bb635a1b31adc6dabcf8f9e4adb",
+              "title": "P02 不能新增实例的草稿",
+              "description": "权限执行证据",
+              "settings": {
+                "anonymous": true,
+                "allowRepeat": true
+              },
+              "deadlineAt": null,
+              "status": "draft",
+              "questions": [],
+              "schemaVersion": 2,
+              "revision": 1,
+              "createdAt": "2026-10-25T02:49:56.900000+00:00",
+              "updatedAt": "2026-10-25T02:49:56.900000+00:00",
+              "publishedAt": null,
+              "closedAt": null,
+              "closeReason": null
+            }
+          ]
+        },
+        "responses": {
+          "count": 0,
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "documents": []
+        },
+        "participations": {
+          "count": 0,
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "documents": []
+        },
+        "mutation_receipts": {
+          "count": 8,
+          "sha256": "44e8b67d37a1a0ef8f83c76b32b11644bb372e3bf7bc85dbb996714c2221a5f2",
+          "documents": [
+            {
+              "_id": "6add6e5424341bec11a15e4c",
+              "actorId": "6add6e5424341bec11a15e49",
+              "key": "32f1349f-c22e-484c-865f-9b2cfaeefc3b",
+              "operationId": "question.create",
+              "target": "/api/questions",
+              "canonicalVersion": 1,
+              "fingerprint": "e651b298cb7129d0c436ab014f96846b79e75f077fd6436a65a9ce96ca4b6af9",
+              "status": "succeeded",
+              "resultRefs": {
+                "questionId": "6add6e5424341bec11a15e4d",
+                "versionId": "6add6e5424341bec11a15e4e"
+              },
+              "createdAt": "2026-10-25T02:49:56.766000+00:00",
+              "completedAt": "2026-10-25T02:49:56.772000+00:00",
+              "httpStatus": 201,
+              "response": {
+                "mode": "inline",
+                "byteLength": 940,
+                "sha256": "127e5c7822de461501c3025ab334316a66fd2a430bd72fd4873231d71b4b9ac1",
+                "data": {
+                  "binaryOmitted": true,
+                  "bytes": 940,
+                  "sha256": "127e5c7822de461501c3025ab334316a66fd2a430bd72fd4873231d71b4b9ac1"
+                }
+              }
+            },
+            {
+              "_id": "6add6e5424341bec11a15e4f",
+              "actorId": "6add6e5424341bec11a15e49",
+              "key": "5900a917-bde3-4776-91e9-239139535f34",
+              "operationId": "question.version.create",
+              "target": "/api/questions/6add6e5424341bec11a15e4d/versions",
+              "canonicalVersion": 1,
+              "fingerprint": "19945ee5a452092356283e9be1ac590b7a06404087f8e2db817cfedfb2e06fe3",
+              "status": "succeeded",
+              "resultRefs": {
+                "questionId": "6add6e5424341bec11a15e4d",
+                "versionId": "6add6e5424341bec11a15e50"
+              },
+              "createdAt": "2026-10-25T02:49:56.788000+00:00",
+              "completedAt": "2026-10-25T02:49:56.802000+00:00",
+              "httpStatus": 201,
+              "response": {
+                "mode": "inline",
+                "byteLength": 1004,
+                "sha256": "d4cb7f9b102719a33774fd979a0b6486094dd68424a0489aa4ab666eb647285d",
+                "data": {
+                  "binaryOmitted": true,
+                  "bytes": 1004,
+                  "sha256": "d4cb7f9b102719a33774fd979a0b6486094dd68424a0489aa4ab666eb647285d"
+                }
+              }
+            },
+            {
+              "_id": "6add6e5424341bec11a15e51",
+              "actorId": "6add6e5424341bec11a15e49",
+              "key": "79e49d78-dc1e-46db-b1f0-ebd9e50e932d",
+              "operationId": "question.share.grant",
+              "target": "/api/questions/6add6e5424341bec11a15e4d/shares",
+              "canonicalVersion": 1,
+              "fingerprint": "8e875dc5619c14ef6891f969c46bc600dd4da13590f7627e3cc70781962de80c",
+              "status": "succeeded",
+              "resultRefs": {
+                "shareId": "6add6e5424341bec11a15e52"
+              },
+              "createdAt": "2026-10-25T02:49:56.820000+00:00",
+              "completedAt": "2026-10-25T02:49:56.829000+00:00",
+              "httpStatus": 201,
+              "response": {
+                "mode": "inline",
+                "byteLength": 297,
+                "sha256": "420b2ba4ca1c13ada5d4cec66ecf5f31fc425f7dba7aad7b8da41a32181a0e32",
+                "data": {
+                  "binaryOmitted": true,
+                  "bytes": 297,
+                  "sha256": "420b2ba4ca1c13ada5d4cec66ecf5f31fc425f7dba7aad7b8da41a32181a0e32"
+                }
+              }
+            },
+            {
+              "_id": "6add6e5424341bec11a15e53",
+              "actorId": "6add6e5424341bec11a15e4a",
+              "key": "9796f119-8a47-4873-9c8d-f14c09afb6f6",
+              "operationId": "survey.create",
+              "target": "/api/surveys",
+              "canonicalVersion": 1,
+              "fingerprint": "6b795fc4ff143dd1a72117bb90277582f5f2287fde1eae98d5a72e7a596d5391",
+              "status": "succeeded",
+              "resultRefs": {
+                "surveyId": "6add6e5424341bec11a15e54"
+              },
+              "createdAt": "2026-10-25T02:49:56.847000+00:00",
+              "completedAt": "2026-10-25T02:49:56.858000+00:00",
+              "httpStatus": 201,
+              "response": {
+                "mode": "inline",
+                "byteLength": 708,
+                "sha256": "647bdddeae53d2fdf80a2f14aceb4d74640f11ade9a22c356aae9a5b1148786e",
+                "data": {
+                  "binaryOmitted": true,
+                  "bytes": 708,
+                  "sha256": "647bdddeae53d2fdf80a2f14aceb4d74640f11ade9a22c356aae9a5b1148786e"
+                }
+              }
+            },
+            {
+              "_id": "6add6e5424341bec11a15e55",
+              "actorId": "6add6e5424341bec11a15e4a",
+              "key": "c7948d53-5826-4e56-8c8d-a11ddf664b53",
+              "operationId": "survey.create",
+              "target": "/api/surveys",
+              "canonicalVersion": 1,
+              "fingerprint": "3e6a9dc856f3141c1567ea44ec7484d4741cf71a579cdd19123bc128f2463ad1",
+              "status": "succeeded",
+              "resultRefs": {
+                "surveyId": "6add6e5424341bec11a15e56"
+              },
+              "createdAt": "2026-10-25T02:49:56.874000+00:00",
+              "completedAt": "2026-10-25T02:49:56.884000+00:00",
+              "httpStatus": 201,
+              "response": {
+                "mode": "inline",
+                "byteLength": 702,
+                "sha256": "dd2d6936f24f50c3a33a608dada03ec978671fda628a780423572656dd56b582",
+                "data": {
+                  "binaryOmitted": true,
+                  "bytes": 702,
+                  "sha256": "dd2d6936f24f50c3a33a608dada03ec978671fda628a780423572656dd56b582"
+                }
+              }
+            },
+            {
+              "_id": "6add6e5424341bec11a15e57",
+              "actorId": "6add6e5424341bec11a15e4a",
+              "key": "542ad4f6-2316-4e6b-b985-9a81508cfbfe",
+              "operationId": "survey.create",
+              "target": "/api/surveys",
+              "canonicalVersion": 1,
+              "fingerprint": "a4a703d1d082b7945fca6865be6c85f6d1df7e80b8f8ef8bbd318f8376cc338c",
+              "status": "succeeded",
+              "resultRefs": {
+                "surveyId": "6add6e5424341bec11a15e58"
+              },
+              "createdAt": "2026-10-25T02:49:56.898000+00:00",
+              "completedAt": "2026-10-25T02:49:56.902000+00:00",
+              "httpStatus": 201,
+              "response": {
+                "mode": "inline",
+                "byteLength": 472,
+                "sha256": "e6540a6481cb429ab05bd6c9fb57432d33ab8428c4aab1b26a5f97b74c9949e6",
+                "data": {
+                  "binaryOmitted": true,
+                  "bytes": 472,
+                  "sha256": "e6540a6481cb429ab05bd6c9fb57432d33ab8428c4aab1b26a5f97b74c9949e6"
+                }
+              }
+            },
+            {
+              "_id": "6add6e5424341bec11a15e59",
+              "actorId": "6add6e5424341bec11a15e4a",
+              "key": "c451d7d1-3fde-4668-8013-11ca54011e4b",
+              "operationId": "question.copy",
+              "target": "/api/questions/6add6e5424341bec11a15e4d/copies",
+              "canonicalVersion": 1,
+              "fingerprint": "aa37ad0909606ae6ebfaf6953ac588470f988067b2386c6329eaa87a4fbccf09",
+              "status": "succeeded",
+              "resultRefs": {
+                "questionId": "6add6e5424341bec11a15e5a",
+                "versionId": "6add6e5424341bec11a15e5b"
+              },
+              "createdAt": "2026-10-25T02:49:56.917000+00:00",
+              "completedAt": "2026-10-25T02:49:56.931000+00:00",
+              "httpStatus": 201,
+              "response": {
+                "mode": "inline",
+                "byteLength": 1011,
+                "sha256": "cc357f08766cd490c74efb91ae2cfc862504b95087eecaafba2460c285a5c333",
+                "data": {
+                  "binaryOmitted": true,
+                  "bytes": 1011,
+                  "sha256": "cc357f08766cd490c74efb91ae2cfc862504b95087eecaafba2460c285a5c333"
+                }
+              }
+            },
+            {
+              "_id": "6add6e5424341bec11a15e5c",
+              "actorId": "6add6e5424341bec11a15e49",
+              "key": "4b6fa26c-ac83-410c-a4a1-ed67b2f13c09",
+              "operationId": "question.share.revoke",
+              "target": "/api/questions/6add6e5424341bec11a15e4d/shares/6add6e5424341bec11a15e52/revoke",
+              "canonicalVersion": 1,
+              "fingerprint": "76cdd8879f213d5340160bc3cbda44965810a2ad122ab39e4aac220a985f0e3b",
+              "status": "succeeded",
+              "resultRefs": {
+                "shareId": "6add6e5424341bec11a15e52"
+              },
+              "createdAt": "2026-10-25T02:49:56.947000+00:00",
+              "completedAt": "2026-10-25T02:49:56.956000+00:00",
+              "httpStatus": 200,
+              "response": {
+                "mode": "inline",
+                "byteLength": 327,
+                "sha256": "e3cddcfc9ee8419c8e5b04d5e81ab2b2baa207ae8feb2a19490fdbc4488f3cd8",
+                "data": {
+                  "binaryOmitted": true,
+                  "bytes": 327,
+                  "sha256": "e3cddcfc9ee8419c8e5b04d5e81ab2b2baa207ae8feb2a19490fdbc4488f3cd8"
+                }
+              }
+            }
+          ]
+        },
+        "mutation_response_chunks": {
+          "count": 0,
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "documents": []
+        }
+      }
+    },
+    {
+      "kind": "assertion",
+      "label": "新增引用、换版、另存和新增实例全部拒绝后的快照: questions 文档和数量完全不变",
+      "passed": true,
+      "observed": {
+        "beforeCount": 2,
+        "afterCount": 2,
+        "documentsEqual": true
+      }
+    },
+    {
+      "kind": "assertion",
+      "label": "新增引用、换版、另存和新增实例全部拒绝后的快照: question_versions 文档和数量完全不变",
+      "passed": true,
+      "observed": {
+        "beforeCount": 3,
+        "afterCount": 3,
+        "documentsEqual": true
+      }
+    },
+    {
+      "kind": "assertion",
+      "label": "新增引用、换版、另存和新增实例全部拒绝后的快照: question_shares 文档和数量完全不变",
+      "passed": true,
+      "observed": {
+        "beforeCount": 1,
+        "afterCount": 1,
+        "documentsEqual": true
+      }
+    },
+    {
+      "kind": "assertion",
+      "label": "新增引用、换版、另存和新增实例全部拒绝后的快照: surveys 文档和数量完全不变",
+      "passed": true,
+      "observed": {
+        "beforeCount": 3,
+        "afterCount": 3,
+        "documentsEqual": true
+      }
+    },
+    {
+      "kind": "assertion",
+      "label": "新增引用、换版、另存和新增实例全部拒绝后的快照: responses 文档和数量完全不变",
+      "passed": true,
+      "observed": {
+        "beforeCount": 0,
+        "afterCount": 0,
+        "documentsEqual": true
+      }
+    },
+    {
+      "kind": "assertion",
+      "label": "新增引用、换版、另存和新增实例全部拒绝后的快照: participations 文档和数量完全不变",
+      "passed": true,
+      "observed": {
+        "beforeCount": 0,
+        "afterCount": 0,
+        "documentsEqual": true
+      }
+    },
+    {
+      "kind": "assertion",
+      "label": "新增引用、换版、另存和新增实例全部拒绝后的快照: mutation_receipts 文档和数量完全不变",
+      "passed": true,
+      "observed": {
+        "beforeCount": 8,
+        "afterCount": 8,
+        "documentsEqual": true
+      }
+    },
+    {
+      "kind": "assertion",
+      "label": "新增引用、换版、另存和新增实例全部拒绝后的快照: mutation_response_chunks 文档和数量完全不变",
+      "passed": true,
+      "observed": {
+        "beforeCount": 0,
+        "afterCount": 0,
+        "documentsEqual": true
+      }
+    },
+    {
+      "kind": "http",
+      "actor": "recipient",
+      "method": "PATCH",
+      "path": "/api/surveys/6add6e5424341bec11a15e56",
+      "requestBody": {
+        "revision": 1,
+        "questions": []
+      },
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "responseBody": {
+        "_id": "6add6e5424341bec11a15e56",
+        "ownerId": "6add6e5424341bec11a15e4a",
+        "publicId": "399ee84855b31627dfb4364e0c6ba1e9",
+        "title": "P02 删除后不可重加",
+        "description": "权限执行证据",
+        "settings": {
+          "anonymous": true,
+          "allowRepeat": true
+        },
+        "deadlineAt": null,
+        "status": "draft",
+        "questions": [],
+        "schemaVersion": 2,
+        "revision": 2,
+        "createdAt": "2026-10-25T02:49:56.875000+00:00",
+        "updatedAt": "2026-10-25T02:49:57.105000+00:00",
+        "publishedAt": null,
+        "closedAt": null,
+        "closeReason": null
+      },
+      "passed": true,
+      "elapsedMs": 41.996
+    },
+    {
+      "kind": "database",
+      "label": "删除已有实例后的基线",
+      "collections": {
+        "questions": {
+          "count": 2,
+          "sha256": "f45354576afdf3042c42ee602338d030018aea47abc4cdb6fb01ca8cb93d040b",
+          "documents": [
+            {
+              "_id": "6add6e5424341bec11a15e4d",
+              "ownerId": "6add6e5424341bec11a15e49",
+              "latestVersionId": "6add6e5424341bec11a15e50",
+              "versionSeq": 2,
+              "origin": {
+                "kind": "original"
+              },
+              "revision": 4,
+              "guardRevision": 5,
+              "archivedAt": null,
+              "createdAt": "2026-10-25T02:49:56.767000+00:00",
+              "updatedAt": "2026-10-25T02:49:56.952000+00:00"
+            },
+            {
+              "_id": "6add6e5424341bec11a15e5a",
+              "ownerId": "6add6e5424341bec11a15e4a",
+              "latestVersionId": "6add6e5424341bec11a15e5b",
+              "versionSeq": 1,
+              "origin": {
+                "kind": "copy",
+                "questionId": "6add6e5424341bec11a15e4d",
+                "versionId": "6add6e5424341bec11a15e4e"
+              },
+              "revision": 1,
+              "guardRevision": 0,
+              "archivedAt": null,
+              "createdAt": "2026-10-25T02:49:56.925000+00:00",
+              "updatedAt": "2026-10-25T02:49:56.925000+00:00"
+            }
+          ]
+        },
+        "question_versions": {
+          "count": 3,
+          "sha256": "bd8b66d0cf2d592d414db8d2936471e4929753934bd83f43cd1084e38b84a0c4",
+          "documents": [
+            {
+              "_id": "6add6e5424341bec11a15e4e",
+              "questionId": "6add6e5424341bec11a15e4d",
+              "versionNo": 1,
+              "baseVersionId": null,
+              "operation": "create",
+              "content": {
+                "title": "P02 已保存的共享题",
+                "description": "权限执行证据",
+                "type": "text",
+                "validation": {}
+              },
+              "createdBy": "6add6e5424341bec11a15e49",
+              "createdAt": "2026-10-25T02:49:56.767000+00:00",
+              "archivedAt": null
+            },
+            {
+              "_id": "6add6e5424341bec11a15e50",
+              "questionId": "6add6e5424341bec11a15e4d",
+              "versionNo": 2,
+              "baseVersionId": "6add6e5424341bec11a15e4e",
+              "operation": "edit",
+              "content": {
+                "title": "P02 不能在撤权后切入的版本",
+                "description": "权限执行证据",
+                "type": "text",
+                "validation": {}
+              },
+              "createdBy": "6add6e5424341bec11a15e49",
+              "createdAt": "2026-10-25T02:49:56.793000+00:00",
+              "archivedAt": null
+            },
+            {
+              "_id": "6add6e5424341bec11a15e5b",
+              "questionId": "6add6e5424341bec11a15e5a",
+              "versionNo": 1,
+              "baseVersionId": null,
+              "operation": "copy",
+              "content": {
+                "title": "P02 已保存的共享题",
+                "description": "权限执行证据",
+                "type": "text",
+                "validation": {}
+              },
+              "createdBy": "6add6e5424341bec11a15e4a",
+              "createdAt": "2026-10-25T02:49:56.925000+00:00",
+              "archivedAt": null
+            }
+          ]
+        },
+        "question_shares": {
+          "count": 1,
+          "sha256": "0ed6e9632224557f6c229fb95f17b12f447c71690838bdd4314c69b57019643a",
+          "documents": [
+            {
+              "_id": "6add6e5424341bec11a15e52",
+              "questionId": "6add6e5424341bec11a15e4d",
+              "recipientId": "6add6e5424341bec11a15e4a",
+              "grantedBy": "6add6e5424341bec11a15e49",
+              "grantedAt": "2026-10-25T02:49:56.825000+00:00",
+              "revokedAt": "2026-10-25T02:49:56.952000+00:00",
+              "revision": 2,
+              "createdAt": "2026-10-25T02:49:56.825000+00:00",
+              "updatedAt": "2026-10-25T02:49:56.952000+00:00"
+            }
+          ]
+        },
+        "surveys": {
+          "count": 3,
+          "sha256": "2a9f02858b6db1f3aa4383d0811b5cc02084fccc43c50201f19abff3dbe7919c",
+          "documents": [
+            {
+              "_id": "6add6e5424341bec11a15e54",
+              "ownerId": "6add6e5424341bec11a15e4a",
+              "publicId": "62f6f9a01f07ccd07ade76379bf8e90b",
+              "title": "P02 保留历史引用的草稿",
+              "description": "权限执行证据",
+              "settings": {
+                "anonymous": true,
+                "allowRepeat": true
+              },
+              "deadlineAt": null,
+              "status": "draft",
+              "questions": [
+                {
+                  "id": "q1",
+                  "title": "P02 已保存的共享题",
+                  "description": "权限执行证据",
+                  "required": true,
+                  "type": "text",
+                  "validation": {},
+                  "jumpRules": [],
+                  "questionId": "6add6e5424341bec11a15e4d",
+                  "versionId": "6add6e5424341bec11a15e4e",
+                  "versionNo": 1
+                }
+              ],
+              "schemaVersion": 2,
+              "revision": 1,
+              "createdAt": "2026-10-25T02:49:56.848000+00:00",
+              "updatedAt": "2026-10-25T02:49:56.848000+00:00",
+              "publishedAt": null,
+              "closedAt": null,
+              "closeReason": null
+            },
+            {
+              "_id": "6add6e5424341bec11a15e56",
+              "ownerId": "6add6e5424341bec11a15e4a",
+              "publicId": "399ee84855b31627dfb4364e0c6ba1e9",
+              "title": "P02 删除后不可重加",
+              "description": "权限执行证据",
+              "settings": {
+                "anonymous": true,
+                "allowRepeat": true
+              },
+              "deadlineAt": null,
+              "status": "draft",
+              "questions": [],
+              "schemaVersion": 2,
+              "revision": 2,
+              "createdAt": "2026-10-25T02:49:56.875000+00:00",
+              "updatedAt": "2026-10-25T02:49:57.105000+00:00",
+              "publishedAt": null,
+              "closedAt": null,
+              "closeReason": null
+            },
+            {
+              "_id": "6add6e5424341bec11a15e58",
+              "ownerId": "6add6e5424341bec11a15e4a",
+              "publicId": "138d2bb635a1b31adc6dabcf8f9e4adb",
+              "title": "P02 不能新增实例的草稿",
+              "description": "权限执行证据",
+              "settings": {
+                "anonymous": true,
+                "allowRepeat": true
+              },
+              "deadlineAt": null,
+              "status": "draft",
+              "questions": [],
+              "schemaVersion": 2,
+              "revision": 1,
+              "createdAt": "2026-10-25T02:49:56.900000+00:00",
+              "updatedAt": "2026-10-25T02:49:56.900000+00:00",
+              "publishedAt": null,
+              "closedAt": null,
+              "closeReason": null
+            }
+          ]
+        },
+        "responses": {
+          "count": 0,
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "documents": []
+        },
+        "participations": {
+          "count": 0,
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "documents": []
+        },
+        "mutation_receipts": {
+          "count": 9,
+          "sha256": "448bc3c34b45e23bc036dbf21b9f0cbe624ae8ff64124e50a5086007f1f2243c",
+          "documents": [
+            {
+              "_id": "6add6e5424341bec11a15e4c",
+              "actorId": "6add6e5424341bec11a15e49",
+              "key": "32f1349f-c22e-484c-865f-9b2cfaeefc3b",
+              "operationId": "question.create",
+              "target": "/api/questions",
+              "canonicalVersion": 1,
+              "fingerprint": "e651b298cb7129d0c436ab014f96846b79e75f077fd6436a65a9ce96ca4b6af9",
+              "status": "succeeded",
+              "resultRefs": {
+                "questionId": "6add6e5424341bec11a15e4d",
+                "versionId": "6add6e5424341bec11a15e4e"
+              },
+              "createdAt": "2026-10-25T02:49:56.766000+00:00",
+              "completedAt": "2026-10-25T02:49:56.772000+00:00",
+              "httpStatus": 201,
+              "response": {
+                "mode": "inline",
+                "byteLength": 940,
+                "sha256": "127e5c7822de461501c3025ab334316a66fd2a430bd72fd4873231d71b4b9ac1",
+                "data": {
+                  "binaryOmitted": true,
+                  "bytes": 940,
+                  "sha256": "127e5c7822de461501c3025ab334316a66fd2a430bd72fd4873231d71b4b9ac1"
+                }
+              }
+            },
+            {
+              "_id": "6add6e5424341bec11a15e4f",
+              "actorId": "6add6e5424341bec11a15e49",
+              "key": "5900a917-bde3-4776-91e9-239139535f34",
+              "operationId": "question.version.create",
+              "target": "/api/questions/6add6e5424341bec11a15e4d/versions",
+              "canonicalVersion": 1,
+              "fingerprint": "19945ee5a452092356283e9be1ac590b7a06404087f8e2db817cfedfb2e06fe3",
+              "status": "succeeded",
+              "resultRefs": {
+                "questionId": "6add6e5424341bec11a15e4d",
+                "versionId": "6add6e5424341bec11a15e50"
+              },
+              "createdAt": "2026-10-25T02:49:56.788000+00:00",
+              "completedAt": "2026-10-25T02:49:56.802000+00:00",
+              "httpStatus": 201,
+              "response": {
+                "mode": "inline",
+                "byteLength": 1004,
+                "sha256": "d4cb7f9b102719a33774fd979a0b6486094dd68424a0489aa4ab666eb647285d",
+                "data": {
+                  "binaryOmitted": true,
+                  "bytes": 1004,
+                  "sha256": "d4cb7f9b102719a33774fd979a0b6486094dd68424a0489aa4ab666eb647285d"
+                }
+              }
+            },
+            {
+              "_id": "6add6e5424341bec11a15e51",
+              "actorId": "6add6e5424341bec11a15e49",
+              "key": "79e49d78-dc1e-46db-b1f0-ebd9e50e932d",
+              "operationId": "question.share.grant",
+              "target": "/api/questions/6add6e5424341bec11a15e4d/shares",
+              "canonicalVersion": 1,
+              "fingerprint": "8e875dc5619c14ef6891f969c46bc600dd4da13590f7627e3cc70781962de80c",
+              "status": "succeeded",
+              "resultRefs": {
+                "shareId": "6add6e5424341bec11a15e52"
+              },
+              "createdAt": "2026-10-25T02:49:56.820000+00:00",
+              "completedAt": "2026-10-25T02:49:56.829000+00:00",
+              "httpStatus": 201,
+              "response": {
+                "mode": "inline",
+                "byteLength": 297,
+                "sha256": "420b2ba4ca1c13ada5d4cec66ecf5f31fc425f7dba7aad7b8da41a32181a0e32",
+                "data": {
+                  "binaryOmitted": true,
+                  "bytes": 297,
+                  "sha256": "420b2ba4ca1c13ada5d4cec66ecf5f31fc425f7dba7aad7b8da41a32181a0e32"
+                }
+              }
+            },
+            {
+              "_id": "6add6e5424341bec11a15e53",
+              "actorId": "6add6e5424341bec11a15e4a",
+              "key": "9796f119-8a47-4873-9c8d-f14c09afb6f6",
+              "operationId": "survey.create",
+              "target": "/api/surveys",
+              "canonicalVersion": 1,
+              "fingerprint": "6b795fc4ff143dd1a72117bb90277582f5f2287fde1eae98d5a72e7a596d5391",
+              "status": "succeeded",
+              "resultRefs": {
+                "surveyId": "6add6e5424341bec11a15e54"
+              },
+              "createdAt": "2026-10-25T02:49:56.847000+00:00",
+              "completedAt": "2026-10-25T02:49:56.858000+00:00",
+              "httpStatus": 201,
+              "response": {
+                "mode": "inline",
+                "byteLength": 708,
+                "sha256": "647bdddeae53d2fdf80a2f14aceb4d74640f11ade9a22c356aae9a5b1148786e",
+                "data": {
+                  "binaryOmitted": true,
+                  "bytes": 708,
+                  "sha256": "647bdddeae53d2fdf80a2f14aceb4d74640f11ade9a22c356aae9a5b1148786e"
+                }
+              }
+            },
+            {
+              "_id": "6add6e5424341bec11a15e55",
+              "actorId": "6add6e5424341bec11a15e4a",
+              "key": "c7948d53-5826-4e56-8c8d-a11ddf664b53",
+              "operationId": "survey.create",
+              "target": "/api/surveys",
+              "canonicalVersion": 1,
+              "fingerprint": "3e6a9dc856f3141c1567ea44ec7484d4741cf71a579cdd19123bc128f2463ad1",
+              "status": "succeeded",
+              "resultRefs": {
+                "surveyId": "6add6e5424341bec11a15e56"
+              },
+              "createdAt": "2026-10-25T02:49:56.874000+00:00",
+              "completedAt": "2026-10-25T02:49:56.884000+00:00",
+              "httpStatus": 201,
+              "response": {
+                "mode": "inline",
+                "byteLength": 702,
+                "sha256": "dd2d6936f24f50c3a33a608dada03ec978671fda628a780423572656dd56b582",
+                "data": {
+                  "binaryOmitted": true,
+                  "bytes": 702,
+                  "sha256": "dd2d6936f24f50c3a33a608dada03ec978671fda628a780423572656dd56b582"
+                }
+              }
+            },
+            {
+              "_id": "6add6e5424341bec11a15e57",
+              "actorId": "6add6e5424341bec11a15e4a",
+              "key": "542ad4f6-2316-4e6b-b985-9a81508cfbfe",
+              "operationId": "survey.create",
+              "target": "/api/surveys",
+              "canonicalVersion": 1,
+              "fingerprint": "a4a703d1d082b7945fca6865be6c85f6d1df7e80b8f8ef8bbd318f8376cc338c",
+              "status": "succeeded",
+              "resultRefs": {
+                "surveyId": "6add6e5424341bec11a15e58"
+              },
+              "createdAt": "2026-10-25T02:49:56.898000+00:00",
+              "completedAt": "2026-10-25T02:49:56.902000+00:00",
+              "httpStatus": 201,
+              "response": {
+                "mode": "inline",
+                "byteLength": 472,
+                "sha256": "e6540a6481cb429ab05bd6c9fb57432d33ab8428c4aab1b26a5f97b74c9949e6",
+                "data": {
+                  "binaryOmitted": true,
+                  "bytes": 472,
+                  "sha256": "e6540a6481cb429ab05bd6c9fb57432d33ab8428c4aab1b26a5f97b74c9949e6"
+                }
+              }
+            },
+            {
+              "_id": "6add6e5424341bec11a15e59",
+              "actorId": "6add6e5424341bec11a15e4a",
+              "key": "c451d7d1-3fde-4668-8013-11ca54011e4b",
+              "operationId": "question.copy",
+              "target": "/api/questions/6add6e5424341bec11a15e4d/copies",
+              "canonicalVersion": 1,
+              "fingerprint": "aa37ad0909606ae6ebfaf6953ac588470f988067b2386c6329eaa87a4fbccf09",
+              "status": "succeeded",
+              "resultRefs": {
+                "questionId": "6add6e5424341bec11a15e5a",
+                "versionId": "6add6e5424341bec11a15e5b"
+              },
+              "createdAt": "2026-10-25T02:49:56.917000+00:00",
+              "completedAt": "2026-10-25T02:49:56.931000+00:00",
+              "httpStatus": 201,
+              "response": {
+                "mode": "inline",
+                "byteLength": 1011,
+                "sha256": "cc357f08766cd490c74efb91ae2cfc862504b95087eecaafba2460c285a5c333",
+                "data": {
+                  "binaryOmitted": true,
+                  "bytes": 1011,
+                  "sha256": "cc357f08766cd490c74efb91ae2cfc862504b95087eecaafba2460c285a5c333"
+                }
+              }
+            },
+            {
+              "_id": "6add6e5424341bec11a15e5c",
+              "actorId": "6add6e5424341bec11a15e49",
+              "key": "4b6fa26c-ac83-410c-a4a1-ed67b2f13c09",
+              "operationId": "question.share.revoke",
+              "target": "/api/questions/6add6e5424341bec11a15e4d/shares/6add6e5424341bec11a15e52/revoke",
+              "canonicalVersion": 1,
+              "fingerprint": "76cdd8879f213d5340160bc3cbda44965810a2ad122ab39e4aac220a985f0e3b",
+              "status": "succeeded",
+              "resultRefs": {
+                "shareId": "6add6e5424341bec11a15e52"
+              },
+              "createdAt": "2026-10-25T02:49:56.947000+00:00",
+              "completedAt": "2026-10-25T02:49:56.956000+00:00",
+              "httpStatus": 200,
+              "response": {
+                "mode": "inline",
+                "byteLength": 327,
+                "sha256": "e3cddcfc9ee8419c8e5b04d5e81ab2b2baa207ae8feb2a19490fdbc4488f3cd8",
+                "data": {
+                  "binaryOmitted": true,
+                  "bytes": 327,
+                  "sha256": "e3cddcfc9ee8419c8e5b04d5e81ab2b2baa207ae8feb2a19490fdbc4488f3cd8"
+                }
+              }
+            },
+            {
+              "_id": "6add6e5524341bec11a15e62",
+              "actorId": "6add6e5424341bec11a15e4a",
+              "key": "e78effe0-07e1-40d1-b8cd-9cc550d07b1e",
+              "operationId": "survey.patch",
+              "target": "/api/surveys/6add6e5424341bec11a15e56",
+              "canonicalVersion": 1,
+              "fingerprint": "83cd2c845e1f69ba8ab223dd4eba70127e6c55731a2a05c3fb88f49c8c79e7e5",
+              "status": "succeeded",
+              "resultRefs": {
+                "surveyId": "6add6e5424341bec11a15e56"
+              },
+              "createdAt": "2026-10-25T02:49:57.103000+00:00",
+              "completedAt": "2026-10-25T02:49:57.107000+00:00",
+              "httpStatus": 200,
+              "response": {
+                "mode": "inline",
+                "byteLength": 466,
+                "sha256": "cecfbdab5d7cf3a8dc4e407873b67ad171f525b645b33d13598399c2bde1ca07",
+                "data": {
+                  "binaryOmitted": true,
+                  "bytes": 466,
+                  "sha256": "cecfbdab5d7cf3a8dc4e407873b67ad171f525b645b33d13598399c2bde1ca07"
+                }
+              }
+            }
+          ]
+        },
+        "mutation_response_chunks": {
+          "count": 0,
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "documents": []
+        }
+      }
+    },
+    {
+      "kind": "http",
+      "actor": "recipient",
+      "method": "PATCH",
+      "path": "/api/surveys/6add6e5424341bec11a15e56",
+      "requestBody": {
+        "revision": 2,
+        "questions": [
+          {
+            "id": "q1",
+            "questionId": "6add6e5424341bec11a15e4d",
+            "versionId": "6add6e5424341bec11a15e4e",
+            "required": true,
+            "jumpRules": []
+          }
+        ]
+      },
+      "expectedStatus": 404,
+      "actualStatus": 404,
+      "responseBody": {
+        "error": {
+          "code": "NOT_FOUND",
+          "message": "题目不存在"
+        }
+      },
+      "passed": true,
+      "elapsedMs": 13.505
+    },
+    {
+      "kind": "assertion",
+      "label": "recipient: PATCH /api/surveys/6add6e5424341bec11a15e56 使用统一拒绝码",
+      "passed": true,
+      "observed": {
+        "error": {
+          "code": "NOT_FOUND",
+          "message": "题目不存在"
+        }
+      }
+    },
+    {
+      "kind": "database",
+      "label": "删后重加被拒绝后的快照",
+      "collections": {
+        "questions": {
+          "count": 2,
+          "sha256": "f45354576afdf3042c42ee602338d030018aea47abc4cdb6fb01ca8cb93d040b",
+          "documents": [
+            {
+              "_id": "6add6e5424341bec11a15e4d",
+              "ownerId": "6add6e5424341bec11a15e49",
+              "latestVersionId": "6add6e5424341bec11a15e50",
+              "versionSeq": 2,
+              "origin": {
+                "kind": "original"
+              },
+              "revision": 4,
+              "guardRevision": 5,
+              "archivedAt": null,
+              "createdAt": "2026-10-25T02:49:56.767000+00:00",
+              "updatedAt": "2026-10-25T02:49:56.952000+00:00"
+            },
+            {
+              "_id": "6add6e5424341bec11a15e5a",
+              "ownerId": "6add6e5424341bec11a15e4a",
+              "latestVersionId": "6add6e5424341bec11a15e5b",
+              "versionSeq": 1,
+              "origin": {
+                "kind": "copy",
+                "questionId": "6add6e5424341bec11a15e4d",
+                "versionId": "6add6e5424341bec11a15e4e"
+              },
+              "revision": 1,
+              "guardRevision": 0,
+              "archivedAt": null,
+              "createdAt": "2026-10-25T02:49:56.925000+00:00",
+              "updatedAt": "2026-10-25T02:49:56.925000+00:00"
+            }
+          ]
+        },
+        "question_versions": {
+          "count": 3,
+          "sha256": "bd8b66d0cf2d592d414db8d2936471e4929753934bd83f43cd1084e38b84a0c4",
+          "documents": [
+            {
+              "_id": "6add6e5424341bec11a15e4e",
+              "questionId": "6add6e5424341bec11a15e4d",
+              "versionNo": 1,
+              "baseVersionId": null,
+              "operation": "create",
+              "content": {
+                "title": "P02 已保存的共享题",
+                "description": "权限执行证据",
+                "type": "text",
+                "validation": {}
+              },
+              "createdBy": "6add6e5424341bec11a15e49",
+              "createdAt": "2026-10-25T02:49:56.767000+00:00",
+              "archivedAt": null
+            },
+            {
+              "_id": "6add6e5424341bec11a15e50",
+              "questionId": "6add6e5424341bec11a15e4d",
+              "versionNo": 2,
+              "baseVersionId": "6add6e5424341bec11a15e4e",
+              "operation": "edit",
+              "content": {
+                "title": "P02 不能在撤权后切入的版本",
+                "description": "权限执行证据",
+                "type": "text",
+                "validation": {}
+              },
+              "createdBy": "6add6e5424341bec11a15e49",
+              "createdAt": "2026-10-25T02:49:56.793000+00:00",
+              "archivedAt": null
+            },
+            {
+              "_id": "6add6e5424341bec11a15e5b",
+              "questionId": "6add6e5424341bec11a15e5a",
+              "versionNo": 1,
+              "baseVersionId": null,
+              "operation": "copy",
+              "content": {
+                "title": "P02 已保存的共享题",
+                "description": "权限执行证据",
+                "type": "text",
+                "validation": {}
+              },
+              "createdBy": "6add6e5424341bec11a15e4a",
+              "createdAt": "2026-10-25T02:49:56.925000+00:00",
+              "archivedAt": null
+            }
+          ]
+        },
+        "question_shares": {
+          "count": 1,
+          "sha256": "0ed6e9632224557f6c229fb95f17b12f447c71690838bdd4314c69b57019643a",
+          "documents": [
+            {
+              "_id": "6add6e5424341bec11a15e52",
+              "questionId": "6add6e5424341bec11a15e4d",
+              "recipientId": "6add6e5424341bec11a15e4a",
+              "grantedBy": "6add6e5424341bec11a15e49",
+              "grantedAt": "2026-10-25T02:49:56.825000+00:00",
+              "revokedAt": "2026-10-25T02:49:56.952000+00:00",
+              "revision": 2,
+              "createdAt": "2026-10-25T02:49:56.825000+00:00",
+              "updatedAt": "2026-10-25T02:49:56.952000+00:00"
+            }
+          ]
+        },
+        "surveys": {
+          "count": 3,
+          "sha256": "2a9f02858b6db1f3aa4383d0811b5cc02084fccc43c50201f19abff3dbe7919c",
+          "documents": [
+            {
+              "_id": "6add6e5424341bec11a15e54",
+              "ownerId": "6add6e5424341bec11a15e4a",
+              "publicId": "62f6f9a01f07ccd07ade76379bf8e90b",
+              "title": "P02 保留历史引用的草稿",
+              "description": "权限执行证据",
+              "settings": {
+                "anonymous": true,
+                "allowRepeat": true
+              },
+              "deadlineAt": null,
+              "status": "draft",
+              "questions": [
+                {
+                  "id": "q1",
+                  "title": "P02 已保存的共享题",
+                  "description": "权限执行证据",
+                  "required": true,
+                  "type": "text",
+                  "validation": {},
+                  "jumpRules": [],
+                  "questionId": "6add6e5424341bec11a15e4d",
+                  "versionId": "6add6e5424341bec11a15e4e",
+                  "versionNo": 1
+                }
+              ],
+              "schemaVersion": 2,
+              "revision": 1,
+              "createdAt": "2026-10-25T02:49:56.848000+00:00",
+              "updatedAt": "2026-10-25T02:49:56.848000+00:00",
+              "publishedAt": null,
+              "closedAt": null,
+              "closeReason": null
+            },
+            {
+              "_id": "6add6e5424341bec11a15e56",
+              "ownerId": "6add6e5424341bec11a15e4a",
+              "publicId": "399ee84855b31627dfb4364e0c6ba1e9",
+              "title": "P02 删除后不可重加",
+              "description": "权限执行证据",
+              "settings": {
+                "anonymous": true,
+                "allowRepeat": true
+              },
+              "deadlineAt": null,
+              "status": "draft",
+              "questions": [],
+              "schemaVersion": 2,
+              "revision": 2,
+              "createdAt": "2026-10-25T02:49:56.875000+00:00",
+              "updatedAt": "2026-10-25T02:49:57.105000+00:00",
+              "publishedAt": null,
+              "closedAt": null,
+              "closeReason": null
+            },
+            {
+              "_id": "6add6e5424341bec11a15e58",
+              "ownerId": "6add6e5424341bec11a15e4a",
+              "publicId": "138d2bb635a1b31adc6dabcf8f9e4adb",
+              "title": "P02 不能新增实例的草稿",
+              "description": "权限执行证据",
+              "settings": {
+                "anonymous": true,
+                "allowRepeat": true
+              },
+              "deadlineAt": null,
+              "status": "draft",
+              "questions": [],
+              "schemaVersion": 2,
+              "revision": 1,
+              "createdAt": "2026-10-25T02:49:56.900000+00:00",
+              "updatedAt": "2026-10-25T02:49:56.900000+00:00",
+              "publishedAt": null,
+              "closedAt": null,
+              "closeReason": null
+            }
+          ]
+        },
+        "responses": {
+          "count": 0,
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "documents": []
+        },
+        "participations": {
+          "count": 0,
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "documents": []
+        },
+        "mutation_receipts": {
+          "count": 9,
+          "sha256": "448bc3c34b45e23bc036dbf21b9f0cbe624ae8ff64124e50a5086007f1f2243c",
+          "documents": [
+            {
+              "_id": "6add6e5424341bec11a15e4c",
+              "actorId": "6add6e5424341bec11a15e49",
+              "key": "32f1349f-c22e-484c-865f-9b2cfaeefc3b",
+              "operationId": "question.create",
+              "target": "/api/questions",
+              "canonicalVersion": 1,
+              "fingerprint": "e651b298cb7129d0c436ab014f96846b79e75f077fd6436a65a9ce96ca4b6af9",
+              "status": "succeeded",
+              "resultRefs": {
+                "questionId": "6add6e5424341bec11a15e4d",
+                "versionId": "6add6e5424341bec11a15e4e"
+              },
+              "createdAt": "2026-10-25T02:49:56.766000+00:00",
+              "completedAt": "2026-10-25T02:49:56.772000+00:00",
+              "httpStatus": 201,
+              "response": {
+                "mode": "inline",
+                "byteLength": 940,
+                "sha256": "127e5c7822de461501c3025ab334316a66fd2a430bd72fd4873231d71b4b9ac1",
+                "data": {
+                  "binaryOmitted": true,
+                  "bytes": 940,
+                  "sha256": "127e5c7822de461501c3025ab334316a66fd2a430bd72fd4873231d71b4b9ac1"
+                }
+              }
+            },
+            {
+              "_id": "6add6e5424341bec11a15e4f",
+              "actorId": "6add6e5424341bec11a15e49",
+              "key": "5900a917-bde3-4776-91e9-239139535f34",
+              "operationId": "question.version.create",
+              "target": "/api/questions/6add6e5424341bec11a15e4d/versions",
+              "canonicalVersion": 1,
+              "fingerprint": "19945ee5a452092356283e9be1ac590b7a06404087f8e2db817cfedfb2e06fe3",
+              "status": "succeeded",
+              "resultRefs": {
+                "questionId": "6add6e5424341bec11a15e4d",
+                "versionId": "6add6e5424341bec11a15e50"
+              },
+              "createdAt": "2026-10-25T02:49:56.788000+00:00",
+              "completedAt": "2026-10-25T02:49:56.802000+00:00",
+              "httpStatus": 201,
+              "response": {
+                "mode": "inline",
+                "byteLength": 1004,
+                "sha256": "d4cb7f9b102719a33774fd979a0b6486094dd68424a0489aa4ab666eb647285d",
+                "data": {
+                  "binaryOmitted": true,
+                  "bytes": 1004,
+                  "sha256": "d4cb7f9b102719a33774fd979a0b6486094dd68424a0489aa4ab666eb647285d"
+                }
+              }
+            },
+            {
+              "_id": "6add6e5424341bec11a15e51",
+              "actorId": "6add6e5424341bec11a15e49",
+              "key": "79e49d78-dc1e-46db-b1f0-ebd9e50e932d",
+              "operationId": "question.share.grant",
+              "target": "/api/questions/6add6e5424341bec11a15e4d/shares",
+              "canonicalVersion": 1,
+              "fingerprint": "8e875dc5619c14ef6891f969c46bc600dd4da13590f7627e3cc70781962de80c",
+              "status": "succeeded",
+              "resultRefs": {
+                "shareId": "6add6e5424341bec11a15e52"
+              },
+              "createdAt": "2026-10-25T02:49:56.820000+00:00",
+              "completedAt": "2026-10-25T02:49:56.829000+00:00",
+              "httpStatus": 201,
+              "response": {
+                "mode": "inline",
+                "byteLength": 297,
+                "sha256": "420b2ba4ca1c13ada5d4cec66ecf5f31fc425f7dba7aad7b8da41a32181a0e32",
+                "data": {
+                  "binaryOmitted": true,
+                  "bytes": 297,
+                  "sha256": "420b2ba4ca1c13ada5d4cec66ecf5f31fc425f7dba7aad7b8da41a32181a0e32"
+                }
+              }
+            },
+            {
+              "_id": "6add6e5424341bec11a15e53",
+              "actorId": "6add6e5424341bec11a15e4a",
+              "key": "9796f119-8a47-4873-9c8d-f14c09afb6f6",
+              "operationId": "survey.create",
+              "target": "/api/surveys",
+              "canonicalVersion": 1,
+              "fingerprint": "6b795fc4ff143dd1a72117bb90277582f5f2287fde1eae98d5a72e7a596d5391",
+              "status": "succeeded",
+              "resultRefs": {
+                "surveyId": "6add6e5424341bec11a15e54"
+              },
+              "createdAt": "2026-10-25T02:49:56.847000+00:00",
+              "completedAt": "2026-10-25T02:49:56.858000+00:00",
+              "httpStatus": 201,
+              "response": {
+                "mode": "inline",
+                "byteLength": 708,
+                "sha256": "647bdddeae53d2fdf80a2f14aceb4d74640f11ade9a22c356aae9a5b1148786e",
+                "data": {
+                  "binaryOmitted": true,
+                  "bytes": 708,
+                  "sha256": "647bdddeae53d2fdf80a2f14aceb4d74640f11ade9a22c356aae9a5b1148786e"
+                }
+              }
+            },
+            {
+              "_id": "6add6e5424341bec11a15e55",
+              "actorId": "6add6e5424341bec11a15e4a",
+              "key": "c7948d53-5826-4e56-8c8d-a11ddf664b53",
+              "operationId": "survey.create",
+              "target": "/api/surveys",
+              "canonicalVersion": 1,
+              "fingerprint": "3e6a9dc856f3141c1567ea44ec7484d4741cf71a579cdd19123bc128f2463ad1",
+              "status": "succeeded",
+              "resultRefs": {
+                "surveyId": "6add6e5424341bec11a15e56"
+              },
+              "createdAt": "2026-10-25T02:49:56.874000+00:00",
+              "completedAt": "2026-10-25T02:49:56.884000+00:00",
+              "httpStatus": 201,
+              "response": {
+                "mode": "inline",
+                "byteLength": 702,
+                "sha256": "dd2d6936f24f50c3a33a608dada03ec978671fda628a780423572656dd56b582",
+                "data": {
+                  "binaryOmitted": true,
+                  "bytes": 702,
+                  "sha256": "dd2d6936f24f50c3a33a608dada03ec978671fda628a780423572656dd56b582"
+                }
+              }
+            },
+            {
+              "_id": "6add6e5424341bec11a15e57",
+              "actorId": "6add6e5424341bec11a15e4a",
+              "key": "542ad4f6-2316-4e6b-b985-9a81508cfbfe",
+              "operationId": "survey.create",
+              "target": "/api/surveys",
+              "canonicalVersion": 1,
+              "fingerprint": "a4a703d1d082b7945fca6865be6c85f6d1df7e80b8f8ef8bbd318f8376cc338c",
+              "status": "succeeded",
+              "resultRefs": {
+                "surveyId": "6add6e5424341bec11a15e58"
+              },
+              "createdAt": "2026-10-25T02:49:56.898000+00:00",
+              "completedAt": "2026-10-25T02:49:56.902000+00:00",
+              "httpStatus": 201,
+              "response": {
+                "mode": "inline",
+                "byteLength": 472,
+                "sha256": "e6540a6481cb429ab05bd6c9fb57432d33ab8428c4aab1b26a5f97b74c9949e6",
+                "data": {
+                  "binaryOmitted": true,
+                  "bytes": 472,
+                  "sha256": "e6540a6481cb429ab05bd6c9fb57432d33ab8428c4aab1b26a5f97b74c9949e6"
+                }
+              }
+            },
+            {
+              "_id": "6add6e5424341bec11a15e59",
+              "actorId": "6add6e5424341bec11a15e4a",
+              "key": "c451d7d1-3fde-4668-8013-11ca54011e4b",
+              "operationId": "question.copy",
+              "target": "/api/questions/6add6e5424341bec11a15e4d/copies",
+              "canonicalVersion": 1,
+              "fingerprint": "aa37ad0909606ae6ebfaf6953ac588470f988067b2386c6329eaa87a4fbccf09",
+              "status": "succeeded",
+              "resultRefs": {
+                "questionId": "6add6e5424341bec11a15e5a",
+                "versionId": "6add6e5424341bec11a15e5b"
+              },
+              "createdAt": "2026-10-25T02:49:56.917000+00:00",
+              "completedAt": "2026-10-25T02:49:56.931000+00:00",
+              "httpStatus": 201,
+              "response": {
+                "mode": "inline",
+                "byteLength": 1011,
+                "sha256": "cc357f08766cd490c74efb91ae2cfc862504b95087eecaafba2460c285a5c333",
+                "data": {
+                  "binaryOmitted": true,
+                  "bytes": 1011,
+                  "sha256": "cc357f08766cd490c74efb91ae2cfc862504b95087eecaafba2460c285a5c333"
+                }
+              }
+            },
+            {
+              "_id": "6add6e5424341bec11a15e5c",
+              "actorId": "6add6e5424341bec11a15e49",
+              "key": "4b6fa26c-ac83-410c-a4a1-ed67b2f13c09",
+              "operationId": "question.share.revoke",
+              "target": "/api/questions/6add6e5424341bec11a15e4d/shares/6add6e5424341bec11a15e52/revoke",
+              "canonicalVersion": 1,
+              "fingerprint": "76cdd8879f213d5340160bc3cbda44965810a2ad122ab39e4aac220a985f0e3b",
+              "status": "succeeded",
+              "resultRefs": {
+                "shareId": "6add6e5424341bec11a15e52"
+              },
+              "createdAt": "2026-10-25T02:49:56.947000+00:00",
+              "completedAt": "2026-10-25T02:49:56.956000+00:00",
+              "httpStatus": 200,
+              "response": {
+                "mode": "inline",
+                "byteLength": 327,
+                "sha256": "e3cddcfc9ee8419c8e5b04d5e81ab2b2baa207ae8feb2a19490fdbc4488f3cd8",
+                "data": {
+                  "binaryOmitted": true,
+                  "bytes": 327,
+                  "sha256": "e3cddcfc9ee8419c8e5b04d5e81ab2b2baa207ae8feb2a19490fdbc4488f3cd8"
+                }
+              }
+            },
+            {
+              "_id": "6add6e5524341bec11a15e62",
+              "actorId": "6add6e5424341bec11a15e4a",
+              "key": "e78effe0-07e1-40d1-b8cd-9cc550d07b1e",
+              "operationId": "survey.patch",
+              "target": "/api/surveys/6add6e5424341bec11a15e56",
+              "canonicalVersion": 1,
+              "fingerprint": "83cd2c845e1f69ba8ab223dd4eba70127e6c55731a2a05c3fb88f49c8c79e7e5",
+              "status": "succeeded",
+              "resultRefs": {
+                "surveyId": "6add6e5424341bec11a15e56"
+              },
+              "createdAt": "2026-10-25T02:49:57.103000+00:00",
+              "completedAt": "2026-10-25T02:49:57.107000+00:00",
+              "httpStatus": 200,
+              "response": {
+                "mode": "inline",
+                "byteLength": 466,
+                "sha256": "cecfbdab5d7cf3a8dc4e407873b67ad171f525b645b33d13598399c2bde1ca07",
+                "data": {
+                  "binaryOmitted": true,
+                  "bytes": 466,
+                  "sha256": "cecfbdab5d7cf3a8dc4e407873b67ad171f525b645b33d13598399c2bde1ca07"
+                }
+              }
+            }
+          ]
+        },
+        "mutation_response_chunks": {
+          "count": 0,
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "documents": []
+        }
+      }
+    },
+    {
+      "kind": "assertion",
+      "label": "删后重加被拒绝后的快照: questions 文档和数量完全不变",
+      "passed": true,
+      "observed": {
+        "beforeCount": 2,
+        "afterCount": 2,
+        "documentsEqual": true
+      }
+    },
+    {
+      "kind": "assertion",
+      "label": "删后重加被拒绝后的快照: question_versions 文档和数量完全不变",
+      "passed": true,
+      "observed": {
+        "beforeCount": 3,
+        "afterCount": 3,
+        "documentsEqual": true
+      }
+    },
+    {
+      "kind": "assertion",
+      "label": "删后重加被拒绝后的快照: question_shares 文档和数量完全不变",
+      "passed": true,
+      "observed": {
+        "beforeCount": 1,
+        "afterCount": 1,
+        "documentsEqual": true
+      }
+    },
+    {
+      "kind": "assertion",
+      "label": "删后重加被拒绝后的快照: surveys 文档和数量完全不变",
+      "passed": true,
+      "observed": {
+        "beforeCount": 3,
+        "afterCount": 3,
+        "documentsEqual": true
+      }
+    },
+    {
+      "kind": "assertion",
+      "label": "删后重加被拒绝后的快照: responses 文档和数量完全不变",
+      "passed": true,
+      "observed": {
+        "beforeCount": 0,
+        "afterCount": 0,
+        "documentsEqual": true
+      }
+    },
+    {
+      "kind": "assertion",
+      "label": "删后重加被拒绝后的快照: participations 文档和数量完全不变",
+      "passed": true,
+      "observed": {
+        "beforeCount": 0,
+        "afterCount": 0,
+        "documentsEqual": true
+      }
+    },
+    {
+      "kind": "assertion",
+      "label": "删后重加被拒绝后的快照: mutation_receipts 文档和数量完全不变",
+      "passed": true,
+      "observed": {
+        "beforeCount": 9,
+        "afterCount": 9,
+        "documentsEqual": true
+      }
+    },
+    {
+      "kind": "assertion",
+      "label": "删后重加被拒绝后的快照: mutation_response_chunks 文档和数量完全不变",
+      "passed": true,
+      "observed": {
+        "beforeCount": 0,
+        "afterCount": 0,
+        "documentsEqual": true
+      }
+    },
+    {
+      "kind": "http",
+      "actor": "recipient",
+      "method": "PATCH",
+      "path": "/api/surveys/6add6e5424341bec11a15e54",
+      "requestBody": {
+        "revision": 1,
+        "questions": [
+          {
+            "id": "q1",
+            "questionId": "6add6e5424341bec11a15e4d",
+            "versionId": "6add6e5424341bec11a15e4e",
+            "required": false,
+            "jumpRules": []
+          }
+        ]
+      },
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "responseBody": {
+        "_id": "6add6e5424341bec11a15e54",
+        "ownerId": "6add6e5424341bec11a15e4a",
+        "publicId": "62f6f9a01f07ccd07ade76379bf8e90b",
+        "title": "P02 保留历史引用的草稿",
+        "description": "权限执行证据",
+        "settings": {
+          "anonymous": true,
+          "allowRepeat": true
+        },
+        "deadlineAt": null,
+        "status": "draft",
+        "questions": [
+          {
+            "id": "q1",
+            "title": "P02 已保存的共享题",
+            "description": "权限执行证据",
+            "required": false,
+            "type": "text",
+            "validation": {},
+            "jumpRules": [],
+            "questionId": "6add6e5424341bec11a15e4d",
+            "versionId": "6add6e5424341bec11a15e4e",
+            "versionNo": 1
+          }
+        ],
+        "schemaVersion": 2,
+        "revision": 2,
+        "createdAt": "2026-10-25T02:49:56.848000+00:00",
+        "updatedAt": "2026-10-25T02:49:57.206000+00:00",
+        "publishedAt": null,
+        "closedAt": null,
+        "closeReason": null
+      },
+      "passed": true,
+      "elapsedMs": 17.978
+    },
+    {
+      "kind": "assertion",
+      "label": "旧实例可修改卷内必答且保留原版本",
+      "passed": true,
+      "observed": {
+        "id": "q1",
+        "title": "P02 已保存的共享题",
+        "description": "权限执行证据",
+        "required": false,
+        "type": "text",
+        "validation": {},
+        "jumpRules": [],
+        "questionId": "6add6e5424341bec11a15e4d",
+        "versionId": "6add6e5424341bec11a15e4e",
+        "versionNo": 1
+      }
+    },
+    {
+      "kind": "http",
+      "actor": "recipient",
+      "method": "POST",
+      "path": "/api/surveys/6add6e5424341bec11a15e54/publish",
+      "requestBody": {
+        "revision": 2
+      },
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "responseBody": {
+        "_id": "6add6e5424341bec11a15e54",
+        "ownerId": "6add6e5424341bec11a15e4a",
+        "publicId": "62f6f9a01f07ccd07ade76379bf8e90b",
+        "title": "P02 保留历史引用的草稿",
+        "description": "权限执行证据",
+        "settings": {
+          "anonymous": true,
+          "allowRepeat": true
+        },
+        "deadlineAt": null,
+        "status": "published",
+        "questions": [
+          {
+            "id": "q1",
+            "title": "P02 已保存的共享题",
+            "description": "权限执行证据",
+            "required": false,
+            "type": "text",
+            "validation": {},
+            "jumpRules": [],
+            "questionId": "6add6e5424341bec11a15e4d",
+            "versionId": "6add6e5424341bec11a15e4e",
+            "versionNo": 1
+          }
+        ],
+        "schemaVersion": 2,
+        "revision": 3,
+        "createdAt": "2026-10-25T02:49:56.848000+00:00",
+        "updatedAt": "2026-10-25T02:49:57.224000+00:00",
+        "publishedAt": "2026-10-25T02:49:57.224000+00:00",
+        "closedAt": null,
+        "closeReason": null
+      },
+      "passed": true,
+      "elapsedMs": 16.908
+    },
+    {
+      "kind": "http",
+      "actor": "stranger",
+      "method": "GET",
+      "path": "/api/public/surveys/62f6f9a01f07ccd07ade76379bf8e90b",
+      "requestBody": null,
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "responseBody": {
+        "_id": "6add6e5424341bec11a15e54",
+        "publicId": "62f6f9a01f07ccd07ade76379bf8e90b",
+        "title": "P02 保留历史引用的草稿",
+        "description": "权限执行证据",
+        "status": "published",
+        "settings": {
+          "anonymous": true,
+          "allowRepeat": true
+        },
+        "deadlineAt": null,
+        "questions": [
+          {
+            "id": "q1",
+            "required": false,
+            "title": "P02 已保存的共享题",
+            "description": "权限执行证据",
+            "type": "text",
+            "validation": {}
+          }
+        ],
+        "canSubmit": true
+      },
+      "passed": true,
+      "elapsedMs": 7.778
+    },
+    {
+      "kind": "http",
+      "actor": "stranger",
+      "method": "POST",
+      "path": "/api/public/surveys/62f6f9a01f07ccd07ade76379bf8e90b/start",
+      "requestBody": null,
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "responseBody": {
+        "submissionKey": "[REDACTED]",
+        "submissionToken": "[REDACTED]"
+      },
+      "passed": true,
+      "elapsedMs": 5.955
+    },
+    {
+      "kind": "http",
+      "actor": "stranger",
+      "method": "POST",
+      "path": "/api/public/surveys/62f6f9a01f07ccd07ade76379bf8e90b/submit",
+      "requestBody": {
+        "submissionKey": "[REDACTED]",
+        "submissionToken": "[REDACTED]",
+        "answers": [
+          {
+            "questionId": "q1",
+            "value": "P02_RETAINED_SNAPSHOT_ANSWER"
+          }
+        ]
+      },
+      "expectedStatus": 201,
+      "actualStatus": 201,
+      "responseBody": {
+        "submitted": true
+      },
+      "passed": true,
+      "elapsedMs": 22.055
+    },
+    {
+      "kind": "http",
+      "actor": "recipient",
+      "method": "GET",
+      "path": "/api/surveys/6add6e5424341bec11a15e54/statistics",
+      "requestBody": null,
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "responseBody": {
+        "surveyId": "6add6e5424341bec11a15e54",
+        "totalResponses": 1,
+        "questions": [
+          {
+            "questionId": "q1",
+            "title": "P02 已保存的共享题",
+            "type": "text",
+            "answeredCount": 1
+          }
+        ]
+      },
+      "passed": true,
+      "elapsedMs": 12.929
+    },
+    {
+      "kind": "assertion",
+      "label": "撤权后的旧草稿仍可发布、填写和统计",
+      "passed": true,
+      "observed": {
+        "surveyId": "6add6e5424341bec11a15e54",
+        "totalResponses": 1,
+        "questions": [
+          {
+            "questionId": "q1",
+            "title": "P02 已保存的共享题",
+            "type": "text",
+            "answeredCount": 1
+          }
+        ]
+      }
+    },
+    {
+      "kind": "http",
+      "actor": "recipient",
+      "method": "GET",
+      "path": "/api/question-statistics/6add6e5424341bec11a15e4d/versions/6add6e5424341bec11a15e4e",
+      "requestBody": null,
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "responseBody": {
+        "questionId": "6add6e5424341bec11a15e4d",
+        "versionId": "6add6e5424341bec11a15e4e",
+        "versionNo": 1,
+        "title": "P02 已保存的共享题",
+        "surveyCount": 1,
+        "totalResponses": 1,
+        "answeredCount": 1,
+        "unansweredCount": 0,
+        "type": "text"
+      },
+      "passed": true,
+      "elapsedMs": 12.634
+    },
+    {
+      "kind": "assertion",
+      "label": "撤权后的历史引用仍支持本人跨问卷统计",
+      "passed": true,
+      "observed": {
+        "questionId": "6add6e5424341bec11a15e4d",
+        "versionId": "6add6e5424341bec11a15e4e",
+        "versionNo": 1,
+        "title": "P02 已保存的共享题",
+        "surveyCount": 1,
+        "totalResponses": 1,
+        "answeredCount": 1,
+        "unansweredCount": 0,
+        "type": "text"
+      }
+    },
+    {
+      "kind": "http",
+      "actor": "recipient",
+      "method": "GET",
+      "path": "/api/questions/6add6e5424341bec11a15e5a",
+      "requestBody": null,
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "responseBody": {
+        "_id": "6add6e5424341bec11a15e5a",
+        "ownerId": "6add6e5424341bec11a15e4a",
+        "revision": 1,
+        "latestVersionId": "6add6e5424341bec11a15e5b",
+        "latestVersion": {
+          "_id": "6add6e5424341bec11a15e5b",
+          "versionNo": 1,
+          "title": "P02 已保存的共享题",
+          "type": "text",
+          "baseVersionId": null,
+          "operation": "copy",
+          "createdAt": "2026-10-25T02:49:56.925000Z",
+          "archivedAt": null
+        },
+        "archivedAt": null,
+        "createdAt": "2026-10-25T02:49:56.925000Z",
+        "updatedAt": "2026-10-25T02:49:56.925000Z",
+        "permissions": {
+          "canManage": true,
+          "canUse": true
+        },
+        "origin": {
+          "kind": "copy",
+          "questionId": "6add6e5424341bec11a15e4d",
+          "versionId": "6add6e5424341bec11a15e4e"
+        }
+      },
+      "passed": true,
+      "elapsedMs": 12.271
+    },
+    {
+      "kind": "http",
+      "actor": "recipient",
+      "method": "POST",
+      "path": "/api/questions/6add6e5424341bec11a15e5a/shares",
+      "requestBody": {
+        "revision": 1,
+        "recipientUsername": "p02_stranger"
+      },
+      "expectedStatus": 201,
+      "actualStatus": 201,
+      "responseBody": {
+        "questionRevision": 2,
+        "share": {
+          "_id": "6add6e5524341bec11a15e68",
+          "grantedAt": "2026-10-25T02:49:57.321000+00:00",
+          "revokedAt": null,
+          "createdAt": "2026-10-25T02:49:57.321000+00:00",
+          "updatedAt": "2026-10-25T02:49:57.321000+00:00",
+          "recipient": {
+            "_id": "6add6e5424341bec11a15e4b",
+            "username": "p02_stranger"
+          }
+        }
+      },
+      "passed": true,
+      "elapsedMs": 25.521
+    },
+    {
+      "kind": "http",
+      "actor": "stranger",
+      "method": "GET",
+      "path": "/api/questions/6add6e5424341bec11a15e5a",
+      "requestBody": null,
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "responseBody": {
+        "_id": "6add6e5424341bec11a15e5a",
+        "ownerId": "6add6e5424341bec11a15e4a",
+        "revision": 2,
+        "latestVersionId": "6add6e5424341bec11a15e5b",
+        "latestVersion": {
+          "_id": "6add6e5424341bec11a15e5b",
+          "versionNo": 1,
+          "title": "P02 已保存的共享题",
+          "type": "text",
+          "baseVersionId": null,
+          "operation": "copy",
+          "createdAt": "2026-10-25T02:49:56.925000Z",
+          "archivedAt": null
+        },
+        "archivedAt": null,
+        "createdAt": "2026-10-25T02:49:56.925000Z",
+        "updatedAt": "2026-10-25T02:49:57.321000Z",
+        "permissions": {
+          "canManage": false,
+          "canUse": true
+        },
+        "origin": {
+          "kind": "copy",
+          "questionId": "6add6e5424341bec11a15e4d",
+          "versionId": "6add6e5424341bec11a15e4e"
+        }
+      },
+      "passed": true,
+      "elapsedMs": 13.982
+    },
+    {
+      "kind": "http",
+      "actor": "stranger",
+      "method": "GET",
+      "path": "/api/questions/6add6e5424341bec11a15e4d",
+      "requestBody": null,
+      "expectedStatus": 404,
+      "actualStatus": 404,
+      "responseBody": {
+        "error": {
+          "code": "NOT_FOUND",
+          "message": "题目不存在"
+        }
+      },
+      "passed": true,
+      "elapsedMs": 10.176
+    },
+    {
+      "kind": "assertion",
+      "label": "stranger: GET /api/questions/6add6e5424341bec11a15e4d 使用统一拒绝码",
+      "passed": true,
+      "observed": {
+        "error": {
+          "code": "NOT_FOUND",
+          "message": "题目不存在"
+        }
+      }
+    },
+    {
+      "kind": "assertion",
+      "label": "撤权不影响副本继续共享",
+      "passed": true,
+      "observed": {
+        "questionRevision": 2,
+        "share": {
+          "_id": "6add6e5524341bec11a15e68",
+          "grantedAt": "2026-10-25T02:49:57.321000+00:00",
+          "revokedAt": null,
+          "createdAt": "2026-10-25T02:49:57.321000+00:00",
+          "updatedAt": "2026-10-25T02:49:57.321000+00:00",
+          "recipient": {
+            "_id": "6add6e5424341bec11a15e4b",
+            "username": "p02_stranger"
+          }
+        }
+      }
+    },
+    {
+      "kind": "database",
+      "label": "旧草稿完成填写且副本重新共享后的结果",
+      "collections": {
+        "questions": {
+          "count": 2,
+          "sha256": "49986bc4e741995321e346d268c5f7eb764f556cda6a97f027bd508e9d6fa077",
+          "documents": [
+            {
+              "_id": "6add6e5424341bec11a15e4d",
+              "ownerId": "6add6e5424341bec11a15e49",
+              "latestVersionId": "6add6e5424341bec11a15e50",
+              "versionSeq": 2,
+              "origin": {
+                "kind": "original"
+              },
+              "revision": 4,
+              "guardRevision": 5,
+              "archivedAt": null,
+              "createdAt": "2026-10-25T02:49:56.767000+00:00",
+              "updatedAt": "2026-10-25T02:49:56.952000+00:00"
+            },
+            {
+              "_id": "6add6e5424341bec11a15e5a",
+              "ownerId": "6add6e5424341bec11a15e4a",
+              "latestVersionId": "6add6e5424341bec11a15e5b",
+              "versionSeq": 1,
+              "origin": {
+                "kind": "copy",
+                "questionId": "6add6e5424341bec11a15e4d",
+                "versionId": "6add6e5424341bec11a15e4e"
+              },
+              "revision": 2,
+              "guardRevision": 1,
+              "archivedAt": null,
+              "createdAt": "2026-10-25T02:49:56.925000+00:00",
+              "updatedAt": "2026-10-25T02:49:57.321000+00:00"
+            }
+          ]
+        },
+        "question_versions": {
+          "count": 3,
+          "sha256": "bd8b66d0cf2d592d414db8d2936471e4929753934bd83f43cd1084e38b84a0c4",
+          "documents": [
+            {
+              "_id": "6add6e5424341bec11a15e4e",
+              "questionId": "6add6e5424341bec11a15e4d",
+              "versionNo": 1,
+              "baseVersionId": null,
+              "operation": "create",
+              "content": {
+                "title": "P02 已保存的共享题",
+                "description": "权限执行证据",
+                "type": "text",
+                "validation": {}
+              },
+              "createdBy": "6add6e5424341bec11a15e49",
+              "createdAt": "2026-10-25T02:49:56.767000+00:00",
+              "archivedAt": null
+            },
+            {
+              "_id": "6add6e5424341bec11a15e50",
+              "questionId": "6add6e5424341bec11a15e4d",
+              "versionNo": 2,
+              "baseVersionId": "6add6e5424341bec11a15e4e",
+              "operation": "edit",
+              "content": {
+                "title": "P02 不能在撤权后切入的版本",
+                "description": "权限执行证据",
+                "type": "text",
+                "validation": {}
+              },
+              "createdBy": "6add6e5424341bec11a15e49",
+              "createdAt": "2026-10-25T02:49:56.793000+00:00",
+              "archivedAt": null
+            },
+            {
+              "_id": "6add6e5424341bec11a15e5b",
+              "questionId": "6add6e5424341bec11a15e5a",
+              "versionNo": 1,
+              "baseVersionId": null,
+              "operation": "copy",
+              "content": {
+                "title": "P02 已保存的共享题",
+                "description": "权限执行证据",
+                "type": "text",
+                "validation": {}
+              },
+              "createdBy": "6add6e5424341bec11a15e4a",
+              "createdAt": "2026-10-25T02:49:56.925000+00:00",
+              "archivedAt": null
+            }
+          ]
+        },
+        "question_shares": {
+          "count": 2,
+          "sha256": "d7bb238db46c5a988586a867beaa8ed781fa8a6f40f5da6139cff5246247bf91",
+          "documents": [
+            {
+              "_id": "6add6e5424341bec11a15e52",
+              "questionId": "6add6e5424341bec11a15e4d",
+              "recipientId": "6add6e5424341bec11a15e4a",
+              "grantedBy": "6add6e5424341bec11a15e49",
+              "grantedAt": "2026-10-25T02:49:56.825000+00:00",
+              "revokedAt": "2026-10-25T02:49:56.952000+00:00",
+              "revision": 2,
+              "createdAt": "2026-10-25T02:49:56.825000+00:00",
+              "updatedAt": "2026-10-25T02:49:56.952000+00:00"
+            },
+            {
+              "_id": "6add6e5524341bec11a15e68",
+              "questionId": "6add6e5424341bec11a15e5a",
+              "recipientId": "6add6e5424341bec11a15e4b",
+              "grantedBy": "6add6e5424341bec11a15e4a",
+              "grantedAt": "2026-10-25T02:49:57.321000+00:00",
+              "revokedAt": null,
+              "revision": 1,
+              "createdAt": "2026-10-25T02:49:57.321000+00:00",
+              "updatedAt": "2026-10-25T02:49:57.321000+00:00"
+            }
+          ]
+        },
+        "surveys": {
+          "count": 3,
+          "sha256": "bc3278c2c6e09599f532c7398fcec8170423a4d692ca171c6cfdd89cc82c9f6d",
+          "documents": [
+            {
+              "_id": "6add6e5424341bec11a15e54",
+              "ownerId": "6add6e5424341bec11a15e4a",
+              "publicId": "62f6f9a01f07ccd07ade76379bf8e90b",
+              "title": "P02 保留历史引用的草稿",
+              "description": "权限执行证据",
+              "settings": {
+                "anonymous": true,
+                "allowRepeat": true
+              },
+              "deadlineAt": null,
+              "status": "published",
+              "questions": [
+                {
+                  "id": "q1",
+                  "title": "P02 已保存的共享题",
+                  "description": "权限执行证据",
+                  "required": false,
+                  "type": "text",
+                  "validation": {},
+                  "jumpRules": [],
+                  "questionId": "6add6e5424341bec11a15e4d",
+                  "versionId": "6add6e5424341bec11a15e4e",
+                  "versionNo": 1
+                }
+              ],
+              "schemaVersion": 2,
+              "revision": 4,
+              "createdAt": "2026-10-25T02:49:56.848000+00:00",
+              "updatedAt": "2026-10-25T02:49:57.257000+00:00",
+              "publishedAt": "2026-10-25T02:49:57.224000+00:00",
+              "closedAt": null,
+              "closeReason": null
+            },
+            {
+              "_id": "6add6e5424341bec11a15e56",
+              "ownerId": "6add6e5424341bec11a15e4a",
+              "publicId": "399ee84855b31627dfb4364e0c6ba1e9",
+              "title": "P02 删除后不可重加",
+              "description": "权限执行证据",
+              "settings": {
+                "anonymous": true,
+                "allowRepeat": true
+              },
+              "deadlineAt": null,
+              "status": "draft",
+              "questions": [],
+              "schemaVersion": 2,
+              "revision": 2,
+              "createdAt": "2026-10-25T02:49:56.875000+00:00",
+              "updatedAt": "2026-10-25T02:49:57.105000+00:00",
+              "publishedAt": null,
+              "closedAt": null,
+              "closeReason": null
+            },
+            {
+              "_id": "6add6e5424341bec11a15e58",
+              "ownerId": "6add6e5424341bec11a15e4a",
+              "publicId": "138d2bb635a1b31adc6dabcf8f9e4adb",
+              "title": "P02 不能新增实例的草稿",
+              "description": "权限执行证据",
+              "settings": {
+                "anonymous": true,
+                "allowRepeat": true
+              },
+              "deadlineAt": null,
+              "status": "draft",
+              "questions": [],
+              "schemaVersion": 2,
+              "revision": 1,
+              "createdAt": "2026-10-25T02:49:56.900000+00:00",
+              "updatedAt": "2026-10-25T02:49:56.900000+00:00",
+              "publishedAt": null,
+              "closedAt": null,
+              "closeReason": null
+            }
+          ]
+        },
+        "responses": {
+          "count": 1,
+          "sha256": "7824e798c726ba63563e89b085a57f3751768aeac23fac444ef492d1a2a9c102",
+          "documents": [
+            {
+              "_id": "6add6e5524341bec11a15e66",
+              "surveyId": "6add6e5424341bec11a15e54",
+              "submissionKey": "[REDACTED]",
+              "answers": [
+                {
+                  "questionId": "q1",
+                  "value": "P02_RETAINED_SNAPSHOT_ANSWER"
+                }
+              ],
+              "submittedAt": "2026-10-25T02:49:57.246000+00:00",
+              "schemaVersion": 1
+            }
+          ]
+        },
+        "participations": {
+          "count": 0,
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "documents": []
+        },
+        "mutation_receipts": {
+          "count": 12,
+          "sha256": "6838edb026041abb0d1b2b88c39683b9034e40803c8e61cd0a3e78f3a79ba4b7",
+          "documents": [
+            {
+              "_id": "6add6e5424341bec11a15e4c",
+              "actorId": "6add6e5424341bec11a15e49",
+              "key": "32f1349f-c22e-484c-865f-9b2cfaeefc3b",
+              "operationId": "question.create",
+              "target": "/api/questions",
+              "canonicalVersion": 1,
+              "fingerprint": "e651b298cb7129d0c436ab014f96846b79e75f077fd6436a65a9ce96ca4b6af9",
+              "status": "succeeded",
+              "resultRefs": {
+                "questionId": "6add6e5424341bec11a15e4d",
+                "versionId": "6add6e5424341bec11a15e4e"
+              },
+              "createdAt": "2026-10-25T02:49:56.766000+00:00",
+              "completedAt": "2026-10-25T02:49:56.772000+00:00",
+              "httpStatus": 201,
+              "response": {
+                "mode": "inline",
+                "byteLength": 940,
+                "sha256": "127e5c7822de461501c3025ab334316a66fd2a430bd72fd4873231d71b4b9ac1",
+                "data": {
+                  "binaryOmitted": true,
+                  "bytes": 940,
+                  "sha256": "127e5c7822de461501c3025ab334316a66fd2a430bd72fd4873231d71b4b9ac1"
+                }
+              }
+            },
+            {
+              "_id": "6add6e5424341bec11a15e4f",
+              "actorId": "6add6e5424341bec11a15e49",
+              "key": "5900a917-bde3-4776-91e9-239139535f34",
+              "operationId": "question.version.create",
+              "target": "/api/questions/6add6e5424341bec11a15e4d/versions",
+              "canonicalVersion": 1,
+              "fingerprint": "19945ee5a452092356283e9be1ac590b7a06404087f8e2db817cfedfb2e06fe3",
+              "status": "succeeded",
+              "resultRefs": {
+                "questionId": "6add6e5424341bec11a15e4d",
+                "versionId": "6add6e5424341bec11a15e50"
+              },
+              "createdAt": "2026-10-25T02:49:56.788000+00:00",
+              "completedAt": "2026-10-25T02:49:56.802000+00:00",
+              "httpStatus": 201,
+              "response": {
+                "mode": "inline",
+                "byteLength": 1004,
+                "sha256": "d4cb7f9b102719a33774fd979a0b6486094dd68424a0489aa4ab666eb647285d",
+                "data": {
+                  "binaryOmitted": true,
+                  "bytes": 1004,
+                  "sha256": "d4cb7f9b102719a33774fd979a0b6486094dd68424a0489aa4ab666eb647285d"
+                }
+              }
+            },
+            {
+              "_id": "6add6e5424341bec11a15e51",
+              "actorId": "6add6e5424341bec11a15e49",
+              "key": "79e49d78-dc1e-46db-b1f0-ebd9e50e932d",
+              "operationId": "question.share.grant",
+              "target": "/api/questions/6add6e5424341bec11a15e4d/shares",
+              "canonicalVersion": 1,
+              "fingerprint": "8e875dc5619c14ef6891f969c46bc600dd4da13590f7627e3cc70781962de80c",
+              "status": "succeeded",
+              "resultRefs": {
+                "shareId": "6add6e5424341bec11a15e52"
+              },
+              "createdAt": "2026-10-25T02:49:56.820000+00:00",
+              "completedAt": "2026-10-25T02:49:56.829000+00:00",
+              "httpStatus": 201,
+              "response": {
+                "mode": "inline",
+                "byteLength": 297,
+                "sha256": "420b2ba4ca1c13ada5d4cec66ecf5f31fc425f7dba7aad7b8da41a32181a0e32",
+                "data": {
+                  "binaryOmitted": true,
+                  "bytes": 297,
+                  "sha256": "420b2ba4ca1c13ada5d4cec66ecf5f31fc425f7dba7aad7b8da41a32181a0e32"
+                }
+              }
+            },
+            {
+              "_id": "6add6e5424341bec11a15e53",
+              "actorId": "6add6e5424341bec11a15e4a",
+              "key": "9796f119-8a47-4873-9c8d-f14c09afb6f6",
+              "operationId": "survey.create",
+              "target": "/api/surveys",
+              "canonicalVersion": 1,
+              "fingerprint": "6b795fc4ff143dd1a72117bb90277582f5f2287fde1eae98d5a72e7a596d5391",
+              "status": "succeeded",
+              "resultRefs": {
+                "surveyId": "6add6e5424341bec11a15e54"
+              },
+              "createdAt": "2026-10-25T02:49:56.847000+00:00",
+              "completedAt": "2026-10-25T02:49:56.858000+00:00",
+              "httpStatus": 201,
+              "response": {
+                "mode": "inline",
+                "byteLength": 708,
+                "sha256": "647bdddeae53d2fdf80a2f14aceb4d74640f11ade9a22c356aae9a5b1148786e",
+                "data": {
+                  "binaryOmitted": true,
+                  "bytes": 708,
+                  "sha256": "647bdddeae53d2fdf80a2f14aceb4d74640f11ade9a22c356aae9a5b1148786e"
+                }
+              }
+            },
+            {
+              "_id": "6add6e5424341bec11a15e55",
+              "actorId": "6add6e5424341bec11a15e4a",
+              "key": "c7948d53-5826-4e56-8c8d-a11ddf664b53",
+              "operationId": "survey.create",
+              "target": "/api/surveys",
+              "canonicalVersion": 1,
+              "fingerprint": "3e6a9dc856f3141c1567ea44ec7484d4741cf71a579cdd19123bc128f2463ad1",
+              "status": "succeeded",
+              "resultRefs": {
+                "surveyId": "6add6e5424341bec11a15e56"
+              },
+              "createdAt": "2026-10-25T02:49:56.874000+00:00",
+              "completedAt": "2026-10-25T02:49:56.884000+00:00",
+              "httpStatus": 201,
+              "response": {
+                "mode": "inline",
+                "byteLength": 702,
+                "sha256": "dd2d6936f24f50c3a33a608dada03ec978671fda628a780423572656dd56b582",
+                "data": {
+                  "binaryOmitted": true,
+                  "bytes": 702,
+                  "sha256": "dd2d6936f24f50c3a33a608dada03ec978671fda628a780423572656dd56b582"
+                }
+              }
+            },
+            {
+              "_id": "6add6e5424341bec11a15e57",
+              "actorId": "6add6e5424341bec11a15e4a",
+              "key": "542ad4f6-2316-4e6b-b985-9a81508cfbfe",
+              "operationId": "survey.create",
+              "target": "/api/surveys",
+              "canonicalVersion": 1,
+              "fingerprint": "a4a703d1d082b7945fca6865be6c85f6d1df7e80b8f8ef8bbd318f8376cc338c",
+              "status": "succeeded",
+              "resultRefs": {
+                "surveyId": "6add6e5424341bec11a15e58"
+              },
+              "createdAt": "2026-10-25T02:49:56.898000+00:00",
+              "completedAt": "2026-10-25T02:49:56.902000+00:00",
+              "httpStatus": 201,
+              "response": {
+                "mode": "inline",
+                "byteLength": 472,
+                "sha256": "e6540a6481cb429ab05bd6c9fb57432d33ab8428c4aab1b26a5f97b74c9949e6",
+                "data": {
+                  "binaryOmitted": true,
+                  "bytes": 472,
+                  "sha256": "e6540a6481cb429ab05bd6c9fb57432d33ab8428c4aab1b26a5f97b74c9949e6"
+                }
+              }
+            },
+            {
+              "_id": "6add6e5424341bec11a15e59",
+              "actorId": "6add6e5424341bec11a15e4a",
+              "key": "c451d7d1-3fde-4668-8013-11ca54011e4b",
+              "operationId": "question.copy",
+              "target": "/api/questions/6add6e5424341bec11a15e4d/copies",
+              "canonicalVersion": 1,
+              "fingerprint": "aa37ad0909606ae6ebfaf6953ac588470f988067b2386c6329eaa87a4fbccf09",
+              "status": "succeeded",
+              "resultRefs": {
+                "questionId": "6add6e5424341bec11a15e5a",
+                "versionId": "6add6e5424341bec11a15e5b"
+              },
+              "createdAt": "2026-10-25T02:49:56.917000+00:00",
+              "completedAt": "2026-10-25T02:49:56.931000+00:00",
+              "httpStatus": 201,
+              "response": {
+                "mode": "inline",
+                "byteLength": 1011,
+                "sha256": "cc357f08766cd490c74efb91ae2cfc862504b95087eecaafba2460c285a5c333",
+                "data": {
+                  "binaryOmitted": true,
+                  "bytes": 1011,
+                  "sha256": "cc357f08766cd490c74efb91ae2cfc862504b95087eecaafba2460c285a5c333"
+                }
+              }
+            },
+            {
+              "_id": "6add6e5424341bec11a15e5c",
+              "actorId": "6add6e5424341bec11a15e49",
+              "key": "4b6fa26c-ac83-410c-a4a1-ed67b2f13c09",
+              "operationId": "question.share.revoke",
+              "target": "/api/questions/6add6e5424341bec11a15e4d/shares/6add6e5424341bec11a15e52/revoke",
+              "canonicalVersion": 1,
+              "fingerprint": "76cdd8879f213d5340160bc3cbda44965810a2ad122ab39e4aac220a985f0e3b",
+              "status": "succeeded",
+              "resultRefs": {
+                "shareId": "6add6e5424341bec11a15e52"
+              },
+              "createdAt": "2026-10-25T02:49:56.947000+00:00",
+              "completedAt": "2026-10-25T02:49:56.956000+00:00",
+              "httpStatus": 200,
+              "response": {
+                "mode": "inline",
+                "byteLength": 327,
+                "sha256": "e3cddcfc9ee8419c8e5b04d5e81ab2b2baa207ae8feb2a19490fdbc4488f3cd8",
+                "data": {
+                  "binaryOmitted": true,
+                  "bytes": 327,
+                  "sha256": "e3cddcfc9ee8419c8e5b04d5e81ab2b2baa207ae8feb2a19490fdbc4488f3cd8"
+                }
+              }
+            },
+            {
+              "_id": "6add6e5524341bec11a15e62",
+              "actorId": "6add6e5424341bec11a15e4a",
+              "key": "e78effe0-07e1-40d1-b8cd-9cc550d07b1e",
+              "operationId": "survey.patch",
+              "target": "/api/surveys/6add6e5424341bec11a15e56",
+              "canonicalVersion": 1,
+              "fingerprint": "83cd2c845e1f69ba8ab223dd4eba70127e6c55731a2a05c3fb88f49c8c79e7e5",
+              "status": "succeeded",
+              "resultRefs": {
+                "surveyId": "6add6e5424341bec11a15e56"
+              },
+              "createdAt": "2026-10-25T02:49:57.103000+00:00",
+              "completedAt": "2026-10-25T02:49:57.107000+00:00",
+              "httpStatus": 200,
+              "response": {
+                "mode": "inline",
+                "byteLength": 466,
+                "sha256": "cecfbdab5d7cf3a8dc4e407873b67ad171f525b645b33d13598399c2bde1ca07",
+                "data": {
+                  "binaryOmitted": true,
+                  "bytes": 466,
+                  "sha256": "cecfbdab5d7cf3a8dc4e407873b67ad171f525b645b33d13598399c2bde1ca07"
+                }
+              }
+            },
+            {
+              "_id": "6add6e5524341bec11a15e64",
+              "actorId": "6add6e5424341bec11a15e4a",
+              "key": "1718186c-9480-477d-b9ba-be712691537e",
+              "operationId": "survey.patch",
+              "target": "/api/surveys/6add6e5424341bec11a15e54",
+              "canonicalVersion": 1,
+              "fingerprint": "30789abf17d45b7f403a0632ea52593b9959acb37a65c4afc896669a90ba4c7f",
+              "status": "succeeded",
+              "resultRefs": {
+                "surveyId": "6add6e5424341bec11a15e54"
+              },
+              "createdAt": "2026-10-25T02:49:57.204000+00:00",
+              "completedAt": "2026-10-25T02:49:57.208000+00:00",
+              "httpStatus": 200,
+              "response": {
+                "mode": "inline",
+                "byteLength": 709,
+                "sha256": "e7a13a53991209d2e5585f10e83c523720d597ac3cc676588e28ba66159a5d9b",
+                "data": {
+                  "binaryOmitted": true,
+                  "bytes": 709,
+                  "sha256": "e7a13a53991209d2e5585f10e83c523720d597ac3cc676588e28ba66159a5d9b"
+                }
+              }
+            },
+            {
+              "_id": "6add6e5524341bec11a15e65",
+              "actorId": "6add6e5424341bec11a15e4a",
+              "key": "6fa5ca82-3f46-45c3-91dc-e6d4895afaf6",
+              "operationId": "survey.publish",
+              "target": "/api/surveys/6add6e5424341bec11a15e54/publish",
+              "canonicalVersion": 1,
+              "fingerprint": "b59c18aff6823f9d5f83a2ae49119a53ca9c642ccf570aa0dc761014ced7de8c",
+              "status": "succeeded",
+              "resultRefs": {
+                "surveyId": "6add6e5424341bec11a15e54"
+              },
+              "createdAt": "2026-10-25T02:49:57.221000+00:00",
+              "completedAt": "2026-10-25T02:49:57.226000+00:00",
+              "httpStatus": 200,
+              "response": {
+                "mode": "inline",
+                "byteLength": 743,
+                "sha256": "15403efdabe434319b4a8e186319708f79447646266cc95666a5ee93771a9b72",
+                "data": {
+                  "binaryOmitted": true,
+                  "bytes": 743,
+                  "sha256": "15403efdabe434319b4a8e186319708f79447646266cc95666a5ee93771a9b72"
+                }
+              }
+            },
+            {
+              "_id": "6add6e5524341bec11a15e67",
+              "actorId": "6add6e5424341bec11a15e4a",
+              "key": "a18ef43c-b3c1-479f-8a99-c02cc22e2aff",
+              "operationId": "question.share.grant",
+              "target": "/api/questions/6add6e5424341bec11a15e5a/shares",
+              "canonicalVersion": 1,
+              "fingerprint": "11fdb49665f9f8de772475746507d60928e067246256dd879e885326d4049ac5",
+              "status": "succeeded",
+              "resultRefs": {
+                "shareId": "6add6e5524341bec11a15e68"
+              },
+              "createdAt": "2026-10-25T02:49:57.312000+00:00",
+              "completedAt": "2026-10-25T02:49:57.324000+00:00",
+              "httpStatus": 201,
+              "response": {
+                "mode": "inline",
+                "byteLength": 296,
+                "sha256": "5a85b02f9099bf86e41bcb6349ce09fd6d2e32dc3d8117a6a49aaa5efdc1000d",
+                "data": {
+                  "binaryOmitted": true,
+                  "bytes": 296,
+                  "sha256": "5a85b02f9099bf86e41bcb6349ce09fd6d2e32dc3d8117a6a49aaa5efdc1000d"
+                }
+              }
+            }
+          ]
+        },
+        "mutation_response_chunks": {
+          "count": 0,
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "documents": []
+        }
+      }
+    }
+  ]
+}

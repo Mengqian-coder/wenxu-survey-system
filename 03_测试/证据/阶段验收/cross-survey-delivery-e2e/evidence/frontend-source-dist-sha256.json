@@ -1,0 +1,203 @@
+﻿{
+    "capturedAtUtc":  "2026-10-23T05:06:33.1813135+00:00",
+    "evidenceScope":  "Current SHA256 snapshot plus filesystem modification-time comparison; no pre-run hash snapshot was retained. Not a claim of before/after hash identity.",
+    "testStartUtc":  "2026-10-23T05:00:02.5740000+00:00",
+    "testEndUtc":  "2026-10-23T05:03:45.2050000+00:00",
+    "source":  "results.json stats.startTime and duration",
+    "testedExpected":  12,
+    "testedUnexpected":  0,
+    "testedFlaky":  0,
+    "fileCount":  27,
+    "filesModifiedAfterTestStart":  0,
+    "files":  [
+                  {
+                      "path":  "01_代码/frontend/dist/assets/index-CF8k9UYl.css",
+                      "sha256":  "ac6526c72be9d17456a05d436c014ec544dd9bd50491c95828a97a1aac7bee72",
+                      "bytes":  55973,
+                      "lastWriteTimeUtc":  "2026-10-23T04:56:03.0962430Z",
+                      "modifiedAfterTestStart":  false
+                  },
+                  {
+                      "path":  "01_代码/frontend/dist/assets/index-Dxs8bJGW.js",
+                      "sha256":  "70350112e809773a10ff42b2f69c3fe2864c4e009e42cd69db862f0b957ff078",
+                      "bytes":  411421,
+                      "lastWriteTimeUtc":  "2026-10-23T04:56:03.1032348Z",
+                      "modifiedAfterTestStart":  false
+                  },
+                  {
+                      "path":  "01_代码/frontend/dist/index.html",
+                      "sha256":  "d7c5a16b4d0271fc7b26a9641decfc7f1a7e26d5c61e0e8b9f6aa60ee4f45c4a",
+                      "bytes":  819,
+                      "lastWriteTimeUtc":  "2026-10-23T04:56:03.0912370Z",
+                      "modifiedAfterTestStart":  false
+                  },
+                  {
+                      "path":  "01_代码/frontend/src/api.js",
+                      "sha256":  "d27da7a48ae0da9c84ee198a67d34ff3b51471756a4d323a4bcf6f0c60498b18",
+                      "bytes":  2638,
+                      "lastWriteTimeUtc":  "2026-10-22T09:21:55.3025508Z",
+                      "modifiedAfterTestStart":  false
+                  },
+                  {
+                      "path":  "01_代码/frontend/src/App.jsx",
+                      "sha256":  "2767de6ec199eff581fca7a15e911b664ec568dfa39337b654b3c078994a9fcd",
+                      "bytes":  7928,
+                      "lastWriteTimeUtc":  "2026-10-23T04:54:35.5828924Z",
+                      "modifiedAfterTestStart":  false
+                  },
+                  {
+                      "path":  "01_代码/frontend/src/components.jsx",
+                      "sha256":  "80c6af32ef0983a0b828466a7409aa098222fe9a1ddad062fef6a1545d512fa4",
+                      "bytes":  4805,
+                      "lastWriteTimeUtc":  "2026-10-18T01:49:53.9501352Z",
+                      "modifiedAfterTestStart":  false
+                  },
+                  {
+                      "path":  "01_代码/frontend/src/context.jsx",
+                      "sha256":  "082b730179a3db72336b003d5ecfe08cb451c426fbb462b2e5d8f0689121f034",
+                      "bytes":  4872,
+                      "lastWriteTimeUtc":  "2026-10-18T01:49:53.7110554Z",
+                      "modifiedAfterTestStart":  false
+                  },
+                  {
+                      "path":  "01_代码/frontend/src/detail-styles.css",
+                      "sha256":  "98c0b476ffe2cc97d5a56730553f59fcd043c9c4bec26dde85941f8332b7bad5",
+                      "bytes":  18463,
+                      "lastWriteTimeUtc":  "2026-10-23T04:54:36.3230188Z",
+                      "modifiedAfterTestStart":  false
+                  },
+                  {
+                      "path":  "01_代码/frontend/src/editor-utils.js",
+                      "sha256":  "a979613ce44f6b36f6e8a5bfd135093889f301f8409e53983709eb0d7f22b8d3",
+                      "bytes":  14338,
+                      "lastWriteTimeUtc":  "2026-10-22T09:22:48.3778647Z",
+                      "modifiedAfterTestStart":  false
+                  },
+                  {
+                      "path":  "01_代码/frontend/src/fill-utils.js",
+                      "sha256":  "1a28ea1d642bb7dfe7621977d2057e2097fe64f13b2fec62456d780b16d6f90e",
+                      "bytes":  4626,
+                      "lastWriteTimeUtc":  "2026-10-18T01:38:08.4556497Z",
+                      "modifiedAfterTestStart":  false
+                  },
+                  {
+                      "path":  "01_代码/frontend/src/main.jsx",
+                      "sha256":  "2595d22b6d1383c9db864d4e9becb2488e834a875467f337a0b5ee5db0b84084",
+                      "bytes":  350,
+                      "lastWriteTimeUtc":  "2026-10-18T01:45:22.5130619Z",
+                      "modifiedAfterTestStart":  false
+                  },
+                  {
+                      "path":  "01_代码/frontend/src/management-utils.js",
+                      "sha256":  "d41ed3cbb08cf09c83ea7530d7c755096c53242f275e1d6f3e282dc182178a93",
+                      "bytes":  1475,
+                      "lastWriteTimeUtc":  "2026-10-22T09:59:24.0093846Z",
+                      "modifiedAfterTestStart":  false
+                  },
+                  {
+                      "path":  "01_代码/frontend/src/mutations.js",
+                      "sha256":  "9966d5033eddf1e35d4f55fba262f2cfd7c3aa66886948a923dcdee0eb249a9c",
+                      "bytes":  3072,
+                      "lastWriteTimeUtc":  "2026-10-22T09:34:46.2530160Z",
+                      "modifiedAfterTestStart":  false
+                  },
+                  {
+                      "path":  "01_代码/frontend/src/pages/Auth.jsx",
+                      "sha256":  "8feead4fdcd1c6708130564dd6e38fc051d116fbe6e2551eba7227bed3d5e1ff",
+                      "bytes":  4890,
+                      "lastWriteTimeUtc":  "2026-10-18T01:43:34.1379094Z",
+                      "modifiedAfterTestStart":  false
+                  },
+                  {
+                      "path":  "01_代码/frontend/src/pages/Banks.jsx",
+                      "sha256":  "8176308d35b6ea1c64c4b4acf87a7177c299bb0aa255b292b67d1bb4a1ddeaba",
+                      "bytes":  10307,
+                      "lastWriteTimeUtc":  "2026-10-22T10:06:59.6146342Z",
+                      "modifiedAfterTestStart":  false
+                  },
+                  {
+                      "path":  "01_代码/frontend/src/pages/Dashboard.jsx",
+                      "sha256":  "962b100a7e70a4dffbd283c62b422489796da3e711ac2139415e67258b8a8f45",
+                      "bytes":  8049,
+                      "lastWriteTimeUtc":  "2026-10-18T01:39:22.5948777Z",
+                      "modifiedAfterTestStart":  false
+                  },
+                  {
+                      "path":  "01_代码/frontend/src/pages/Editor.jsx",
+                      "sha256":  "957de09aa182a03f8cfbfa23ce5f2f2a13a9d9d5df3bb9463eca795d60ed2f9f",
+                      "bytes":  24428,
+                      "lastWriteTimeUtc":  "2026-10-22T09:38:41.6783177Z",
+                      "modifiedAfterTestStart":  false
+                  },
+                  {
+                      "path":  "01_代码/frontend/src/pages/Fill.jsx",
+                      "sha256":  "24002f8a3da51e644f88652f8a8fd8c4868c356468abe2d2d3e887e8b3e1ede3",
+                      "bytes":  25164,
+                      "lastWriteTimeUtc":  "2026-10-18T01:41:16.5003335Z",
+                      "modifiedAfterTestStart":  false
+                  },
+                  {
+                      "path":  "01_代码/frontend/src/pages/Questions.jsx",
+                      "sha256":  "e8d810ccfa3f4dae73fd18519eadcdfd82bac147aba9648cfd5358c1a15f4842",
+                      "bytes":  16067,
+                      "lastWriteTimeUtc":  "2026-10-23T04:54:36.0847404Z",
+                      "modifiedAfterTestStart":  false
+                  },
+                  {
+                      "path":  "01_代码/frontend/src/pages/QuestionStatistics.jsx",
+                      "sha256":  "6a63cd3059449b21f3f7fa7bf4b06a7282836a24568d2b5259f6ea0ee10273f5",
+                      "bytes":  11694,
+                      "lastWriteTimeUtc":  "2026-10-23T04:47:51.6672776Z",
+                      "modifiedAfterTestStart":  false
+                  },
+                  {
+                      "path":  "01_代码/frontend/src/pages/Results.jsx",
+                      "sha256":  "59e3f712d31fb6717194018a78f5e58fc519fca2e00f14c04b0e69407a53c5f9",
+                      "bytes":  8224,
+                      "lastWriteTimeUtc":  "2026-10-23T04:54:35.8347100Z",
+                      "modifiedAfterTestStart":  false
+                  },
+                  {
+                      "path":  "01_代码/frontend/src/PendingMutations.jsx",
+                      "sha256":  "9e9308464335e87f880c74615199c53bbccb247ef7ad37384d3bc90afa49ce24",
+                      "bytes":  2699,
+                      "lastWriteTimeUtc":  "2026-10-22T09:59:24.2104476Z",
+                      "modifiedAfterTestStart":  false
+                  },
+                  {
+                      "path":  "01_代码/frontend/src/QuestionCard.jsx",
+                      "sha256":  "512f9670aa2065924c98e1db3d234919d38cee3e8fde62050f47fa1e22e54e59",
+                      "bytes":  14956,
+                      "lastWriteTimeUtc":  "2026-10-22T09:30:44.3505745Z",
+                      "modifiedAfterTestStart":  false
+                  },
+                  {
+                      "path":  "01_代码/frontend/src/QuestionManagement.jsx",
+                      "sha256":  "194bf100851e9fde976504fc41ac05d66460a1f4128d2bc4e8df0dda137257c9",
+                      "bytes":  8660,
+                      "lastWriteTimeUtc":  "2026-10-22T10:01:21.7861993Z",
+                      "modifiedAfterTestStart":  false
+                  },
+                  {
+                      "path":  "01_代码/frontend/src/QuestionPicker.jsx",
+                      "sha256":  "4904e7d54e8377728c7d70da0bd5f3cabb0688ac9c2a24da4f9ae6357f770219",
+                      "bytes":  6299,
+                      "lastWriteTimeUtc":  "2026-10-22T10:06:59.6156497Z",
+                      "modifiedAfterTestStart":  false
+                  },
+                  {
+                      "path":  "01_代码/frontend/src/statistics-utils.js",
+                      "sha256":  "52a96edfc2c4e65b93d3bedd7a66fc16862e795e899f932b9fd03fef43d30385",
+                      "bytes":  984,
+                      "lastWriteTimeUtc":  "2026-10-23T04:47:51.0693809Z",
+                      "modifiedAfterTestStart":  false
+                  },
+                  {
+                      "path":  "01_代码/frontend/src/styles.css",
+                      "sha256":  "32008a55f41d93fe8cbe9093b102db06d4eff9147e234bd968ce415c5eac8b58",
+                      "bytes":  40215,
+                      "lastWriteTimeUtc":  "2026-10-18T01:42:35.5654831Z",
+                      "modifiedAfterTestStart":  false
+                  }
+              ]
+}

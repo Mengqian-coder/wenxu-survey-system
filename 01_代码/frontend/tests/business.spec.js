@@ -2,6 +2,7 @@ import { test, expect } from '@playwright/test';
 import { mkdir } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import {randomUUID} from 'node:crypto';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const SHOTS = path.join(process.env.E2E_OUTPUT_DIR || path.join(ROOT, 'output/frontend-e2e'), 'screenshots');
@@ -14,6 +15,7 @@ const titles = {
   text: '你希望增加哪些内容？',
 };
 const uniqueName = prefix => `${prefix}_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 6)}`;
+const mutationHeaders = headers => ({...headers, 'Idempotency-Key': randomUUID()});
 
 async function screenshot(page, name, fullPage = false) {
   await mkdir(SHOTS, { recursive: true });
@@ -31,6 +33,8 @@ async function mobileScreenshot(page, name) {
     await screenshot(page, name);
   } finally {
     await page.setViewportSize(previous);
+    await page.mouse.move(0, 0);
+    await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
   }
 }
 
@@ -57,19 +61,30 @@ async function currentHeaders(page) {
 }
 
 async function seededSurvey(request, headers, title, questions, status = 'draft') {
-  const created = await request.post('/api/surveys', { headers, data: {
+  const references = [];
+  for (const question of questions) {
+    let questionId = question.questionId, versionId = question.versionId;
+    if (!questionId || !versionId) {
+      const {id, required, jumpRules, ...content} = question;
+      const createdQuestion = await request.post('/api/questions', {headers: mutationHeaders(headers), data: {content}});
+      expect(createdQuestion.status()).toBe(201);
+      const result = await createdQuestion.json(); questionId = result.question._id; versionId = result.version._id;
+    }
+    references.push({id: question.id, questionId, versionId, required: question.required, jumpRules: question.jumpRules});
+  }
+  const created = await request.post('/api/surveys', { headers: mutationHeaders(headers), data: {
     title, description: '用真实回答，帮助我们把下一步安排得更好。',
-    settings: { anonymous: true, allowRepeat: false }, deadlineAt: null, questions,
+    settings: { anonymous: true, allowRepeat: false }, deadlineAt: null, questions: references,
   } });
   expect(created.status()).toBe(201);
   let survey = await created.json();
   if (status !== 'draft') {
-    const published = await request.post(`/api/surveys/${survey._id}/publish`, { headers, data: { revision: survey.revision } });
+    const published = await request.post(`/api/surveys/${survey._id}/publish`, { headers: mutationHeaders(headers), data: { revision: survey.revision } });
     expect(published.ok()).toBeTruthy();
     survey = await published.json();
   }
   if (status === 'closed') {
-    const closed = await request.post(`/api/surveys/${survey._id}/close`, { headers, data: { revision: survey.revision } });
+    const closed = await request.post(`/api/surveys/${survey._id}/close`, { headers: mutationHeaders(headers), data: { revision: survey.revision } });
     expect(closed.ok()).toBeTruthy();
     survey = await closed.json();
   }
@@ -103,31 +118,48 @@ test('创建四类题目并发布，匿名填写、修改清空、提交、统�
   });
 
   await test.step('用界面配置四种题型、校验和向后跳转', async () => {
+    for (const type of ['single', 'multiple', 'number', 'text']) {
+      await page.goto('/questions/new');
+      await page.getByLabel('第1题题型', {exact: true}).selectOption(type);
+      await page.getByLabel('第1题题目', {exact: true}).fill(titles[type]);
+      if (type === 'single') {
+        await page.getByLabel('第1题选项1', {exact: true}).fill('参加过');
+        await page.getByLabel('第1题选项2', {exact: true}).fill('未参加过');
+      }
+      if (type === 'multiple') {
+        await page.getByLabel('第1题选项1', {exact: true}).fill('课堂讲解');
+        await page.getByLabel('第1题选项2', {exact: true}).fill('上机实践');
+        await page.getByRole('button', {name: '添加选项', exact: true}).click();
+        await page.getByLabel('第1题选项3', {exact: true}).fill('小组讨论');
+        await page.getByLabel('第1题最少选择项数', {exact: true}).fill('1');
+        await page.getByLabel('第1题最多选择项数', {exact: true}).fill('2');
+      }
+      if (type === 'number') {
+        await page.getByLabel('第1题最小值', {exact: true}).fill('0');
+        await page.getByLabel('第1题最大值', {exact: true}).fill('168');
+        await page.getByLabel('第1题仅允许整数', {exact: true}).check();
+      }
+      if (type === 'text') await page.getByLabel('第1题最多字符数', {exact: true}).fill('100');
+      await page.getByRole('button', {name: '保存独立题目', exact: true}).click();
+      await expect(page).toHaveURL(/\/questions\/[a-f0-9]{24}$/);
+      await expect(page.getByRole('heading', {name: '版本历史', exact: true})).toBeVisible();
+    }
+    await page.goto('/surveys/new');
     await page.getByLabel('问卷标题', { exact: true }).fill(titles.survey);
     await page.getByLabel('问卷说明', { exact: true }).fill('想听听你对课程学习与上机实践的真实感受。问卷约需 2 分钟，所有回答统一匿名，感谢你的认真参与。');
     await page.getByRole('button', { name: '发布问卷', exact: true }).click();
     await expect(page.getByRole('alert')).toContainText('至少添加一道题目');
-    await page.getByRole('button', { name: '添加单选题', exact: true }).click();
-    await page.getByLabel('第1题题目', { exact: true }).fill(titles.single);
-    await page.getByLabel('第1题选项1', { exact: true }).fill('参加过');
-    await page.getByLabel('第1题选项2', { exact: true }).fill('未参加过');
-    await page.getByRole('button', { name: '添加多选题', exact: true }).click();
-    await page.getByLabel('第2题题目', { exact: true }).fill(titles.multiple);
-    await page.getByLabel('第2题选项1', { exact: true }).fill('课堂讲解');
-    await page.getByLabel('第2题选项2', { exact: true }).fill('上机实践');
-    await page.getByTestId('question-editor').nth(1).getByRole('button', { name: '添加选项', exact: true }).click();
-    await page.getByLabel('第2题选项3', { exact: true }).fill('小组讨论');
-    await page.getByLabel('第2题最少选择项数', { exact: true }).fill('1');
-    await page.getByLabel('第2题最多选择项数', { exact: true }).fill('2');
-    await page.getByRole('button', { name: '添加数字填空', exact: true }).click();
-    await page.getByLabel('第3题题目', { exact: true }).fill(titles.number);
-    await page.getByLabel('第3题最小值', { exact: true }).fill('0');
-    await page.getByLabel('第3题最大值', { exact: true }).fill('168');
-    await page.getByLabel('第3题仅允许整数', { exact: true }).check();
-    await page.getByRole('button', { name: '添加文本填空', exact: true }).click();
-    await page.getByLabel('第4题题目', { exact: true }).fill(titles.text);
+    for (const type of ['single', 'multiple', 'number', 'text']) {
+      await page.getByRole('button', {name: '从题目列表选用', exact: true}).last().click();
+      const dialog = page.getByRole('dialog');
+      await dialog.getByLabel('搜索可选题目', {exact: true}).fill(titles[type]);
+      await expect(dialog.locator('.library-row')).toHaveCount(1);
+      await dialog.getByRole('button', {name: '选择版本', exact: true}).click();
+      await dialog.getByRole('button', {name: '查看并选用', exact: true}).click();
+      await dialog.getByRole('button', {name: '使用 v1', exact: true}).click();
+    }
     await page.getByTestId('question-editor').nth(3).getByLabel('必答题', { exact: true }).uncheck();
-    await page.getByLabel('第4题最多字符数', { exact: true }).fill('100');
+    await expect(page.getByLabel('第4题最多字符数', {exact: true})).toBeDisabled();
     const numberId = (await page.getByLabel('第3题题目', { exact: true }).getAttribute('id')).replace(/-title$/, '');
     await page.getByTestId('question-editor').nth(0).getByRole('button', { name: '添加跳转规则', exact: true }).click();
     await page.getByLabel('第1题规则1匹配选项', { exact: true }).selectOption({ label: '未参加过' });
@@ -306,7 +338,7 @@ test('草稿版本冲突保留本地输入，确认重新加载后读取服务�
   await loginUi(page, name);
   await page.goto(`/surveys/${survey._id}/edit`);
   await expect(page.getByLabel('问卷标题', { exact: true })).toHaveValue('原始标题');
-  const update = await request.patch(`/api/surveys/${survey._id}`, { headers, data: { revision: survey.revision, title: '服务器最新标题' } });
+  const update = await request.patch(`/api/surveys/${survey._id}`, { headers: mutationHeaders(headers), data: { revision: survey.revision, title: '服务器最新标题' } });
   expect(update.ok()).toBeTruthy();
   await page.getByLabel('问卷标题', { exact: true }).fill('本地尚未保存的标题');
   await page.getByRole('button', { name: '保存草稿', exact: true }).click();
@@ -391,4 +423,72 @@ test('编辑保存收到真实 401 后原地重新登录，未保存修改保持
   const stored = await request.get(`/api/surveys/${survey._id}`, { headers: owner });
   expect(stored.ok()).toBeTruthy();
   expect((await stored.json()).title).toBe('登录恢复后继续保存的标题');
+});
+
+test('建题与恢复成功丢包后刷新确认只执行一次，历史选用与另存独立题身份分离', async ({page, request}) => {
+  test.setTimeout(120_000);
+  const name = uniqueName('题目版本');
+  const headers = await registerApi(request, name);
+  await loginUi(page, name);
+  await page.goto('/questions/new');
+  await page.getByLabel('第1题题型', {exact: true}).selectOption('text');
+  await page.getByLabel('第1题题目', {exact: true}).fill('历史内容 v1');
+  const creates = [];
+  await page.route('**/api/questions', async route => {
+    if (route.request().method() !== 'POST') return route.continue();
+    creates.push({body: route.request().postDataJSON(), key: route.request().headers()['idempotency-key']});
+    if (creates.length === 1) {expect((await route.fetch()).status()).toBe(201); await route.abort('failed');}
+    else await route.continue();
+  });
+  await page.getByRole('button', {name: '保存独立题目', exact: true}).click();
+  await expect(page.getByRole('button', {name: '确认原操作', exact: true})).toBeVisible();
+  await page.reload();
+  await page.getByRole('button', {name: '确认原操作', exact: true}).click();
+  await expect(page).toHaveURL(/\/questions\/[a-f0-9]{24}$/);
+  await expect(page.getByLabel('第1题题目', {exact: true})).toHaveValue('历史内容 v1');
+  expect(creates).toHaveLength(2); expect(creates[1]).toEqual(creates[0]);
+  const originalId = page.url().split('/').at(-1);
+  expect((await (await request.get('/api/questions', {headers})).json()).total).toBe(1);
+  await page.getByRole('button', {name: '基于 v1 编辑为新版本', exact: true}).click();
+  await page.getByLabel('第1题题目', {exact: true}).fill('修改内容 v2');
+  await page.getByRole('button', {name: '保存为新版本', exact: true}).click();
+  await expect(page.locator('.version-row')).toHaveCount(2);
+  await screenshot(page, 'desktop-question-history', true);
+  await mobileScreenshot(page, 'mobile-question-history');
+  await page.locator('.version-row').filter({hasText: 'v1 · 历史内容 v1'}).click();
+  await expect(page.getByLabel('第1题题目', {exact: true})).toHaveValue('历史内容 v1');
+  const restores = [];
+  await page.route(`**/api/questions/${originalId}/restore`, async route => {
+    restores.push({body: route.request().postDataJSON(), key: route.request().headers()['idempotency-key']});
+    if (restores.length === 1) {expect((await route.fetch()).status()).toBe(201); await route.abort('failed');}
+    else await route.continue();
+  });
+  await page.getByRole('button', {name: '将 v1 恢复为新版本', exact: true}).click();
+  await page.getByRole('dialog').getByRole('button', {name: '确认操作', exact: true}).click();
+  await expect(page.getByRole('button', {name: '确认原操作', exact: true})).toBeVisible();
+  await page.reload();
+  await Promise.all([page.waitForEvent('load'), page.getByRole('button', {name: '确认原操作', exact: true}).click()]);
+  await expect(page.locator('.version-row')).toHaveCount(3);
+  await expect(page.getByText('当前查看 v3，最新版本 v3', {exact: true})).toBeVisible();
+  expect(restores).toHaveLength(2); expect(restores[1]).toEqual(restores[0]);
+  await page.goto('/surveys/new');
+  await page.getByLabel('问卷标题', {exact: true}).fill('明确固定历史版本');
+  await page.getByRole('button', {name: '从题目列表选用', exact: true}).last().click();
+  await page.getByRole('dialog').getByRole('button', {name: '选择版本', exact: true}).click();
+  await page.getByRole('dialog').locator('.library-row').filter({hasText: 'v1 · 历史内容 v1'}).getByRole('button', {name: '查看并选用', exact: true}).click();
+  await page.getByRole('dialog').getByRole('button', {name: '使用 v1', exact: true}).click();
+  await page.getByRole('button', {name: '保存草稿', exact: true}).click();
+  await expect(page).toHaveURL(/\/surveys\/[a-f0-9]{24}\/edit$/);
+  const surveyId = page.url().match(/surveys\/([a-f0-9]{24})/)[1];
+  const survey = await (await request.get(`/api/surveys/${surveyId}`, {headers})).json();
+  expect(survey.questions[0].questionId).toBe(originalId); expect(survey.questions[0].versionNo).toBe(1);
+  expect((await (await request.get(`/api/questions/${originalId}/versions`, {headers})).json()).total).toBe(3);
+  await page.goto(`/questions/${originalId}`);
+  await page.locator('.version-row').filter({hasText: 'v2 · 修改内容 v2'}).click();
+  await page.getByRole('button', {name: '另存为独立题目', exact: true}).click();
+  await page.getByRole('dialog').getByRole('button', {name: '确认操作', exact: true}).click();
+  await expect(page).not.toHaveURL(new RegExp(`/questions/${originalId}$`));
+  await expect(page.getByLabel('第1题题目', {exact: true})).toHaveValue('修改内容 v2');
+  await expect(page.locator('.version-row')).toHaveCount(1);
+  expect((await (await request.get('/api/questions', {headers})).json()).total).toBe(2);
 });

@@ -1,0 +1,203 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.EXE",
+      "D:\\I_love_studying\\快乐数据大三上\\数据库系统\\数据库实验\\提交材料\\问序_GitHub\\01_代码\\frontend\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "management.spec.js",
+      "--grep",
+      "题库弹窗逐字符"
+    ],
+    "configFile": "D:\\I_love_studying\\快乐数据大三上\\数据库系统\\数据库实验\\提交材料\\问序_GitHub\\01_代码\\frontend\\playwright.config.js",
+    "rootDir": "D:/I_love_studying/快乐数据大三上/数据库系统/数据库实验/提交材料/问序_GitHub/01_代码/frontend/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/I_love_studying/快乐数据大三上/数据库系统/数据库实验/提交材料/问序_GitHub/01_代码/output/modal-focus-before-20261026-allowed/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "D:/I_love_studying/快乐数据大三上/数据库系统/数据库实验/提交材料/问序_GitHub/01_代码/frontend/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.js"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\I_love_studying\\快乐数据大三上\\数据库系统\\数据库实验\\提交材料\\问序_GitHub\\01_代码\\output\\modal-focus-before-20261026-allowed\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "",
+        "testDir": "D:\\I_love_studying\\快乐数据大三上\\数据库系统\\数据库实验\\提交材料\\问序_GitHub\\01_代码\\frontend\\tests",
+        "snapshotDir": "D:\\I_love_studying\\快乐数据大三上\\数据库系统\\数据库实验\\提交材料\\问序_GitHub\\01_代码\\frontend\\tests",
+        "testIgnore": [],
+        "testMatch": "**/*.spec.js",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:53524",
+          "channel": "msedge",
+          "headless": true,
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "actionTimeout": 10000,
+          "navigationTimeout": 15000,
+          "screenshot": "only-on-failure",
+          "trace": "retain-on-failure"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": ""
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "html",
+        {
+          "outputFolder": "D:\\I_love_studying\\快乐数据大三上\\数据库系统\\数据库实验\\提交材料\\问序_GitHub\\01_代码\\output\\modal-focus-before-20261026-allowed\\report",
+          "open": "never"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "D:\\I_love_studying\\快乐数据大三上\\数据库系统\\数据库实验\\提交材料\\问序_GitHub\\01_代码\\output\\modal-focus-before-20261026-allowed\\results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "management.spec.js",
+      "file": "management.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "题库弹窗逐字符输入保持焦点，支持编辑、键盘导航和关闭回焦",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 19887,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeFocused\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  getByLabel('题库名称', { exact: true })\nExpected: focused\nReceived: inactive\nTimeout:  10000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeFocused\" getByLabel('题库名称', { exact: true }) with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByLabel('题库名称', { exact: true })\u001b[22m\n\u001b[2m    23 × locator resolved to <input value=\"课\" maxlength=\"200\" aria-label=\"题库名称\"/>\u001b[22m\n\u001b[2m       - unexpected value \"inactive\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeFocused\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  getByLabel('题库名称', { exact: true })\nExpected: focused\nReceived: inactive\nTimeout:  10000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeFocused\" getByLabel('题库名称', { exact: true }) with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByLabel('题库名称', { exact: true })\u001b[22m\n\u001b[2m    23 × locator resolved to <input value=\"课\" maxlength=\"200\" aria-label=\"题库名称\"/>\u001b[22m\n\u001b[2m       - unexpected value \"inactive\"\u001b[22m\n\n    at typeCharacters (D:\\I_love_studying\\快乐数据大三上\\数据库系统\\数据库实验\\提交材料\\问序_GitHub\\01_代码\\frontend\\tests\\management.spec.js:64:27)\n    at D:\\I_love_studying\\快乐数据大三上\\数据库系统\\数据库实验\\提交材料\\问序_GitHub\\01_代码\\frontend\\tests\\management.spec.js:77:3",
+                    "location": {
+                      "file": "D:\\I_love_studying\\快乐数据大三上\\数据库系统\\数据库实验\\提交材料\\问序_GitHub\\01_代码\\frontend\\tests\\management.spec.js",
+                      "column": 27,
+                      "line": 64
+                    },
+                    "snippet": "  62 |       expected += character;\n  63 |       await expect(field).toHaveValue(expected);\n> 64 |       await expect(field).toBeFocused();\n     |                           ^\n  65 |     }\n  66 |   };\n  67 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\I_love_studying\\快乐数据大三上\\数据库系统\\数据库实验\\提交材料\\问序_GitHub\\01_代码\\frontend\\tests\\management.spec.js",
+                        "column": 27,
+                        "line": 64
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeFocused\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  getByLabel('题库名称', { exact: true })\nExpected: focused\nReceived: inactive\nTimeout:  10000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeFocused\" getByLabel('题库名称', { exact: true }) with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByLabel('题库名称', { exact: true })\u001b[22m\n\u001b[2m    23 × locator resolved to <input value=\"课\" maxlength=\"200\" aria-label=\"题库名称\"/>\u001b[22m\n\u001b[2m       - unexpected value \"inactive\"\u001b[22m\n\n\n  62 |       expected += character;\n  63 |       await expect(field).toHaveValue(expected);\n> 64 |       await expect(field).toBeFocused();\n     |                           ^\n  65 |     }\n  66 |   };\n  67 |\n    at typeCharacters (D:\\I_love_studying\\快乐数据大三上\\数据库系统\\数据库实验\\提交材料\\问序_GitHub\\01_代码\\frontend\\tests\\management.spec.js:64:27)\n    at D:\\I_love_studying\\快乐数据大三上\\数据库系统\\数据库实验\\提交材料\\问序_GitHub\\01_代码\\frontend\\tests\\management.spec.js:77:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-26T05:31:42.025Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\I_love_studying\\快乐数据大三上\\数据库系统\\数据库实验\\提交材料\\问序_GitHub\\01_代码\\output\\modal-focus-before-20261026-allowed\\test-results\\management-题库弹窗逐字符输入保持焦点，支持编辑、键盘导航和关闭回焦\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\I_love_studying\\快乐数据大三上\\数据库系统\\数据库实验\\提交材料\\问序_GitHub\\01_代码\\output\\modal-focus-before-20261026-allowed\\test-results\\management-题库弹窗逐字符输入保持焦点，支持编辑、键盘导航和关闭回焦\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\I_love_studying\\快乐数据大三上\\数据库系统\\数据库实验\\提交材料\\问序_GitHub\\01_代码\\output\\modal-focus-before-20261026-allowed\\test-results\\management-题库弹窗逐字符输入保持焦点，支持编辑、键盘导航和关闭回焦\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\I_love_studying\\快乐数据大三上\\数据库系统\\数据库实验\\提交材料\\问序_GitHub\\01_代码\\frontend\\tests\\management.spec.js",
+                    "column": 27,
+                    "line": 64
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "bd49cee0b7dfb65b9204-bb4f77dde5bc22df9c11",
+          "file": "management.spec.js",
+          "line": 48,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-26T05:31:41.406Z",
+    "duration": 21417.259,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

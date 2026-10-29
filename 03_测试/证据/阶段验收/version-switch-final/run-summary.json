@@ -1,0 +1,33 @@
+{
+  "startedAtUtc": "2026-10-23T05:35:46.038300+00:00",
+  "finishedAtUtc": "2026-10-23T05:36:14.697530+00:00",
+  "scope": "Only version-switch.spec.js: 2 targeted real-browser checks. Not a full 14-case suite rerun.",
+  "isolation": "start-e2e.py creates its own MongoDB replica child process and random test_frontend database; existing development services are not used.",
+  "qaPorts": {
+    "api": 56264,
+    "frontend": 56265
+  },
+  "exitCode": 0,
+  "suites": {
+    "versionSwitchBrowser": {
+      "total": 2,
+      "passed": 2,
+      "failed": 0,
+      "flaky": 0,
+      "skipped": 0
+    }
+  },
+  "sourcesUnchangedDuringRun": true,
+  "sourceHashScope": "frontend/src, frontend/tests, frontend/*config.js, frontend/package*.json, frontend/index.html, frontend/dist",
+  "sourceFileCount": 42,
+  "changedPaths": [],
+  "evidence": [
+    "results.json",
+    "report/index.html",
+    "e2e-console.txt",
+    "source-manifest-before.json",
+    "source-manifest-after.json"
+  ],
+  "elapsedSeconds": 28.659,
+  "passed": true
+}

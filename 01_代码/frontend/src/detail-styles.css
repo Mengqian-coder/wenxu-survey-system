@@ -159,3 +159,68 @@
   .editor-add-section { padding: 20px 15px; }
   .question-card-header .question-heading { gap: 7px; }
 }
+/* Independent questions and explicit version selection share the survey studio. */
+.library-list { display: grid; gap: 10px; margin: 18px 0; }
+.library-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--border, #e6e8ed); }
+.library-row > div { min-width: 0; overflow-wrap: anywhere; }
+.library-row .btn { flex-shrink: 0; }
+.question-detail-layout { display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: 24px; align-items: start; }
+.question-detail-layout > * { min-width: 0; }
+.library-actions { flex-wrap: wrap; margin: 20px 0; }
+.version-history { padding: 20px; }
+.version-row { display: grid; gap: 6px; width: 100%; text-align: left; padding: 14px 10px; background: transparent; border: 0; border-bottom: 1px solid #e6e8ed; border-radius: 6px; color: inherit; cursor: pointer; overflow-wrap: anywhere; }
+.version-row.active { background: #f0f1ff; color: #5158b5; }
+.version-row span, .version-row small { font-size: 12px; font-weight: 400; }
+.instance-version-row { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 14px 18px; background: #f2f3fb; border: 1px solid #e3e5f0; border-radius: 10px 10px 0 0; font-size: 12px; }
+.instance-version-row + .question-card { border-radius: 0 0 12px 12px; }
+.pending-notice { align-items: flex-start; }
+.pending-notice > div { flex: 1; min-width: 0; }
+.pending-row { display: flex; align-items: center; gap: 14px; justify-content: space-between; margin-top: 8px; }
+.management-sections { display: grid; gap: 22px; margin-top: 28px; }
+.management-heading { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; margin-bottom: 20px; }
+.management-heading .button-row { flex-wrap: wrap; }
+.management-filters { display: flex; align-items: end; flex-wrap: wrap; gap: 12px; margin: 14px 0; }
+.management-filters > .field { flex: 1; }
+.management-filters > select { width: auto; max-width: 220px; }
+.management-filters > input { flex: 1; }
+.share-form { display: flex; gap: 12px; align-items: end; margin: 20px 0; }
+.share-form .field { flex: 1; }
+.compact-filter { max-width: 220px; margin-top: 15px; }
+.usage-counts { display: flex; flex-wrap: wrap; gap: 38px; margin: 24px 0; }
+.usage-counts > div { display: grid; gap: 3px; }
+.usage-counts strong { font-size: 25px; }
+.usage-counts span { color: var(--muted); font-size: 12px; }
+.version-source { display: flex; align-items: center; flex-wrap: wrap; margin: 16px 0; gap: 8px; font-size: 12px; color: var(--muted); }
+.management-pagination { margin-top: 18px; }
+.bank-grid { margin-top: 20px; }
+.bank-description { min-height: 45px; margin: 12px 0; font-size: 12px; color: var(--muted); white-space: pre-wrap; overflow-wrap: anywhere; }
+.banks-page .page-heading h1 { overflow-wrap: anywhere; }
+.form-stack { display: grid; gap: 18px; }
+.cross-statistics-note { align-items: flex-start; margin-bottom: 22px; }
+.cross-statistics-note > svg { flex-shrink: 0; margin-top: 3px; }
+.cross-statistics-layout { display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 24px; align-items: start; margin-top: 20px; }
+.cross-statistics-layout > *, .cross-statistic-detail { min-width: 0; }
+.statistic-version-list { padding: 22px; }
+.statistic-version-list > h2, .statistic-values > h2 { font-size: 17px; margin: 0 0 10px; }
+.statistic-version-list > .field-hint { margin-bottom: 18px; }
+.statistic-version-list .version-row { text-decoration: none; }
+.statistic-version-list .pagination { align-items: flex-start; flex-direction: column; gap: 12px; }
+.cross-statistic-detail { display: grid; gap: 20px; }
+.cross-stat-card > header h2 { font-size: 18px; margin: 0 0 7px; overflow-wrap: anywhere; }
+.cross-stat-counts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; padding: 22px 0; margin: 0 0 15px; border-bottom: 1px solid #e8e7ef; }
+.cross-stat-counts dt, .cross-number-metrics dt { font-size: 12px; color: var(--muted); }
+.cross-stat-counts dd { margin: 7px 0 0; font-size: 28px; color: #5d5475; }
+.cross-stat-counts dd small { font-size: 11px; margin-left: 6px; color: var(--muted); }
+.cross-number-metrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin: 24px 0 0; }
+.cross-number-metrics dd { font-size: 22px; margin: 8px 0 0; color: #6c5b8d; overflow-wrap: anywhere; }
+.cross-stat-card .option-stat > div:first-child { gap: 15px; }
+.cross-stat-card .option-stat > div:first-child > span { overflow-wrap: anywhere; min-width: 0; }
+.cross-stat-card .option-stat strong { flex-shrink: 0; }
+.cross-statistic-entry { margin-top: 20px; }
+.statistic-empty-values { margin: 22px 0; }
+.statistic-values .text-value p { white-space: pre-wrap; overflow-wrap: anywhere; }
+@media (max-width: 1050px) { .cross-statistics-layout { grid-template-columns: minmax(0, 1fr); } .statistic-version-list .pagination { flex-direction: row; } }
+@media (max-width: 560px) { .cross-statistics-page .page-heading, .cross-statistics-page .section-toolbar { align-items: stretch; flex-direction: column; gap: 15px; } .cross-stat-counts { grid-template-columns: repeat(2, minmax(0, 1fr)); } .cross-number-metrics { gap: 10px; } .cross-number-metrics dd { font-size: 18px; } .cross-stat-card .option-stat > div:first-child { flex-wrap: wrap; gap: 8px; } .statistic-version-list .pagination { flex-direction: column; } }
+@media (max-width: 560px) { .share-form { align-items: stretch; flex-direction: column; } .management-filters { align-items: stretch; flex-direction: column; } .management-filters > select { max-width: none; width: 100%; } .usage-counts { gap: 22px; } .banks-page .page-heading { flex-wrap: wrap; } }
+@media (max-width: 900px) { .question-detail-layout { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 560px) { .library-row, .instance-version-row { align-items: flex-start; flex-direction: column; } .question-detail .page-heading { align-items: flex-start; gap: 15px; flex-direction: column; } }

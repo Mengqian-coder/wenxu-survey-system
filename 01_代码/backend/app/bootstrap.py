@@ -40,7 +40,7 @@ def main():
     with MongoClient(settings.mongodb_uri, serverSelectionTimeoutMS=5000, tz_aware=True) as client:
         check_replica_set(client)
         initialize_database(client[settings.mongodb_database])
-        print(f"已初始化 {settings.mongodb_database} 的四个集合、验证器和索引；未删除业务数据。")
+        print(f"已初始化 {settings.mongodb_database} 的业务集合、验证器和索引；未删除业务数据。")
 
 
 if __name__ == "__main__":

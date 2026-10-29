@@ -1,0 +1,58 @@
+{
+  "runId": "20261025T024940Z-0344b5",
+  "algorithm": "SHA-256",
+  "files": {
+    "run-summary.json": {
+      "bytes": 9240,
+      "sha256": "28ae586d6705889dbdb16680b3d53066ae3425ddba5cdf7b9cc9f1352734f05f"
+    },
+    "source-manifest-before.json": {
+      "bytes": 4928,
+      "sha256": "ee666bd0530691abbd3985f4e97f3b028258c1b3122442ddc0325a5a256da987"
+    },
+    "source-manifest-after.json": {
+      "bytes": 4928,
+      "sha256": "ee666bd0530691abbd3985f4e97f3b028258c1b3122442ddc0325a5a256da987"
+    },
+    "验收摘要.md": {
+      "bytes": 28291,
+      "sha256": "6087e17fc9f4f64646a83b79ccfc71a5cca5e60bde5ed7c5ff483131ff9275ed"
+    },
+    "backend-junit.xml": {
+      "bytes": 2128,
+      "sha256": "daba0619bbe0188af707be237aec0912eca7c7178bb7afea9174bd7c930da836"
+    },
+    "pytest-console.txt": {
+      "bytes": 671,
+      "sha256": "6650487e223ac5fdd28f1ad75ad7a8390423077664e92306652e59b02aefd376"
+    },
+    "cases/V01.json": {
+      "bytes": 27700,
+      "sha256": "f5a6c17dcb778533c6fb0cdef600bf9a3fe809e35d215e4a83210c194bf30b60"
+    },
+    "cases/S01.json": {
+      "bytes": 28624,
+      "sha256": "3d90c7899d297c03e9c09f1612742ea9cddf81a767da9c018d68238e1b957d1c"
+    },
+    "cases/S02.json": {
+      "bytes": 39075,
+      "sha256": "d818b80d43650a8fa1a4639bac223155ba9770018812fefc4dec0ef0c56bb5f0"
+    },
+    "cases/S03.json": {
+      "bytes": 40934,
+      "sha256": "eb6fe38752c77ed74e1ffc2fd627bc4b6254c8a72e42188d77444aaabc06c67d"
+    },
+    "cases/P01.json": {
+      "bytes": 89473,
+      "sha256": "00bc643ae7c601a4b816e943ef871830a3892f4381f58b7dfe38cf7b685beeec"
+    },
+    "cases/P02.json": {
+      "bytes": 140228,
+      "sha256": "e4259f3c9d2410981390e43ba5b7fc849e4aecfed7d2d226eb0610fdc20b0fe3"
+    },
+    "cases/P03.json": {
+      "bytes": 63885,
+      "sha256": "c60e966054e785eef000b0980c49dadeb8ab713b36a8a74af852c0361a9f6abc"
+    }
+  }
+}

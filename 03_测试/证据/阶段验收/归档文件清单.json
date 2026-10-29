@@ -1,0 +1,818 @@
+{
+  "purpose": "Portable verbatim archive of evidence referenced by delivered documents; no tests rerun",
+  "fileCount": 135,
+  "totalBytes": 15828637,
+  "files": [
+    {
+      "source": "01_代码/output/cross-survey-delivery-e2e/evidence/frontend-source-dist-sha256.json",
+      "path": "cross-survey-delivery-e2e/evidence/frontend-source-dist-sha256.json",
+      "bytes": 11166,
+      "sha256": "0911f461f52e36286faafa89267d08cd069c30bd4b0594f5a6ab0a544a706241"
+    },
+    {
+      "source": "01_代码/output/cross-survey-delivery-e2e/evidence/frontend-source-dist.sha256",
+      "path": "cross-survey-delivery-e2e/evidence/frontend-source-dist.sha256",
+      "bytes": 2891,
+      "sha256": "84d4860543971981755a2c72cb2a4fc48bda874fe44c34530b49e1656fe1815f"
+    },
+    {
+      "source": "01_代码/output/cross-survey-delivery-e2e/evidence/npm-test-tool-transcript.txt",
+      "path": "cross-survey-delivery-e2e/evidence/npm-test-tool-transcript.txt",
+      "bytes": 3673,
+      "sha256": "e594ad0ce55763aeb338706242acb874a14e0d834362251b22da0e667aea82d7"
+    },
+    {
+      "source": "01_代码/output/cross-survey-delivery-e2e/report/index.html",
+      "path": "cross-survey-delivery-e2e/report/index.html",
+      "bytes": 592308,
+      "sha256": "873b227f2c1451c60975e41aa94385e95da4d705f74ed765a395e0e3107494d5"
+    },
+    {
+      "source": "01_代码/output/cross-survey-delivery-e2e/results.json",
+      "path": "cross-survey-delivery-e2e/results.json",
+      "bytes": 18992,
+      "sha256": "2fb087e01ec37ab60868842ead86413869a02c2e5ddfd11485ca0745f1cd379b"
+    },
+    {
+      "source": "01_代码/output/cross-survey-delivery-e2e/runs/9425aa1022a276ed/backend.log",
+      "path": "cross-survey-delivery-e2e/runs/9425aa1022a276ed/backend.log",
+      "bytes": 202,
+      "sha256": "10b5bbe10d80e99ae75cd9135e7bd9879ecc35c2faf8d7dd9689c415bd467a97"
+    },
+    {
+      "source": "01_代码/output/cross-survey-delivery-e2e/runs/9425aa1022a276ed/frontend.log",
+      "path": "cross-survey-delivery-e2e/runs/9425aa1022a276ed/frontend.log",
+      "bytes": 72,
+      "sha256": "470efaa629a791398b2bc04d40394e3e6641301b2c0e40562ce3aaea0b9ff0f3"
+    },
+    {
+      "source": "01_代码/output/cross-survey-delivery-e2e/screenshots/cross-statistics-directory-mobile.png",
+      "path": "cross-survey-delivery-e2e/screenshots/cross-statistics-directory-mobile.png",
+      "bytes": 91060,
+      "sha256": "031116650b5b4f2cab1f8aec2baa3a4da0c7d5bb6054475e9eac7e4a2915b93d"
+    },
+    {
+      "source": "01_代码/output/cross-survey-delivery-e2e/screenshots/cross-statistics-directory.png",
+      "path": "cross-survey-delivery-e2e/screenshots/cross-statistics-directory.png",
+      "bytes": 141477,
+      "sha256": "16bc015e6077c55af3ea25ea6e4545e1089fc4647d6187d2b49fbc29c8b164e8"
+    },
+    {
+      "source": "01_代码/output/cross-survey-delivery-e2e/screenshots/cross-statistics-empty-number.png",
+      "path": "cross-survey-delivery-e2e/screenshots/cross-statistics-empty-number.png",
+      "bytes": 137283,
+      "sha256": "3d4e248b404c2bea0d3a9d2c65879fd50c25c3fee09be72271a1ea2a81245b1b"
+    },
+    {
+      "source": "01_代码/output/cross-survey-delivery-e2e/screenshots/cross-statistics-multiple-mobile.png",
+      "path": "cross-survey-delivery-e2e/screenshots/cross-statistics-multiple-mobile.png",
+      "bytes": 80651,
+      "sha256": "3abe098be31d97ac7d38bbda81be43986e7e60384a395e453cb3527708b40785"
+    },
+    {
+      "source": "01_代码/output/cross-survey-delivery-e2e/screenshots/cross-statistics-multiple.png",
+      "path": "cross-survey-delivery-e2e/screenshots/cross-statistics-multiple.png",
+      "bytes": 135684,
+      "sha256": "62f712c3f2be6cad64db735d74f7825772022bb887f0beb09956972b18b6e5a5"
+    },
+    {
+      "source": "01_代码/output/cross-survey-delivery-e2e/screenshots/cross-statistics-number-mobile.png",
+      "path": "cross-survey-delivery-e2e/screenshots/cross-statistics-number-mobile.png",
+      "bytes": 86781,
+      "sha256": "5cebed982da5a666db90f4012a029a88017e5150da6524ff01f0a741492da86e"
+    },
+    {
+      "source": "01_代码/output/cross-survey-delivery-e2e/screenshots/cross-statistics-number.png",
+      "path": "cross-survey-delivery-e2e/screenshots/cross-statistics-number.png",
+      "bytes": 142291,
+      "sha256": "0f575f21eab1fda8f6b605e287ff12d1e258cab78cc35c6f216d262de6f3207b"
+    },
+    {
+      "source": "01_代码/output/cross-survey-delivery-e2e/screenshots/cross-statistics-revoked-snapshot.png",
+      "path": "cross-survey-delivery-e2e/screenshots/cross-statistics-revoked-snapshot.png",
+      "bytes": 134648,
+      "sha256": "8c5006bda5420976b6a53214374f9d61410abefe5eaf67689ff28f09a7c98604"
+    },
+    {
+      "source": "01_代码/output/cross-survey-delivery-e2e/screenshots/cross-statistics-text-page2.png",
+      "path": "cross-survey-delivery-e2e/screenshots/cross-statistics-text-page2.png",
+      "bytes": 141483,
+      "sha256": "7a5224267c80d8030728909a521a704a8c13339a910b8844a2ee9b808f31a179"
+    },
+    {
+      "source": "01_代码/output/cross-survey-delivery-e2e/screenshots/desktop-dashboard.png",
+      "path": "cross-survey-delivery-e2e/screenshots/desktop-dashboard.png",
+      "bytes": 203917,
+      "sha256": "d151ec5f2aa532916c3b0751a45e0baebccb4d144b229214c58834326be39af2"
+    },
+    {
+      "source": "01_代码/output/cross-survey-delivery-e2e/screenshots/desktop-editor.png",
+      "path": "cross-survey-delivery-e2e/screenshots/desktop-editor.png",
+      "bytes": 152137,
+      "sha256": "7d87cf97f758402a885fdc268f0b48d714bf5606f04b26a632aeb718770866db"
+    },
+    {
+      "source": "01_代码/output/cross-survey-delivery-e2e/screenshots/desktop-filling.png",
+      "path": "cross-survey-delivery-e2e/screenshots/desktop-filling.png",
+      "bytes": 40764,
+      "sha256": "00defafafc5ef990c38c638b9bedaad9a8310ef7a7df13de0ec45d2d6010fc53"
+    },
+    {
+      "source": "01_代码/output/cross-survey-delivery-e2e/screenshots/desktop-question-history.png",
+      "path": "cross-survey-delivery-e2e/screenshots/desktop-question-history.png",
+      "bytes": 202913,
+      "sha256": "706e3ccbfbd5f9514b85b7037d476845a31949686ccff79afaf85b1a8e5d7eae"
+    },
+    {
+      "source": "01_代码/output/cross-survey-delivery-e2e/screenshots/desktop-results.png",
+      "path": "cross-survey-delivery-e2e/screenshots/desktop-results.png",
+      "bytes": 153672,
+      "sha256": "246ddfa9bda5475050f1c3a89aed0970ac751e6fddf05164f2f48c2f87a61159"
+    },
+    {
+      "source": "01_代码/output/cross-survey-delivery-e2e/screenshots/management-bank-revoked-placeholder-mobile.png",
+      "path": "cross-survey-delivery-e2e/screenshots/management-bank-revoked-placeholder-mobile.png",
+      "bytes": 42603,
+      "sha256": "61c36caa76b5c026e6d0af4d9bd8f08c04406214ac86bd69bb3cfe9287fa380a"
+    },
+    {
+      "source": "01_代码/output/cross-survey-delivery-e2e/screenshots/management-bank-revoked-placeholder.png",
+      "path": "cross-survey-delivery-e2e/screenshots/management-bank-revoked-placeholder.png",
+      "bytes": 98622,
+      "sha256": "a0aa391262fb7ec9eec18adcd123357605a5b77ab37b86498a5d833a401ef4d7"
+    },
+    {
+      "source": "01_代码/output/cross-survey-delivery-e2e/screenshots/management-owner-history-sharing-mobile.png",
+      "path": "cross-survey-delivery-e2e/screenshots/management-owner-history-sharing-mobile.png",
+      "bytes": 166500,
+      "sha256": "276edc6281b5b97ce9cb91fcea04b06619cc962c14c350625a4bb8657f2bc6df"
+    },
+    {
+      "source": "01_代码/output/cross-survey-delivery-e2e/screenshots/management-owner-history-sharing.png",
+      "path": "cross-survey-delivery-e2e/screenshots/management-owner-history-sharing.png",
+      "bytes": 230233,
+      "sha256": "25e8f195da05482cbce90fab1082bcf0171bf787ea39342010c3e3d5894aeeb7"
+    },
+    {
+      "source": "01_代码/output/cross-survey-delivery-e2e/screenshots/mobile-dashboard.png",
+      "path": "cross-survey-delivery-e2e/screenshots/mobile-dashboard.png",
+      "bytes": 155573,
+      "sha256": "c4d2fb9cbd48fbe2a53ed7f7b295d7bd44e84ce2ea9bb55fb26c8e36a0cdbc8a"
+    },
+    {
+      "source": "01_代码/output/cross-survey-delivery-e2e/screenshots/mobile-editor.png",
+      "path": "cross-survey-delivery-e2e/screenshots/mobile-editor.png",
+      "bytes": 59076,
+      "sha256": "e4d256a580d21011f6d2b8b09398aaeaac4cbb44ccf3c489d7ed6e2b70be07ab"
+    },
+    {
+      "source": "01_代码/output/cross-survey-delivery-e2e/screenshots/mobile-filling.png",
+      "path": "cross-survey-delivery-e2e/screenshots/mobile-filling.png",
+      "bytes": 33857,
+      "sha256": "fa84f09ed6fd659469da15e582f87b0b76f1d35779a4c4a9e08e1da4e00e4890"
+    },
+    {
+      "source": "01_代码/output/cross-survey-delivery-e2e/screenshots/mobile-question-history.png",
+      "path": "cross-survey-delivery-e2e/screenshots/mobile-question-history.png",
+      "bytes": 57575,
+      "sha256": "55fc6fb319c7409777e8ee35e3f63990e014b2879fcaf9e86b787d894a74ea06"
+    },
+    {
+      "source": "01_代码/output/cross-survey-delivery-e2e/test-results/.last-run.json",
+      "path": "cross-survey-delivery-e2e/原始失败附件/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "source": "01_代码/output/frontend-management-final/report/index.html",
+      "path": "frontend-management-final/report/index.html",
+      "bytes": 572500,
+      "sha256": "90f534ce4604573a925190a2b4c99971eeaa017ed943d958e27a92b384a9f263"
+    },
+    {
+      "source": "01_代码/output/frontend-management-final/results.json",
+      "path": "frontend-management-final/results.json",
+      "bytes": 15620,
+      "sha256": "f871751852e4052104bd82ea2ff76c634567c690a32b5b074310bbddd8fd4a04"
+    },
+    {
+      "source": "01_代码/output/frontend-management-final/runs/7551201baddea2b9/backend.log",
+      "path": "frontend-management-final/runs/7551201baddea2b9/backend.log",
+      "bytes": 202,
+      "sha256": "76f79bc9eae5c0ffff031f2c533aec14caab68256bdf3f3d71a10565cd774f08"
+    },
+    {
+      "source": "01_代码/output/frontend-management-final/runs/7551201baddea2b9/frontend.log",
+      "path": "frontend-management-final/runs/7551201baddea2b9/frontend.log",
+      "bytes": 72,
+      "sha256": "4574242ab2641a60c7a4c5018f90b33ee2371d9749c367c44ccfc9722adadaf0"
+    },
+    {
+      "source": "01_代码/output/frontend-management-final/screenshots/desktop-dashboard.png",
+      "path": "frontend-management-final/screenshots/desktop-dashboard.png",
+      "bytes": 202333,
+      "sha256": "db37922518cde1e9402546c616052faf69008ca5c751b5027e2371948884580c"
+    },
+    {
+      "source": "01_代码/output/frontend-management-final/screenshots/desktop-editor.png",
+      "path": "frontend-management-final/screenshots/desktop-editor.png",
+      "bytes": 150428,
+      "sha256": "c396b2b3726ca0d9c42dce9af9b73ca39510056b143952d923b350d29cea395e"
+    },
+    {
+      "source": "01_代码/output/frontend-management-final/screenshots/desktop-filling.png",
+      "path": "frontend-management-final/screenshots/desktop-filling.png",
+      "bytes": 40686,
+      "sha256": "ca8fc8369016463667c86805c75568bbed7ff6ff328d3fb820e85b0a699543f9"
+    },
+    {
+      "source": "01_代码/output/frontend-management-final/screenshots/desktop-question-history.png",
+      "path": "frontend-management-final/screenshots/desktop-question-history.png",
+      "bytes": 195673,
+      "sha256": "941f71a51224f2f9c15713901570307aa01eda9c85705ef1e2343fc230df901a"
+    },
+    {
+      "source": "01_代码/output/frontend-management-final/screenshots/desktop-results.png",
+      "path": "frontend-management-final/screenshots/desktop-results.png",
+      "bytes": 141202,
+      "sha256": "45d404476e4461a791f2ded3cba4da91febe5fd5aaa46bbc0aa71b3e6e057527"
+    },
+    {
+      "source": "01_代码/output/frontend-management-final/screenshots/management-bank-revoked-placeholder-mobile.png",
+      "path": "frontend-management-final/screenshots/management-bank-revoked-placeholder-mobile.png",
+      "bytes": 42603,
+      "sha256": "61c36caa76b5c026e6d0af4d9bd8f08c04406214ac86bd69bb3cfe9287fa380a"
+    },
+    {
+      "source": "01_代码/output/frontend-management-final/screenshots/management-bank-revoked-placeholder.png",
+      "path": "frontend-management-final/screenshots/management-bank-revoked-placeholder.png",
+      "bytes": 96900,
+      "sha256": "c2d8dcc3bc50e57dfa4e1f941a489fede094009b178c0618e236927558b06245"
+    },
+    {
+      "source": "01_代码/output/frontend-management-final/screenshots/management-owner-history-sharing-mobile.png",
+      "path": "frontend-management-final/screenshots/management-owner-history-sharing-mobile.png",
+      "bytes": 160661,
+      "sha256": "a41e8c10a47f26e4844145b7e97f3b52cfe04327a8a68f057bb8ec13879bc0e9"
+    },
+    {
+      "source": "01_代码/output/frontend-management-final/screenshots/management-owner-history-sharing.png",
+      "path": "frontend-management-final/screenshots/management-owner-history-sharing.png",
+      "bytes": 220725,
+      "sha256": "50b77378869efd7fad6d48f02dc4d3931383629f97eaec629d65a8f94a632836"
+    },
+    {
+      "source": "01_代码/output/frontend-management-final/screenshots/mobile-dashboard.png",
+      "path": "frontend-management-final/screenshots/mobile-dashboard.png",
+      "bytes": 154818,
+      "sha256": "521992fb61b78dda42a38dcba60cd09992cdfdb22e463cf832e16c9cd6607e25"
+    },
+    {
+      "source": "01_代码/output/frontend-management-final/screenshots/mobile-editor.png",
+      "path": "frontend-management-final/screenshots/mobile-editor.png",
+      "bytes": 59076,
+      "sha256": "e4d256a580d21011f6d2b8b09398aaeaac4cbb44ccf3c489d7ed6e2b70be07ab"
+    },
+    {
+      "source": "01_代码/output/frontend-management-final/screenshots/mobile-filling.png",
+      "path": "frontend-management-final/screenshots/mobile-filling.png",
+      "bytes": 33857,
+      "sha256": "fa84f09ed6fd659469da15e582f87b0b76f1d35779a4c4a9e08e1da4e00e4890"
+    },
+    {
+      "source": "01_代码/output/frontend-management-final/screenshots/mobile-question-history.png",
+      "path": "frontend-management-final/screenshots/mobile-question-history.png",
+      "bytes": 52020,
+      "sha256": "b6d74124edc7eccafd01af9907089993f3c22c2a2c1098474a0bd62555685cbf"
+    },
+    {
+      "source": "01_代码/output/frontend-management-final/source-manifest-after.json",
+      "path": "frontend-management-final/source-manifest-after.json",
+      "bytes": 3829,
+      "sha256": "c2baaa1a088807743836f5efd7f7e05058cfd121e8418e929d6b52f87a3b5509"
+    },
+    {
+      "source": "01_代码/output/frontend-management-final/source-manifest-before.json",
+      "path": "frontend-management-final/source-manifest-before.json",
+      "bytes": 3796,
+      "sha256": "453661c0301dbaa5b32cb3fb3e41e9f264eeee53c86d700cfc1004bcbf2c1c3d"
+    },
+    {
+      "source": "01_代码/output/frontend-management-final/test-results/.last-run.json",
+      "path": "frontend-management-final/原始失败附件/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "source": "01_代码/output/frontend-management-final-unit.tap",
+      "path": "frontend-management-final-unit.tap",
+      "bytes": 7307,
+      "sha256": "81463a6469543de4fab3b3b40232935fcbd25ccb48ed0cf0f88e0aea56853ffb"
+    },
+    {
+      "source": "01_代码/output/modal-focus-before-20261026/runs/34e888e6e912bebb/backend.log",
+      "path": "modal-focus-before-20261026/runs/34e888e6e912bebb/backend.log",
+      "bytes": 203,
+      "sha256": "7c3b7832c50e2a526675ad8166d843fc63cc8582bdf4ca270dab250290e8b7f3"
+    },
+    {
+      "source": "01_代码/output/modal-focus-before-20261026/runs/34e888e6e912bebb/frontend.log",
+      "path": "modal-focus-before-20261026/runs/34e888e6e912bebb/frontend.log",
+      "bytes": 2832,
+      "sha256": "845e254cea06c956d6d15f3db79e440f966bbc6b7929433d9b8e6bfa7593a581"
+    },
+    {
+      "source": "01_代码/output/modal-focus-before-20261026-allowed/report/data/29ecc2c2de70bb4ea37b7f2905087a08f402951c.zip",
+      "path": "modal-focus-before-20261026-allowed/report/data/29ecc2c2de70bb4ea37b7f2905087a08f402951c.zip",
+      "bytes": 1610797,
+      "sha256": "75a478c41a20af130824d11aea6c45ac892088662588e13994f426a537e033b2"
+    },
+    {
+      "source": "01_代码/output/modal-focus-before-20261026-allowed/report/data/4f8e063bfa2ac1b65c74afb9725a798ae9f059b5.md",
+      "path": "modal-focus-before-20261026-allowed/report/data/4f8e063bfa2ac1b65c74afb9725a798ae9f059b5.md",
+      "bytes": 13020,
+      "sha256": "87762d71d7b2ed8d9d8e3eb96b2a9da0387a0e3160d255eadd409608fb8a48af"
+    },
+    {
+      "source": "01_代码/output/modal-focus-before-20261026-allowed/report/data/934eb96170bb7a905c09f9ff3306beecca1a5b14.png",
+      "path": "modal-focus-before-20261026-allowed/report/data/934eb96170bb7a905c09f9ff3306beecca1a5b14.png",
+      "bytes": 96442,
+      "sha256": "e740bf18d7df6e3b2688b1b054a9f32d32aa7690a86463690ef9baa97f16cdcd"
+    },
+    {
+      "source": "01_代码/output/modal-focus-before-20261026-allowed/report/index.html",
+      "path": "modal-focus-before-20261026-allowed/report/index.html",
+      "bytes": 525632,
+      "sha256": "1ef25c3a3241e001a311e0fcfca747ee321bac6ab6ddfef43e353dc26f6ec57b"
+    },
+    {
+      "source": "01_代码/output/modal-focus-before-20261026-allowed/report/trace/assets/codeMirrorModule-BEB2e8M3.js",
+      "path": "modal-focus-before-20261026-allowed/report/trace/assets/codeMirrorModule-BEB2e8M3.js",
+      "bytes": 307393,
+      "sha256": "0da75d228abc1d8b940aa04ec086570dace7b2e7b2ccc5f4bc16f05e79bdb7d7"
+    },
+    {
+      "source": "01_代码/output/modal-focus-before-20261026-allowed/report/trace/assets/defaultSettingsView-D-g2vrvf.js",
+      "path": "modal-focus-before-20261026-allowed/report/trace/assets/defaultSettingsView-D-g2vrvf.js",
+      "bytes": 667649,
+      "sha256": "554bdef910d18e763118f1221667b809edafba46e29e3f8de4b9dcf21c6b7d79"
+    },
+    {
+      "source": "01_代码/output/modal-focus-before-20261026-allowed/report/trace/assets/urlMatch-L3liM589.js",
+      "path": "modal-focus-before-20261026-allowed/report/trace/assets/urlMatch-L3liM589.js",
+      "bytes": 2510,
+      "sha256": "1bc6321e32d11c31a452bc75896f0b344e6153321854d9f1658818be7f845c16"
+    },
+    {
+      "source": "01_代码/output/modal-focus-before-20261026-allowed/report/trace/codeMirrorModule.-QdMvsKi.css",
+      "path": "modal-focus-before-20261026-allowed/report/trace/codeMirrorModule.-QdMvsKi.css",
+      "bytes": 6251,
+      "sha256": "20be824a82832b62cc04642d31da3c609fd280b23f1cdcb1e622c4f40aac5ab8"
+    },
+    {
+      "source": "01_代码/output/modal-focus-before-20261026-allowed/report/trace/codicon.DCmgc-ay.ttf",
+      "path": "modal-focus-before-20261026-allowed/report/trace/codicon.DCmgc-ay.ttf",
+      "bytes": 80340,
+      "sha256": "0f1d5219934e96e83b8db162d60b4d8c09b5de1e7d38031cbafe4a3c0f2889c9"
+    },
+    {
+      "source": "01_代码/output/modal-focus-before-20261026-allowed/report/trace/defaultSettingsView.C8BeHuxd.css",
+      "path": "modal-focus-before-20261026-allowed/report/trace/defaultSettingsView.C8BeHuxd.css",
+      "bytes": 107270,
+      "sha256": "278101b68ab48ee6323a6afbf4e0e629324e10e96902a62a0875643a1bba3d94"
+    },
+    {
+      "source": "01_代码/output/modal-focus-before-20261026-allowed/report/trace/index.B_TqY17P.css",
+      "path": "modal-focus-before-20261026-allowed/report/trace/index.B_TqY17P.css",
+      "bytes": 2055,
+      "sha256": "08a212fcacae1866f44f065654afcc4c7d03409c68c74b3315c5bda17a0ca003"
+    },
+    {
+      "source": "01_代码/output/modal-focus-before-20261026-allowed/report/trace/index.html",
+      "path": "modal-focus-before-20261026-allowed/report/trace/index.html",
+      "bytes": 2363,
+      "sha256": "4c168083713c6868f577f492f3d50eecdfbf6235e0b0af421796b7ddd9013bd6"
+    },
+    {
+      "source": "01_代码/output/modal-focus-before-20261026-allowed/report/trace/index.oNry3Hjv.js",
+      "path": "modal-focus-before-20261026-allowed/report/trace/index.oNry3Hjv.js",
+      "bytes": 6628,
+      "sha256": "87f339e5e169f67633a91e17d9c8f65afb8de66d9b88a4167c79da78f562518d"
+    },
+    {
+      "source": "01_代码/output/modal-focus-before-20261026-allowed/report/trace/manifest.webmanifest",
+      "path": "modal-focus-before-20261026-allowed/report/trace/manifest.webmanifest",
+      "bytes": 429,
+      "sha256": "d8540500603a32a39fe7e5a0375dc0f9ebafd11118e06a846db7efc608223ab9"
+    },
+    {
+      "source": "01_代码/output/modal-focus-before-20261026-allowed/report/trace/playwright-logo.svg",
+      "path": "modal-focus-before-20261026-allowed/report/trace/playwright-logo.svg",
+      "bytes": 5033,
+      "sha256": "6b0a4367bdeab10995bc239278f04c68c10e48adbec15e799e01909a0d66dcb9"
+    },
+    {
+      "source": "01_代码/output/modal-focus-before-20261026-allowed/report/trace/snapshot.B_Jk1wbt.js",
+      "path": "modal-focus-before-20261026-allowed/report/trace/snapshot.B_Jk1wbt.js",
+      "bytes": 650,
+      "sha256": "d4d09e05451d107d8e1a6bbd041405fe518b9fd2833890e4ebaaad83b7f554f5"
+    },
+    {
+      "source": "01_代码/output/modal-focus-before-20261026-allowed/report/trace/snapshot.html",
+      "path": "modal-focus-before-20261026-allowed/report/trace/snapshot.html",
+      "bytes": 389,
+      "sha256": "c608c8899c95c5a74d3f556e20146c3d852b9df85ae2854c659a7cc773c9b727"
+    },
+    {
+      "source": "01_代码/output/modal-focus-before-20261026-allowed/report/trace/sw.bundle.js",
+      "path": "modal-focus-before-20261026-allowed/report/trace/sw.bundle.js",
+      "bytes": 96737,
+      "sha256": "d1d6fec6687eb3fd93a8990bd9daa3951422695afffae2382f97f10811cf1c30"
+    },
+    {
+      "source": "01_代码/output/modal-focus-before-20261026-allowed/report/trace/uiMode.CyMfwkXJ.css",
+      "path": "modal-focus-before-20261026-allowed/report/trace/uiMode.CyMfwkXJ.css",
+      "bytes": 54590,
+      "sha256": "fb403cf0b07007bc1d771e29737f7408924da300e2fab8b289a3ef2e8fc08d7b"
+    },
+    {
+      "source": "01_代码/output/modal-focus-before-20261026-allowed/report/trace/uiMode.CYwC_gH1.js",
+      "path": "modal-focus-before-20261026-allowed/report/trace/uiMode.CYwC_gH1.js",
+      "bytes": 38121,
+      "sha256": "c920eaa161f65b6c0dd431a642c4bdf2e6262ae51335c02d155b187f48c0296c"
+    },
+    {
+      "source": "01_代码/output/modal-focus-before-20261026-allowed/report/trace/uiMode.html",
+      "path": "modal-focus-before-20261026-allowed/report/trace/uiMode.html",
+      "bytes": 727,
+      "sha256": "6de2f5db7f7532c30e8b1381752a1daf23facbdef6bea130cef0cfa5a003eb22"
+    },
+    {
+      "source": "01_代码/output/modal-focus-before-20261026-allowed/report/trace/xtermModule.kHJ-D0s7.css",
+      "path": "modal-focus-before-20261026-allowed/report/trace/xtermModule.kHJ-D0s7.css",
+      "bytes": 2853,
+      "sha256": "0dd60056134e6a2994a86b59a1e9789b9f04e92924da109aef8c923acaf08ce5"
+    },
+    {
+      "source": "01_代码/output/modal-focus-before-20261026-allowed/results.json",
+      "path": "modal-focus-before-20261026-allowed/results.json",
+      "bytes": 10837,
+      "sha256": "498945b7671d6efa79b389b541a70ffa5628e8bddb7e1a5a008abc458793d5a0"
+    },
+    {
+      "source": "01_代码/output/modal-focus-before-20261026-allowed/runs/8551a3fbd52287bd/backend.log",
+      "path": "modal-focus-before-20261026-allowed/runs/8551a3fbd52287bd/backend.log",
+      "bytes": 203,
+      "sha256": "f464d5e85d8f930a2e72f7340bd4695bab8032068eaed1213ab7a63850e8455a"
+    },
+    {
+      "source": "01_代码/output/modal-focus-before-20261026-allowed/runs/8551a3fbd52287bd/frontend.log",
+      "path": "modal-focus-before-20261026-allowed/runs/8551a3fbd52287bd/frontend.log",
+      "bytes": 74,
+      "sha256": "afe27ba43feff7a24aee83433fee98a0226064d26070e621f74d5787f0740f1f"
+    },
+    {
+      "source": "01_代码/output/modal-focus-before-20261026-allowed/test-results/.last-run.json",
+      "path": "modal-focus-before-20261026-allowed/原始失败附件/.last-run.json",
+      "bytes": 96,
+      "sha256": "b5f51f3dcec8354752761d9c5ff65eb81e66b3b6b264fefdaebc1fbf45dff609"
+    },
+    {
+      "source": "01_代码/output/modal-focus-before-20261026-allowed/test-results/management-题库弹窗逐字符输入保持焦点，支持编辑、键盘导航和关闭回焦/error-context.md",
+      "path": "modal-focus-before-20261026-allowed/原始失败附件/management-题库弹窗逐字符输入保持焦点，支持编辑、键盘导航和关闭回焦/error-context.md",
+      "bytes": 13020,
+      "sha256": "87762d71d7b2ed8d9d8e3eb96b2a9da0387a0e3160d255eadd409608fb8a48af"
+    },
+    {
+      "source": "01_代码/output/modal-focus-before-20261026-allowed/test-results/management-题库弹窗逐字符输入保持焦点，支持编辑、键盘导航和关闭回焦/test-failed-1.png",
+      "path": "modal-focus-before-20261026-allowed/原始失败附件/management-题库弹窗逐字符输入保持焦点，支持编辑、键盘导航和关闭回焦/test-failed-1.png",
+      "bytes": 96442,
+      "sha256": "e740bf18d7df6e3b2688b1b054a9f32d32aa7690a86463690ef9baa97f16cdcd"
+    },
+    {
+      "source": "01_代码/output/modal-focus-before-20261026-allowed/test-results/management-题库弹窗逐字符输入保持焦点，支持编辑、键盘导航和关闭回焦/trace.zip",
+      "path": "modal-focus-before-20261026-allowed/原始失败附件/management-题库弹窗逐字符输入保持焦点，支持编辑、键盘导航和关闭回焦/trace.zip",
+      "bytes": 1610797,
+      "sha256": "75a478c41a20af130824d11aea6c45ac892088662588e13994f426a537e033b2"
+    },
+    {
+      "source": "01_代码/output/modal-focus-final-20261026/report/index.html",
+      "path": "modal-focus-final-20261026/report/index.html",
+      "bytes": 558584,
+      "sha256": "dbb1fc495c3a2386c8a3be2c35df414651cf2887aa8e19955dea569c6edb8e65"
+    },
+    {
+      "source": "01_代码/output/modal-focus-final-20261026/results.json",
+      "path": "modal-focus-final-20261026/results.json",
+      "bytes": 11292,
+      "sha256": "57a1328f44aeb7619a2fb2962c4bce051b97869acc38f0f9dd0aa9c429aad311"
+    },
+    {
+      "source": "01_代码/output/modal-focus-final-20261026/run-summary.json",
+      "path": "modal-focus-final-20261026/run-summary.json",
+      "bytes": 2543,
+      "sha256": "794ba096c3d7670539dbe92eb009a794a63527d2420eaeb96b2f511b4fc53db1"
+    },
+    {
+      "source": "01_代码/output/modal-focus-final-20261026/runs/32b524d16bd064d9/backend.log",
+      "path": "modal-focus-final-20261026/runs/32b524d16bd064d9/backend.log",
+      "bytes": 203,
+      "sha256": "5ba88b57b54152bd4b278dd88a87892e795e2d972e225be4bd0da7c23cbfc877"
+    },
+    {
+      "source": "01_代码/output/modal-focus-final-20261026/runs/32b524d16bd064d9/frontend.log",
+      "path": "modal-focus-final-20261026/runs/32b524d16bd064d9/frontend.log",
+      "bytes": 73,
+      "sha256": "7428988e50ccfca8ac5e36848f9a9d449fc7f3aa993729d074d3a28b95c02dc1"
+    },
+    {
+      "source": "01_代码/output/modal-focus-final-20261026/screenshots/management-bank-revoked-placeholder-mobile.png",
+      "path": "modal-focus-final-20261026/screenshots/management-bank-revoked-placeholder-mobile.png",
+      "bytes": 42603,
+      "sha256": "61c36caa76b5c026e6d0af4d9bd8f08c04406214ac86bd69bb3cfe9287fa380a"
+    },
+    {
+      "source": "01_代码/output/modal-focus-final-20261026/screenshots/management-bank-revoked-placeholder.png",
+      "path": "modal-focus-final-20261026/screenshots/management-bank-revoked-placeholder.png",
+      "bytes": 98528,
+      "sha256": "040f277fd0f6950ffb2a09f9e587793d5c8d0ff94794462600e12ea380bb9e3e"
+    },
+    {
+      "source": "01_代码/output/modal-focus-final-20261026/screenshots/management-owner-history-sharing-mobile.png",
+      "path": "modal-focus-final-20261026/screenshots/management-owner-history-sharing-mobile.png",
+      "bytes": 167268,
+      "sha256": "72e16f9162d6327d26e0f53f3f2d8c0187ce4617a376d9d3ffecfa17a82290d7"
+    },
+    {
+      "source": "01_代码/output/modal-focus-final-20261026/screenshots/management-owner-history-sharing.png",
+      "path": "modal-focus-final-20261026/screenshots/management-owner-history-sharing.png",
+      "bytes": 230360,
+      "sha256": "4c70489d12dda38d74ac5e82b42ed6e49ff810e616b1b5d1e177b83bc96ec920"
+    },
+    {
+      "source": "01_代码/output/modal-focus-final-20261026/screenshots/version-switch-deleted-option-impact-mobile.png",
+      "path": "modal-focus-final-20261026/screenshots/version-switch-deleted-option-impact-mobile.png",
+      "bytes": 256595,
+      "sha256": "75cdc18f6b45c8c14dafe2405888b1f27dfe5af8cc7f4b144767b82fe9ff385e"
+    },
+    {
+      "source": "01_代码/output/modal-focus-final-20261026/screenshots/version-switch-deleted-option-impact.png",
+      "path": "modal-focus-final-20261026/screenshots/version-switch-deleted-option-impact.png",
+      "bytes": 374199,
+      "sha256": "0e668b06b1cb2352cc032dfcdba3433b16195df34b1778451449018eba0ff216"
+    },
+    {
+      "source": "01_代码/output/modal-focus-final-20261026/test-results/.last-run.json",
+      "path": "modal-focus-final-20261026/原始失败附件/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "source": "01_代码/output/test-runs/20261022T094108Z-cd677f/backend-console.txt",
+      "path": "test-runs/20261022T094108Z-cd677f/backend-console.txt",
+      "bytes": 1088,
+      "sha256": "96e9956024b43fedb0f3c5a0236224331cfbd200c27222224602e3385c6ef7ac"
+    },
+    {
+      "source": "01_代码/output/test-runs/20261022T094108Z-cd677f/backend-junit.xml",
+      "path": "test-runs/20261022T094108Z-cd677f/backend-junit.xml",
+      "bytes": 65628,
+      "sha256": "0b11f423628894ebe3c302de666e28d15b7f25b2fe390a71cf8978226dea15e6"
+    },
+    {
+      "source": "01_代码/output/test-runs/20261022T094108Z-cd677f/run-summary.json",
+      "path": "test-runs/20261022T094108Z-cd677f/run-summary.json",
+      "bytes": 6874,
+      "sha256": "a64253d99967d062e1a2d18a16869fd3cbba4a0d976ad54a8154e86b57421241"
+    },
+    {
+      "source": "01_代码/output/test-runs/20261022T094511Z-aaf2b6/e2e/report/index.html",
+      "path": "test-runs/20261022T094511Z-aaf2b6/e2e/report/index.html",
+      "bytes": 548868,
+      "sha256": "f513633719a3d9e231e9aaa6ac6a8f25eb823c2b351a3e1f98f389bd7216b01f"
+    },
+    {
+      "source": "01_代码/output/test-runs/20261022T094511Z-aaf2b6/e2e/results.json",
+      "path": "test-runs/20261022T094511Z-aaf2b6/e2e/results.json",
+      "bytes": 12274,
+      "sha256": "d242739873793510ce81e619de002000b75a8d1ce5dc6f06468d62f15fe9955c"
+    },
+    {
+      "source": "01_代码/output/test-runs/20261022T094511Z-aaf2b6/e2e/runs/281995526ceb2737/backend.log",
+      "path": "test-runs/20261022T094511Z-aaf2b6/e2e/runs/281995526ceb2737/backend.log",
+      "bytes": 203,
+      "sha256": "6b91cf8524b4f26e097ceba1eabffb0dc0121e94307d55115cdd3902d7e28914"
+    },
+    {
+      "source": "01_代码/output/test-runs/20261022T094511Z-aaf2b6/e2e/runs/281995526ceb2737/frontend.log",
+      "path": "test-runs/20261022T094511Z-aaf2b6/e2e/runs/281995526ceb2737/frontend.log",
+      "bytes": 73,
+      "sha256": "988d26cc7d57dd4ada682978b6c7b131f4ebdd15f96728a5fbabb766c8fbf26a"
+    },
+    {
+      "source": "01_代码/output/test-runs/20261022T094511Z-aaf2b6/e2e/screenshots/desktop-dashboard.png",
+      "path": "test-runs/20261022T094511Z-aaf2b6/e2e/screenshots/desktop-dashboard.png",
+      "bytes": 200807,
+      "sha256": "16218e18d4dd8296071c04658c8c42ffc1bd926d2294db1cbc34b410d725098c"
+    },
+    {
+      "source": "01_代码/output/test-runs/20261022T094511Z-aaf2b6/e2e/screenshots/desktop-editor.png",
+      "path": "test-runs/20261022T094511Z-aaf2b6/e2e/screenshots/desktop-editor.png",
+      "bytes": 148759,
+      "sha256": "3c890f8d001353562ba1de65c3d4ee69327bd7b32c5571070bb484b90904481d"
+    },
+    {
+      "source": "01_代码/output/test-runs/20261022T094511Z-aaf2b6/e2e/screenshots/desktop-filling.png",
+      "path": "test-runs/20261022T094511Z-aaf2b6/e2e/screenshots/desktop-filling.png",
+      "bytes": 40686,
+      "sha256": "ca8fc8369016463667c86805c75568bbed7ff6ff328d3fb820e85b0a699543f9"
+    },
+    {
+      "source": "01_代码/output/test-runs/20261022T094511Z-aaf2b6/e2e/screenshots/desktop-question-history.png",
+      "path": "test-runs/20261022T094511Z-aaf2b6/e2e/screenshots/desktop-question-history.png",
+      "bytes": 139823,
+      "sha256": "4a06a51706082a383da072062fb58d735ee70ee5190b9b39d8ead96eaa291509"
+    },
+    {
+      "source": "01_代码/output/test-runs/20261022T094511Z-aaf2b6/e2e/screenshots/desktop-results.png",
+      "path": "test-runs/20261022T094511Z-aaf2b6/e2e/screenshots/desktop-results.png",
+      "bytes": 139428,
+      "sha256": "365673e6fae75a13e415bf56d21cf148e03f7e5e487662a2b34e71e74611b942"
+    },
+    {
+      "source": "01_代码/output/test-runs/20261022T094511Z-aaf2b6/e2e/screenshots/mobile-dashboard.png",
+      "path": "test-runs/20261022T094511Z-aaf2b6/e2e/screenshots/mobile-dashboard.png",
+      "bytes": 154946,
+      "sha256": "76e2de803d5efe36c3d56a29e8667e7b00d436816ce06ba8bc9512b50d4e1724"
+    },
+    {
+      "source": "01_代码/output/test-runs/20261022T094511Z-aaf2b6/e2e/screenshots/mobile-editor.png",
+      "path": "test-runs/20261022T094511Z-aaf2b6/e2e/screenshots/mobile-editor.png",
+      "bytes": 59076,
+      "sha256": "e4d256a580d21011f6d2b8b09398aaeaac4cbb44ccf3c489d7ed6e2b70be07ab"
+    },
+    {
+      "source": "01_代码/output/test-runs/20261022T094511Z-aaf2b6/e2e/screenshots/mobile-filling.png",
+      "path": "test-runs/20261022T094511Z-aaf2b6/e2e/screenshots/mobile-filling.png",
+      "bytes": 33857,
+      "sha256": "fa84f09ed6fd659469da15e582f87b0b76f1d35779a4c4a9e08e1da4e00e4890"
+    },
+    {
+      "source": "01_代码/output/test-runs/20261022T094511Z-aaf2b6/e2e/screenshots/mobile-question-history.png",
+      "path": "test-runs/20261022T094511Z-aaf2b6/e2e/screenshots/mobile-question-history.png",
+      "bytes": 53897,
+      "sha256": "e345312cf5814dca1aa2edd42ffe687b373fad82d3774d82f2f5139fd2a7f70a"
+    },
+    {
+      "source": "01_代码/output/test-runs/20261022T094511Z-aaf2b6/e2e/test-results/.last-run.json",
+      "path": "test-runs/20261022T094511Z-aaf2b6/e2e/原始失败附件/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "source": "01_代码/output/test-runs/20261022T094511Z-aaf2b6/e2e-console.txt",
+      "path": "test-runs/20261022T094511Z-aaf2b6/e2e-console.txt",
+      "bytes": 588,
+      "sha256": "7d730636fbba61746dae961f39af63bc5c2b16bbbf9ecadc3902e1e445997be7"
+    },
+    {
+      "source": "01_代码/output/test-runs/20261022T094511Z-aaf2b6/run-summary.json",
+      "path": "test-runs/20261022T094511Z-aaf2b6/run-summary.json",
+      "bytes": 6892,
+      "sha256": "1b54f86fdffd42950c44f4bec4010db3a13aa413631a1706898d3d265a0363b9"
+    },
+    {
+      "source": "01_代码/output/test-runs/20261022T101030Z-management-backend-daa43e/backend-console.txt",
+      "path": "test-runs/20261022T101030Z-management-backend-daa43e/backend-console.txt",
+      "bytes": 1169,
+      "sha256": "fa7e362d79c8835f463b2cf6b22877bdaf54fa3182061960072adf035e76dd3b"
+    },
+    {
+      "source": "01_代码/output/test-runs/20261022T101030Z-management-backend-daa43e/backend-junit.xml",
+      "path": "test-runs/20261022T101030Z-management-backend-daa43e/backend-junit.xml",
+      "bytes": 72655,
+      "sha256": "9016f62d665a462d3ae6f3d0cd0af1ff0b52b3aee5d365a5b6e0caae789c6f5c"
+    },
+    {
+      "source": "01_代码/output/test-runs/20261022T101030Z-management-backend-daa43e/run-summary.json",
+      "path": "test-runs/20261022T101030Z-management-backend-daa43e/run-summary.json",
+      "bytes": 4224,
+      "sha256": "085d6efd2638e60877d8663d9f50c23cd031b1231de9ad9c39ccb4c9db31d565"
+    },
+    {
+      "source": "01_代码/output/test-runs/20261023T050525Z-management-backend-8b1fe5/backend-console.txt",
+      "path": "test-runs/20261023T050525Z-management-backend-8b1fe5/backend-console.txt",
+      "bytes": 1250,
+      "sha256": "4f8ec7b50ae6a0db6ee5c56441a64d279a6985f7b8454e38147442786e0894af"
+    },
+    {
+      "source": "01_代码/output/test-runs/20261023T050525Z-management-backend-8b1fe5/backend-junit.xml",
+      "path": "test-runs/20261023T050525Z-management-backend-8b1fe5/backend-junit.xml",
+      "bytes": 80700,
+      "sha256": "05aa55bd4e8550fb86a71e959f6320b80f375fccdce4158b58d071a2096b1e1d"
+    },
+    {
+      "source": "01_代码/output/test-runs/20261023T050525Z-management-backend-8b1fe5/run-summary.json",
+      "path": "test-runs/20261023T050525Z-management-backend-8b1fe5/run-summary.json",
+      "bytes": 5013,
+      "sha256": "5053aab1c634014c27bacddeb8b84366c7e99317abc454b79e4238ff2ecc1169"
+    },
+    {
+      "source": "01_代码/output/version-switch-final/e2e-console.txt",
+      "path": "version-switch-final/e2e-console.txt",
+      "bytes": 571,
+      "sha256": "1b3ed7d12935f9de3489c041dc933c7f4283b43b6cea7b6b761fe0809b43ef48"
+    },
+    {
+      "source": "01_代码/output/version-switch-final/report/index.html",
+      "path": "version-switch-final/report/index.html",
+      "bytes": 528176,
+      "sha256": "0f86fcef798577c7c2982676dac35daf0fd7122fe4f36a6366ffdf6c09dc405e"
+    },
+    {
+      "source": "01_代码/output/version-switch-final/results.json",
+      "path": "version-switch-final/results.json",
+      "bytes": 6785,
+      "sha256": "899e2fa8bcb87c4b7972074243b5d5232f4509283dc231f27ec36d1127c56e7a"
+    },
+    {
+      "source": "01_代码/output/version-switch-final/run-summary.json",
+      "path": "version-switch-final/run-summary.json",
+      "bytes": 1054,
+      "sha256": "345a31c89719686551baf2ae695dca3050a8a4bbd932e64b0def6357f7ce8d98"
+    },
+    {
+      "source": "01_代码/output/version-switch-final/run_specialist.py",
+      "path": "version-switch-final/run_specialist.py",
+      "bytes": 4099,
+      "sha256": "8e381339d0c73a324cfc396f4d10f52ad223f43940c92bcbaf203eb2186d7a01"
+    },
+    {
+      "source": "01_代码/output/version-switch-final/runs/33590b9616eca4a2/backend.log",
+      "path": "version-switch-final/runs/33590b9616eca4a2/backend.log",
+      "bytes": 202,
+      "sha256": "e9e7057031c42f09b65447d8cb8d8db72e4cf4deebb007f9c72ff6f3a1f86b05"
+    },
+    {
+      "source": "01_代码/output/version-switch-final/runs/33590b9616eca4a2/frontend.log",
+      "path": "version-switch-final/runs/33590b9616eca4a2/frontend.log",
+      "bytes": 2832,
+      "sha256": "845e254cea06c956d6d15f3db79e440f966bbc6b7929433d9b8e6bfa7593a581"
+    },
+    {
+      "source": "01_代码/output/version-switch-final/runs/df0cf3a7fccc2871/backend.log",
+      "path": "version-switch-final/runs/df0cf3a7fccc2871/backend.log",
+      "bytes": 203,
+      "sha256": "606b0e173172de85ba0f49812c61e8ffa69a6f8bdefa87f37d871b802f7cb2e4"
+    },
+    {
+      "source": "01_代码/output/version-switch-final/runs/df0cf3a7fccc2871/frontend.log",
+      "path": "version-switch-final/runs/df0cf3a7fccc2871/frontend.log",
+      "bytes": 73,
+      "sha256": "df757ab5be0a21add45f955e976d060f205356a5e316ad75b00ee3080863664b"
+    },
+    {
+      "source": "01_代码/output/version-switch-final/screenshots/version-switch-deleted-option-impact-mobile.png",
+      "path": "version-switch-final/screenshots/version-switch-deleted-option-impact-mobile.png",
+      "bytes": 256264,
+      "sha256": "bfb7cf1ab1b6c1d1c9462a3ac6f6eb8583d7074835e7b5edb6218187061eb576"
+    },
+    {
+      "source": "01_代码/output/version-switch-final/screenshots/version-switch-deleted-option-impact.png",
+      "path": "version-switch-final/screenshots/version-switch-deleted-option-impact.png",
+      "bytes": 374075,
+      "sha256": "ec9fe529ea3c6c2459e93513d18aaaed5fae903cf585110fc4715b0024addf1f"
+    },
+    {
+      "source": "01_代码/output/version-switch-final/source-manifest-after.json",
+      "path": "version-switch-final/source-manifest-after.json",
+      "bytes": 4394,
+      "sha256": "549c5d0bdaba42caebad952fed849e7b5a63b71bba2f4c34c670fb70a34d8f9a"
+    },
+    {
+      "source": "01_代码/output/version-switch-final/source-manifest-before.json",
+      "path": "version-switch-final/source-manifest-before.json",
+      "bytes": 4394,
+      "sha256": "549c5d0bdaba42caebad952fed849e7b5a63b71bba2f4c34c670fb70a34d8f9a"
+    },
+    {
+      "source": "01_代码/output/version-switch-final/startup-sandbox-failure.json",
+      "path": "version-switch-final/startup-sandbox-failure.json",
+      "bytes": 739,
+      "sha256": "d1727f22d9ed5adfc69d0c8a0a2a52f3304d7ec474bff15ec4c2314b1903984c"
+    },
+    {
+      "source": "01_代码/output/version-switch-final/test-results/.last-run.json",
+      "path": "version-switch-final/原始失败附件/.last-run.json",
+      "bytes": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "source": "01_代码/frontend/node_modules/playwright-core/lib/vite/traceViewer/assets/xtermModule-B794rD2Z.js",
+      "path": "modal-focus-before-20261026-allowed/report/trace/assets/xtermModule-B794rD2Z.js",
+      "bytes": 288730,
+      "sha256": "7f3c6bda9e7b6327740dff3b946c68a52027357ef2b14b1ea373aa614cbb7977",
+      "note": "Missing viewer-only asset supplied from the installed matching Playwright bundle; original test results unchanged"
+    }
+  ]
+}

@@ -4,7 +4,7 @@ from bson import ObjectId
 from app.service import utcnow
 from app.frontend import FRONTEND_DIST
 import pytest
-from test_api import register, create_survey, publish
+from test_api import api, register, create_survey, publish, assert_api_error, database_snapshot
 
 
 def test_dashboard_filters_literal_search_counts_and_ownership(api, db):
@@ -25,7 +25,9 @@ def test_dashboard_filters_literal_search_counts_and_ownership(api, db):
     assert found["items"][0]["questionCount"] == 1
     assert found["items"][0]["responseCount"] == 0
     assert "questions" not in found["items"][0]
-    assert api.get("/api/surveys?status=invalid", headers=owner).status_code == 422
+    before = database_snapshot(db)
+    assert_api_error(api.get("/api/surveys?status=invalid", headers=owner), 422, "INVALID_REQUEST")
+    assert database_snapshot(db) == before
 
 
 @pytest.mark.skipif(not (FRONTEND_DIST / "index.html").exists(), reason="Build frontend first to check static hosting")

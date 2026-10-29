@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import math
+import unicodedata
 from datetime import datetime, timezone
 from typing import Annotated, Literal
 
@@ -239,12 +240,96 @@ Question = Annotated[
 Questions = Annotated[list[Question], Field(max_length=100, strict=True)]
 
 
+class ContentBase(ApiModel):
+    title: Annotated[StrictStr, Field(min_length=1, max_length=2000)]
+    description: Annotated[StrictStr, Field(max_length=2000)] = ""
+
+    @field_validator("title", "description", mode="before")
+    @classmethod
+    def trim_text(cls, value):
+        return value.strip() if isinstance(value, str) else value
+
+
+class SingleContent(ContentBase):
+    type: Literal["single"]
+    validation: SingleValidation = Field(default_factory=SingleValidation)
+    options: Annotated[list[Option], Field(min_length=2, max_length=50, strict=True)]
+
+
+class MultipleContent(ContentBase):
+    type: Literal["multiple"]
+    validation: MultipleValidation = Field(default_factory=MultipleValidation)
+    options: Annotated[list[Option], Field(min_length=2, max_length=50, strict=True)]
+
+
+class TextContent(ContentBase):
+    type: Literal["text"]
+    validation: TextValidation = Field(default_factory=TextValidation)
+
+
+class NumberContent(ContentBase):
+    type: Literal["number"]
+    validation: NumberValidation = Field(default_factory=NumberValidation)
+
+
+QuestionContent = Annotated[
+    SingleContent | MultipleContent | TextContent | NumberContent,
+    Field(discriminator="type"),
+]
+ObjectIdString = Annotated[StrictStr, Field(pattern=r"^[0-9a-fA-F]{24}$"), AfterValidator(str.lower)]
+
+
+class QuestionCreate(ApiModel):
+    content: QuestionContent
+
+
+class QuestionVersionCreate(QuestionCreate):
+    revision: Revision
+    baseVersionId: ObjectIdString
+
+
+class QuestionRestore(ApiModel):
+    revision: Revision
+    sourceVersionId: ObjectIdString
+
+
+class QuestionCopy(ApiModel):
+    versionId: ObjectIdString
+
+
+class ArchiveRequest(ApiModel):
+    revision: Revision
+    archived: StrictBool
+
+
+class ShareRequest(ApiModel):
+    revision: Revision
+    recipientUsername: Annotated[StrictStr, Field(min_length=1, max_length=128)]
+
+    @field_validator("recipientUsername", mode="before")
+    @classmethod
+    def normalize_recipient(cls, value):
+        # Bind the idempotency fingerprint to the same identity used by login.
+        return unicodedata.normalize("NFKC", value).strip().lower() if isinstance(value, str) else value
+
+
+class QuestionReference(ApiModel):
+    id: StableId
+    questionId: ObjectIdString
+    versionId: ObjectIdString
+    required: StrictBool = True
+    jumpRules: Annotated[list[SingleRule | MultipleRule | NumberRule], Field(max_length=20, strict=True)] = Field(default_factory=list)
+
+
+QuestionReferences = Annotated[list[QuestionReference], Field(max_length=100, strict=True)]
+
+
 class SurveyCreate(ApiModel):
     title: Annotated[StrictStr, Field(min_length=1, max_length=200)]
     description: Annotated[StrictStr, Field(max_length=5000)] = ""
     settings: SurveySettings
     deadlineAt: DeadlineAt = None
-    questions: Questions = Field(default_factory=list)
+    questions: QuestionReferences = Field(default_factory=list)
 
     @field_validator("title", "description", mode="before")
     @classmethod
@@ -258,7 +343,7 @@ class SurveyPatch(ApiModel):
     description: Annotated[StrictStr, Field(max_length=5000)] | None = None
     settings: SurveySettings | None = None
     deadlineAt: DeadlineAt = None
-    questions: Questions | None = None
+    questions: QuestionReferences | None = None
 
     @field_validator("title", "description", mode="before")
     @classmethod
